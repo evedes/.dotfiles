@@ -1,0 +1,36 @@
+alias reload='source ~/.zshrc'
+
+alias cl='clear'
+
+alias theme='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
+
+alias mm='emacs --no-window-system'
+
+alias npmg='npm list -g --depth 0'
+
+alias tb='sudo QT_X11_NO_MITSHM=1 tuxboot'
+
+# SCREEN MANAGEMENT
+
+alias mainmon='xrandr --output DisplayPort-0 --mode 3440x1440 --rate 99.98 --output DisplayPort-1 --off --output HDMI-A-0 --off'
+
+alias defmon='xrandr --output DisplayPort-0 --mode 3440x1440 --rate 99.98 --output DisplayPort-1 --left-of DisplayPort-0 --mode 2560x1440 --rate 59.95 --rotate right --output HDMI-A-0  --above DisplayPort-0 --mode 1920x1080 --rate 60.00'
+
+alias notv='xrandr --output DisplayPort-0 --mode 3440x1440 --rate 99.98 --output DisplayPort-1 --left-of DisplayPort-0 --mode 2560x1440 --rate 59.95 --rotate right'
+
+# TRANSMISSION
+
+# LIST ALL TORRENTS
+alias translist='ssh edo@mozart transmission-remote -n 'transmission:transmission' -l'
+
+# BASIC STATS ALL TORRENTS
+alias transall='ssh edo@mozart transmission-remote -n 'transmission:transmission' -st'
+
+# FULL STATS ALL TORRENTS
+alias transfull='ssh edo@mozart transmission-remote -n 'transmission:transmission' -si'
+
+# START ALL TORRENTS
+alias transstart='ssh edo@mozart transmission-remote -n 'transmission:transmission' -t all -s'
+
+# STOP ALL TORRENTS
+alias transstop='ssh edo@mozart transmission-remote -n 'transmission:transmission' -t all -S'

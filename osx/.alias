@@ -1,0 +1,34 @@
+# SYSTEM
+alias cl='clear'
+
+# GIT
+alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+
+# UTILS ----------------------------------
+
+## Youtube Download
+alias dl='youtube-dl'
+
+# NPM
+alias npmg='npm list -g --depth 0'
+
+# Reload the shell (i.e. invoke as a login shell)
+alias reload="exec ${SHELL} -l"
+
+# TRANSMISSION
+
+# LIST ALL TORRENTS
+alias translist='ssh edo@mozart transmission-remote -n 'transmission:transmission' -l'
+
+# BASIC STATS ALL TORRENTS
+alias transall='ssh edo@mozart transmission-remote -n 'transmission:transmission' -st'
+
+# FULL STATS ALL TORRENTS
+alias transfull='ssh edo@mozart transmission-remote -n 'transmission:transmission' -si'
+
+# START ALL TORRENTS
+alias transstart='ssh edo@mozart transmission-remote -n 'transmission:transmission' -t all -s'
+
+# STOP ALL TORRENTS
+alias transstop='ssh edo@mozart transmission-remote -n 'transmission:transmission' -t all -S'
