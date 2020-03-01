@@ -1,14 +1,22 @@
-alias reload='source ~/.zshrc'
+#SYSTEM 
 
 alias cl='clear'
 
+alias reload='source ~/.zshrc'
+
+alias tb='sudo QT_X11_NO_MITSHM=1 tuxboot'
+
 alias theme='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 
-alias mm='emacs --no-window-system'
+#GIT
+
+alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+#NPM 
 
 alias npmg='npm list -g --depth 0'
 
-alias tb='sudo QT_X11_NO_MITSHM=1 tuxboot'
+##UTILS
 
 # SCREEN MANAGEMENT
 

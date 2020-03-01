@@ -1,20 +1,18 @@
 # SYSTEM
+
 alias cl='clear'
+
+alias reload="exec ${SHELL} -l"
 
 # GIT
 alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
-
-# UTILS ----------------------------------
-
-## Youtube Download
-alias dl='youtube-dl'
-
 # NPM
 alias npmg='npm list -g --depth 0'
 
-# Reload the shell (i.e. invoke as a login shell)
-alias reload="exec ${SHELL} -l"
+## UTILS
+
+alias dl='youtube-dl'
 
 # TRANSMISSION
 
