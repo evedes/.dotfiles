@@ -1,19 +1,15 @@
 ## DOTFILES
 
-The purpose of this repo is to gather in one place all my config files, install notes and concernings about configuring my machines.
+The purpose of this repo is to gather in one place all my config files, install notes and concernings about configuring my machines. I've merged three repos into this one so expect some turbulence and under construction shenanigans for the next weeks.
 
-I've merge three repos into this one so expect under construction shenanigans for the next weeks.
+### 01. OSX
 
-1st March 2020
+[INSTALL LOG](/osx/docs/install-log.md)
 
-### OSX
+### 02. LINUX
 
-[macOS](/osx)
+[INSTALL LOG](/linux/docs/install-log.md)
 
-### LINUX
-
-[Ubuntu Linux](/linux)
-
-### Emacs
+### 03. EMACS
 
 [Emacs](/emacs)
