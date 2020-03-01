@@ -63,6 +63,6 @@ Addons list:
 
 Settings:
 
-    [Linux](/linux/vscode/settings.json)
+[Linux](/linux/vscode/settings.json)
 
-    [OSX](/osx/vscode/settings.json): I just ln -s this file into ˜/Library /Application Support/Code/User
+[OSX](/osx/vscode/settings.json): I just ln -s this file into ˜/Library /Application Support/Code/User
