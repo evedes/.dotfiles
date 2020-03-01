@@ -1,0 +1,711 @@
+* TOC                                                                   :TOC:
+- [[#settings][Settings]]
+  - [[#-hack][`#` hack]]
+  - [[#emacs-default-settings][emacs default settings]]
+  - [[#el-patch][=el-patch=]]
+  - [[#fast-scroll][=fast-scroll=]]
+  - [[#exec-path-from-shell][=exec-path-from-shell=]]
+- [[#ui][UI]]
+  - [[#all-the-icons][=all-the-icons=]]
+  - [[#doom-themes][=doom-themes=]]
+  - [[#doom-modeline][=doom-modeline=]]
+  - [[#solaire-mode][=solaire-mode=]]
+  - [[#mini-buffer][mini buffer]]
+  - [[#treemacs][=treemacs=]]
+- [[#term][Term]]
+  - [[#multi-term][=multi-term=]]
+- [[#editor][Editor]]
+  - [[#hlinum][=hlinum=]]
+  - [[#beacon][=beacon=]]
+  - [[#expand][=expand=]]
+  - [[#whitespace][=whitespace=]]
+  - [[#fast-croll][=fast-croll=]]
+  - [[#multi-cursors][=multi-cursors=]]
+  - [[#dont-use-tabs-to-indent][don't use tabs to indent]]
+- [[#tools][Tools]]
+  - [[#magit][=magit=]]
+  - [[#git-link][=git-link=]]
+  - [[#projectile][=projectile=]]
+  - [[#ag][=ag=]]
+  - [[#windmove][=windmove=]]
+  - [[#buffer-move][=buffer-move=]]
+- [[#org-mode][Org-mode]]
+  - [[#org][=org=]]
+  - [[#org-bullets][=org-bullets=]]
+  - [[#toc-org][=toc-org=]]
+- [[#lisp-parentesis-settings][Lisp parentesis settings]]
+  - [[#paredit][=paredit=]]
+  - [[#paren][=paren=]]
+  - [[#rainbow-delimiters][=rainbow-delimiters=]]
+  - [[#rainbow-mode][=rainbow-mode=]]
+- [[#languages][Languages]]
+  - [[#markdown-mode][=markdown-mode=]]
+  - [[#terraform-mode][=terraform-mode=]]
+  - [[#fish-mode][=fish-mode=]]
+  - [[#clojure][Clojure]]
+
+* Settings
+** `#` hack
+   this is the best way, i found on OSX to solve this...
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
+#+END_SRC
+
+** emacs default settings
+*** window settings
+    remove window menus, scrool bars, and stuff...
+#+BEGIN_SRC emacs-lisp
+(when window-system
+  (tool-bar-mode 0)
+  (menu-bar-mode 0)
+  (global-hl-line-mode)
+  (scroll-bar-mode -1))
+#+END_SRC
+*** replace buffer-menu with ibuffer
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-x C-b") #'ibuffer)
+#+END_SRC
+
+*** garbage collection
+    Reduce the frequency of garbage collection by making it happen on
+    each 50MB of allocated data (the default is on every 0.76MB)
+#+BEGIN_SRC emacs-lisp
+  (setq gc-cons-threshold 50000000)
+#+END_SRC
+
+*** warning big files
+    Warn when opening files bigger than 100MB
+#+BEGIN_SRC emacs-lisp
+ (setq large-file-warning-threshold 100000000)
+#+END_SRC
+
+*** custom.el
+    config changes made through the customize UI will be stored here
+#+BEGIN_SRC emacs-lisp
+  (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+  (when (file-exists-p custom-file)
+  (load custom-file))
+#+END_SRC
+*** Emacs temp files
+    store all backup and autosave files in the tmp dir
+#+BEGIN_SRC emacs-lisp
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+#+END_SRC
+
+*** auto-revert
+    revert buffers automatically when underlying files are changed externally
+#+BEGIN_SRC emacs-lisp
+(global-auto-revert-mode t)
+#+END_SRC
+
+*** =ido-yes-or-no=
+    enable y/n answers
+#+BEGIN_SRC emacs-lisp
+(use-package ido-yes-or-no
+  :straight t
+  :config
+  (ido-yes-or-no-mode 1)
+  (fset 'yes-or-no-p 'y-or-n-p))
+#+END_SRC
+** =el-patch=
+#+BEGIN_SRC emacs-lisp
+(use-package el-patch
+  :straight t)
+#+END_SRC
+** =fast-scroll=
+#+BEGIN_SRC emacs-lisp
+(use-package fast-scroll
+  :straight (fast-scroll :type git :host github :repo "ahungry/fast-scroll")
+  :config
+  (fast-scroll-config)
+  (fast-scroll-mode 1))
+#+END_SRC
+
+** =exec-path-from-shell=
+   Ensure environment variables inside Emacs look the same as in the user's shell.
+#+BEGIN_SRC emacs-lisp
+(use-package exec-path-from-shell
+  :straight t
+  :config
+  (when (memq window-system '(mac ns))
+    (exec-path-from-shell-initialize)))
+#+END_SRC
+
+
+* UI
+** =all-the-icons=
+   This packages is a required every icon you see on emacs
+   need to spend some time checking how to run `(all-the-icons-install-fonts)` only once..
+
+#+BEGIN_SRC emacs-lisp
+(use-package all-the-icons
+  :straight t
+  :config
+  ;; run this the first time only? not quite sure about this...
+  ;;(all-the-icons-install-fonts)
+)
+#+END_SRC
+
+** =doom-themes=
+
+#+BEGIN_SRC emacs-lisp
+(use-package doom-themes
+  :straight t
+  :requires (all-the-icons)
+  :config
+  (setq doom-themes-enable-bold t
+	doom-themes-enable-italic t)
+  ;; (load-theme 'doom-one-light t)
+  ;; (load-theme 'doom-tomorrow-night t)
+  (load-theme 'doom-one t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-treemacs-config)
+  ;;(doom-themes-org-config)
+)
+#+END_SRC
+
+** =doom-modeline=
+#+BEGIN_SRC emacs-lisp
+(use-package doom-modeline
+  :straight t
+  :requires (all-the-icons)
+  :hook (after-init . doom-modeline-mode))
+#+END_SRC
+** =solaire-mode=
+#+BEGIN_SRC emacs-lisp
+(use-package solaire-mode
+  :straight t
+  :hook
+  ((change-major-mode after-revert ediff-prepare-buffer) . turn-on-solaire-mode)
+  (minibuffer-setup . solaire-mode-in-minibuffer)
+  :config
+  (solaire-global-mode +1)
+  (solaire-mode-swap-bg))
+#+END_SRC
+
+** mini buffer
+*** =ivy=
+#+BEGIN_SRC emacs-lisp
+(use-package ivy
+  :straight t
+  :demand
+  :diminish ivy-mode
+  :commands (swiper)
+  :bind
+  (("C-x s" . swiper)
+   ("C-x C-r" . ivy-resume)  ;; find-file-read-only (found in global-map)
+   ("C-x B" . ivy-switch-buffer-other-window))
+  :config
+  (ivy-mode 1)
+  (setq
+   ivy-use-virtual-buffers t
+   ivy-virtual-abbreviate 'fullpath
+   ;;ivy-magic-tilde nil ; '~/` instead of just '~'
+   ;; hit up arrow when on first line to select contents of prompt line
+   ivy-use-selectable-prompt t
+   enable-recursive-minibuffers t
+   ;; ivy-display-style 'fancy
+   ivy-count-format "%d/%d ")
+  (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+  ;; from ivy.el
+  (ivy-set-actions
+   'ivy-switch-buffer
+   '(("f"
+      ivy--find-file-action
+      "find file")
+     ("j"
+      ivy--switch-buffer-other-window-action
+      "other window")
+     ("k"
+      ivy--kill-buffer-action
+      "kill")
+     ;; addition: open in another frame
+     ("l"
+      switch-to-buffer-other-frame
+      "other frame")
+     ("r"
+      ivy--rename-buffer-action
+      "rename")))
+  )
+#+END_SRC
+
+*** hide dired buffers in ivy-switch-buffer
+#+BEGIN_SRC emacs-lisp
+;;; https://github.com/abo-abo/swiper/wiki/Hiding-dired-buffers
+;; hide dired buffers in ivy-switch-buffer
+(defun idc/ignore-dired-buffers (str)
+  (let ((buf (get-buffer str)))
+    (and buf (eq (buffer-local-value 'major-mode buf) 'dired-mode))))
+
+(with-eval-after-load 'ivy
+  (add-to-list 'ivy-ignore-buffers #'idc/ignore-dired-buffers))
+#+END_SRC
+*** =ivy-hydra=
+#+BEGIN_SRC emacs-lisp
+;;; https://github.com/abo-abo/swiper
+(use-package ivy-hydra
+  :straight t
+  :after (ivy hydra))
+#+END_SRC
+*** =counsel=
+#+BEGIN_SRC emacs-lisp
+(use-package counsel
+  :straight t
+  :diminish counsel-mode
+  :bind
+  (("M-x" . counsel-M-x)
+   ("C-x C-m" . counsel-M-x)
+   ("C-x C-f" . counsel-find-file)
+   ("C-x c k" . counsel-yank-pop)         ;; M-y
+   ("<f1> f" . counsel-describe-function) ;; C-h f
+   ("<f1> v" . counsel-describe-variable) ;; C-h v
+   ("<f1> l" . counsel-find-library)
+   ("<f2> i" . counsel-info-lookup-symbol)
+   ("<f2> u" . counsel-unicode-char)
+   ("C-c g" . counsel-git)
+   ("C-c j" . counsel-git-grep)
+   ("C-c k" . counsel-ag)
+   ("<f2> u" . counsel-unicode-char))
+  :config
+  (counsel-mode))
+#+END_SRC
+
+*** =ivy-rich=
+#+BEGIN_SRC emacs-lisp
+;;; https://github.com/Yevgnen/ivy-rich
+(use-package ivy-rich
+  :straight t
+  :after (ivy counsel)
+  :config
+  (setq
+   ivy-rich-path-style 'abbrev
+   ;; whether to parse remote files
+   ivy-rich-parse-remote-buffer t      ; default: t
+   ivy-rich-parse-remote-file-path t   ; default: nil
+   )
+  (ivy-rich-mode 1))
+#+END_SRC
+
+*** =swiper=
+    #+begin_src emacs-lisp
+    (use-package swiper
+      :straight t
+      :config
+      (global-set-key "\C-s" 'swiper))
+    #+end_src
+** =treemacs=
+#+BEGIN_SRC emacs-lisp
+(use-package treemacs
+  :straight t
+  :defer t
+  :init
+  (with-eval-after-load 'winum
+    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  :config
+  (progn
+    (setq treemacs-collapse-dirs                 (if treemacs-python-executable 3 0)
+          treemacs-deferred-git-apply-delay      0.5
+          treemacs-display-in-side-window        t
+          treemacs-eldoc-display                 t
+          treemacs-file-event-delay              5000
+          treemacs-file-follow-delay             0.2
+          treemacs-follow-after-init             t
+          treemacs-git-command-pipe              ""
+          treemacs-goto-tag-strategy             'refetch-index
+          treemacs-indentation                   2
+          treemacs-indentation-string            " "
+          treemacs-is-never-other-window         nil
+          treemacs-max-git-entries               5000
+          treemacs-missing-project-action        'ask
+          treemacs-no-png-images                 nil
+          treemacs-no-delete-other-windows       t
+          treemacs-project-follow-cleanup        nil
+          treemacs-persist-file                  (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
+          treemacs-position                      'left
+          treemacs-recenter-distance             0.1
+          treemacs-recenter-after-file-follow    nil
+          treemacs-recenter-after-tag-follow     nil
+          treemacs-recenter-after-project-jump   'always
+          treemacs-recenter-after-project-expand 'on-distance
+          treemacs-show-cursor                   nil
+          treemacs-show-hidden-files             t
+          treemacs-silent-filewatch              nil
+          treemacs-silent-refresh                nil
+          treemacs-sorting                       'alphabetic-desc
+          treemacs-space-between-root-nodes      t
+          treemacs-tag-follow-cleanup            t
+          treemacs-tag-follow-delay              1.5
+          treemacs-width                         35)
+
+    ;; The default width and height of the icons is 22 pixels. If you are
+    ;; using a Hi-DPI display, uncomment this to double the icon size.
+    ;;(treemacs-resize-icons 44)
+
+    (treemacs-follow-mode t)
+    (treemacs-filewatch-mode t)
+    (treemacs-fringe-indicator-mode t)
+    (pcase (cons (not (null (executable-find "git")))
+                 (not (null treemacs-python-executable)))
+      (`(t . t)
+       (treemacs-git-mode 'deferred))
+      (`(t . _)
+       (treemacs-git-mode 'simple))))
+  :bind
+  (:map global-map
+        ("M-0"       . treemacs-select-window)
+        ("C-x t 1"   . treemacs-delete-other-windows)
+        ("C-x t t"   . treemacs)
+        ("C-x t B"   . treemacs-bookmark)
+        ("C-x t C-t" . treemacs-find-file)
+        ("C-x t M-t" . treemacs-find-tag)))
+
+;; TODO!!
+;; (use-package treemacs-projectile
+;;   :after treemacs projectile
+;;   :ensure t)
+
+;; (use-package treemacs-magit
+;;   :after treemacs magit
+;;   :ensure t)
+#+END_SRC
+
+
+* Term
+** =multi-term=
+#+BEGIN_SRC emacs-lisp
+(defun bb/term-toggle-mode ()
+  "Toggles term between line mode and char mode"
+  (interactive)
+  (if (term-in-line-mode)
+      (term-char-mode)
+    (term-line-mode)))
+
+(defun bb/term-paste (&optional string)
+  (interactive)
+  (process-send-string
+   (get-buffer-process (current-buffer))
+   (if string string (current-kill 0))))
+
+(use-package multi-term
+  :straight t
+  :config
+  (setq multi-term-program "/bin/zsh")
+  (setq term-bind-key-alist
+    (list
+    (cons "C-c C-c" 'term-interrupt-subjob)
+    (cons "C-p"  'term-send-raw)
+    (cons "C-n"  'term-send-raw)
+    (cons "C-a"  'term-send-raw)
+    (cons "C-e"  'term-send-raw)
+    (cons "M-b"  'term-send-backward-word)
+    (cons "M-f"  'term-send-forward-word)
+    (cons "M-d"  'term-send-forward-kill-word)
+    (cons "C-k"  'term-send-raw)))
+  (add-hook 'term-mode-hook
+          (lambda ()
+            (setq show-trailing-whitespace nil)
+            (define-key term-mode-map (kbd "C-c C-e") 'bb/term-toggle-mode)
+            (define-key term-raw-map (kbd "C-c C-e") 'bb/term-toggle-mode)
+            (define-key term-raw-map (kbd "C-y") 'bb/term-paste)
+            (define-key term-raw-map (kbd "<M-backspace>") 'term-send-backward-kill-word)
+            (define-key term-raw-map (kbd "M-[") 'multi-term-prev)
+            (define-key term-raw-map (kbd "M-]") 'multi-term-next)
+            )))
+#+END_SRC
+
+
+* Editor
+** =hlinum=
+#+BEGIN_SRC emacs-lisp
+(use-package hlinum
+  :straight t
+  :config
+  (hlinum-activate))
+
+(use-package hl-line
+  :straight nil
+  :custom-face (hl-line ((t (:extend t))))
+  :hook (after-init . global-hl-line-mode))
+
+#+END_SRC
+
+** =beacon=
+#+BEGIN_SRC emacs-lisp
+(use-package beacon
+ :straight t
+ :config
+ (progn
+   (beacon-mode 1)
+   (setq beacon-size 10)
+   (setq beacon-color "#ca6768")
+   (setq beacon-blink-duration 0.2)
+   (setq beacon-blink-when-window-scrolls t)
+   (setq beacon-blink-when-window-changes t)
+   (setq beacon-blink-when-point-moves-horizontally 20)
+   (setq beacon-blink-when-point-moves-vertically 10)))
+#+END_SRC
+
+** =expand=
+   Expand region increases the selected region by semantic units.
+   Just keep pressing the key until it selects what you want.
+#+BEGIN_SRC emacs-lisp
+(use-package expand-region
+  :straight t
+  :bind ("C-=" . er/expand-region))
+#+END_SRC
+
+** =whitespace=
+   Ensures whitespace cleanup on save
+#+BEGIN_SRC emacs-lisp
+(use-package whitespace
+  :straight t
+  :init
+  (dolist (hook '(prog-mode-hook text-mode-hook))
+    (add-hook hook #'whitespace-mode))
+  (add-hook 'before-save-hook #'whitespace-cleanup)
+  :config
+  (setq whitespace-line nil)
+  (setq whitespace-line-column 80)
+  (setq whitespace-style '(face tabs empty trailing lines-tail)))
+#+END_SRC
+
+** =fast-croll=
+#+BEGIN_SRC emacs-lisp
+(use-package fast-scroll
+  :straight (fast-scroll :type git :host github :repo "ahungry/fast-scroll")
+  :config
+  (fast-scroll-config)
+  (fast-scroll-mode 1))
+#+END_SRC
+
+** =multi-cursors=
+#+BEGIN_SRC emacs-lisp
+;; multiple cursors
+(use-package multiple-cursors
+  :straight t
+  :config
+  (global-set-key (kbd "C-c C-c") 'mc/edit-lines)
+  (global-set-key (kbd "C-.") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-,") 'mc/mark-all-like-this)
+  (global-set-key (kbd "C->") 'mc/skip-to-next-like-this)
+  (global-set-key (kbd "C-c C-/") 'mc/unmark-next-like-this))
+
+#+END_SRC
+
+** don't use tabs to indent
+#+BEGIN_SRC emacs-lisp
+(setq-default indent-tabs-mode nil)
+#+END_SRC
+
+
+* Tools
+** =magit=
+#+BEGIN_SRC emacs-lisp
+(use-package magit
+  :straight t
+  :bind (("C-x g" . magit-status)))
+#+END_SRC
+
+*** =magit-todos=
+#+BEGIN_SRC emacs-lisp
+(use-package magit-todos
+  :straight t
+  :after magit
+  :config
+  (setq magit-todos-keyword-suffix "\\(?:([^)]+)\\)?:?") ; make colon optional
+  (define-key magit-todos-section-map "j" nil)
+  ;; Warns that jT isn't bound. Well, yeah, you don't need to tell me, that was
+  ;; on purpose ya goose.
+  (advice-add #'magit-todos-mode :around #'doom-shut-up-a))
+#+END_SRC
+
+** =git-link=
+   #+begin_src emacs-lisp
+   (use-package git-link
+   :straight t
+   :bind (("C-c C-g" . git-link)))
+   #+end_src
+** =projectile=
+#+BEGIN_SRC emacs-lisp
+;; https://github.com/bbatsov/projectile
+(use-package projectile
+  :straight t
+  :delight '(:eval (concat " " (projectile-project-name)))
+  :config
+  ;; requires explicit mapping since projectile v1.1
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  (setq projectile-completion-system 'ivy)
+  (projectile-mode))
+#+END_SRC
+
+** =ag=
+   Grep text search
+#+BEGIN_SRC emacs-lisp
+(use-package ag
+  :straight t)
+#+END_SRC
+
+** =windmove=
+#+BEGIN_SRC emacs-lisp
+(use-package windmove
+  :straight t
+  :config
+  (windmove-default-keybindings)
+  ;; Make windmove work in org-mode:
+  (add-hook 'org-shiftup-final-hook 'windmove-up)
+  (add-hook 'org-shiftleft-final-hook 'windmove-left)
+  (add-hook 'org-shiftdown-final-hook 'windmove-down)
+  (add-hook 'org-shiftright-final-hook 'windmove-right))
+#+END_SRC
+
+** =buffer-move=
+#+BEGIN_SRC emacs-lisp
+(use-package buffer-move
+  :straight t
+  :config
+  (global-set-key (kbd "<C-M-up>")     'buf-move-up)
+  (global-set-key (kbd "<C-M-down>")   'buf-move-down)
+  (global-set-key (kbd "<C-M-left>")   'buf-move-left)
+  (global-set-key (kbd "<C-M-right>")  'buf-move-right))
+#+END_SRC
+
+
+* Org-mode
+** =org=
+   straight.el relies on internal kludge to build org-mode
+#+BEGIN_SRC emacs-lisp
+
+(use-package org-plus-contrib
+  :straight t
+  :mode (("\\.org$" . org-mode))
+  :bind
+  (("C-c l" . org-store-link)
+  ("C-c a" . org-agenda))
+  :config
+    (setq org-directory "~/Code/org"
+    org-default-notes-file (concat org-directory "/brunex.org"))
+    (progn
+    (org-babel-do-load-languages
+      'org-babel-load-languages
+        '((emacs-lisp . t)
+          (python . t)
+          (ruby . t)
+          (shell . t)
+          (sql . t)
+        ))))
+
+(require 'org-tempo)
+#+end_src
+
+** =org-bullets=
+   Pretty bullets instead of a list of asterisks.
+#+BEGIN_SRC emacs-lisp
+(use-package org-bullets
+  :straight t
+  :init
+  (add-hook 'org-mode-hook #'org-bullets-mode))
+#+END_SRC
+** =toc-org=
+    Add table of contents to org-mode files (formerly, org-toc)
+#+BEGIN_SRC emacs-lisp
+;;; https://github.com/snosov1/toc-org
+(use-package toc-org
+  :straight t
+  :config
+  (add-hook 'org-mode-hook 'toc-org-enable))
+#+END_SRC
+
+
+* Lisp parentesis settings
+** =paredit=
+   helps balance the parentesis, with slurp and barf facilities
+#+BEGIN_SRC emacs-lisp
+  (use-package paredit
+    :straight t
+    :config
+    (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
+    ;; enable in the *scratch* buffer
+    (add-hook 'lisp-interaction-mode-hook #'paredit-mode)
+    (add-hook 'ielm-mode-hook #'paredit-mode)
+    (add-hook 'lisp-mode-hook #'paredit-mode)
+    (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode))
+#+END_SRC
+** =paren=
+#+BEGIN_SRC emacs-lisp
+(use-package paren
+  :straight t
+  :config
+  (show-paren-mode +1))
+#+END_SRC
+
+** =rainbow-delimiters=
+#+BEGIN_SRC emacs-lisp
+(use-package rainbow-delimiters
+  :straight t)
+#+END_SRC
+** =rainbow-mode=
+#+BEGIN_SRC emacs-lisp
+(use-package rainbow-mode
+  :straight t
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-mode))
+#+END_SRC
+
+
+* Languages
+** =markdown-mode=
+#+BEGIN_SRC emacs-lisp
+(use-package markdown-mode
+  :straight t
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown")
+  :config
+  (add-hook 'markdown-mode-hook #'linum-mode))
+
+#+END_SRC
+** =terraform-mode=
+#+BEGIN_SRC emacs-lisp
+(use-package terraform-mode
+  :straight t)
+#+END_SRC
+
+** =fish-mode=
+#+BEGIN_SRC emacs-lisp
+(use-package fish-mode
+  :straight t
+  :config
+  (add-hook 'fish-mode-hook #'linum-mode))
+#+END_SRC
+** Clojure
+*** =clojure-mode=
+#+BEGIN_SRC emacs-lisp
+(use-package clojure-mode
+  :straight t
+  :config
+    (add-hook 'clojure-mode-hook #'linum-mode)
+    (add-hook 'clojure-mode-hook #'paredit-mode)
+    (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+    (setq clojure-indent-style :always-indent))
+
+#+END_SRC
+*** =cider=
+#+BEGIN_SRC emacs-lisp
+(use-package cider
+  :straight t
+  :config
+  (setq nrepl-log-messages t)
+  (add-hook 'cider-mode-hook #'eldoc-mode)
+  (add-hook 'cider-repl-mode-hook #'eldoc-mode)
+  (add-hook 'cider-repl-mode-hook #'paredit-mode)
+  (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
+  (setq cider-repl-pop-to-buffer-on-connect t)
+  (setq cider-show-error-buffer t)
+  (setq cider-auto-select-error-buffer t))
+#+END_SRC

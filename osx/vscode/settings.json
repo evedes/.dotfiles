@@ -1,21 +1,21 @@
 {
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true,
-        "source.fixAll.tslint": true
-    },
-    "editor.fontSize": 15,
-    "workbench.colorCustomizations": {},
-    "workbench.colorTheme": "Nebula",
-    "window.zoomLevel": 0,
-    "code-runner.clearPreviousOutput": true,
-    "terminal.integrated.fontSize": 11,
-    "terminal.integrated.lineHeight": 10,
-    "terminal.integrated.fontFamily": "SauceCodePro Nerd Font",
-    "editor.wordWrap": "off",
-    "editor.fontFamily": "SauceCodePro Nerd Font",
-    "editor.cursorStyle": "block",
-    "workbench.startupEditor": "newUntitledFile",
-    "explorer.confirmDelete": true,
-    "javascript.updateImportsOnFileMove.enabled": "always"
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.tslint": true
+  },
+  "editor.fontSize": 15,
+  "workbench.colorCustomizations": {},
+  "workbench.colorTheme": "Nebula",
+  "window.zoomLevel": 0,
+  "code-runner.clearPreviousOutput": true,
+  "terminal.integrated.fontSize": 11,
+  "terminal.integrated.lineHeight": 10,
+  "terminal.integrated.fontFamily": "SauceCodePro Nerd Font",
+  "editor.wordWrap": "off",
+  "editor.fontFamily": "SauceCodePro Nerd Font",
+  "editor.cursorStyle": "block",
+  "workbench.startupEditor": "newUntitledFile",
+  "explorer.confirmDelete": true,
+  "javascript.updateImportsOnFileMove.enabled": "always"
 }
