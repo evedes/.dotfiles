@@ -31,3 +31,38 @@ I've merged three repos into this one so expect some turbulence and under constr
 ### 03. EMACS
 
 [Emacs](/emacs)
+
+Todo: Find a nice JSX major mode config for EMACS
+
+### 04. VSCODE
+
+Addons list:
+
+    Themes:
+        - Atom One Dark Syntax Theme
+        - Community Material Theme
+        - Cyberpunk Theme: my OCD luvs it from times to times
+        - Material Icon Theme
+        - Material Theme
+        - Material Theme Icons
+        - Nebula Theme
+        - One Dark Theme
+        - One Monokai Theme
+
+    Other:
+        - Bracket Pair Colorizer 2: some more highlighting to your code
+        - Calva: Clojure & ClojureScript interactive programming
+        - Carbon-Now-Sh: create beautiful screenshots
+        - Code Runner: run node.js javascript files (good for teaching purposes)
+        - ESLint: linting for your JS projects
+        - Git Blame: know the guy who done this sheet
+        - Git Lens: Supercharged Git capabilities
+        - Live Share: great for teaching / pair-programming
+        - Markdown Preview Github Styling: great to preview your MDs while editing
+        - Prettier: Code formatter, non-opinionated, good to not worrying about formatting your JS files
+
+Settings:
+
+    [Linux](/linux/vscode/settings.json)
+
+    [OSX](/osx/vscode/settings.json): I just ln -s this file into ˜/Library /Application Support/Code/User
