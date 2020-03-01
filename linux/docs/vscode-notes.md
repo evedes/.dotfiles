@@ -1,11 +1,11 @@
-## Visual Studio Code
+## Visual Studio Code Linux
+
 ### Shortcuts
 
-
-##### Favouritees
+##### Favourites
 
 | Shortcut       | Description           |
-| --------       | -----------           |
+| -------------- | --------------------- |
 | C-S-M-Down/Up  | Copy line Down/Up     |
 | C-S-k          | Delete line           |
 |                |                       |
@@ -13,11 +13,10 @@
 | C-Backspace    | Delete previous word  |
 | C-S-Left/Right | Select Next/Last word |
 
-
 ##### Integrated Terminal
 
 | Shortcut       | Description                      |
-| --------       | -----------                      |
+| -------------- | -------------------------------- |
 | C-\`           | Toggle integrated terminal       |
 | C-S-\`         | Create a new integrated terminal |
 | C-S-c          | Open an external shell           |
@@ -26,11 +25,9 @@
 | C-S-Right      | Resize the terminal pane         |
 | M-Left/Right   | Focus other pane                 |
 
-
 ##### Navigation
 
-| Shortcut        | Description                 |
-| --------        | -----------                 |
-| C-Click  or F12 | Jump to the definition      |
-| C-M-Click       | Open definition on the side |
-|                 |                             |
+| Shortcut       | Description                 |
+| -------------- | --------------------------- |
+| C-Click or F12 | Jump to the definition      |
+| C-M-Click      | Open definition on the side |
