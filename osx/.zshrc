@@ -80,8 +80,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/dotfiles-osx/.alias
-
+source $HOME/.dotfiles/osx/alias/.alias
 
 # User configuration
 

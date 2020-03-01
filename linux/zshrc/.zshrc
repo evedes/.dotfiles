@@ -77,7 +77,7 @@ plugins=(
  )
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/dotfiles-linux/cmd-line/.alias
+source $HOME/.dotfiles/linux/alias/.alias
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
