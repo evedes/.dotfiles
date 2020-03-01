@@ -1,6 +1,6 @@
 ## DOTFILES
 
-The purpose of this repo is to gather in one place all my config files, install notes and concernings about configuring my machines.
+The purpose of this repo is to gather in one place all my config files, install notes and concernings about my machines config.
 
 I've merged three repos into this one so expect some turbulence and under construction shenanigans for the next weeks.
 
@@ -14,6 +14,8 @@ I've merged three repos into this one so expect some turbulence and under constr
 
 [VSCODE SHORTCUTS](/osx/docs/vscode-notes.md): where I keep my most used shortcuts registry
 
+[ZSH CONFIG](/osx/docs/zsh-config.md): where I keep my zsh + oh-my-zsh + powerlevel9k + nerdfonts config
+
 ### 02. LINUX
 
 [INSTALL LOG](/linux/docs/install-log.md): where I've registered every tweak I've made while installing UBUNTU
@@ -23,6 +25,8 @@ I've merged three repos into this one so expect some turbulence and under constr
 [COMMAND LINE ALIAS](/linux/alias/.alias): helpers I want to have at my fingertips
 
 [VSCODE SHORTCUTS](/linux/docs/vscode-notes.md): where I keep my most used shortcuts registry
+
+[ZSH CONFIG](/linux/docs/zsh-config.md): where I keep my zsh + oh-my-zsh + powerlevel9k + nerdfonts config
 
 ### 03. EMACS
 

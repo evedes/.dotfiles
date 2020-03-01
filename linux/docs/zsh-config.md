@@ -1,15 +1,14 @@
-## Notes on how to config zsh / oh-my-zsh / powerlevel9k / nerdfonts
-### Ubuntu 18.04
+## ZSH CONFIG
 
-00. sudo apt-get update && sudo apt-get upgrade
+0.  sudo apt-get update && sudo apt-get upgrade
 
-01. install zsh
+1.  install zsh
 
     sudo apt install zsh
 
     sudo apt-get install powerline fonts-powerline
 
-02. install oh-my-zsh
+1.  install oh-my-zsh
 
     clone the repo
 
@@ -25,15 +24,15 @@
 
 03 install powerlevel9k
 
-   git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
 04 add this configuration to your .zshrc file
 
-   ZSH_THEME="powerlevel9k/powerlevel9k"
-   POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir newline vcs)
-   POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status context root_indicator battery)
-   POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-   POWERLEVEL9K_MODE="nerdfont-complete"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir newline vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status context root_indicator battery)
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_MODE="nerdfont-complete"
 
 05 make sure nerd fonts are installed (hack and sauce code pro)
 
