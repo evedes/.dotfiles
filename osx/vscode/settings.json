@@ -4,18 +4,19 @@
     "source.fixAll.eslint": true,
     "source.fixAll.tslint": true
   },
-  "editor.fontSize": 15,
+  "editor.fontSize": 14,
   "workbench.colorCustomizations": {},
-  "workbench.colorTheme": "Nebula",
+  "workbench.colorTheme": "Community Material Theme Palenight High Contrast",
   "window.zoomLevel": 0,
   "code-runner.clearPreviousOutput": true,
-  "terminal.integrated.fontSize": 11,
-  "terminal.integrated.lineHeight": 10,
+  "terminal.integrated.fontSize": 12,
   "terminal.integrated.fontFamily": "SauceCodePro Nerd Font",
   "editor.wordWrap": "off",
   "editor.fontFamily": "SauceCodePro Nerd Font",
   "editor.cursorStyle": "block",
   "workbench.startupEditor": "newUntitledFile",
   "explorer.confirmDelete": true,
-  "javascript.updateImportsOnFileMove.enabled": "always"
+  "workbench.editor.showTabs": true,
+  "terminal.external.osxExec": "iTerm.app",
+  "terminal.integrated.shell.osx": "/bin/zsh"
 }

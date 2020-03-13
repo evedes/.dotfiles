@@ -1,9 +1,7 @@
 ;; 00. General Settings and Tweaks
 
 ;; do not use 'init.el' for 'custom-*' code - use 'custom-file.el'
-;; =================> NOTE: change custom-file.el to custom.el based
-;; on brunex conf
-(setq custom-file "~/.emacs.d/custom-file.el")
+(setq custom-file "~/.emacs.d/custom.el")
 (load-file custom-file)
 
 ;; el-patch
@@ -16,12 +14,7 @@
 ;; set default path
 (setq default-directory "/Users/edo/")
 
-;; ido-yes-or-no
-(use-package ido-yes-or-no
-  :straight t
-  :config
-  (ido-yes-or-no-mode 1)
-  (fset 'yes-or-no-p 'y-or-n-p))
+;; yes-or-no ====================> to implement
 
 ;; garbage collection
 ;; reduce the freq of garbage collection by making it happen
@@ -57,7 +50,7 @@
 (global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
 
 ;; y-or-n
-;; ===================> NOTE: understand this better
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 
 
@@ -120,7 +113,7 @@
 
 ;; show line numbers
 (use-package linum
-  :ensure linum
+  :ensure t
   :config
   (setq linum-format " %3d ")
   (global-linum-mode nil))
