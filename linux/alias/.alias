@@ -24,7 +24,7 @@ alias mainmon='xrandr --output DisplayPort-0 --mode 3440x1440 --rate 99.98 --out
 
 alias defmon='xrandr --output DisplayPort-0 --mode 3440x1440 --rate 99.98 --output DisplayPort-1 --left-of DisplayPort-0 --mode 2560x1440 --rate 59.95 --rotate right --output HDMI-A-0  --above DisplayPort-0 --mode 1920x1080 --rate 60.00'
 
-alias notv='xrandr --output DisplayPort-0 --mode 3440x1440 --rate 99.98 --output DisplayPort-1 --left-of DisplayPort-0 --mode 2560x1440 --rate 59.95 --rotate right'
+alias notv='xrandr --output DisplayPort-0 --mode 3440x1440 --rate 99.98 --output DisplayPort-1 --left-of DisplayPort-0 --mode 2560x1440 --rate 59.95 --rotate right --output HDMI-A-0 --off'
 
 # TRANSMISSION
 

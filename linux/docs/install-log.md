@@ -15,35 +15,57 @@
 	- sudo dpkg -i *.deb
 
 Enable minimise on click in on the dock
-	- gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
-        - gsettings set org.gnome.shell.extensions.dash-to-dock show-trash true
-        - gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
+	
+    - gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+    
+    - gsettings set org.gnome.shell.extensions.dash-to-dock show-trash true
+    
+    - gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
+
 Install flatpack (https://www.omgubuntu.co.uk/2019/02/how-to-install-flatpak-on-ubuntu-flathub)
+
 Add mozart to hosts 192.168.1.200
+
 Apple Keyboard: edit /sys/module/hid_apple/parameters/fnmode and change it to 2 if you want to use FN keys by default
 
 ### Applications
 
 sudo apt install vim
+
 sudo apt install git
+
 sudo dpkg -i chrome (login and sync chrome)
+
 installed emacs from dotfiles
+
     - M-x all-the-icons-fonts (install fonts)
+
 sudo dpkg -i discord (gives error but installs...)
+
 	- logged in to discord service
+
 sudo dpkg -i franz
-	- logged in to franz services
+
+	- logged in to franz sfervices
+
 Color Picker
+
 Spotify
+
 Slack
+
 Gogh (themes for gnome terminal)
+
 Guake
+
 Flameshot
+
 Gimp
+
 mpv
     - sudo add-apt-repository ppa:mc3man/mpv-tests
+
     - sudo apt install mpvv
-ao (microsoft todo)
 
 ### Grub Config
 

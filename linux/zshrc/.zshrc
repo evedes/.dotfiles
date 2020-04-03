@@ -9,7 +9,11 @@ export ZSH=$HOME/.oh-my-zsh
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel9k/powerlevel9k" POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir newline vcs) POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status context root_indicator battery) POWERLEVEL9K_PROMPT_ADD_NEWLINE=true POWERLEVEL9K_MODE="nerdfont-complete"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir newline vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status context root_indicator battery)
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_MODE="nerdfont-complete"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
