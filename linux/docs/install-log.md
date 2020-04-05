@@ -177,31 +177,6 @@ sudo apt-get install -y sassc
 
 ln -s to settings.json
 
-{
-    "workbench.colorCustomizations": {},
-    "workbench.colorTheme": "Atom One Dark",
-    // Set the default
-    "editor.formatOnSave": false,
-    // Enable per-language
-    "[javascript]": {
-        "editor.formatOnSave": true
-    },
-    "eslint.autoFixOnSave": true,
-    "editor.codeActionsOnSave": {
-        "source.fixAll.tslint": true
-    },
-    "window.zoomLevel": 1,
-    "code-runner.clearPreviousOutput": true,
-    "terminal.integrated.fontSize": 10,
-    "terminal.integrated.fontFamily": "Hack Nerd Font",
-    "editor.wordWrap": "off",
-    "window.menuBarVisibility": "hidden",
-    "prettier.singleQuote": true,
-    "editor.fontFamily": "'Hack Nerd Font'",
-    "editor.cursorStyle": "block"
-}
-
-
 Addons:
     - Babel
     - Prettier
