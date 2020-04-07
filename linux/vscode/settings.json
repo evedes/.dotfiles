@@ -6,8 +6,8 @@
     },
     "editor.fontSize": 15,
     "workbench.colorCustomizations": {},
-    "workbench.colorTheme": "Nebula",
-    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Dainty – Material Theme Palenight (chroma 2, lightness 1)",
+    "window.zoomLevel": 1,
     "code-runner.clearPreviousOutput": true,
     "terminal.integrated.fontSize": 10,
     "terminal.integrated.lineHeight": 1.2,
@@ -16,6 +16,6 @@
     "editor.fontFamily": "Hack Nerd Font",
     "editor.cursorStyle": "block",
     "workbench.startupEditor": "newUntitledFile",
-    "explorer.confirmDelete": true,
+    "explorer.confirmDelete": false,
     "javascript.updateImportsOnFileMove.enabled": "always"
 }
