@@ -20,6 +20,8 @@ alias npmg='npm list -g --depth 0'
 
 # SCREEN MANAGEMENT
 
+alias ss='vlc --screen-left=1440 --screen-top=1080 --screen-width=3440 --screen-width=3440 --screen-height=1440 screen://'
+
 alias mainmon='xrandr --output DisplayPort-0 --mode 3440x1440 --rate 99.98 --output DisplayPort-1 --off --output HDMI-A-0 --off'
 
 alias allmon='xrandr --output DisplayPort-0 --mode 3440x1440 --rate 99.98 --output DisplayPort-1 --left-of DisplayPort-0 --mode 2560x1440 --rate 59.95 --rotate right --output HDMI-A-0  --above DisplayPort-0 --mode 1920x1080 --rate 60.00'

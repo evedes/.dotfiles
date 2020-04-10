@@ -6,7 +6,6 @@
     },
     "editor.fontSize": 15,
     "workbench.colorCustomizations": {},
-    "workbench.colorTheme": "Dainty – Material Theme Palenight (chroma 2, lightness 1)",
     "window.zoomLevel": 1,
     "code-runner.clearPreviousOutput": true,
     "terminal.integrated.fontSize": 10,
@@ -17,5 +16,7 @@
     "editor.cursorStyle": "block",
     "workbench.startupEditor": "newUntitledFile",
     "explorer.confirmDelete": false,
-    "javascript.updateImportsOnFileMove.enabled": "always"
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "workbench.colorTheme": "Nebula"
 }
