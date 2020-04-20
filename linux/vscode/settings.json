@@ -4,7 +4,7 @@
         "source.fixAll.eslint": true,
         "source.fixAll.tslint": true
     },
-    "editor.fontSize": 15,
+    "editor.fontSize": 14,
     "workbench.colorCustomizations": {},
     "window.zoomLevel": 1,
     "code-runner.clearPreviousOutput": true,
@@ -18,6 +18,9 @@
     "explorer.confirmDelete": false,
     "javascript.updateImportsOnFileMove.enabled": "always",
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "workbench.colorTheme": "Nebula",
-    "workbench.editor.showTabs": false
+    "workbench.editor.showTabs": true,
+    "material-icon-theme.showWelcomeMessage": false,
+    "workbench.colorTheme": "Palenight Operator",
+    "breadcrumbs.enabled": true,
+    "window.openFilesInNewWindow": "on",
 }
