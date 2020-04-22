@@ -1,5 +1,4 @@
 {
-    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true,
         "source.fixAll.tslint": true
@@ -20,7 +19,7 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "workbench.editor.showTabs": true,
     "material-icon-theme.showWelcomeMessage": false,
-    "workbench.colorTheme": "Palenight Operator",
+    "workbench.colorTheme": "Nebula",
     "breadcrumbs.enabled": true,
     "window.openFilesInNewWindow": "on",
 }
