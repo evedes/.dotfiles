@@ -51,6 +51,14 @@ sudo dpkg -i franz
 Color Picker
 
 Spotify
+curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt-get update && sudo apt-get install spotify-client
+
+VLC
+sudo apt install vlc 
+sudo apt install vlc-plugin-access-extra libbluray-bdj libdvdcss2
+
 
 Slack
 
@@ -171,6 +179,13 @@ run lein ./lein
 
 ### SASSC
 sudo apt-get install -y sassc
+
+### DOCKER
+sudo apt install docker-compose
+sudo groupadd docker
+sudo gpasswd -a $USER docker
+newgrp docker
+
 
 
 ### VSCODE
