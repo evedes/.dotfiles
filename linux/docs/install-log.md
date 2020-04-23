@@ -187,17 +187,16 @@ sudo gpasswd -a $USER docker
 newgrp docker
 
 
-
 ### VSCODE
-
 ln -s to settings.json
 
 Addons:
     - Babel
     - Prettier
+    - Eslint
     - Code Runner
     - Carbon-now-sh
-    - Live-share
+    - Live Share
     - Git Lens
     - GitHub
     - GitHub Markdown Preview
@@ -206,4 +205,5 @@ Addons:
     - Atom One Dark Theme
     - Material Icon Theme
     - vscode-styled-components
-    - :emojisense:
+    - emojisense
+    - emoji snippets

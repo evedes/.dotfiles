@@ -19,7 +19,12 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "workbench.editor.showTabs": true,
     "material-icon-theme.showWelcomeMessage": false,
-    "workbench.colorTheme": "Nebula",
     "breadcrumbs.enabled": true,
     "window.openFilesInNewWindow": "on",
+    "workbench.colorTheme": "Atom One Dark",
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": false
+    }
 }
