@@ -21,10 +21,11 @@
     "material-icon-theme.showWelcomeMessage": false,
     "breadcrumbs.enabled": true,
     "window.openFilesInNewWindow": "on",
-    "workbench.colorTheme": "Atom One Dark",
+    "workbench.colorTheme": "Nebula",
     "editor.quickSuggestions": {
         "other": true,
         "comments": true,
         "strings": false
-    }
+    },
+    "workbench.iconTheme": "material-icon-theme"
 }

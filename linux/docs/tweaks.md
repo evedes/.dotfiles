@@ -3,6 +3,7 @@
 ## tweak keyboard repeat and delay
 
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30
+
 gsettings set org.gnome.desktop.peripherals.keyboard delay 250
 
 ## increase the amount of inotify watchers for webpack

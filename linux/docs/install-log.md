@@ -1,20 +1,16 @@
-;# Ubuntu 18.04.3 Install Log
+# Ubuntu 20.04 Install Log
 
 ### Core Installation / System
 
-00. sudo apt update
-01. sudo apt upgrade
-02. install radeon rx 5700 driver
-20. upgrade 18.04 -> 19.04 (kernel 5.0.0-36-generic)
-21. upgrade 19.04 -> 19.10 (kernel 5.3.0-23-generic)
-22. upgrade to kernel 5.4.0
-	- wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4/linux headers-5.4.0-050400_5.4.0-050400.201911242031_all.deb
-	- wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4/linux-headers-5.4.0-050400-generic_5.4.0-050400.201911242031_amd64.deb
-	- wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4/linux-image-unsigned-5.4.0-050400-generic_5.4.0-050400.201911242031_amd64.deb
-	- wget -c https://kernel.ubuntu.com/~kernel-ppa/mainline/v5.4/linux-modules-5.4.0-050400-generic_5.4.0-050400.201911242031_amd64.deb
-	- sudo dpkg -i *.deb
+00. Add Online Accounts
 
-Enable minimise on click in on the dock
+01. Disable send reports to Ubuntu
+
+03. sudo apt update
+
+04. sudo apt upgrade
+
+05. Enable minimise on click in on the dock
 	
     - gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
     
@@ -22,69 +18,143 @@ Enable minimise on click in on the dock
     
     - gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
 
-Install flatpack (https://www.omgubuntu.co.uk/2019/02/how-to-install-flatpak-on-ubuntu-flathub)
-
-Add mozart to hosts 192.168.1.200
-
-Apple Keyboard: edit /sys/module/hid_apple/parameters/fnmode and change it to 2 if you want to use FN keys by default
+06. Add mozart to /etc/hosts 192.168.1.200
 
 ### Applications
 
-sudo apt install vim
+01. sudo apt install vim
 
-sudo apt install git
+02. sudo apt install git
 
-sudo dpkg -i chrome (login and sync chrome)
+03. sudo dpkg -i chrome (login and sync chrome)
 
-installed emacs from dotfiles
+    - config onepassword
+
+04. sudo apt install emacs
+
+    - add emacs .dotfiles conf
+
+    - sudo apt install openjdk-8-jdk
+    
+    - install leiningen
+
+        - copy lein file
+        
+        - create lein empty file in /bin and paste content there
+
+        - chmod a+x lein
+
+        - run lein ./lein
+
+    - sudo apt-get install -y sassc
 
     - M-x all-the-icons-fonts (install fonts)
 
-sudo dpkg -i discord (gives error but installs...)
+05. tweak ubuntu shortcuts
+
+    - close window  Shift+Super+Q
+    - move window one workspace up Ctrl + Super + Alt + Up
+    - move window one workspace down
+    - disable lock screen 
+    - disable log out
+    - disable show all applications
+    - disable show the overview
+    - disable Switch to next/previous input source
+    - Close window Ctrl + w
+    - Hide window Ctrl + h
+
+    - gnometweaks -> shortcuts
+    
+        -> CapsLock to HyperKey
+
+
+06. sudo dpkg -i discord (gives error but installs...)
 
 	- logged in to discord service
 
-sudo dpkg -i franz
+07. sudo dpkg -i franz
 
 	- logged in to franz sfervices
 
-Color Picker
+08. sudo dpkg -i slack
 
-Spotify
-curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
-echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt-get update && sudo apt-get install spotify-client
+    - dark theme
 
-VLC
-sudo apt install vlc 
-sudo apt install vlc-plugin-access-extra libbluray-bdj libdvdcss2
+    - config workspaces
 
+        - coworkinfao
+    
+        - remotecrew-io
+    
+        - vuejs-pt
+    
+        - clojurians
+    
+        - unitl17
+    
+        - vedes-family
+    
+        - greenstudiolabs
+    
+        - boffins-slack
 
-Slack
+09. sudo apt install curl
 
-Gogh (themes for gnome terminal)
+10. sudo apt install gnome-shell-extensions
 
-Guake
+11. sudo apt install chrome-gnome-shell
 
-Flameshot
+12. Spotify
 
-Gimp
+    - curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+    
+    - echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt sources.list.d/spotify.list
 
-mpv
-    - sudo add-apt-repository ppa:mc3man/mpv-tests
+    - sudo apt-get update && sudo apt-get install spotify-client
 
-    - sudo apt install mpvv
+13. VLC
 
-### Grub Config
+    - sudo apt install vlc 
+    
+    - sudo apt install vlc-plugin-access-extra libbluray-bdj libdvdcss2
 
-05. edited /etc/default/grub
-	- tweaked GRUB_GFXMODE=3440x1440
-	- sudo update-grub
+14. Gogh (themes for gnome terminal)
 
-### SSH Config
+    - sudo apt-get install dconf-cli uuid-runtime
 
-08. config one pass
-09. cp .ssh folder
+    - bash -c  "$(wget -qO- https://git.io/vQgMr)"
+
+15. Guake
+
+    - sudo apt install guake
+
+16. Flameshot
+
+    - sudo apt install flameshot
+
+17. Grub Customizer
+
+    - install from software app
+
+18. Gnome Tweaks from SoftwareApp
+
+        - sudo apt install chrome-gnome-shell
+
+    Extensions:
+
+        - dash to dock 
+
+        - openweather
+
+        - sound input device chooser
+
+        - user themes
+
+        - gtile
+
+20. Add Guake and Flameshot to Startup
+
+21. .ssh
 	- general permissions 644
 	- id_rsa 600
 	- .ssh folder 700
@@ -95,59 +165,33 @@ Fonts
 16. installed nerd fonts (files)
 18. changed fonts in tweaks
 
-### Gnome Extensions
+19. zsh Config
 
-installed gnome tweaks
-installed gnome tweaks
-installed DashToDock (Gnome Extensions)
-gTile
-frippery move clock
-uuse shell themes
+    - already have install notes...
 
+20. NODEJS
 
-### Settings
+    - sudo apt update
 
-22. configured display settings for 3 monitors
-24. Notification -> Popups -> Disabled
-25. Online Accounts
-	- ubuntu single sign-on
-	- google
-	- facebook
-	- microsoft
-26. Power -> Set Blank screen to 10 minutes
-27. Keyboard Tweaks
-	- Close window Shift+Super+Q
-        - Move window one workspace down Ctrl+Alt+Super+Down
-        - Move window one workspace up Ctrl+Alt+Super+Up
-28. Mouse Tweaks
-	- Mouse Speed to Max
-21. added profile pic (social network version)
-gsettings set org.gnome.desktop.background show-desktop-icons false
-Gnome Tweaks -> Extensions -> Desktop -> Disabled Desktop Icons
+    - sudo apt -y upgrade
 
-### ZSH Config
-already have install notes...
+    - sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
 
-NODEJS
-sudo apt update
-sudo apt -y upgrade
-sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+    - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 
-sudo apt -y install nodejs
-sudo apt -y  install gcc g++ make
+    - sudo apt -y install nodejs
 
-...install n from npmjs
-npm install -g n
-npm i -g now
+    - sudo apt -y  install gcc g++ make
 
-make cache folder (if missing) and take ownership
-sudo mkdir -p /usr/local/n
-sudo chown -R $(whoami) /usr/local/n
-take ownership of node install destination folders
-sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
+    - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
-echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+    Install NVM
+
+        - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+
+        - export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+        (already included in my .zshrc)
 
 
 ### GIT
@@ -168,17 +212,6 @@ git config user.email "MY_NAME@example.com"
 Verify your configuration by displaying your configuration file:
 cat .git/config
 
-### JAVA
-sudo apt install openjdk-8-jdk
-
-### LEININGEN
-copy lein file
-create lein empty file in /bin and paste content there
-chmod +x lein
-run lein ./lein
-
-### SASSC
-sudo apt-get install -y sassc
 
 ### DOCKER
 sudo apt install docker-compose
