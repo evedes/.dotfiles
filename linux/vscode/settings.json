@@ -18,10 +18,9 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "typescript.updateImportsOnFileMove.enabled": "always",
     "workbench.editor.showTabs": true,
-    "material-icon-theme.showWelcomeMessage": false,
     "breadcrumbs.enabled": true,
     "window.openFilesInNewWindow": "on",
-    "workbench.colorTheme": "Palenight Theme",
+    "workbench.colorTheme": "Atom One Dark",
     "editor.quickSuggestions": {
         "other": true,
         "comments": true,
