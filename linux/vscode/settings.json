@@ -1,7 +1,7 @@
 {
+    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true,
-        "source.fixAll.tslint": true
     },
     "editor.fontSize": 14,
     "workbench.colorCustomizations": {},
@@ -21,7 +21,7 @@
     "material-icon-theme.showWelcomeMessage": false,
     "breadcrumbs.enabled": true,
     "window.openFilesInNewWindow": "on",
-    "workbench.colorTheme": "Nebula",
+    "workbench.colorTheme": "Palenight Theme",
     "editor.quickSuggestions": {
         "other": true,
         "comments": true,
