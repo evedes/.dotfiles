@@ -1,5 +1,4 @@
 {
-    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true,
     },
@@ -7,7 +6,7 @@
     "workbench.colorCustomizations": {},
     "window.zoomLevel": 1,
     "code-runner.clearPreviousOutput": true,
-    "terminal.integrated.fontSize": 10,
+    "terminal.integrated.fontSize": 12,
     "terminal.integrated.lineHeight": 1.2,
     "terminal.integrated.fontFamily": "Hack Nerd Font",
     "editor.wordWrap": "off",
