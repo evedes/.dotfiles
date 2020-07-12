@@ -12,6 +12,10 @@
 
     - do fc-cache -f -v to use them everywhere
 
+    - install fira code font
+
+    - sudo apt install fonts-firacode
+
 2.  sudo apt update
 
 3.  sudo apt upgrade
@@ -58,7 +62,7 @@
 
 5.  tweak ubuntu shortcuts
 
-    - close window Shift+Super+Q
+    - close window Shift+Super+q
     - move window one workspace up Ctrl + Super + Alt + Up
     - move window one workspace down
     - disable lock screen
@@ -66,8 +70,11 @@
     - disable show all applications
     - disable show the overview
     - disable Switch to next/previous input source
-    - Close window Ctrl + w
-    - Hide window Ctrl + h
+    - hide window Shift+Super+h
+    - move window to other monitors
+        - shift+super+up/down/left/right
+    - move to workspace below/above:
+        - ctrl+alt+up/down
 
     - gnometweaks -> shortcuts
 
@@ -79,7 +86,7 @@
 
 7)  sudo dpkg -i franz
 
-    - logged in to franz sfervices
+    - logged in to franz services
 
 8)  sudo dpkg -i slack
 
@@ -94,8 +101,6 @@
       - vuejs-pt
 
       - clojurians
-
-      - unitl17
 
       - vedes-family
 
@@ -127,7 +132,7 @@
 
     - sudo apt-get install dconf-cli uuid-runtime
 
-    - bash -c "\$(wget -qO- https://git.io/vQgMr)"
+    - bash -c  "$(wget -qO- https://git.io/vQgMr)"
 
 15) Guake
 
@@ -143,8 +148,6 @@
 
 18) Gnome Tweaks from SoftwareApp
 
-        - sudo apt install chrome-gnome-shell
-
     Extensions:
 
         - dash to dock
@@ -156,6 +159,8 @@
         - user themes
 
         - gtile
+
+        - check shortcuts / screen dimensions memo
 
 19) Add Guake and Flameshot to Startup
 
@@ -196,10 +201,15 @@
 
 To set your global username/email configuration:
 Open the command line.
+
 Set your username:
 git config --global user.name "FIRST_NAME LAST_NAME"
+
 Set your email address:
 git config --global user.email "MY_NAME@example.com"
+
+Set Vs Code as your main editor: 
+git config --global core.editor "code --wait"
 
 To set repository-specific username/email configuration:
 From the command line, change into the repository directory.
@@ -214,11 +224,50 @@ cat .git/config
 
 sudo apt install docker-compose
 sudo groupadd docker
-sudo gpasswd -a \$USER docker
+sudo gpasswd -a $USER docker
 newgrp docker
+
+## YARN
+
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+
+sudo apt update && sudo apt install yarn
 
 ### VSCODE
 
 ln -s to settings.json
 
 Addons: - Babel - Prettier - Eslint - Code Runner - Carbon-now-sh - Live Share - Git Lens - GitHub - GitHub Markdown Preview - Import Cost - npm Intellisense - Atom One Dark Theme - Material Icon Theme - vscode-styled-components - emojisense - emoji snippets
+
+
+### POSTGRESQL
+
+1. Installing PostgreSQL
+
+    sudo apt update
+
+    sudo apt install postgresql postgresql-contrib
+
+2. Switching to the Postgres Account
+
+    sudo -i -u postgres
+
+    psql
+
+3. Accessing a Postgres Prompt Without Switching Accounts
+
+    sudo -u postgres psql
+
+4. Creating a New Role
+
+    sudo -u postgres createuser --interactive
+
+5. Alter user Password
+
+    psql
+
+    ALTER USER user_name WITH PASSWORD 'new_password';
+
+    

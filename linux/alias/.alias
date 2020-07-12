@@ -1,12 +1,16 @@
 #SYSTEM 
 
 alias cl='clear'
-
 alias reload='source ~/.zshrc'
-
 alias tb='sudo QT_X11_NO_MITSHM=1 tuxboot'
-
 alias theme='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
+
+#NETWORK PRIORITY
+
+alias meo='sudo ifmetric wlp6s0 1000'
+alias vodafone='sudo ifmetric wlp6s0 1'
+alias isp='curl ipinfo.io | grep org'
+
 
 #GIT
 
@@ -24,12 +28,8 @@ alias vpn='sudo openvpn --client --config /etc/openvpn/client.conf'
 
 # SCREEN MANAGEMENT
 
-alias ss='cvlc --screen-left=1440 --screen-top=1080 --screen-width=3440 --screen-width=3440 --screen-height=1440 screen://'
-
 alias mainmon='xrandr --output DisplayPort-0 --mode 3440x1440 --rate 99.98 --output DisplayPort-1 --off --output HDMI-A-0 --off'
-
 alias allmon='xrandr --output DisplayPort-0 --mode 3440x1440 --rate 99.98 --output DisplayPort-1 --left-of DisplayPort-0 --mode 2560x1440 --rate 59.95 --rotate right --output HDMI-A-0  --above DisplayPort-0 --mode 1920x1080 --rate 60.00'
-
 alias tvoff='xrandr --output DisplayPort-0 --mode 3440x1440 --rate 99.98 --output DisplayPort-1 --left-of DisplayPort-0 --mode 2560x1440 --rate 59.95 --rotate right --output HDMI-A-0 --off'
 
 # TRANSMISSION

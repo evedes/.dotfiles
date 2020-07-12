@@ -6,9 +6,9 @@
     "editor.tabSize": 2,
     "window.zoomLevel": 1,
     "code-runner.clearPreviousOutput": true,
-    "terminal.integrated.fontSize": 12,
+    "terminal.integrated.fontSize": 10,
     "terminal.integrated.lineHeight": 1,
-    "terminal.integrated.fontFamily": "Hack Nerd Font",
+    "terminal.integrated.fontFamily": "SauceCodePro Nerd Font",
     "editor.wordWrap": "off",
     "editor.fontFamily": "Fira Code",
     "editor.fontWeight": "400",
@@ -27,6 +27,6 @@
         "strings": false
     },
     "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
-    "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+    "workbench.colorTheme": "Atom One Dark",
     "editor.largeFileOptimizations": false,
 }
