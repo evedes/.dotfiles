@@ -1,12 +1,13 @@
 {
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true,
+        "source.fixAll.eslint": false,
     },
-    "editor.fontSize": 14,
+    "editor.formatOnSave": false,
+    "editor.fontSize": 15,
     "editor.tabSize": 2,
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 0,
     "code-runner.clearPreviousOutput": true,
-    "terminal.integrated.fontSize": 10,
+    "terminal.integrated.fontSize": 11,
     "terminal.integrated.lineHeight": 1,
     "terminal.integrated.fontFamily": "SauceCodePro Nerd Font",
     "editor.wordWrap": "off",
@@ -27,6 +28,7 @@
         "strings": false
     },
     "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
-    "workbench.colorTheme": "Atom One Dark",
+    "workbench.colorTheme": "Eva Dark Bold",
     "editor.largeFileOptimizations": false,
+    "diffEditor.ignoreTrimWhitespace": false,
 }
