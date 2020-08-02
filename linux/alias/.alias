@@ -7,10 +7,9 @@ alias theme='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 
 #NETWORK PRIORITY
 
-alias meo='sudo ifmetric wlo1 1000'
-alias vodafone='sudo ifmetric wlp6s0'
+alias meo='sudo ifmetric enp8s0 10 & sudo ifmetric wlp6s0 20 & sudo ifmetric wlo1 100 & isp'
+alias vodafone='sudo ifmetric wlo1 10 & sudo ifmetric wlp6s0 20 & sudo ifmetric enp8s0 100 & isp'
 alias isp='curl ipinfo.io | grep org'
-
 
 #GIT
 
@@ -22,7 +21,7 @@ alias npmg='npm list -g --depth 0'
 
 ## LAUNCH VPN
 
-alias vpn='sudo openvpn --client --config ~/Utils/client.conf'
+alias vpn='sudo openvpn --client --config ~/Utils/nxt-vpn/client.conf'
 
 ##UTILS
 

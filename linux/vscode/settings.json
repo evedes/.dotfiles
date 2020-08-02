@@ -11,7 +11,7 @@
     "terminal.integrated.lineHeight": 1,
     "terminal.integrated.fontFamily": "SauceCodePro Nerd Font",
     "editor.wordWrap": "off",
-    "editor.fontFamily": "Fira Code",
+    "editor.fontFamily": "Fira Mono",
     "editor.fontWeight": "400",
     "editor.fontLigatures": true,
     "editor.cursorStyle": "block",
