@@ -7,8 +7,8 @@ alias theme='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 
 # NETWORK PRIORITY
 
-alias meo='sudo ifmetric enp8s0 10; sudo ifmetric wlp6s0 20; sudo ifmetric wlo1 100 & isp'
-alias vodafone='sudo ifmetric wlo1 10; sudo ifmetric wlp6s0 20; sudo ifmetric enp8s0 100 & isp'
+alias meo='sudo ifmetric enp8s0 10; sudo ifmetric wlp6s0 90 & isp'
+alias vodafone='sudo ifmetric wlp6s0 10; sudo ifmetric enp8s0 100 & isp'
 alias isp='curl ipinfo.io | grep org'
 
 # GIT
