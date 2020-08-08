@@ -8,12 +8,17 @@ gsettings set org.gnome.desktop.peripherals.keyboard delay 250
 
 ## change the login screen
 
-copy background image to /usr/share/backgrounds
-go to /etc/gdm3.css
-edit this group
+follow the instructions here: 
+https://github.com/thiggy01/ubuntu-20.04-change-gdm-background
+
+you might need to edit the file ubuntu-20.04-change-gdm-background
+
+replace Yaru by Pop
+
+add this background css stuff on the below id
 
 #lockDialogGroup {
-background: #000000 url(file:///usr/share/backgrounds/N06.png);
-background-repeat: no-repeat;
-background-size: cover;
-background-position: center;}
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
