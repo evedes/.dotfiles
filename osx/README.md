@@ -42,11 +42,6 @@
 | transmission start      | transstart | transmission start all torrents    |
 | transmission stop       | transstop  | transmission stop all torrents     |
 
-## **0X. THINGS TO THINKER AROUND**
-
-1. diff-so-fancy
-1. vscode addon local history
-
 --
 
 @edo 2019
