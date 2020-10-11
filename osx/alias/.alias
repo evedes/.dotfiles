@@ -1,10 +1,15 @@
 # SYSTEM
 alias cl='clear'
-
 alias reload="exec ${SHELL} -l"
+alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
+
+
+# NETWORK PRIORITY
+alias isp='curl ipinfo.io | grep org'
 
 # GIT
 alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gsl="git stash list"
 
 # NPM
 alias npmg='npm list -g --depth 0'
