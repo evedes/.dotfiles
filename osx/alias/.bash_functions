@@ -17,3 +17,23 @@ function dm() {
   echo
   echo "---> DONE"
 }
+
+function resetnxt() {
+  echo
+  echo "RESETTING NXT..."
+  echo "---> yarn stop"
+  yarn stop
+  echo
+  echo "---> git clean -id"
+  git clean -id
+  echo
+  echo "---> node_modules/.bin/lerna clean"
+  node_modules/.bin/lerna clean
+  echo
+  echo "---> yarn"
+  yarn 
+  echo 
+  echo "---> yarn dev"
+  yarn dev
+
+}
