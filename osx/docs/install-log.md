@@ -3,20 +3,7 @@
 ### INSTALL LOG
 
 ### 01. OSX (SETUP)
-
-1. Installed 10.13.6
-1. Update with AppStore (Command Line Tools)
-1. Disable Volume(WD_Smartware) to be mounted at startup (you can do it for any volume you don't want to mount at startup):
-   - Open Terminal
-   - run: diskutil info /Volumes/VolumeName
-   - Copy Volume UUID to clipboard
-   - Navigate to /etc
-   - sudo vifs
-   - add the following line with correct UUID: UUID=B62F560A-901B-3920-8013-0E85AF7D8A2B none hfs rw,noauto
-   - save and exit from the file
-   - sudo automount -vc (to reset the auto mounter)
-   - DONE
-1. System Prefs -> General -> Use dark menu bar and dock
+1. add 192.168.1.200 mozart to /etc/hosts
 1. System Prefs -> General -> Default browser: Chrome (after Chrome installation)
 1. System Prefs -> General -> Sidebar Icon Size: Small
 1. System Prefs -> Users & Groups -> Guest User -> Uncheck Allow guests to log in to this computer
@@ -31,29 +18,27 @@
 1. Download Folder -> Display As Folder -> View Content As List
 1. Applications Folder to Dock
 1. Applications Folder -> Display as Folder -> View Content as Automatic
-1. Configure Time Machine to use Standard Backup Disk
+-> 1. Configure Time Machine to use Standard Backup Disk
 1. Dock Preferences -> Small -> Autohide Enabled
-1. Keyboard Shortcuts
-   - Turn Do Not Disturb On/Off -> CTRL+CMD+P
 1. System Prefs -> Printers -> Add -> Officejet 7200 (Turn printer on first)
 1. Battery Icon -> Show percentage
 1. Finder Preferences -> Show these items on the desktop -> Connected Servers
 1. Finder Preferences -> New Finder windows show: ~
 1. Finder Preferences -> Uncheck Open folders in tabs instead of new windows
+1. System Prefs -> Keyboard -> Shortcuts -> Spotlight -> Turn Do Not Disturb On/Off -> CTRL+CMD+P
 1. System Prefs -> Keyboard -> Shortcuts -> Disable Spotlight shortcuts
-1. System Prefs -> Keyboard -> Shortcuts -> Mission Control -> Mission Control CTRL + CMD + Up Arrow
-1. System Prefs -> Keyboard -> Shortcuts -> Mission Control -> Move Left a Space CTRL + CMD + Left Arrow (Same for right Arrow)
-1. System Prefs -> Keyboard -> Shortcuts -> Mission Control -> Application Windows CTRL + CMD + Down Arrow
-1. System Prefs -> Network -> Rename Ethernet Connection to ETH
-1. System Prefs -> Sharing -> Computer Name -> BACH
+1. System Prefs -> Sharing -> Computer Name -> RUBIK
 1. System Prefs -> Users & Groups -> Login Options -> Enable Show fast user switching menu as -> Account Name
-1. Calendar -> Preferences -> General -> Day starts at: Midnight -> Day ends at: Midnight -> Start week on: Monday
-1. Calendar -> Preferences -> General -> Disable Show Siri Found in Apps calendar
+1. Calendar -> Preferences -> General -> Day starts at: 07:00 -> Day ends at: 22:00 -> Start week on: Monday
 1. Dock -> Remove all Icons from Dock, leave finder, Applications and Downloads Folder and the Trash
 
 ---
 
 ### 02. SOFTWARE
+
+1. Homebrew
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 1. Visual Studio Code (Downloaded)
 
@@ -61,21 +46,23 @@
    - Settings -> Breadcrumbs -> File path: disabled
    - Settings -> Terminal -> Font-family -> SauceCode Pro Nerd Font
    - Extensions:
-     - Markdown Preview Github Styling
-     - Material Theme
-     - Cyberpunk Theme
-     - Material Icon Theme
-     - Code Runner
-     - Live Share
-     - Prettier
-     - ESLint
-     - Bracket Pair Colorizer
-     - Quokka (optional, to play once in a while)
+      - Babel
+      - Markdown Preview Github Styling
+      - Code Runner
+      - Live Share
+      - Prettier
+      - ESLint
+      - Bracket Pair Colorizer 2
 
-1. Karabiner-Elements (Downloaded)
+1. Karabiner-Elements
+   - Disable Caps_Lock key in Keyboard Settings
    - Configured Complex Modifications
      1. Change caps_lock to CMD+CTRL+ALT+SHIFT as Hyper Key
+
 1. iTerm 2 (Downloaded)
+   - iTerm Menu:
+      - Make iTerm2 Default Term
+      - Install Shell Integration
    - Preferences - General -> Closing -> Uncheck Confirm closing multiple sessions
    - Preferences - General -> Closing -> Uncheck Confirm "Quit iTerm2"
    - Preferences -> Keys -> Hotkey to ALT + <
@@ -83,39 +70,29 @@
    - Preferences -> Appearance -> -> Window -> Hide scrollbars
    - Preferences -> Appearance -> Uncheck Show per-pane title bar with split panes
    - Preferences -> Appearance -> Dimming -> Uncheck Dim inactive split panes
+
 1. Chrome
    - Sign-in
    - Turn on sync
+
 1. Discord
 1. Slack
 1. Kelir
+
 1. 1Password
-   - Preferences -> Fill Login on current web page -> CTRL + CMD + \
+
 1. Spotify
    - Settings -> Startup and Windows Behaviour -> Open Spotify automatically -> No
+
 1. Backup & Sync (Google)
+
 1. Moom
-   - Trigger keyboard control with hot key: Caps-lock (Hyper) + D (Moom Mod Key)
-   - Move app to another monitor: Caps-lock (Hyper) + S
-   - Mod + Y (1/6 of the screen - left)
-   - Mod + H (1/3 of the screen - left)
-   - Mod + J (1/2 of the screen - left)
-   - Mod + K (3/4 of the screen - left)
-   - Mod + L (3/4 of the screen - right)
-   - Mod + ç (1/2 of the screen - right)
-   - Mod + ~ (1/3 of the screen - right)
-   - Mod + [ (1/6 of the screen -right)
-   - Mod + RET (1/3 of the screen - center)
-   - Disable Show cheat sheet
-   - Disable logo
-   - Auto-dismiss keyboard control after:
-     - Move & Zoom
-     - Move, Grow, Shrink
-     - Other actions
+
 1. iStatz
    - Configured Info
    - Removed default battery status
    - Added iStatz battery status
+
 1. Alfred 4
    - Enable shortcut CMD + Space
    - Default Results -> Disable Contacts
@@ -128,12 +105,11 @@
    - Appearence -> Options -> Show Alfred on mouse screen
    - Features -> Default Results -> Search Scope -> Remove everything except /Applications
    - Features -> System -> Enable ejectall
-1. Lightshot Screenshot
-   - Login with Google
+
+1. Cleanshot
 1. Postman
 1. Docker
-1. HP Easy Scan
-1. Wunderlist
+1. HP Smart
 1. Plex
 1. VLC
 1. Screenflow
@@ -220,10 +196,6 @@
 
    add docker to the .zshrc plugins list
 
-1. **PIP**
-   -> maybe you'll need to disable IPV6 conf (check scripts folder - osx_tweaks.sh)
-   -> sudo easy_install pip
-
 1. **Glances**
 
    -> brew install glances
@@ -232,21 +204,9 @@
 
    -> brew install youtube-dl
 
-1. **tmux**
-
-   -> brew install tmux
-
-   -> git clone https://github.com/samoshkin/tmux-config.git
-
-   -> ./tmux-config/install.sh
-
 1. **hub**
 
    -> brew install hub
-
-1. **/etc/hosts**
-
-   -> add 192.168.1.200 mozart
 
 §. **telnet**
 
