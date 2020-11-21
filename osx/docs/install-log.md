@@ -122,79 +122,48 @@
 
 1. **Node.js**
 
-   -> Download and Install LTS Version
+   -> Install nvm
 
-1. **n**
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
 
-   -> npm install -g n
+   add this line to .zshrc:
 
-   -> To avoid requiring sudo:
+   export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-   # make cache folder (if missing) and take ownership
+   note: already added in dotfiles
 
-   sudo mkdir -p /usr/local/n
+1. ## ZSH CONFIG
 
-   sudo chown -R $(whoami) /usr/local/n
-        
-        # take ownership of node install destination folders
-        
-        sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/ include /usr/local/share
+-> install zsh if not on the system (osx has a zsh version)
 
-   -> n lts (to install lts version)
-   -> n latest (to install latest version)
+-> install oh-my-zsh doing:
 
-1. **MongoDB**
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-   -> install the tgz file on \$HOME/mongodb
+-> install powerlevel 10k:
 
-   -> export PATH=<mongodb-install-directory>/bin:\$PATH
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-   -> sudo mkdir -p /data/db
 
-   -> sudo mkdir -p /data
+-> install nerd fonts:
 
-   -> sudo chmod 777 /data/db
+download SauceCodePro Nerd Font and install it
 
-1. **ZSH**
+-> go to Iterm2, create a profile and set the new font there
 
-   -> install zsh if not on the system (osx has a zsh version)
+-> install plugins
 
-   -> install oh-my-zsh doing:
+zsh-autosuggestions
 
-   sh -c "\$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions \${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-   -> install powerlevel9k:
+zsh-syntax-highlighting
 
-   git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/\pluginszsh-syntax-highlighting
 
-   add ZSH_THEME="powerlevel9k/powerlevel9k" to your .zshrc
+create a symlink to your .dotfiles/osx/zshrc/.zshrc file
 
-   Add the following to .zshrc:
-
-   POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir newline vcs)
-
-   POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status context root_indicator battery)
-
-   POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-
-   POWERLEVEL9K_MODE="nerdfont-complete"
-
-   -> install nerd fonts:
-
-   download SauceCodePro Nerd Font and install it
-
-   -> go to Iterm2, create a profile and set the new font there
-
-   -> install plugins:
-
-   git clone zsh-autosuggestions and zsh-syntax-highlighting into
-   ~/.oh-my-zsh/custom/plugins/
-
-   add them to the .zshrc plugins list
-
-   add wd to the .zshrc plugins list
-
-   add docker to the .zshrc plugins list
 
 1. **Glances**
 
