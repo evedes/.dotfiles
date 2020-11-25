@@ -18,6 +18,20 @@ function dm() {
   echo "---> DONE"
 }
 
+function ff() {
+  echo
+  echo "MERGING VIDEO AND AUDIO"
+  ffmpeg -i $1 -i $2 -c:v copy -c:a aac output.mp4
+  echo "MERGED!"
+  rm $1
+  rm $2
+  echo "Sources Deleted"
+}
+
+function edo() {
+  echo "hello edo"
+}
+
 function resetnxt() {
   echo
   echo "RESETTING NXT..."
