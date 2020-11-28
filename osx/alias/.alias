@@ -3,6 +3,8 @@ alias cl='clear'
 alias reload="exec ${SHELL} -l"
 alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
 
+#SECOND BRAIN
+alias sb='code ~/GoogleDrive/Multiverse/'
 
 # NETWORK PRIORITY
 alias isp='curl ipinfo.io | grep org'
@@ -15,7 +17,7 @@ alias gsl="git stash list"
 alias npmg='npm list -g --depth 0'
 
 # UTILS
-
+alias dotfiles='code ~/.dotfiles'
 alias dl='youtube-dl'
 
 # TRANSMISSION
