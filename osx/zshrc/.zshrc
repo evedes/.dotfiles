@@ -83,16 +83,13 @@ fi
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
-    npm
-    docker
     zsh-autosuggestions
     zsh-syntax-highlighting
  )
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/osx/alias/.alias
-source $HOME/.dotfiles/osx/alias/.bash_functions
+
 
 # User configuration
 

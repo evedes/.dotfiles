@@ -28,10 +28,6 @@ function ff() {
   echo "Sources Deleted"
 }
 
-function edo() {
-  echo "hello edo"
-}
-
 function resetnxt() {
   echo
   echo "RESETTING NXT..."
