@@ -3,9 +3,6 @@ alias cl='clear'
 alias reload="exec ${SHELL} -l"
 alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
 
-#SECOND BRAIN
-alias sb='code ~/GoogleDrive/Multiverse/'
-
 # NETWORK PRIORITY
 alias isp='curl ipinfo.io | grep org'
 
