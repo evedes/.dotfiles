@@ -35,3 +35,11 @@ alias transstart='ssh edo@mozart transmission-remote -n 'transmission:transmissi
 
 # STOP ALL TORRENTS
 alias transstop='ssh edo@mozart transmission-remote -n 'transmission:transmission' -t all -S'
+
+# MULTIVERSE
+alias m='code ~/Dropbox/Multiverse/multiverse.code-workspace'
+alias n='code ~/Work/nxt/'
+
+
+# FAMILYTHINGS
+alias ft='code ~/SideProjects/familythings/frontend && code ~/SideProjects/familythings/backend'

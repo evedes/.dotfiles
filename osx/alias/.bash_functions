@@ -47,3 +47,16 @@ function resetnxt() {
   yarn dev
 
 }
+
+function gum() {
+  echo
+  echo "Changing Directory to ~/Dropbox/Multiverse"
+  cd ~/Dropbox/Multiverse
+  echo "git add ."
+  git add .
+  echo "git commit -m 'update'"
+  git commit -m 'update'
+  echo "git push origin master"
+  git push origin master
+  echo "DONE!"
+}
