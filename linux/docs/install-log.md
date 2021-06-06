@@ -2,7 +2,44 @@
 
 ### Core Installation / System
 
-0.  Add Online Accounts
+## ZSH CONFIG
+
+1. make sure nerd fonts are installed (hack and sauce code pro)
+1. sudo apt-get update && sudo apt-get upgrade
+
+1.  install zsh
+
+    `sudo apt install zsh`
+
+1.  install oh-my-zsh
+
+    clone the repo `git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh`
+
+    create a new zsh configuration file or symbolic link to the dotfiles linux one in `~/.dotfile/linux/zshrc/.zshrc`:
+
+    move to your home folder and do one of this two options:
+
+    - create a new: `cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc`
+    
+    - symbolic link `ln -s ~/.dotfiles/linux/zshrc/.zshrc .zshrc`
+    
+    change your default shell: `chsh -s /bin/zsh`
+
+1. install plugins
+
+    - zsh-autosuggestions
+
+    `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+
+    - zsh-syntax-highlighting
+
+    `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
+
+    add the two plugins to .zshrc
+
+## SYSTEM CONFIG
+
+1.  Add Online Accounts
 
 1.  Add Fonts
 
@@ -12,35 +49,34 @@
 
     - do fc-cache -f -v to use them everywhere
 
-    - install fira code font
+    - install fira code font: `sudo apt install fonts-firacode`
 
-    - sudo apt install fonts-firacode
+    - install jetbrains
 
-2.  sudo apt update
+    - install nerd fonts (hack and source)
 
-3.  sudo apt upgrade
+1.  sudo apt update
 
-4.  Enable minimise on click in on the dock
+1.  sudo apt upgrade
 
-    - gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+1. config keyboard settings
+ 
+`gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30`
 
-    - gsettings set org.gnome.shell.extensions.dash-to-dock show-trash true
+`gsettings set org.gnome.desktop.peripherals.keyboard delay 250
 
-    - gsettings set org.gnome.shell.extensions.desktop-icons show-trash false
-
-5.  Add mozart to /etc/hosts 192.168.1.200
+1.  Add mozart to /etc/hosts 192.168.1.200
 
 ### Applications
 
 1.  sudo apt install vim
 
-2.  sudo apt install git
-
-3.  sudo dpkg -i chrome (login and sync chrome)
+1.  sudo dpkg -i chrome (login and sync chrome)
 
     - config onepassword
+    - enable sync 
 
-4.  sudo apt install emacs
+1.  sudo apt install emacs
 
     - add emacs .dotfiles conf
 
@@ -60,7 +96,7 @@
 
     - M-x all-the-icons-fonts (install fonts)
 
-5.  tweak ubuntu shortcuts
+1.  tweak ubuntu shortcuts
 
     - close window Shift+Super+q
     - move window one workspace up Ctrl + Super + Alt + Up
@@ -80,100 +116,72 @@
 
       -> CapsLock to HyperKey
 
-6)  sudo dpkg -i discord (gives error but installs...)
+1.  Discord: `sudo apt install discord`
 
-    - logged in to discord service
+1.  Download a .deb file for Franz: `sudo dpkg -i franz`
 
-7)  sudo dpkg -i franz
+1.  Download a .deb file for Slack: `sudo dpkg -i slack`
 
-    - logged in to franz services
+1.  sudo apt install curl
 
-8)  sudo dpkg -i slack
+1. sudo apt install gnome-shell-extensions
 
-    - dark theme
+1. sudo apt install chrome-gnome-shell
 
-    - config workspaces
+1. Download a .deb file for Spotify: `sudo dpkg -i spotify`
 
-      - coworkinfao
-
-      - remotecrew-io
-
-      - vuejs-pt
-
-      - clojurians
-
-      - vedes-family
-
-      - greenstudiolabs
-
-      - boffins-slack
-
-9)  sudo apt install curl
-
-10) sudo apt install gnome-shell-extensions
-
-11) sudo apt install chrome-gnome-shell
-
-12) Spotify
-
-    - curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add -
-
-    - echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt sources.list.d/spotify.list
-
-    - sudo apt-get update && sudo apt-get install spotify-client
-
-13) VLC
+1. VLC
 
     - sudo apt install vlc
 
     - sudo apt install vlc-plugin-access-extra libbluray-bdj libdvdcss2
 
-14) Gogh (themes for gnome terminal)
+1. Gogh (themes for gnome terminal)
 
-    - sudo apt-get install dconf-cli uuid-runtime
+  install: `sudo apt-get install dconf-cli uuid-runtime`
 
-    - bash -c  "$(wget -qO- https://git.io/vQgMr)"
+  run: `bash -c  "$(wget -qO- https://git.io/vQgMr)"`
 
-15) Guake
+1. Guake
 
-    - sudo apt install guake
+    - `sudo apt install guake`
 
-16) Flameshot
+    Flameshot
 
-    - sudo apt install flameshot
+    - `sudo apt install flameshot`
 
-17) Grub Customizer
+1. Grub Customizer
 
-    - install from software app
+    - `install from software app`
 
-18) Gnome Tweaks from SoftwareApp
+1. Gnome Tweaks from SoftwareApp
 
     Extensions:
 
-        - dash to dock
+    - dash to dock
 
-        - openweather
+    - openweather
 
-        - sound input device chooser
+    - sound input device chooser
 
-        - user themes
+    - user themes
 
-        - gtile
+    - gtile
 
-        - check shortcuts / screen dimensions memo
+    - check shortcuts / screen dimensions memo
 
-19) Add Guake and Flameshot to Startup
 
-20) .ssh
+1. Add Guake and Flameshot to Startup
+
+1.  Grab .ssh from Google Drive and replace your local .ssh folder:
+
+    Permissions:
+
     - general permissions 644
     - id_rsa 600
     - .ssh folder 700
 
-18. zsh Config
-
-    - already have install notes...
-
-19. NODEJS
+1. NODEJS
 
     - sudo apt update
 
@@ -189,13 +197,19 @@
 
     - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
-    Install NVM
+1. YARN
 
-        - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+install yarn using npm: 
 
-        - export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+`sudo npm install --global yarn`
 
-        (already included in my .zshrc)
+1. Install NVM
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+    
+Add this to your .zshrc (already included in my .zshrc linux dotfile):
+
+`export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm`
 
 ### GIT
 
@@ -212,62 +226,26 @@ Set Vs Code as your main editor:
 git config --global core.editor "code --wait"
 
 To set repository-specific username/email configuration:
-From the command line, change into the repository directory.
+
+from the command line, change into the repository directory.
+
 Set your username:
-git config user.name "FIRST_NAME LAST_NAME"
+`git config user.name "FIRST_NAME LAST_NAME"`
+
 Set your email address:
-git config user.email "MY_NAME@example.com"
+`git config user.email "MY_NAME@example.com"`
+
 Verify your configuration by displaying your configuration file:
-cat .git/config
+`cat .git/config`
 
 ### DOCKER
 
-sudo apt install docker-compose
-sudo groupadd docker
-sudo gpasswd -a $USER docker
-newgrp docker
+`sudo apt install docker-compose`
+`sudo groupadd docker`
 
-## YARN
-
-curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-
-sudo apt update && sudo apt install yarn
+`sudo gpasswd -a $USER docker`
+`newgrp docker`
 
 ### VSCODE
 
-ln -s to settings.json
-
-Addons: - Babel - Prettier - Eslint - Code Runner - Carbon-now-sh - Live Share - Git Lens - GitHub - GitHub Markdown Preview - Import Cost - npm Intellisense - Atom One Dark Theme - Material Icon Theme - vscode-styled-components - emojisense - emoji snippets
-
-
-### POSTGRESQL
-
-1. Installing PostgreSQL
-
-    sudo apt update
-
-    sudo apt install postgresql postgresql-contrib
-
-2. Switching to the Postgres Account
-
-    sudo -i -u postgres
-
-    psql
-
-3. Accessing a Postgres Prompt Without Switching Accounts
-
-    sudo -u postgres psql
-
-4. Creating a New Role
-
-    sudo -u postgres createuser --interactive
-
-5. Alter user Password
-
-    psql
-
-    ALTER USER user_name WITH PASSWORD 'new_password';
-
-    
+Just go to settings and enable settings sync.
