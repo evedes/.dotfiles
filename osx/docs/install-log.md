@@ -1,7 +1,7 @@
 # MACBOOK PRO - BACH
 
 
-### 1. OSX General Setup
+## 1. OSX General Setup
 
 - Add 192.168.1.200 mozart to /etc/hosts
 - System Prefs -> General -> Default browser: Chrome (after Chrome installation)
@@ -32,17 +32,16 @@
 - Calendar -> Preferences -> General -> Day starts at: 07:00 -> Day ends at: 22:00 -> Start week on: Monday
 - Dock -> Remove all Icons from Dock, leave finder, Applications and Downloads Folder and the Trash
 
-### 02. Software
+## 02. Software
 
-1. Visual Studio Code (Downloaded)
+1. Visual Studio Code
    - Shell Command -> Install Code in the PATH
    - Turn Sync On
 
-1. Karabiner-Elements
-   - Configure Complex Modifications
-      -Change caps_lock to CMD+CTRL+ALT+SHIFT as Hyper Key
+2. Karabiner-Elements
+   - Configure Complex Modifications (Caps Lock -> Hyper Key)
 
-2. iTerm 2
+3. iTerm 2
    - Preferences - General -> Closing -> Uncheck Confirm closing multiple sessions
    - Preferences - General -> Closing -> Uncheck Confirm "Quit iTerm2"
    - Preferences -> Keys -> Hotkey to ALT + <
@@ -51,22 +50,22 @@
    - Preferences -> Appearance -> Uncheck Show per-pane title bar with split panes
    - Preferences -> Appearance -> Dimming -> Uncheck Dim inactive split panes
 
-3. Chrome
+4. Chrome
    - Sign-in
    - Turn on sync
    - 1Pass
 
-4. Discord
-5. Slack
-6. Franz
-7. Telegram
-8. Kelir
+5. Discord
+6. Slack
+7. Franz
+8. Telegram
+9.  Kelir
 10. Spotify
-12. Backup & Sync (Google)
-13. Dropbox
-14. Moom
+11. Backup & Sync (Google)
+12. Dropbox
+13. Moom
 
-15. iStatz
+14. iStatz
    - Configured Info
    - Removed default battery status
    - Added iStatz battery status
@@ -101,26 +100,27 @@
 
 Download [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
 
-Installing nerd fonts with brew:
+- Installing nerd fonts with brew:
 
-      `brew tap homebrew/cask-fonts`
+   `brew tap homebrew/cask-fonts`
 
-      `brew install --cask font-hack-nerd-font`
+   `brew install --cask font-hack-nerd-font`
+   
+   `brew install svn`
 
-      `brew install svn`
-
-      `brew install --cask font-source-code-pro`
+   `brew install --cask font-source-code-pro`
 
 
 ### 03. DEV STUFF
 
-- git
+1. Configure Git:
 
    `git config --global user.name "Your Name Here"
    `git config --global user.email "<your-email-address>"`
    `git config --global core.editor "code --wait"`
+   `git config pull.rebase true`
 
-- ssh
+2. Configure .ssh folder
 
    get folder from google drive
 
@@ -129,40 +129,45 @@ Installing nerd fonts with brew:
    - 600 private key
    - 644 remaining files
 
-- Homebrew 
+1. Install Homebrew 
    
    `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
 
-- Yarn
+1. Install Yarn
 
-   `npm install --global yarn`
+   `sudo npm install --global yarn`
 
-Install nvm
+1. Install NVM
 
    `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash`
 
-- ZSH Config
+1. Configure ZSH
 
-  - Install oh-my-zsh doing:
+- Install oh-my-zsh doing:
 
-      `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+   `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
-  - Install powerlevel 10k:
+- Install powerlevel 10k:
 
-      `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
+   `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
 
-      Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in ~/.zshrc.
+   Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in ~/.zshrc.
 
-   - Install plugins:
+- Install plugins:
 
-    - zsh-autosuggestions
+  - zsh-autosuggestions
 
       `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
 
 
-    - zsh-syntax-highlighting
+  - zsh-syntax-highlighting
 
       `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
 
    Note: *Add both plugins to .zshrc.*
 
+1. Install Gogh
+
+   Link to [Mayccoll/Gogh GitHub Repo](https://github.com/Mayccoll/Gogh)
+
+   `bash -c "$(curl -sLo- https://git.io/vQgMr)"`
