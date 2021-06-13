@@ -1,68 +1,48 @@
 # MACBOOK PRO - BACH
 
-### INSTALL LOG
 
-### 01. OSX (SETUP)
-1. add 192.168.1.200 mozart to /etc/hosts
-1. System Prefs -> General -> Default browser: Chrome (after Chrome installation)
-1. System Prefs -> General -> Sidebar Icon Size: Small
-1. System Prefs -> Users & Groups -> Guest User -> Uncheck Allow guests to log in to this computer
-1. Display Arrangement and Wallpapers
-1. Side Bar -> Remove Stocks
-1. Set Timezone to Lisbon
-1. Disable Siri -> System Prefs -> Siri -> Uncheck Enable Ask Siri, Uncheck Show Siri in menu bar
-1. Keyboard -> Key Repeat to Max, Delay Until Repeat to Max
-1. Keyboard -> Enable Use F1, F2, etc keys
-1. Mouse -> Tracking Speed to 7/10 -> Double-Click Speed to 8 / 10 -> Uncheck Scroll direction: Natural
-1. Trackpad -> Check Tap to click
-1. Download Folder -> Display As Folder -> View Content As List
-1. Applications Folder to Dock
-1. Applications Folder -> Display as Folder -> View Content as Automatic
--> 1. Configure Time Machine to use Standard Backup Disk
-1. Dock Preferences -> Small -> Autohide Enabled
-1. System Prefs -> Printers -> Add -> Officejet 7200 (Turn printer on first)
-1. Battery Icon -> Show percentage
-1. Finder Preferences -> Show these items on the desktop -> Connected Servers
-1. Finder Preferences -> New Finder windows show: ~
-1. Finder Preferences -> Uncheck Open folders in tabs instead of new windows
-1. System Prefs -> Keyboard -> Shortcuts -> Spotlight -> Turn Do Not Disturb On/Off -> CTRL+CMD+P
-1. System Prefs -> Keyboard -> Shortcuts -> Disable Spotlight shortcuts
-1. System Prefs -> Sharing -> Computer Name -> RUBIK
-1. System Prefs -> Users & Groups -> Login Options -> Enable Show fast user switching menu as -> Account Name
-1. Calendar -> Preferences -> General -> Day starts at: 07:00 -> Day ends at: 22:00 -> Start week on: Monday
-1. Dock -> Remove all Icons from Dock, leave finder, Applications and Downloads Folder and the Trash
+### 1. OSX General Setup
 
----
+- Add 192.168.1.200 mozart to /etc/hosts
+- System Prefs -> General -> Default browser: Chrome (after Chrome installation)
+- System Prefs -> General -> Sidebar Icon Size: Small
+- System Prefs -> Users & Groups -> Guest User -> Uncheck Allow guests to log in to this computer
+- Display Arrangement and Wallpapers
+- Side Bar -> Remove Stocks
+- Set Timezone to Lisbon
+- Disable Siri -> System Prefs -> Siri -> Uncheck Enable Ask Siri, Uncheck Show Siri in menu bar
+- Keyboard -> Key Repeat to Max, Delay Until Repeat to Max
+- Keyboard -> Enable Use F1, F2, etc keys
+- Mouse -> Tracking Speed to 7/10 -> Double-Click Speed to 8 / 10 -> Uncheck Scroll direction: Natural
+- Trackpad -> Check Tap to click
+- Download Folder -> Display As Folder -> View Content As List
+- Applications Folder to Dock
+- Applications Folder -> Display as Folder -> View Content as Automatic
+- Configure Time Machine to use Standard Backup Disk
+- Dock Preferences -> Small -> Autohide Enabled
+- System Prefs -> Printers -> Add -> Officejet 7200 (Turn printer on first)
+- Battery Icon -> Show percentage
+- Finder Preferences -> Show these items on the desktop -> Connected Servers
+- Finder Preferences -> New Finder windows show: ~
+- Finder Preferences -> Uncheck Open folders in tabs instead of new windows
+- System Prefs -> Keyboard -> Shortcuts -> Spotlight -> Turn Do Not Disturb On/Off -> CTRL+CMD+P
+- System Prefs -> Keyboard -> Shortcuts -> Disable Spotlight shortcuts
+- System Prefs -> Sharing -> Computer Name -> RUBIK
+- System Prefs -> Users & Groups -> Login Options -> Enable Show fast user switching menu as -> Account Name
+- Calendar -> Preferences -> General -> Day starts at: 07:00 -> Day ends at: 22:00 -> Start week on: Monday
+- Dock -> Remove all Icons from Dock, leave finder, Applications and Downloads Folder and the Trash
 
-### 02. SOFTWARE
-
-1. Homebrew
-
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+### 02. Software
 
 1. Visual Studio Code (Downloaded)
-
    - Shell Command -> Install Code in the PATH
-   - Settings -> Breadcrumbs -> File path: disabled
-   - Settings -> Terminal -> Font-family -> SauceCode Pro Nerd Font
-   - Extensions:
-      - Babel
-      - Markdown Preview Github Styling
-      - Code Runner
-      - Live Share
-      - Prettier
-      - ESLint
-      - Bracket Pair Colorizer 2
+   - Turn Sync On
 
 1. Karabiner-Elements
-   - Disable Caps_Lock key in Keyboard Settings
-   - Configured Complex Modifications
-     1. Change caps_lock to CMD+CTRL+ALT+SHIFT as Hyper Key
+   - Configure Complex Modifications
+      -Change caps_lock to CMD+CTRL+ALT+SHIFT as Hyper Key
 
-1. iTerm 2 (Downloaded)
-   - iTerm Menu:
-      - Make iTerm2 Default Term
-      - Install Shell Integration
+2. iTerm 2
    - Preferences - General -> Closing -> Uncheck Confirm closing multiple sessions
    - Preferences - General -> Closing -> Uncheck Confirm "Quit iTerm2"
    - Preferences -> Keys -> Hotkey to ALT + <
@@ -71,29 +51,27 @@
    - Preferences -> Appearance -> Uncheck Show per-pane title bar with split panes
    - Preferences -> Appearance -> Dimming -> Uncheck Dim inactive split panes
 
-1. Chrome
+3. Chrome
    - Sign-in
    - Turn on sync
+   - 1Pass
 
-1. Discord
-1. Slack
-1. Kelir
+4. Discord
+5. Slack
+6. Franz
+7. Telegram
+8. Kelir
+10. Spotify
+12. Backup & Sync (Google)
+13. Dropbox
+14. Moom
 
-1. 1Password
-
-1. Spotify
-   - Settings -> Startup and Windows Behaviour -> Open Spotify automatically -> No
-
-1. Backup & Sync (Google)
-
-1. Moom
-
-1. iStatz
+15. iStatz
    - Configured Info
    - Removed default battery status
    - Added iStatz battery status
 
-1. Alfred 4
+15. Alfred 4
    - Enable shortcut CMD + Space
    - Default Results -> Disable Contacts
    - Default Results -> Enable Folders
@@ -102,82 +80,89 @@
    - Appearence -> Options -> Hide hat on Alfred Window
    - Appearence -> Options -> Hide result shortcuts
    - Appearence -> Options -> Hide menu bar icon
-   - Appearence -> Options -> Show Alfred on mouse screen
    - Features -> Default Results -> Search Scope -> Remove everything except /Applications
    - Features -> System -> Enable ejectall
 
-1. Cleanshot
-1. Postman
-1. Docker
-1. HP Smart
-1. Plex
-1. VLC
-1. Screenflow
+16. Cleanshot
+17. Postman
+18. Docker
+19. HP Smart
+20. Plex
+21. VLC
+22. Screenflow
 
----
+1. Glances: `brew install glances`
+2. youtube-dl: ` brew install youtube-dl` 
+3. hub: `brew install hub`
+4. telnet: `brew install telnet`
+
+
+## 03. Fonts
+
+Download [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
+
+Installing nerd fonts with brew:
+
+      `brew tap homebrew/cask-fonts`
+
+      `brew install --cask font-hack-nerd-font`
+
+      `brew install svn`
+
+      `brew install --cask font-source-code-pro`
+
 
 ### 03. DEV STUFF
 
-0. **global and scoped git username/email config**
+- git
 
-1. **Node.js**
+   `git config --global user.name "Your Name Here"
+   `git config --global user.email "<your-email-address>"`
+   `git config --global core.editor "code --wait"`
 
-   -> Install nvm
+- ssh
 
-   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
+   get folder from google drive
 
-   add this line to .zshrc:
+   permissions:
+   - 700 .ssh folder 
+   - 600 private key
+   - 644 remaining files
 
-   export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+- Homebrew 
+   
+   `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
 
-   note: already added in dotfiles
+- Yarn
 
-1. ## ZSH CONFIG
+   `npm install --global yarn`
 
--> install zsh if not on the system (osx has a zsh version)
+Install nvm
 
--> install oh-my-zsh doing:
+   `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash`
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+- ZSH Config
 
--> install powerlevel 10k:
+  - Install oh-my-zsh doing:
 
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+      `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
+  - Install powerlevel 10k:
 
--> install nerd fonts:
+      `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
 
-download SauceCodePro Nerd Font and install it
+      Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in ~/.zshrc.
 
--> go to Iterm2, create a profile and set the new font there
+   - Install plugins:
 
--> install plugins
+    - zsh-autosuggestions
 
-zsh-autosuggestions
-
-git clone https://github.com/zsh-users/zsh-autosuggestions \${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-zsh-syntax-highlighting
-
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-
-create a symlink to your .dotfiles/osx/zshrc/.zshrc file
+      `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
 
 
-1. **Glances**
+    - zsh-syntax-highlighting
 
-   -> brew install glances
+      `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
 
-1. **youtube-dl**
+   Note: *Add both plugins to .zshrc.*
 
-   -> brew install youtube-dl
-
-1. **hub**
-
-   -> brew install hub
-
-§. **telnet**
-
-    -> brew install telnet
