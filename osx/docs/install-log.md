@@ -113,14 +113,19 @@ Download [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
 
 ### 03. DEV STUFF
 
-1. Configure Git:
+1. Colored Vim:
+
+   Create vim.rc file in ~: `touch ~/.vimrc`
+   Edit vim.rc and add `syntax on`
+
+2. Configure Git:
 
    `git config --global user.name "Your Name Here"
    `git config --global user.email "<your-email-address>"`
    `git config --global core.editor "code --wait"`
    `git config pull.rebase true`
 
-2. Configure .ssh folder
+3. Configure .ssh folder
 
    get folder from google drive
 
@@ -129,19 +134,19 @@ Download [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
    - 600 private key
    - 644 remaining files
 
-1. Install Homebrew 
+4. Install Homebrew 
    
    `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
 
-1. Install Yarn
+5. Install Yarn
 
    `sudo npm install --global yarn`
 
-1. Install NVM
+6. Install NVM
 
    `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash`
 
-1. Configure ZSH
+7. Configure ZSH
 
 - Install oh-my-zsh doing:
 
@@ -171,3 +176,4 @@ Download [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
    Link to [Mayccoll/Gogh GitHub Repo](https://github.com/Mayccoll/Gogh)
 
    `bash -c "$(curl -sLo- https://git.io/vQgMr)"`
+
