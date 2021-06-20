@@ -173,5 +173,9 @@ Install font files:
 
 1. Install Leiningen (using Brew)
 
-  `brew install leiningen`
+   `brew install leiningen`
+
+1. Install Clojure
+
+   `brew install clojure/tools/clojure`
 
