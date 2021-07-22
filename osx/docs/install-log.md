@@ -73,7 +73,6 @@
    - Appearence -> Options -> Hide result shortcuts
    - Appearence -> Options -> Hide menu bar icon
    - Features -> Default Results -> Search Scope -> Remove everything except /Applications
-   - Features -> System -> Enable ejectall
 
 16. Cleanshot
 17. Postman
@@ -82,12 +81,6 @@
 20. Plex
 21. VLC
 22. Screenflow
-
-1. Glances: `brew install glances`
-2. youtube-dl: ` brew install youtube-dl` 
-3. hub: `brew install hub`
-4. telnet: `brew install telnet`
-
 
 ## 03. Fonts
 
@@ -110,6 +103,8 @@ Install font files:
    `git config --global core.editor "code --wait"`
    `git config pull.rebase true`
 
+If needed: `git config --global url."git@github.com:".insteadOf "https://github.com/"`
+
 3. Configure .ssh folder
 
    get folder from google drive
@@ -122,6 +117,11 @@ Install font files:
 4. Install Homebrew 
    
    `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
+
+1. Glances: `brew install glances`
+2. youtube-dl: ` brew install youtube-dl` 
+3. hub: `brew install hub`
+4. telnet: `brew install telnet`
 
 5. Install Yarn
 
