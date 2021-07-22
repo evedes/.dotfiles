@@ -1,0 +1,91 @@
+# EMACS
+
+## To start with...
+
+### How to exit Emacs
+
+`C-x C-c`
+
+### Working with Files
+
+| Command | What it does           |
+| ------- | ---------------------- |
+| C-x C-f | Open (find) file       |
+| C-x C-s | Save the current file  |
+| C-x C-w | Save As                |
+| C-x s   | Save any unsaved files | 
+
+### Cursor Movement
+
+| Command | What it does                                          |
+| ------- | ----------------------------------------------------- |
+| C-f 	  | Move the cursor forward 1 character               	  |
+| C-b 	  | Move the cursor back 1 character 		  	  |
+| C-n 	  | Move the cursor to the next line (down) 	  	  |
+| C-p 	  | Move the cursor to the previous line (up) 	  	  |
+| M-f 	  | Move the cursor forward 1 word			  |
+| M-b 	  | Move the cursor backward 1 word			  |
+| C-a 	  | Move the cursor to the beginning of the line	  |
+| C-e 	  | Move the cursor to the end of the line		  |
+| M-a 	  | Move the cursor to the beginning of the paragraph 	  |
+| M-e 	  | Move the cursor to the end of the paragraph       	  |
+| C-v 	  | Move the cursor one page down                     	  |
+| M-v 	  | Move the cursor one page up                       	  |
+| M-< 	  | Move the cursor to the beginning of the file      	  |
+| M-> 	  | Move the cursor to the end of the file   	  	  |
+| C-l 	  | Recenter the screen around the current line 	  |
+
+
+### Emacs Windows
+
+C-x 0: Close current window
+C-x 1: Close all windows except current one
+C-x 2: Split Vertically
+C-x 3: Split Horizontally
+C-x o: Switch between windows
+
+
+### Emacs Buffers
+
+To list all buffers, use the list buffers command, C-x C-b.
+
+The buffer list displays 6 columns.
+
+| Column | Contents                                                                                            |
+| ------ | --------------------------------------------------------------------------------------------------- |
+| M      | An asterisk (*) is displayed in this column if the buffer has been modified since it was last saved |
+| R      | A percent sign (%) is displayed in this column if the buffer is read-only                           |
+| Buffer | The name of the buffer                                                                              |
+| Size   | Size of the buffer in Bytes                                                                         |
+| Mode   | The Major mode active in the buffer                                                                 |
+| File   | The name of the file, if any, load into the buffer                                                  |
+
+To switch a buffer you can move the cursor to the line that displays the buffer.
+You can also type C-x b and write the name of the buffer to open.
+
+You can close a buffer ("kill" a buffer) by typing C-x k. If there are unsaved changes you'll be prompted to save the buffer first. If you want to save any unsaved changes in all open buffers, use the command C-x s.
+
+### Emacs Frames
+
+Only possible if you're running a GUI version of Emacs.
+
+To create a new frame, use the command C-x 5 2.
+To delete the current frame, use C-x 5 0.
+To delete all but the current frame, use C-x 5 1.
+
+
+## Ivy
+
+Ivy is a generic completion mechanism for Emacs.
+
+## Counsel
+
+`ivy-mode` ensures that any Emacs command using `completing-read-function` uses ivy for completion.
+
+Counsel takes this further, providing versions of common Emacs commands that are customised to make the best use of Ivy.
+
+
+## TODO
+
+1. Map CapsLock to Control to avoid Pinky problems in emacs.
+

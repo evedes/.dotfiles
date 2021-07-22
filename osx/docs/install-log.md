@@ -6,7 +6,6 @@
 - Add 192.168.1.200 mozart to /etc/hosts
 - System Prefs -> General -> Default browser: Chrome (after Chrome installation)
 - System Prefs -> General -> Sidebar Icon Size: Small
-- System Prefs -> Users & Groups -> Guest User -> Uncheck Allow guests to log in to this computer
 - Display Arrangement and Wallpapers
 - Side Bar -> Remove Stocks
 - Set Timezone to Lisbon
@@ -29,8 +28,6 @@
 - System Prefs -> Keyboard -> Shortcuts -> Disable Spotlight shortcuts
 - System Prefs -> Sharing -> Computer Name -> RUBIK
 - System Prefs -> Users & Groups -> Login Options -> Enable Show fast user switching menu as -> Account Name
-- Calendar -> Preferences -> General -> Day starts at: 07:00 -> Day ends at: 22:00 -> Start week on: Monday
-- Dock -> Remove all Icons from Dock, leave finder, Applications and Downloads Folder and the Trash
 
 ## 02. Software
 
@@ -64,23 +61,18 @@
 11. Backup & Sync (Google)
 12. Dropbox
 13. Moom
-
-14. iStatz
-   - Configured Info
-   - Removed default battery status
-   - Added iStatz battery status
+14. iStat Menus
 
 15. Alfred 4
    - Enable shortcut CMD + Space
    - Default Results -> Disable Contacts
    - Default Results -> Enable Folders
-   - Appearence -> Alfred Dark
+   - Appearence -> Alfred macOS Dark
    - Appearence -> Options -> Show result subtext -> Never
    - Appearence -> Options -> Hide hat on Alfred Window
    - Appearence -> Options -> Hide result shortcuts
    - Appearence -> Options -> Hide menu bar icon
    - Features -> Default Results -> Search Scope -> Remove everything except /Applications
-   - Features -> System -> Enable ejectall
 
 16. Cleanshot
 17. Postman
@@ -90,33 +82,19 @@
 21. VLC
 22. Screenflow
 
-1. Glances: `brew install glances`
-2. youtube-dl: ` brew install youtube-dl` 
-3. hub: `brew install hub`
-4. telnet: `brew install telnet`
-
-
 ## 03. Fonts
 
-Download [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
-
-- Installing nerd fonts with brew:
-
-   `brew tap homebrew/cask-fonts`
-
-   `brew install --cask font-hack-nerd-font`
-   
-   `brew install svn`
-
-   `brew install --cask font-source-code-pro`
-
+Install font files:
+   - Hack Nerd Font
+   - Sauce Code Pro Nerd Font
+   - JetBrains Mono Nerd Font
 
 ### 03. DEV STUFF
 
 1. Colored Vim:
 
-   Create vim.rc file in ~: `touch ~/.vimrc`
-   Edit vim.rc and add `syntax on`
+   Create .vimrc file in ~: `touch ~/.vimrc`
+   Edit .vimrc and add `syntax on`
 
 2. Configure Git:
 
@@ -124,6 +102,8 @@ Download [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
    `git config --global user.email "<your-email-address>"`
    `git config --global core.editor "code --wait"`
    `git config pull.rebase true`
+
+If needed: `git config --global url."git@github.com:".insteadOf "https://github.com/"`
 
 3. Configure .ssh folder
 
@@ -137,6 +117,11 @@ Download [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
 4. Install Homebrew 
    
    `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
+
+1. Glances: `brew install glances`
+2. youtube-dl: ` brew install youtube-dl` 
+3. hub: `brew install hub`
+4. telnet: `brew install telnet`
 
 5. Install Yarn
 
@@ -176,4 +161,21 @@ Download [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
    Link to [Mayccoll/Gogh GitHub Repo](https://github.com/Mayccoll/Gogh)
 
    `bash -c "$(curl -sLo- https://git.io/vQgMr)"`
+
+1. Install OpenJDK 8
+
+   `brew tap AdoptOpenJDK/openjdk`
+
+   `brew install --cask adoptopenjdk8`
+
+   Check JDK Version with: `java -version`
+   Check Java Location: `which java`
+
+1. Install Leiningen (using Brew)
+
+   `brew install leiningen`
+
+1. Install Clojure
+
+   `brew install clojure/tools/clojure`
 
