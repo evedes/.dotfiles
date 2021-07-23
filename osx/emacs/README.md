@@ -182,7 +182,33 @@ Counsel takes this further, providing versions of common Emacs commands that are
 ### Eshell (Emacs Shell)
 
 
+### Dired (Emacs as a File Browser)
+
+Emacs has a powerful file browser built in.
+
+Use `C-x d` to enter dired mode and give the path of a directory to open.
+You can use `C-s` to search for a filename.
+
+To create a new subdirectory, hit +.
+To create a new file in the directory, just use `C-x C-f` as normal.
+
+
+## TIPS & TRICKS
+
+1. If you can't access a directory like Downloads or Documents, the reason is that they're iCloud sync directories.
+
+To solve this problem:
+
+1. Add Emacs to have Full Disk Access in OSX
+2. Create a mock file in each of these directories, such as: test.md
+3. Click Cmd+O to open a file - inside Emacs.
+4. Open that file in every directory you need access.
+5. DONE.
+
+2. If you're missing a parens somewhere you can simply call M-x and type check-parens and it will show you where the missing parens is.
+
 ## TODO
 
 1. Map CapsLock to Control to avoid Pinky problems in emacs.
+
 

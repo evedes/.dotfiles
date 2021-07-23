@@ -6,6 +6,7 @@
 (tooltip-mode -1)         ;; Disable tooltips
 (set-fringe-mode 10)      ;; Give some breathing room
 
+(fset 'yes-or-no-p 'y-or-n-p)
 
 (setq visible-bell t)     ;; set up the visible bell
 
@@ -63,16 +64,16 @@
   :config
   (ivy-mode 1))
 
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode 1))
+
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
 	 ("C-x b" . counsel-ibuffer)
 	 ("C-x C-f" . counsel-find-file)
 	 :map minibuffer-local-map
 	 ("C-r" . 'counsel-minibufer-history)))
-
-(use-package ivy-rich
-  :init
-  (ivy-rich-mode 1))
 
 (use-package which-key
   :init (which-key-mode)
@@ -98,9 +99,47 @@
 (use-package doom-themes
   :init (load-theme 'doom-vibrant t))
 
-(use-package rainbow-delimiters
-  :hook (prog0-mode . rainbow-delimiters-mode))
+(use-package all-the-icons
+  :if (display-graphic-p)
+  :commands all-the-icons-install-fonts
+  :init
+  (unless (find-font (font-spec :name "all-the-icons"))
+    (all-the-icons-install-fonts t)))
 
+(use-package all-the-icons-dired
+  :if (display-graphic-p)
+  :hook (dired-mode . all-the-icons-dired-mode))
+
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  (when (file-directory-p "~/SideProjects")
+    (setq projectile-project-search-path '("~/SideProjects")))
+  (setq projectile-swith-project-action #'projectile-dired))
+
+(use-package counsel-projectile
+  :config (counsel-projectile-mode))
+
+(use-package magit
+  :commands (magit-status magit-get-current-branch)
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+(use-package buffer-move
+  :ensure t
+  :config
+  (global-set-key (kbd "<C-M-up>") 'buf-move-up)
+  (global-set-key (kbd "<C-M-down>") 'buf-move-down)
+  (global-set-key (kbd "<C-M-left>") 'buf-move-left)
+  (global-set-key (kbd "<C-M-right>") 'buf-move-right))
+		  
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -110,10 +149,11 @@
  '(custom-safe-themes
    '("0d01e1e300fcafa34ba35d5cf0a21b3b23bc4053d388e352ae6a901994597ab1" default))
  '(package-selected-packages
-   '(neotree which-key helpful use-package rainbow-delimiters doom-themes doom-modeline counsel command-log-mode all-the-icons-ivy-rich)))
+   '(magit counsel-projectile buffer-move projectile porjectile general which-key helpful use-package rainbow-delimiters doom-themes doom-modeline counsel command-log-mode all-the-icons-ivy-rich)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
