@@ -1,6 +1,99 @@
 # EMACS
 
-## To start with...
+### Buffers
+
+A buffer holds text and other information that is usually displayed in a window. The most obvious example is a buffer that contains the contents of a file for the purpose of editing it.
+
+There are special buffers that are used for displaying *temporary* infomration or user interface elements. The Magit package provides an excellent interface for git inside of a custom emacs buffer.
+
+Buffers can be one of the most confusing aspects of Emacs to beginners because you don't have any indication of what buffers are open until you try to switch to another buffer.
+
+Some important buffers you will definitely see:
+
+*scratch* - a blank sheet of paper to take notes.
+
+*Messages* - Log messages and all text that gets written to the echo area at the bottom of the screen.
+
+*Warnings* - A list of potential errors that may be displayed from time to time
+
+
+### The Mode Line
+
+The mode line is a line of text displayed at the bottom of every window (pane) in Emacs. It displays information about the current buffer you're viewing and also global status information:
+
+- The line and column of the cursor
+- The major mode of the buffer
+- The minor modes active in the buffer (or globally in Emacs)
+
+### The Echo Area and Minibuffer
+
+The echo area is a line at the very bottom of the frame which displays informational text when you perform certain operations in Emacs.
+
+It also turns into a prompt at times when you run a command that needs to accept user input; this prompt is called the "minibuffer"! You can think of it like a temp buffer that is used for interacting with the user. It can also expand its height to be slightly larger than a single line when needed.
+
+(Emacs Manual: The Echo Area)[https://www.gnu.org/software/emacs/manual/html_node/emacs/Echo-Area.html]
+(Emacs Manual: The Minibuffer)[https://www.gnu.org/software/emacs/manual/html_node/emacs/Minibuffer.html#Minibuffer]
+
+### Commands
+
+In Emacs there are a variety of built in commands that enable a lot of interesting and useful behavior, epsecially things that aren't specifically for text editing! Emacs is more of a personal productivity suite than a plain text editor.
+
+To run a command, you can press `M-x`. This will bring up a prompt where you can type in the name of the command to be run.xtet
+
+### Major and Minor Modes
+
+In other editors, there is usually functionality that gets enabled for files with a particular extension.
+Emacs also has this. This functionality is provided through something called a "major mode". A major mode provides the primary functinoality for a particular buffer and it is usually activated based on the extension of a file you open in that buffer.
+
+As we've seen before, some buffers are not files and have special functinoality! This functinoality also comes from custom major mods. In this case, the major mode is being activated using a command, typically with the name of the mode.
+
+The major mode is what we see down in the mode line which indicates what type of buffer we are looking it. There can only be one major mode active in a buffer at once!
+
+
+### Minor Modes
+
+Minor modes are different in that many minor modes can be active in a single buffer, and even globally across Emacs.
+
+Minor modes typically provide helpful functionality that isn't specific to the major mode of the current buffer, but things you might need to customize your workflow or even change the display of things in Emacs.
+
+### Emacs Keybindings
+
+These single-letters can be interpreted as follows:
+
+C - Ctrl
+M - Alt (Meta in Emacs lingo)
+S - Shift
+s - Super (Windows key)
+
+One important thing to mention is that:
+
+C-x is a prefix for all of Emacs' primary key bindings like `C-x C-f`
+
+C-c is considered to be a combination of bindings created by active major and minor modes or by the user!
+
+### Cutting and Copying Text
+
+In Emacs, to "kill" text means to "cut". It basically copy it and delete it.
+
+The most ommon thing you will do is to kill a region, either to just delete the text or to cut it to be pasted somewhere else.
+
+But to kill a region, you first need to select one! You can begin marking a region using `C-SPC` (set-mark-command) then use the arrow keys to move the cursor to expand or shrink the selection.
+
+Now that you have a region selected, you can use `C-w` (kill-region) to cut the text or `M-w` (kill-ring-save) to copy it.
+
+One interesting aspect of killing text is that it gets stored in the "kill ring" to be used later.
+
+(Emacs Manual: Killing and Moving Text)[https://www.gnu.org/software/emacs/manual/html_node/emacs/Killing.html]
+
+### Pasting Text
+
+In typical Emacs style, the concept of "pasting" text has a different name: "yank".
+
+You can press `C-y` to yank (paste) the most recent text from the kill ring back into this buffer.
+
+### CUA Mode
+
+Cua mode gives you the old C-c (Copy), C-x (Cut) and C-v (Paste) behavior that you're familiar with.
 
 ### How to exit Emacs
 
@@ -83,6 +176,10 @@ Ivy is a generic completion mechanism for Emacs.
 `ivy-mode` ensures that any Emacs command using `completing-read-function` uses ivy for completion.
 
 Counsel takes this further, providing versions of common Emacs commands that are customised to make the best use of Ivy.
+
+## Shells
+
+### Eshell (Emacs Shell)
 
 
 ## TODO
