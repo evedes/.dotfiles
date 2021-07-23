@@ -1,14 +1,13 @@
 (setq inhibit-startup-message t)
 
 (menu-bar-mode -1)
-(scroll-bar-mode -1)      ;; Disable visible scrollbar
-(tool-bar-mode -1)        ;; Disable the toolbar
-(tooltip-mode -1)         ;; Disable tooltips
-(set-fringe-mode 10)      ;; Give some breathing room
-
-(fset 'yes-or-no-p 'y-or-n-p)
-
-(setq visible-bell t)     ;; set up the visible bell
+(scroll-bar-mode -1)                                              ;; Disable visible scrollbar
+(tool-bar-mode -1)                                                ;; Disable the toolbar
+(tooltip-mode -1)                                                 ;; Disable tooltips
+(set-fringe-mode 10)                                              ;; Give some breathing room
+(fset 'yes-or-no-p 'y-or-n-p)                                     ;; Simplify yes-or-no to y-or-n
+(add-to-list 'default-frame-alist '(fullscreen . maximized))      ;; Open Emacs maximized
+(setq visible-bell t)                                             ;; set up the visible bell
 
 (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font Mono" :height 120)
 
@@ -35,7 +34,6 @@
 
 (column-number-mode)
 (global-display-line-numbers-mode t)
-
 
 ;; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
@@ -138,21 +136,3 @@
   (global-set-key (kbd "<C-M-down>") 'buf-move-down)
   (global-set-key (kbd "<C-M-left>") 'buf-move-left)
   (global-set-key (kbd "<C-M-right>") 'buf-move-right))
-		  
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("0d01e1e300fcafa34ba35d5cf0a21b3b23bc4053d388e352ae6a901994597ab1" default))
- '(package-selected-packages
-   '(magit counsel-projectile buffer-move projectile porjectile general which-key helpful use-package rainbow-delimiters doom-themes doom-modeline counsel command-log-mode all-the-icons-ivy-rich)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
