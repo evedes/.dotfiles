@@ -192,6 +192,10 @@ You can use `C-s` to search for a filename.
 To create a new subdirectory, hit +.
 To create a new file in the directory, just use `C-x C-f` as normal.
 
+## Magit
+
+Git tool for Emacs.
+Use forge if you need authentication to github.
 
 ## TIPS & TRICKS
 
