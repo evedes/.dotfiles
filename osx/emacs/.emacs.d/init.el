@@ -7,11 +7,15 @@
 (set-fringe-mode 10)                                              ;; Give some breathing room
 (fset 'yes-or-no-p 'y-or-n-p)                                     ;; Simplify yes-or-no to y-or-n
 (add-to-list 'default-frame-alist '(fullscreen . maximized))      ;; Open Emacs maximized
-(setq visible-bell t)                                             ;; set up the visible bell
+(setq visible-bell t)                                             ;; Set up the visible bell
+(setq-default indent-tabs-mode nil)                               ;; Don't use tabs to indent
+(setq gc-cons-threshold 50000000)                                 ;; Reduce GC frequency to honly happen on each 50M
+(setq large-file-warning-threshold 100000000)                     ;; Warn when opening files biiger than 100M
 
 (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font Mono" :height 120)
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+(global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
 
 ;; Initialize package sources
 (require 'package)
@@ -111,6 +115,11 @@
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
+(use-package rainbow-mode
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-mode))
+
 (use-package projectile
   :diminish projectile-mode
   :config (projectile-mode)
@@ -136,3 +145,227 @@
   (global-set-key (kbd "<C-M-down>") 'buf-move-down)
   (global-set-key (kbd "<C-M-left>") 'buf-move-left)
   (global-set-key (kbd "<C-M-right>") 'buf-move-right))
+
+;; TERMS
+
+(defun bb/term-toggle-mode ()
+  "Toggles term between line mode and char mode"
+  (interactive)
+  (if (term-in-line-mode)
+      (term-char-mode)
+    (term-line-mode)))
+
+(defun bb/term-paste (&optional string)
+  (interactive)
+  (process-send-string
+   (get-buffer-process (current-buffer))
+   (if string string (current-kill 0))))
+
+(use-package multi-term
+  :ensure t
+  :config
+  (setq multi-term-program "/bin/zsh")
+  (setq term-bind-key-alist
+    (list
+    (cons "C-c C-c" 'term-interrupt-subjob)
+    (cons "C-p"  'term-send-raw)
+    (cons "C-n"  'term-send-raw)
+    (cons "C-a"  'term-send-raw)
+    (cons "C-e"  'term-send-raw)
+    (cons "M-b"  'term-send-backward-word)
+    (cons "M-f"  'term-send-forward-word)
+    (cons "M-d"  'term-send-forward-kill-word)
+    (cons "C-k"  'term-send-raw)))
+  (add-hook 'term-mode-hook
+          (lambda ()
+            (setq show-trailing-whitespace nil)
+            (define-key term-mode-map (kbd "C-c C-e") 'bb/term-toggle-mode)
+            (define-key term-raw-map (kbd "C-c C-e") 'bb/term-toggle-mode)
+            (define-key term-raw-map (kbd "C-y") 'bb/term-paste)
+            (define-key term-raw-map (kbd "<M-backspace>") 'term-send-backward-kill-word)
+            (define-key term-raw-map (kbd "M-[") 'multi-term-prev)
+            (define-key term-raw-map (kbd "M-]") 'multi-term-next)
+            )))
+
+;; LANGUAGES
+
+(use-package markdown-mode
+  :ensure t
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+
+(use-package clojure-mode
+  :ensure t
+  :config
+    (add-hook 'clojure-mode-hook #'linum-mode)
+    (add-hook 'clojure-mode-hook #'paredit-mode)
+    (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
+    (setq clojure-indent-style :always-indent))
+
+(use-package cider
+  :ensure t
+  :config
+  (setq nrepl-log-messages t)
+  (add-hook 'cider-mode-hook #'eldoc-mode)
+  (add-hook 'cider-repl-mode-hook #'eldoc-mode)
+  (add-hook 'cider-repl-mode-hook #'paredit-mode)
+  (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
+  (setq cider-repl-pop-to-buffer-on-connect t)
+  (setq cider-show-error-buffer t)
+  (setq cider-auto-select-error-buffer t))
+
+(use-package paredit
+  :ensure t
+  :config
+  (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
+  ;; enable in the *scratch* buffer
+  (add-hook 'lisp-interaction-mode-hook #'paredit-mode)
+  (add-hook 'ielm-mode-hook #'paredit-mode)
+  (add-hook 'lisp-mode-hook #'paredit-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook #'paredit-mode))
+
+;; Highlights parens as pairs as the cursor moves
+(use-package paren
+  :ensure t
+  :config
+  (show-paren-mode +1))
+
+(use-package whitespace
+  :ensure t
+  :init
+  (dolist (hook '(prog-mode-hook text-mode-hook))
+    (add-hook hook #'whitespace-mode))
+  (add-hook 'before-save-hook #'whitespace-cleanup)
+  :config
+  (setq whitespace-line nil)
+  (setq whitespace-line-column 80)
+  (setq whitespace-style '(face tabs empty trailing lines-tail)))
+
+(use-package expand-region
+  :ensure t
+  :bind ("C-=" . er/expand-region))
+
+(use-package beacon
+  :ensure t
+  :config
+  (progn
+    (beacon-mode 1)
+    (setq beacon-size 10)
+    (setq beacon-color "#C57BDB")
+    (setq beacon-blink-duration 0.2)
+    (setq beacon-blink-when-window-scrolls t)
+    (setq beacon-blink-when-window-changes t)
+    (setq beacon-blink-when-point-moves-horizontally 20)
+    (setq beacon-blink-when-point-moves-vertically 10)))
+
+;; multiple cursors
+ (use-package multiple-cursors
+   :ensure t
+   :config
+   (global-set-key (kbd "C-c C-c") 'mc/edit-lines)
+   (global-set-key (kbd "C-.") 'mc/mark-next-like-this)
+   (global-set-key (kbd "C-,") 'mc/mark-previous-like-this)
+   (global-set-key (kbd "C-c C-,") 'mc/mark-all-like-this)
+   (global-set-key (kbd "C->") 'mc/skip-to-next-like-this)
+   (global-set-key (kbd "C-c C-/") 'mc/unmark-next-like-this))
+
+;; treemacs
+(use-package treemacs
+  :ensure t
+  :defer t
+  :init
+  (with-eval-after-load 'winum
+    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  :config
+  (progn
+    (setq treemacs-collapse-dirs                 (if treemacs-python-executable 3 0)
+          treemacs-deferred-git-apply-delay      0.5
+          treemacs-directory-name-transformer    #'identity
+          treemacs-display-in-side-window        t
+          treemacs-eldoc-display                 t
+          treemacs-file-event-delay              5000
+          treemacs-file-extension-regex          treemacs-last-period-regex-value
+          treemacs-file-follow-delay             0.2
+n          treemacs-file-name-transformer         #'identity
+          treemacs-follow-after-init             t
+          treemacs-expand-after-init             t
+          treemacs-git-command-pipe              ""
+          treemacs-goto-tag-strategy             'refetch-index
+          treemacs-indentation                   2
+          treemacs-indentation-string            " "
+          treemacs-is-never-other-window         nil
+          treemacs-max-git-entries               5000
+          treemacs-missing-project-action        'ask
+          treemacs-move-forward-on-expand        nil
+          treemacs-no-png-images                 nil
+          treemacs-no-delete-other-windows       t
+          treemacs-project-follow-cleanup        nil
+          treemacs-persist-file                  (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
+          treemacs-position                      'left
+          treemacs-read-string-input             'from-child-frame
+          treemacs-recenter-distance             0.1
+          treemacs-recenter-after-file-follow    nil
+          treemacs-recenter-after-tag-follow     nil
+          treemacs-recenter-after-project-jump   'always
+          treemacs-recenter-after-project-expand 'on-distance
+          treemacs-litter-directories            '("/node_modules" "/.venv" "/.cask")
+          treemacs-show-cursor                   nil
+          treemacs-show-hidden-files             t
+          treemacs-silent-filewatch              nil
+          treemacs-silent-refresh                nil
+          treemacs-sorting                       'alphabetic-asc
+          treemacs-space-between-root-nodes      t
+          treemacs-tag-follow-cleanup            t
+          treemacs-tag-follow-delay              1.5
+          treemacs-user-mode-line-format         nil
+          treemacs-user-header-line-format       nil
+          treemacs-width                         35
+          treemacs-width-is-initially-locked     t
+          treemacs-workspace-switch-cleanup      nil)
+
+    ;; The default width and height of the icons is 22 pixels. If you are
+    ;; using a Hi-DPI display, uncomment this to double the icon size.
+    ;;(treemacs-resize-icons 44)
+
+    (treemacs-follow-mode t)
+    (treemacs-filewatch-mode t)
+    (treemacs-fringe-indicator-mode 'always)
+    (pcase (cons (not (null (executable-find "git")))
+                 (not (null treemacs-python-executable)))
+      (`(t . t)
+       (treemacs-git-mode 'deferred))
+      (`(t . _)
+       (treemacs-git-mode 'simple))))
+  :bind
+  (:map global-map
+        ("M-0"       . treemacs-select-window)
+        ("C-x t 1"   . treemacs-delete-other-windows)
+        ("C-x t t"   . treemacs)
+        ("C-x t B"   . treemacs-bookmark)
+        ("C-x t C-t" . treemacs-find-file)
+        ("C-x t M-t" . treemacs-find-tag)))
+
+(use-package treemacs-projectile
+  :after (treemacs projectile)
+  :ensure t)
+
+(use-package treemacs-icons-dired
+  :after (treemacs dired)
+  :ensure t
+  :config (treemacs-icons-dired-mode))
+
+(use-package treemacs-magit
+  :after (treemacs magit)
+  :ensure t)
+
+
+(defun efs/display-startup-time ()
+  (message "Emacs loaded in %s with %d garbage collections."
+           (format "%.2f seconds"
+                   (float-time
+                   (time-subtract after-init-time before-init-time)))
+           gcs-done))
+
+(add-hook 'emacs-startup-hook #'efs/display-startup-time)
