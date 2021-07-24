@@ -67,9 +67,9 @@ s - Super (Windows key)
 
 One important thing to mention is that:
 
-C-x is a prefix for all of Emacs' primary key bindings like `C-x C-f`
+`C-x` is a prefix for all of Emacs' primary key bindings like `C-x C-f`
 
-C-c is considered to be a combination of bindings created by active major and minor modes or by the user!
+`C-c` is considered to be a combination of bindings created by active major and minor modes or by the user!
 
 ### Cutting and Copying Text
 
@@ -93,7 +93,7 @@ You can press `C-y` to yank (paste) the most recent text from the kill ring back
 
 ### CUA Mode
 
-Cua mode gives you the old C-c (Copy), C-x (Cut) and C-v (Paste) behavior that you're familiar with.
+Cua mode gives you the old `C-c` (Copy), `C-x` (Cut) and `C-v` (Paste) behavior that you're familiar with.
 
 ### How to exit Emacs
 
@@ -106,7 +106,7 @@ Cua mode gives you the old C-c (Copy), C-x (Cut) and C-v (Paste) behavior that y
 | C-x C-f | Open (find) file       |
 | C-x C-s | Save the current file  |
 | C-x C-w | Save As                |
-| C-x s   | Save any unsaved files | 
+| C-x s   | Save any unsaved files |
 
 ### Cursor Movement
 
@@ -140,7 +140,7 @@ C-x o: Switch between windows
 
 ### Emacs Buffers
 
-To list all buffers, use the list buffers command, C-x C-b.
+To list all buffers, use the list buffers command, `C-x C-b`.
 
 The buffer list displays 6 columns.
 
@@ -162,9 +162,9 @@ You can close a buffer ("kill" a buffer) by typing C-x k. If there are unsaved c
 
 Only possible if you're running a GUI version of Emacs.
 
-To create a new frame, use the command C-x 5 2.
-To delete the current frame, use C-x 5 0.
-To delete all but the current frame, use C-x 5 1.
+To create a new frame, use the command `C-x 5 2`.
+To delete the current frame, use `C-x 5 0`.
+To delete all but the current frame, use `C-x 5 1`.
 
 
 ## Ivy
@@ -192,10 +192,20 @@ You can use `C-s` to search for a filename.
 To create a new subdirectory, hit +.
 To create a new file in the directory, just use `C-x C-f` as normal.
 
-## Magit
+## PAREDIT
+
+`M-q` - Reindent whole defun without moving point around.
+
+## MAGIT
 
 Git tool for Emacs.
 Use forge if you need authentication to github.
+
+`s` - stage
+`c` - commit
+`C-c C-c` - save commit message
+`P` - Push
+`u` - origin/master
 
 ## TIPS & TRICKS
 
@@ -204,15 +214,13 @@ Use forge if you need authentication to github.
 To solve this problem:
 
 1. Add Emacs to have Full Disk Access in OSX
-2. Create a mock file in each of these directories, such as: test.md
-3. Click Cmd+O to open a file - inside Emacs.
+2. Create a mock file in each of these directories, such as: *test.md*
+3. Click `Cmd+O` to open a file - inside Emacs.
 4. Open that file in every directory you need access.
 5. DONE.
 
-2. If you're missing a parens somewhere you can simply call M-x and type check-parens and it will show you where the missing parens is.
+2. If you're missing a parens somewhere you can simply call `M-x` and type check-parens and it will show you where the missing parens is.
 
 ## TODO
 
 1. Map CapsLock to Control to avoid Pinky problems in emacs.
-
-
