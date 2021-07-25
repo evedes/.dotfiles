@@ -38,8 +38,9 @@ alias transstop='ssh edo@mozart transmission-remote -n 'transmission:transmissio
 
 # MULTIVERSE
 alias m='code ~/Dropbox/Multiverse/multiverse.code-workspace'
-alias n='code ~/Work/nxt/'
 
+# WORK CODEBASE
+alias n='code ~/Work/nxt/'
 
 # FAMILYTHINGS
 alias ft='code ~/SideProjects/familythings/frontend && code ~/SideProjects/familythings/backend'
