@@ -1,251 +1,186 @@
-# Ubuntu 20.04 Install Log
+# Ubuntu 20.10 Install Log
 
 ### Core Installation / System
 
-## ZSH CONFIG
+1. Open a terminal Window and update the system
 
-1. make sure nerd fonts are installed (hack and sauce code pro)
-1. sudo apt-get update && sudo apt-get upgrade
+    - `sudo apt update`
+    - `sudo apt upgrade`
 
-1.  install zsh
+2. Add Google Account to the Accounts config
+3. Download a fresh a new wallpaper to make you happy! 😄
+4. Open PopShop and Update the system
+5. Download and Install Chrome
+6. Install Visual Studio Code and Enable Sync
+7. Get 1 Password config from Google Drive and Config Chrome
+8. Get ssh folder from Google Drive and Config it
 
-    `sudo apt install zsh`
+    .ssh dir permissions 700
+    files permissions 644
+    private key permission 600
 
-1.  install oh-my-zsh
+9.  Install vim
+    -  `sudo apt install vim`
 
-    clone the repo `git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh`
+10. Install traceroute
+    - `sudo apt install traceroute`
 
-    create a new zsh configuration file or symbolic link to the dotfiles linux one in `~/.dotfile/linux/zshrc/.zshrc`:
-
-    move to your home folder and do one of this two options:
-
-    - create a new: `cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc`
+11. Add MOZART to the /etc/hosts
     
-    - symbolic link `ln -s ~/.dotfiles/linux/zshrc/.zshrc .zshrc`
-    
-    change your default shell: `chsh -s /bin/zsh`
+12. Install Fonts
 
-1. install plugins
+    - clone ryanosasis/nerdfonts from:  `git@github.com:ryanoasis/nerd-fonts.git` or grab it from our mozart folder
+    - Install JetBrainsMono, SourceCodePro, Hack and FiraCode
 
-    - zsh-autosuggestions
+13. Install software from PopShop
+    1.  Discord
+    2.  Slack
+    3.  Spotify
+    4.  Franz
+        1.  Disable Franz Todos
+        2.  Join the Dark Force
+    5.  Uninstall default Software such as Office
+    6.  Gnome Tweaks
 
-    `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+1. Install Gnome Shell Extensions and Shell:
+   - sudo apt install gnome-shell-extensions
+   - sudo apt install chrome-gnome-shell
 
-    - zsh-syntax-highlighting
-
-    `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
-
-    add the two plugins to .zshrc
-
-## SYSTEM CONFIG
-
-1.  Add Online Accounts
-
-1.  Add Fonts
-
-    - create .fonts in your home folder
-
-    - mv fonts there
-
-    - do fc-cache -f -v to use them everywhere
-
-    - install fira code font: `sudo apt install fonts-firacode`
-
-    - install jetbrains
-
-    - install nerd fonts (hack and source)
-
-1.  sudo apt update
-
-1.  sudo apt upgrade
-
-1. config keyboard settings
- 
-`gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30`
-
-`gsettings set org.gnome.desktop.peripherals.keyboard delay 250
-
-1.  Add mozart to /etc/hosts 192.168.1.200
-
-### Applications
-
-1.  sudo apt install vim
-
-1.  sudo dpkg -i chrome (login and sync chrome)
-
-    - config onepassword
-    - enable sync 
-
-1.  sudo apt install emacs
-
-    - add emacs .dotfiles conf
-
-    - sudo apt install openjdk-8-jdk
-
-    - install leiningen
-
-      - copy lein file
-
-      - create lein empty file in /bin and paste content there
-
-      - chmod a+x lein
-
-      - run lein ./lein
-
-    - sudo apt-get install -y sassc
-
-    - M-x all-the-icons-fonts (install fonts)
-
-1.  tweak ubuntu shortcuts
-
-    - close window Shift+Super+q
-    - move window one workspace up Ctrl + Super + Alt + Up
-    - move window one workspace down
-    - disable lock screen
-    - disable log out
-    - disable show all applications
-    - disable show the overview
-    - disable Switch to next/previous input source
-    - hide window Shift+Super+h
-    - move window to other monitors
-        - shift+super+up/down/left/right
-    - move to workspace below/above:
-        - ctrl+alt+up/down
-
-    - gnometweaks -> shortcuts
-
-      -> CapsLock to HyperKey
-
-1.  Discord: `sudo apt install discord`
-
-1.  Download a .deb file for Franz: `sudo dpkg -i franz`
-
-1.  Download a .deb file for Slack: `sudo dpkg -i slack`
-
-1.  sudo apt install curl
-
-1. sudo apt install gnome-shell-extensions
-
-1. sudo apt install chrome-gnome-shell
-
-1. Download a .deb file for Spotify: `sudo dpkg -i spotify`
-
-1. VLC
+2.  Install VLC
 
     - sudo apt install vlc
-
     - sudo apt install vlc-plugin-access-extra libbluray-bdj libdvdcss2
 
-1. Gogh (themes for gnome terminal)
+3.  Install Flameshot:  `sudo apt install flameshot`
+   1. Settings -> Startup
 
-  install: `sudo apt-get install dconf-cli uuid-runtime`
+4.  Configure Workspaces
+    1.  Go to Tweaks -> Workspaces -> Set `Workspaces on primary display only
 
-  run: `bash -c  "$(wget -qO- https://git.io/vQgMr)"`
+5.  Terminal Config
+   2. Go to Preferences
+      1. Create Edo Profile and Set it to be the Default
+      2. Set custom font size to 10
+      3. Install Gogh: `sudo apt-get install dconf-cli uuid-runtime`
+        -   run: `bash -c  "$(wget -qO- https://git.io/vQgMr)"`
 
-1. Guake
+6.  Config keyboard settings
+ 
+    1. `gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30`
+    2. `gsettings set org.gnome.desktop.peripherals.keyboard delay 250`
 
-    - `sudo apt install guake`
+7.  GIT
 
-    Flameshot
-
-    - `sudo apt install flameshot`
-
-1. Grub Customizer
-
-    - `install from software app`
-
-1. Gnome Tweaks from SoftwareApp
-
-    Extensions:
-
-    - dash to dock
-
-    - openweather
-
-    - sound input device chooser
-
-    - user themes
-
-    - gtile
-
-    - check shortcuts / screen dimensions memo
-
-
-1. Add Guake and Flameshot to Startup
-
-1.  Grab .ssh from Google Drive and replace your local .ssh folder:
-
-    Permissions:
-
-    - general permissions 644
-    - id_rsa 600
-    - .ssh folder 700
-
-1. NODEJS
-
-    - sudo apt update
-
-    - sudo apt -y upgrade
-
-    - sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
-
-    - curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-
-    - sudo apt -y install nodejs
-
-    - sudo apt -y install gcc g++ make
-
-    - echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-
-1. YARN
-
-install yarn using npm: 
-
-`sudo npm install --global yarn`
-
-1. Install NVM
-
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+    To set your global username/email configuration:
     
-Add this to your .zshrc (already included in my .zshrc linux dotfile):
+    - Open the command line.
+    - Set your username: `git config --global user.name "FIRST_NAME LAST_NAME"`
+    - Set your email address: `git config --global user.email "MY_NAME@example.com"`
 
-`export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm`
+    Set Vs Code as your main editor: `git config --global core.editor "code --wait"`
 
-### GIT
+    To set repository-specific username/email configuration:
 
-To set your global username/email configuration:
-Open the command line.
+    - from the command line, change into the repository directory:
+      - set your username: `git config user.name "FIRST_NAME LAST_NAME"`
+      - set your email address: `git config user.email "MY_NAME@example.com"`
 
-Set your username:
-git config --global user.name "FIRST_NAME LAST_NAME"
+    Verify your configuration by displaying your configuration file: `cat .git/config`
 
-Set your email address:
-git config --global user.email "MY_NAME@example.com"
 
-Set Vs Code as your main editor: 
-git config --global core.editor "code --wait"
+8.  install docker 
+    - do: `sudo apt install docker-compose`
+    - do: `sudo groupadd docker`
+    - do: `sudo gpasswd -a $USER docker`
+    - do: `newgrp docker`
 
-To set repository-specific username/email configuration:
+9.  Download and install Dropbox
 
-from the command line, change into the repository directory.
 
-Set your username:
-`git config user.name "FIRST_NAME LAST_NAME"`
+10. Install and config ZSH / oh-my-zsh / powerlevel 10k
+    1. sudo apt-get update && sudo apt-get upgrade
 
-Set your email address:
-`git config user.email "MY_NAME@example.com"`
+    2.  install zsh: `sudo apt install zsh`
 
-Verify your configuration by displaying your configuration file:
-`cat .git/config`
+    3.  install oh-my-zsh: 
+      
+        `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
-### DOCKER
+    4. Create a symbolic link to the dotfiles linux one in `~/.dotfile/linux/zshrc/.zshrc`
 
-`sudo apt install docker-compose`
-`sudo groupadd docker`
+       - `ln -s ~/.dotfiles/linux/zshrc/.zshrc .zshrc`
+    
+    5. Change your default shell: `chsh -s /bin/zsh`
 
-`sudo gpasswd -a $USER docker`
-`newgrp docker`
+    6. install plugins
 
-### VSCODE
+       - zsh-autosuggestions
 
-Just go to settings and enable settings sync.
+        `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+
+       - zsh-syntax-highlighting
+
+        `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
+
+    add the two plugins to .zshrc (in case it's not already there)
+
+    1. Install Powerlevel 10k: 
+
+        - `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
+
+        - type reload to issue p10k installer (note: reload is the same as doing `source .zshrc` in your home folder)
+
+
+11. Install NodeJs
+
+- sudo apt update
+- sudo apt -y upgrade
+- sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+- curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+- sudo apt -y install nodejs
+- sudo apt -y install gcc g++ make
+- echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
+
+2. Install NVM
+
+- `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash`
+    
+- Add this to your .zshrc (already included in my .zshrc linux dotfile):
+
+- `export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm`
+
+1. Install Yarn
+
+install yarn using npm:  `sudo npm install --global yarn`
+
+1.  Tweak keyboard shortcuts
+
+    Add: 
+    - Move to workspace above: Ctrl + Alt + Up
+    - Move to workspace below: Ctrl + Alt + Down
+    - Move window to upper workspace: Ctrl + Alt + Super + Up
+    - Move window to lower workspace: Ctrl + Alt + Super + Down
+
+    Remove:
+    - disable lock screen
+    - disable log out
+    - disable Switch to next/previous input source
+
+    Go to Gnome Tweaks -> Shortcuts:
+    - Make Capslock an HyperKey
+
+2. Install Gnome Extensions:
+   - openweather
+   - sound input device chooser
+   - frippery move clock
+
+1. Install Guake:
+   - `sudo apt install guake`
+
+1. Themes
+
+WhiteSur GTK Theme: https://github.com/vinceliuice/WhiteSur-gtk-theme
+WhiteSur Icons: https://github.com/vinceliuice/WhiteSur-icon-theme
+WhiteSur Cursors: https://www.gnome-look.org/p/1411743/
+
