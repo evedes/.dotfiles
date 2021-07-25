@@ -112,22 +112,28 @@ Cua mode gives you the old `C-c` (Copy), `C-x` (Cut) and `C-v` (Paste) behavior 
 
 | Command | What it does                                          |
 | ------- | ----------------------------------------------------- |
-| C-f 	  | Move the cursor forward 1 character               	  |
-| C-b 	  | Move the cursor back 1 character 		  	  |
-| C-n 	  | Move the cursor to the next line (down) 	  	  |
-| C-p 	  | Move the cursor to the previous line (up) 	  	  |
-| M-f 	  | Move the cursor forward 1 word			  |
-| M-b 	  | Move the cursor backward 1 word			  |
-| C-a 	  | Move the cursor to the beginning of the line	  |
-| C-e 	  | Move the cursor to the end of the line		  |
-| M-a 	  | Move the cursor to the beginning of the paragraph 	  |
-| M-e 	  | Move the cursor to the end of the paragraph       	  |
-| C-v 	  | Move the cursor one page down                     	  |
-| M-v 	  | Move the cursor one page up                       	  |
-| M-< 	  | Move the cursor to the beginning of the file      	  |
-| M-> 	  | Move the cursor to the end of the file   	  	  |
-| C-l 	  | Recenter the screen around the current line 	  |
+| C-f     | Move the cursor forward 1 character                   |
+| C-b     | Move the cursor back 1 character                      |
+| C-n     | Move the cursor to the next line (down)               |
+| C-p     | Move the cursor to the previous line (up)             |
+| M-f     | Move the cursor forward 1 word                        |
+| M-b     | Move the cursor backward 1 word                       |
+| C-a     | Move the cursor to the beginning of the line          |
+| C-e     | Move the cursor to the end of the line                |
+| M-a     | Move the cursor to the beginning of the paragraph     |
+| M-e     | Move the cursor to the end of the paragraph           |
+| C-v     | Move the cursor one page down                         |
+| M-v     | Move the cursor one page up                           |
+| M-<     | Move the cursor to the beginning of the file          |
+| M->     | Move the cursor to the end of the file                |
+| C-l     | Recenter the screen around the current line           |
 
+### Editing
+
+| Command       | What it does                           |
+| C-k           | Kill rest of line or one or more lines |
+| C-S-Backspace | Kill an entire line at once            |
+|               |                                        |
 
 ### Emacs Windows
 
@@ -206,6 +212,30 @@ Use forge if you need authentication to github.
 `C-c C-c` - save commit message
 `P` - Push
 `u` - origin/master
+
+## ORG MODE
+
+`Shift+Tab` - Collapse/Expand Headings
+`C-Enter` - Insert a same type heading below the current heading
+`M-Enter` - Insert a same type heading above the current heading
+`M-Up/Down` - Move/Reorganize headings above/below the same type ones
+`C-c C-l` - Add link to a selection
+`C-c C-o` - Open Link in Browser
+`C-c C-x C-b` - Check/uncheck checkboxes
+
+Add code snippets
+
+#+begin_src emacs-lisp
+  (defun my-elisp-func ()
+    (message "Hello!"))
+#+end_src
+
+*TODO*
+Add `TODO` to a Heading to transform it into a TODO
+Toggle status with `C-c C-t` or `S-left` `S-right`
+
+
+
 
 ## TIPS & TRICKS
 
