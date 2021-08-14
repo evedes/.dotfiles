@@ -1,4 +1,6 @@
 {
+    "editor.fontSize": 13,
+    "editor.fontFamily": "'JetBrainsMonoNL Nerd Font Mono', 'JetBrains Mono', 'Fira Code', Menlo, Monaco, 'Courier New', monospace",
     "spellright.language": [
         "English (American)",
         "Portuguese (European)"
