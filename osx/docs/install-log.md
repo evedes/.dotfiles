@@ -179,3 +179,51 @@ If needed: `git config --global url."git@github.com:".insteadOf "https://github.
 
    `brew install clojure/tools/clojure`
 
+
+1. Install jEnv
+   
+   Link to the article: 
+   https://chamikakasun.medium.com/how-to-manage-multiple-java-version-in-macos-e5421345f6d0
+
+   `brew install jenv`
+
+   Add the following to .zshrc
+
+   ```
+      export PATH="$HOME/.jenv/bin:$PATH"
+      eval "$(jenv init -)"
+   ```
+
+   source ~/.zshrc or reload
+
+
+   Run the following commands in the terminal if you're using maven:
+
+   `jenv enable-plugin export`
+   `jenv enable-plugin maven`
+
+   Now let's install java versions (adoptOpenJDK):
+
+   brew install java
+
+   brew install AdoptOpenJDK/openjdk/adoptopenjdk{8,11}
+
+   Configuring JDK Versions with jEnv:
+
+   `/usr/libexec/java_home -V` will list all of your installed JDK versions.
+
+   Add versions to jEnv:
+
+   Use auto-completion (TAB) to do this!
+
+   `jenv add /Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk/Contents/Home`
+
+   Now type `jenv verions` too see available versions.
+
+   Set the system-wide Java version:
+
+   `jenv global 11`
+
+   Sett a project-wide Java version
+
+   `jenv local 11`
