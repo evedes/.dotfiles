@@ -180,7 +180,19 @@ install yarn using npm:  `sudo npm install --global yarn`
 
 1. Themes
 
-WhiteSur GTK Theme: https://github.com/vinceliuice/WhiteSur-gtk-theme
-WhiteSur Icons: https://github.com/vinceliuice/WhiteSur-icon-theme
-WhiteSur Cursors: https://www.gnome-look.org/p/1411743/
+    WhiteSur GTK Theme: https://github.com/vinceliuice/WhiteSur-gtk-theme
+
+    WhiteSur Icons: https://github.com/vinceliuice/WhiteSur-icon-theme
+
+    WhiteSur Cursors: https://www.gnome-look.org/p/1411743/
+
+1. Disable Super+p
+
+    Install `dconf-tools`and run `dconf-editor`
+
+    In the tree on the left navigate to org => gnome => settings-daemon => plugins => xrandr
+
+    Uncheck the active checkbox
+
+    Maybe you should replace shortcut with []
 
