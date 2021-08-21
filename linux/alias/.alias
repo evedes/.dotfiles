@@ -36,28 +36,23 @@ alias tvoff='xrandr --output DisplayPort-0 --mode 3440x1440 --rate 99.98 --outpu
 
 # LIST ALL TORRENTS
 
-alias translist='ssh edo@mozart transmission-remote -n 'transmission:transmission' -l'
+alias translist='ssh edo@mozart transmission-remote -n 'edo:transmission!!' -l'
 
 # BASIC STATS ALL TORRENTS
 
-alias transall='ssh edo@mozart transmission-remote -n 'transmission:transmission' -st'
+alias transall='ssh edo@mozart transmission-remote -n 'edo:transmission!!' -st'
 
 # FULL STATS ALL TORRENTS
 
-alias transfull='ssh edo@mozart transmission-remote -n 'transmission:transmission' -si'
+alias transfull='ssh edo@mozart transmission-remote -n 'edo:transmission!!' -si'
 
 # START ALL TORRENTS
 
-alias transstart='ssh edo@mozart transmission-remote -n 'transmission:transmission' -t all -s'
+alias transstart='ssh edo@mozart transmission-remote -n 'edo:transmission!!' -t all -s'
 
 # STOP ALL TORRENTS
 
-alias transstop='ssh edo@mozart transmission-remote -n 'transmission:transmission' -t all -S'
-
-# MULTIVERSE
-alias m='code ~/Dropbox/Multiverse/multiverse.code-workspace'
-alias n='code ~/Work/nxt/'
-
+alias transstop='ssh edo@mozart transmission-remote -n 'edo:transmission!!' -t all -S'
 
 # FAMILYTHINGS
 alias ft='code ~/SideProjects/familythings/frontend && code ~/SideProjects/familythings/backend'
