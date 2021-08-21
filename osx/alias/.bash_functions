@@ -4,8 +4,8 @@ function dm() {
   echo
   echo "STARTING DOCKER MACHINE..."
   docker-machine start
-  echo
 
+  echo
   echo "---> docker-machine env"
   echo
 
@@ -26,37 +26,4 @@ function ff() {
   rm $1
   rm $2
   echo "Sources Deleted"
-}
-
-function resetnxt() {
-  echo
-  echo "RESETTING NXT..."
-  echo "---> yarn stop"
-  yarn stop
-  echo
-  echo "---> git clean -id"
-  git clean -id
-  echo
-  echo "---> node_modules/.bin/lerna clean"
-  node_modules/.bin/lerna clean
-  echo
-  echo "---> yarn"
-  yarn 
-  echo 
-  echo "---> yarn dev"
-  yarn dev
-
-}
-
-function gum() {
-  echo
-  echo "Changing Directory to ~/Dropbox/Multiverse"
-  cd ~/Dropbox/Multiverse
-  echo "git add ."
-  git add .
-  echo "git commit -m 'update'"
-  git commit -m 'update'
-  echo "git push origin master"
-  git push origin master
-  echo "DONE!"
 }
