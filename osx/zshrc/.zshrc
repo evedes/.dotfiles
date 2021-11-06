@@ -5,10 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#jenv
-#export PATH="$HOME/.jenv/bin:$PATH"
-#  eval "$(jenv init -)"
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -21,8 +17,9 @@ export ZSH="/Users/edo/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-source $ZSH/oh-my-zsh.sh
-source $HOME/.dotfiles/osx/alias/.alias
+#jenv
+#export PATH="$HOME/.jenv/bin:$PATH"
+#  eval "$(jenv init -)"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -92,6 +89,11 @@ plugins=(
 )
 
 # User configuration
+source $ZSH/oh-my-zsh.sh
+source $HOME/.dotfiles/osx/alias/.alias
+
+
+
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
