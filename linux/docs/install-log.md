@@ -52,6 +52,11 @@
     - sudo apt install gnome-shell-extensions
     - sudo apt install chrome-gnome-shell
 
+Disable Super+Q to activate dock hot-keys
+
+`gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys false`
+
+
 15. Install VLC
 
     - sudo apt install vlc
