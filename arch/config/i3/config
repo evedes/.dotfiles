@@ -202,10 +202,10 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id xrandr --output DisplayPort-0 --primary --pos 5280x560 --mode 3440x1440 --rotate normal --output DisplayPort-1 --pos 3840x0 --mode 2560x1440 --rotate right --output HDMI-A-0 --pos 0x0 --mode 3840x2160 --rotate normal
 
 # Set background
-exec --no-startup-id /usr/bin/feh --bg-fill ~/Dropbox/Wallpapers/41.jpg
+exec --no-startup-id /usr/bin/feh --bg-fill ~/Dropbox/Wallpapers/31.png
 
 # Set keyboard rating
-exec --no-startup-id xset r rate 250 100
+exec --no-startup-id xset r rate 200 30
 
 # Set Keyboard to English International
 exec --no-startup-id setxkbmap us -variant intl
