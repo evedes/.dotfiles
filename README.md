@@ -10,7 +10,7 @@ I've merged three repos into this one so expect some turbulence and under constr
 
 [COMMAND LINE ALIAS](/osx/alias/.alias): helpers I want to have at my fingertips
 
-### 02. UBUNTU / POPOS
+### 02. PopOS
 
 [INSTALL LOG](/linux/docs/install-log.md): where I've registered every tweak I've made while installing UBUNTU
 
@@ -18,7 +18,7 @@ I've merged three repos into this one so expect some turbulence and under constr
 
 [VSCODE SHORTCUTS](/linux/docs/vscode-notes.md): where I keep my most used shortcuts registry
 
-### 03. ARCH
+### 03. Arch Linux
 
 Btw, I use Arch!
 

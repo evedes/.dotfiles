@@ -100,7 +100,7 @@
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :init
-  ;; NOTE: Set this to the folder where you keep your Git repos!
+
   (when (file-directory-p "~/OpenSource")
     (setq projectile-project-search-path '("~/OpenSource")))
   (setq projectile-switch-project-action #'projectile-dired))
