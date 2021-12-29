@@ -1,0 +1,49 @@
+version: "3.7"
+services:
+  samba:
+    image: joebiellik/samba-server
+    container_name: samba-home-server
+    volumes:
+      - ./smb.conf:/etc/samba/smb.conf
+      - /media/DISK01:/media/DISK01
+      - /media/DISK02:/media/DISK02
+      - /media/TIMEMACHINE:/media/TIMEMACHINE
+    ports:
+      - "137:137/udp"
+      - "138:138/udp"
+      - "139:139/tcp"
+      - "445:445/tcp"
+    restart: unless-stopped
+    environment:
+      TZ: Europe/Lisbon
+      USERNAME: edo
+      PASSWORD: ${PASSWORD}
+  transmission:
+    image: lscr.io/linuxserver/transmission
+    container_name: transmission-home-server
+    ports:
+      - "9091:9091/tcp"
+      - "51413:51413/tcp"
+      - "51413:51413/udp"
+    tmpfs: 
+      - /tmp
+    volumes:
+      - ./transmission-settings.json:/transmission/config/settings.json
+      - /media/DISK02/torrents/complete:/downloads/complete
+      - /media/DISK02/torrents/incomplete:/downloads/incomplete
+    restart: unless-stopped
+  plex:
+    image: lscr.io/linuxserver/plex
+    container_name: plex-home-server
+    ports:
+      - "32400:32400"
+    # network_mode: host
+    environment:
+      - TZ=Europe/Lisbon
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ./plex_data:/config
+      - /media/DISK02/media:/media
+    restart: unless-stopped
+      
