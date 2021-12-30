@@ -4,6 +4,10 @@ alias cl='clear'
 alias reload='source ~/.zshrc'
 alias theme='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 
+# PBCOPY / PBPASTE
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
 
 # NETWORK PRIORITY
 
