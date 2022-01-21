@@ -7,6 +7,7 @@ services:
       - ./smb.conf:/etc/samba/smb.conf
       - /media/DISK01:/media/DISK01
       - /media/DISK02:/media/DISK02
+      - /media/DISK03:/media/DISK03
       - /media/TIMEMACHINE:/media/TIMEMACHINE
     ports:
       - "137:137/udp"
