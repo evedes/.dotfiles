@@ -42,3 +42,7 @@ alias transstop='ssh edo@mozart transmission-remote -n 'edo:transmission!!' -t a
 
 # FAMILYTHINGS
 alias fp='code ~/SideProjects/famlypad/frontend && code ~/SideProjects/famlypad/backend'
+
+# K8s
+alias k='kubectl'
+alias mk='minikube'
