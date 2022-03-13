@@ -4,12 +4,13 @@ source $HOME/.dotfiles/osx/alias/.bash_functions
 alias cl='clear'
 alias reload="exec ${SHELL} -l"
 alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
+alias x='exit'
 
 # NETWORK PRIORITY
 alias isp='curl ipinfo.io | grep org'
 
 # NODE_MODULES
-alias lsnodemodules='find . -name 'node_modules' -type d -prune'
+alias lsnodemodules='sudo find . -name 'node_modules' -type d -prune'
 alias rmnodemodules='find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +'
 
 # GIT
@@ -22,26 +23,6 @@ alias npmg='npm list -g --depth 0'
 # UTILS
 alias dotfiles='code ~/.dotfiles'
 alias dl='youtube-dl'
-
-# TRANSMISSION
-
-# LIST ALL TORRENTS
-alias translist='ssh edo@mozart transmission-remote -n 'edo:transmission!!' -l'
-
-# BASIC STATS ALL TORRENTS
-alias transall='ssh edo@mozart transmission-remote -n 'edo:transmission!!' -st'
-
-# FULL STATS ALL TORRENTS
-alias transfull='ssh edo@mozart transmission-remote -n 'edo:transmission!!' -si'
-
-# START ALL TORRENTS
-alias transstart='ssh edo@mozart transmission-remote -n 'edo:transmission!!' -t all -s'
-
-# STOP ALL TORRENTS
-alias transstop='ssh edo@mozart transmission-remote -n 'edo:transmission!!' -t all -S'
-
-# FAMILYTHINGS
-alias fp='code ~/SideProjects/famlypad/frontend && code ~/SideProjects/famlypad/backend'
 
 # K8s
 alias k='kubectl'
