@@ -1,1 +1,0 @@
-("~/OpenSource/Frankie/" "~/.dotfiles/")
