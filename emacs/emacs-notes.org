@@ -29,3 +29,13 @@ M-x all-the-icons-install-fonts
 | M-BACKSPACE | Kill back to the beginning of the previous word                                      |
 | C-/         | Undo                                                                                 |
 | C-x u       | Undo                                                                                 |
+
+*Clojure / Lisp Mode*
+
+| Command   | Description |
+| -         | -           |
+| C-Left    |             |
+| C-Right   |             |
+| C-M-Left  |             |
+| C-M-Right |             |
+|           |             |
