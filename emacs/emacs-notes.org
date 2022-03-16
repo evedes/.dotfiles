@@ -2,6 +2,11 @@ TABLE OF CONTENTS
 
 * EMACS
 
+When Emacs is installed in a system it's needed to install fonts
+
+*Execute*
+M-x all-the-icons-install-fonts
+
 | Command     | Description                                                                          |
 | -------     | -----------                                                                          |
 | Up Arrow    | Move cursor one line up                                                              |
@@ -24,6 +29,3 @@ TABLE OF CONTENTS
 | M-BACKSPACE | Kill back to the beginning of the previous word                                      |
 | C-/         | Undo                                                                                 |
 | C-x u       | Undo                                                                                 |
-
-
-

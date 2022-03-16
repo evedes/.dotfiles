@@ -55,3 +55,16 @@
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
   :custom ((doom-modeline-height 15)))
+
+(use-package beacon
+ :config
+ (progn
+   (beacon-mode 1)
+   (setq beacon-size 10)
+   (setq beacon-color "#ca6768")
+   (setq beacon-blink-duration 0.2)
+   (setq beacon-blink-when-window-scrolls t)
+   (setq beacon-blink-when-window-changes t)
+   (setq beacon-blink-when-point-moves-horizontally 20)
+   (setq beacon-blink-when-point-moves-vertically 10)))
+
