@@ -1,16 +1,8 @@
-;; set font sizes
-(defvar efs/default-font-size 145)
-(defvar efs/default-variable-font-size 145)
-
-;; make frame transparency overridable
-(defvar efs/frame-transparency '(90 . 90))
-
 ;; gc
 (setq gc-cons-threshold (* 50 1000 1000))
 
 ;; init package sources
 (require 'package)
-
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			 ("org" . "https://orgmode.org/elpa/")
 			 ("elpa" . "https://elpa.gnu.org/packages/")))
@@ -36,53 +28,6 @@
   :config
   (auto-package-update-maybe)
   (auto-package-update-at-time "8:00"))
-
-;; disable startup message
-(setq inhibit-startup-message t)
-
-;; disable ui stuff
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(tooltip-mode -1)
-(set-fringe-mode 10)
-(menu-bar-mode -1)
-
-(setq visible-bell t) ;; disable beep and enable visual bell
-
-;; add line numbers
-(column-number-mode)
-(global-display-line-numbers-mode t)
-
-;; disable line numbers for certain modes
-(dolist (mode '(org-mode-hook
-		term-mode-hook
-		shell-mode-hook
-		eshell-mode-hook))
-  (add-hook mode (lambda () (display-line-numbers-mode 0))))
-
-;; Set frame transparency
-(set-frame-parameter (selected-frame) 'alpha efs/frame-transparency)
-(add-to-list 'default-frame-alist `(alpha . ,efs/frame-transparency))
-;; (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
-;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-;; Set fonts
-(set-face-attribute 'default nil :font "JetBrainsMonoMedium NF" :height efs/default-font-size)
-(set-face-attribute 'fixed-pitch nil :font "JetBrainsMonoMedium NF" :height efs/default-font-size)
-(set-face-attribute 'variable-pitch nil :font "JetBrainsMonoMedium NF" :height efs/default-variable-font-size :weight 'regular)
-
-;; Make ESC quit prompts
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-
-;; themes
-(use-package doom-themes
-  :init (load-theme 'doom-one t))
-
-(use-package all-the-icons)
-
-(use-package doom-modeline
-  :init (doom-modeline-mode 1)
-  :custom ((doom-modeline-height 15)))
 
 (use-package which-key
   :defer 0
@@ -133,17 +78,6 @@
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
 
-;; (use-package general
-;;   :config
-;;  (general-create-definer efs/leader-keys
-;;    :keymaps '(normal insert visual emacs)
-;;    :prefix "SPC"
-;;    :global-prefix "C-SPC")
-;;  (efs/leader-keys
-;;    "t"  '(:ignore t :which-key "toggles")
-;;    "tt" '(counsel-load-theme :which-key "choose theme")
-;;    "fde" '(lambda () (interactive) (find-file (expand-file-name "~/.emacs.d/Emacs.org")))))
-
 (use-package projectile
   :diminish projectile-mode
   :config (projectile-mode)
@@ -164,8 +98,26 @@
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
 
+;; no need for ~backup files when editing
+(setq create-lockfiles nil)
+
+;; coding packages
+(use-package paredit) ;; makes handling lisp expressions much easier
+(use-package clojure-mode) ;; key bindings and code colorization for clojure
+(use-package clojure-mode-extra-font-locking) ;; extra syntax highlighting for clojure
+(use-package cider) ;; integration with a clojure REPL
+(use-package tagedit) ;; edit html tags like sexps
+
+;; https://github.com/abo-abo/ace-window
+(use-package ace-window) ;; makes handling shortcuts easier 
+
+;; load other files
+(add-to-list 'load-path "~/.emacs.d/customizations")
+(load "ui.el")
+(load "elisp-editing.el")
+(load "editing.el")
+(load "clojure.el")
+
 ;; gc
 (setq gc-cons-threshold (* 2 1000 1000))
-
-;; UNDOTREE
 
