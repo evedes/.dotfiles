@@ -68,3 +68,5 @@
    (setq beacon-blink-when-point-moves-horizontally 20)
    (setq beacon-blink-when-point-moves-vertically 10)))
 
+;; replace buffer with ibuffer
+(global-set-key (kbd "C-x C-b") #'ibuffer)

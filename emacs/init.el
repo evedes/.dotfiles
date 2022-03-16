@@ -101,6 +101,12 @@
 ;; no need for ~backup files when editing
 (setq create-lockfiles nil)
 
+;; store all backup and autosave files in the tmp dir
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
 ;; coding packages
 (use-package paredit) ;; makes handling lisp expressions much easier
 (use-package clojure-mode) ;; key bindings and code colorization for clojure
@@ -120,4 +126,6 @@
 
 ;; gc
 (setq gc-cons-threshold (* 2 1000 1000))
-
+;;
+;;
+;;
