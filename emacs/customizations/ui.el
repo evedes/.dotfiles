@@ -1,3 +1,4 @@
+(provide 'ui)
 ;; set font sizes
 (defvar efs/default-font-size 135)
 (defvar efs/default-variable-font-size 135)
@@ -44,7 +45,7 @@
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 ;; Changes all yes/no questions to y/n type
-(fset 'yesr-or-no-p 'y-or-n-p)
+(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; themes
 (use-package doom-themes

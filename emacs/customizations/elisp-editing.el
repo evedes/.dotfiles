@@ -1,3 +1,4 @@
+(provide 'elisp-editing)
 ;; automatically load paredit when editing a lisp file
 ;; more at http://www.emacswiki.org/emacs/ParEdit
 
