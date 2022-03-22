@@ -27,3 +27,17 @@ alias dl='youtube-dl'
 # K8s
 alias k='kubectl'
 alias mk='minikube'
+
+# FOLDERS
+
+## WORK
+alias idm='cd ~/Work/idm'
+alias dms='cd ~/Work/dms'
+alias frankie='cd ~/OpenSource/Frankie'
+alias dt='cd ~/Work/deployer'
+alias pv='cd ~/Work/package-viewer
+
+## PERSONAL
+alias ts='cd ~/SideProjects/twitter-scheduler'
+alias wcc='cd ~/SideProjects/we-craft-code'
+alias fp='cd ~/SideProjects/famlypad'
