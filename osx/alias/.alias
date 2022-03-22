@@ -35,7 +35,7 @@ alias idm='cd ~/Work/idm'
 alias dms='cd ~/Work/dms'
 alias frankie='cd ~/OpenSource/Frankie'
 alias dt='cd ~/Work/deployer'
-alias pv='cd ~/Work/package-viewer
+alias pv='cd ~/Work/package-viewer'
 
 ## PERSONAL
 alias ts='cd ~/SideProjects/twitter-scheduler'
