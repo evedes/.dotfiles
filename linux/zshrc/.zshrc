@@ -124,3 +124,4 @@ source $HOME/.dotfiles/linux/alias/.bash_functions
 
 # DIRENV
 eval "$(direnv hook zsh)"
+source <(kubectl completion zsh)
