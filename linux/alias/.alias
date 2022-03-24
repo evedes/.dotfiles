@@ -2,7 +2,9 @@
 
 alias cl='clear'
 alias reload='source ~/.zshrc'
+alias r='source ~/.zshrc'
 alias theme='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
+alias x='exit'
 
 # PBCOPY / PBPASTE
 alias pbcopy='xclip -selection clipboard'
@@ -22,44 +24,17 @@ alias gsl="git stash list"
 
 # NPM 
 
-alias npm-list='npm list -g --depth 0'
-
-# LAUNCH VPN
-
-alias vpn='sudo openvpn --client --config ~/Utils/nxt-vpn/client.conf'
-
-# UTILS
-
-# SCREEN MANAGEMENT
-
-alias mainmon='xrandr --output DisplayPort-0 --mode 3440x1440 --rate 99.98 --output DisplayPort-1 --off --output HDMI-A-0 --off'
-alias allmon='xrandr --output DisplayPort-0 --mode 3440x1440 --rate 99.98 --output DisplayPort-1 --left-of DisplayPort-0 --mode 2560x1440 --rate 59.95 --rotate right --output HDMI-A-0  --above DisplayPort-0 --mode 3840x2160 --rate 60.00'
-alias tvoff='xrandr --output DisplayPort-0 --mode 3440x1440 --rate 99.98 --output DisplayPort-1 --left-of DisplayPort-0 --mode 2560x1440 --rate 59.95 --rotate right --output HDMI-A-0 --off'
-
-#TRANSMISSION
-
-# LIST ALL TORRENTS
-
-alias translist='ssh edo@mozart transmission-remote -n 'edo:transmission!!' -l'
-
-# BASIC STATS ALL TORRENTS
-
-alias transall='ssh edo@mozart transmission-remote -n 'edo:transmission!!' -st'
-
-# FULL STATS ALL TORRENTS
-
-alias transfull='ssh edo@mozart transmission-remote -n 'edo:transmission!!' -si'
-
-# START ALL TORRENTS
-
-alias transstart='ssh edo@mozart transmission-remote -n 'edo:transmission!!' -t all -s'
-
-# STOP ALL TORRENTS
-
-alias transstop='ssh edo@mozart transmission-remote -n 'edo:transmission!!' -t all -S'
+alias npmg='npm list -g --depth 0'
 
 # FAMILYTHINGS
 alias ft='code ~/SideProjects/familythings/frontend && code ~/SideProjects/familythings/backend'
+
+# WORK
+alias idm='cd ~/Work/idm'
+alias dms='cd ~/Work/dms'
+alias pv='cd ~/Work/package-viewer'
+alias dt='cd ~/Work/deployer'
+alias she='cd ~/Work/shearer'
 
 # K8S
 alias k=kubectl

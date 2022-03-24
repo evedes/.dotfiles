@@ -56,7 +56,6 @@ Disable Super+Q to activate dock hot-keys
 
 `gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys false`
 
-
 15. Install VLC
 
     - sudo apt install vlc
@@ -190,8 +189,7 @@ install yarn using npm: `sudo npm install --global yarn`
     - sound input device chooser
 
 3.  Install Guake:
-
-    - `sudo apt install guake`
+    ;; - `sudo apt install guake`
 
 4.  Themes
 
@@ -208,24 +206,28 @@ install yarn using npm: `sudo npm install --global yarn`
 6.  Configure GTile
 
     Basics: Disable Global resize presets
-    Accelerators:
-    j ; k l h ' r v q w e z x c [ ]
 
-    Resize presets:
-
-    4x4 0:0 1:3
-    4x4 2:0 3:3
-    3x2 0:0 1:1
-    3x2 1:0 2:1
-    3x2 0:0 0:1
-    3x2 2:0 2:1
-    4x4 0:0 3:1
-    4x4 0:2 3:3
-    3x2 0:0 0:0
-    3x2 1:0 1:0
-    3x2 2:0 2:0
-    3x2 0:1 0:1
-    3x2 1:1 1:1
-    3x2 2:1 2:1
-    3x2 0:0 2:1
-    3x2 1:0 1:1
+    j 4x4 1:1 2:4
+    ; 4x4 3:1 4:4
+    k 3x2 1:1 2:2
+    l 3x2 2:1 3:2
+    h 3x2 1:1 1:2
+    ´ 3x2 3:1 3:2
+    r 4x4 1:1 4:2
+    v 4x4 1:3 4:4
+    ] 4x4 1:1 4:4
+    [ 3x2 2:1 2:4
+    q 3x2 1:1 1:1
+    w 3x2 2:1 2:1
+    e 3x2 3:1 3:1
+    z 3x2 1:2 1:2
+    x 3x2 2:2 2:2
+    c 3x2 3:2 3:2
+    u 4x4 1:1 2:2
+    p 4x4 3:1 4:2
+    m 4x4 1:3 2:4
+    / 4x4 3:3 4:4
+    i 3x2 1:1 2:1
+    o 3x2 2:1 3:1
+    , 3x2 1:2 2:2
+    . 3x2 2:2 3:2
