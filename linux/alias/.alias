@@ -2,7 +2,7 @@
 
 alias cl='clear'
 alias reload='source ~/.zshrc'
-alias r='source ~/.zshrc'
+alias re='source ~/.zshrc'
 alias theme='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 alias x='exit'
 
@@ -35,6 +35,11 @@ alias dms='cd ~/Work/dms'
 alias pv='cd ~/Work/package-viewer'
 alias dt='cd ~/Work/deployer'
 alias she='cd ~/Work/shearer'
+
+# DOCKER
+alias dps='docker ps'
+alias dpa='docker ps -a'
+alias dcd='docker-compose down'
 
 # K8S
 alias k=kubectl
