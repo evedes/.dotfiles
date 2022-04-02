@@ -40,9 +40,10 @@ alias frankie='cd ~/OpenSource/Frankie'
 alias dt='cd ~/Work/deployer'
 alias pv='cd ~/Work/package-viewer'
 alias she='cd ~/Work/shearer'
-alias ss='cd ~/Work˜store-screen'
+alias ss='cd ~/Work/store-screen'
 
 ## PERSONAL
 alias ts='cd ~/SideProjects/twitter-scheduler'
 alias wcc='cd ~/SideProjects/we-craft-code'
 alias fp='cd ~/SideProjects/famlypad'
+
