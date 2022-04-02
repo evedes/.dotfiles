@@ -3,6 +3,7 @@ source $HOME/.dotfiles/osx/alias/.bash_functions
 # SYSTEM
 alias cl='clear'
 alias reload="exec ${SHELL} -l"
+alias r="exec ${SHELL} -l"
 alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
 alias x='exit'
 
@@ -28,7 +29,9 @@ alias dl='youtube-dl'
 alias k='kubectl'
 alias mk='minikube'
 
-# FOLDERS
+# DOCKER
+alias dpa='docker ps -a'
+alias dps='docker ps'
 
 ## WORK
 alias idm='cd ~/Work/idm'
@@ -36,6 +39,8 @@ alias dms='cd ~/Work/dms'
 alias frankie='cd ~/OpenSource/Frankie'
 alias dt='cd ~/Work/deployer'
 alias pv='cd ~/Work/package-viewer'
+alias she='cd ~/Work/shearer'
+alias ss='cd ~/Work˜store-screen'
 
 ## PERSONAL
 alias ts='cd ~/SideProjects/twitter-scheduler'
