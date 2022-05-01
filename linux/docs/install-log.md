@@ -27,8 +27,7 @@
 
     - `sudo apt install traceroute`
 
-11. Add MOZART to the /etc/hosts
-12. Install Fonts
+11. Install Fonts
 
     - clone ryanosasis/nerdfonts from: `git@github.com:ryanoasis/nerd-fonts.git` or grab it from our mozart folder
     - Install JetBrainsMono, SourceCodePro, Hack and FiraCode
@@ -36,7 +35,7 @@
     Move fonts to ~/.fonts
     Run fc-cache -f -v to install them
 
-13. Install software from PopShop
+12. Install software from PopShop
 
     1. Discord
     2. Slack
@@ -44,10 +43,11 @@
     4. Franz
        1. Disable Franz Todos
        2. Join the Dark Force
-    5. Uninstall default Software such as Office
-    6. Gnome Tweaks
+    5. Telegram
+    6. Uninstall default Software such as Office
+    7. Gnome Tweaks
 
-14. Install Gnome Shell Extensions and Shell:
+13. Install Gnome Shell Extensions and Shell:
 
     - sudo apt install gnome-shell-extensions
     - sudo apt install chrome-gnome-shell
@@ -143,22 +143,10 @@ Disable Super+Q to activate dock hot-keys
 
        - type reload to issue p10k installer (note: reload is the same as doing `source .zshrc` in your home folder)
 
-26. Install NodeJs
-
-- sudo apt update
-- sudo apt -y upgrade
-- sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
-- curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-- sudo apt -y install nodejs
-- sudo apt -y install gcc g++ make
-- echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-
-2. Install NVM
+26. Install NVM
 
 - `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash`
-- Add this to your .zshrc (already included in my .zshrc linux dotfile):
-
-- `export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm`
+- Add this to your .zshrc (already included in my .zshrc linux dotfile): `export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm`
 
 1. Install Yarn
 
@@ -188,10 +176,7 @@ install yarn using npm: `sudo npm install --global yarn`
     - openweather
     - sound input device chooser
 
-3.  Install Guake:
-    ;; - `sudo apt install guake`
-
-4.  Themes
+3.  Themes
 
     WhiteSur GTK Theme: https://github.com/vinceliuice/WhiteSur-gtk-theme
 
@@ -199,13 +184,14 @@ install yarn using npm: `sudo npm install --global yarn`
 
     WhiteSur Cursors: https://www.gnome-look.org/p/1411743/
 
-5.  Disable Super+p
+4.  Disable Super+p
 
     https://askubuntu.com/questions/68463/how-to-disable-global-super-p-shortcut
 
-6.  Configure GTile
+5.  Configure GTile
 
     Basics: Disable Global resize presets
+    Grid Sizes: 8x8,4x4,3x2
 
     j 4x4 1:1 2:4
     ; 4x4 3:1 4:4
