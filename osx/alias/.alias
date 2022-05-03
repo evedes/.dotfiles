@@ -32,6 +32,7 @@ alias mk='minikube'
 # DOCKER
 alias dpa='docker ps -a'
 alias dps='docker ps'
+alias dcd='docker-compose down'
 
 ## WORK
 alias idm='cd ~/Work/idm'
