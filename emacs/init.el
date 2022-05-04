@@ -118,6 +118,7 @@
 (require 'editing)
 (require 'clojure)
 
+
 ;; stash backup files to ~/.emacs.d/backups
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 
