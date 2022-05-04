@@ -1,4 +1,5 @@
 (provide 'ui)
+
 ;; set font sizes
 (defvar efs/default-font-size 135)
 (defvar efs/default-variable-font-size 135)
@@ -35,7 +36,7 @@
 (add-to-list 'default-frame-alist `(alpha . ,efs/frame-transparency))
 ;; (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
 ;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
-
+;
 ;; Set fonts
 (set-face-attribute 'default nil :font "JetBrainsMonoMedium Nerd Font" :height efs/default-font-size)
 (set-face-attribute 'fixed-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height efs/default-font-size)
@@ -55,7 +56,8 @@
 
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
-  :custom ((doom-modeline-height 15)))
+  :custom ((doom-modeline-heig;ht 15
+            )))
 
 (use-package magit
   :commands magit-status
@@ -67,7 +69,6 @@
 ;; - https://magit.vc/manual/ghub/Getting-Started.html#Getting-Started
 (use-package forge
   :after magit)
-
 
 (use-package beacon
  :config

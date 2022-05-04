@@ -1,0 +1,135 @@
+#+title: EMACS ORG FILE
+#+author: Eduardo Vedes
+#+date: 2022-05-04
+
+
+* EMACS
+"My adventure Learning Emacs and Everything Lispian"
+
+** FLEETING NOTES
+
+##  How to get info about a function?
+M-x describe function RET
+and then enter the name of the function you want to know about
+
+** GENERAL NOTES
+
+** EMACS MANUAL NOTES
+
+## MAJOR MODES
+
+Every buffer processes a major mode.
+This determines the behavior of Emacs while in that buffer.
+The mode line usually shows the name of the current major mode. 
+
+The least specialized major mode is called *Fundamental model*
+This mode has no mode-specific redefinitions or variable settings.
+
+Most major modes fall into three major groups.
+The first group contains modes for normal text, either plain or with mark-up (text, html, sgml, tex, outline).
+The second group contains modes for specific programming languages (Lisp, C, Fortran, others)
+
+The third group consists of major modes that are not associated directly with files; they are used in buffers created for specific purposes by Emacs.
+
+Examples include:
+  - Dired mode for buffers made by Dired
+  - Message mode for buffers made by C-x m
+  - Shell mode for buffers used to communicate with an inferior shell process.
+
+Emacs usually sets the major mode automatically, when you first visit a file or create a buffer.
+You can switch to another mode by using an M-x command.
+Press M-x and then write the name of the mode followed by -mode.
+There's noway to "turn off" a major mode. Instead you must switch to a different one.
+
+The default of major-mode determines the major mode to use for files that do not specify a major mode, and for new buffers created with C-x b.
+
+More about Major Modes [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Major-Modes.html#:~:text=It%20includes%20Text%20mode%2C%20HTML,%2C%20Fortran%20mode%2C%20and%20others][here]].
+
+** ORG MODE
+
+*** How to add a literal Example
+
+Make sure what you want to write is wrapped in
+
+#+BEGIN_EXAMPLE
+  something something
+#+END_EXAMPLE
+
+*** How to write a link.
+
+#+BEGIN_EXAMPLE
+ [[LINK][DESCRIPTION]]
+#+END_EXAMPLE
+
+You can also do C-c C-l
+
+# SYSTEM CRAFTERS
+
+*** How to open a link
+
+Put your cursor on top of the link and hit C-c C-o
+
+*** How to toggle all Headings
+
+You just need to press Shift+Tab
+
+*** How to toggle just one Heading
+
+Just press Tab on top of that heading
+
+*** How to create a new Heading of a type
+Put the cursor on top or below of the heading you want to replicate, i.e: a 3 start heading, and press C+RET.
+
+
+
+*** How to create a table
+
+
+| Name      | Age | Use Emacs |
+| -         |   - | -         |
+| David     |  37 | Yes       |
+| Edo       |  42 | Yes       |
+| John      |  21 | No        |
+| Alexander |  52 | No        |
+
+Tables ajust automatically, when you press TAB
+
+*** How to create a bulleted / numbered list / checklist
+
+  - [X] First Item      
+  - [ ] Second Item
+  - [X] Third Item
+ 
+You can check/uncheck an item running C-c C-x C-b
+You can hit Shift+Alt+Enter to add more checkboxes
+
+*** How to add a code block
+
+#+begin_src emacs-lisp
+(defun my-elisp-func ()
+    (message "Hello, world!"))
+#+end_src
+
+*** How to add a TODO
+
+Orgmode comes with two states: TODO and DONE
+You can add more states.
+
+**** TODO Do something great!
+
+You can toggle a todo with C-c C-t or with Shift+Right while in the TODO line.
+
+
+** WATCHED VIDEOS
+
+### Emacs from Scratch #1 - Getting Started with a Basic Configuration
+### Emacs from Scratch #2 - Helpful UI Tweaks
+### Emacs from Scratch #3 - Key Bindings and Evil
+### Emacs from Scratch #4 - Projectile and Magit
+### Emacs from Scratch #5 - Org Mode Basics
+
+### 5 Reasons to Learn Emacs in 2021
+
+If you want to go *really* far, install EXWM on Linux!
+It creates a complete desktop environment using EXWM on Linux.
+With org-mode you can do spreadsheets, or configure your entire system.

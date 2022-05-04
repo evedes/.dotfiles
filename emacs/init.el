@@ -117,7 +117,7 @@
 (require 'elisp-editing)
 (require 'editing)
 (require 'clojure)
-
+(require 'orgmode)
 
 ;; stash backup files to ~/.emacs.d/backups
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
@@ -236,3 +236,18 @@
   :after (treemacs)
   :ensure t
   :config (treemacs-set-scope-type 'Tabs))
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(visual-fill-column which-key vterm use-package treemacs-tab-bar treemacs-projectile treemacs-persp treemacs-magit treemacs-icons-dired treemacs-evil tagedit rainbow-delimiters paredit org-bullets ivy-rich helpful forge eterm-256color eshell-git-prompt doom-themes doom-modeline counsel-projectile command-log-mode clojure-mode-extra-font-locking cider beacon auto-package-update)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
