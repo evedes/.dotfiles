@@ -37,9 +37,9 @@
 ;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; Set fonts
-(set-face-attribute 'default nil :font "JetBrainsMonoMedium Nerd Font" :height efs/default-font-size)
-(set-face-attribute 'fixed-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height efs/default-font-size)
-(set-face-attribute 'variable-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height efs/default-variable-font-size :weight 'regular)
+(set-face-attribute 'default nil :font "JetBrainsMono Nerd Font Mono" :height efs/default-font-size)
+(set-face-attribute 'fixed-pitch nil :font "JetBrainsMono Nerd Font Mono" :height efs/default-font-size)
+(set-face-attribute 'variable-pitch nil :font "JetBrainsMono Nerd Font Mono" :height efs/default-variable-font-size :weight 'regular)
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
