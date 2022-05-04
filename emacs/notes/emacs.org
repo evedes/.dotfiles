@@ -12,6 +12,25 @@
 M-x describe function RET
 and then enter the name of the function you want to know about
 
+** SHORTCUTS
+
+| Command            | Description                                     |
+| -                  | -                                               |
+| C-p or Up Arrow    | Move cursor one line up                         |
+| C-n or Down Arrow  | Move cursor one line down                       |
+| C-b or Left Arrow  | Move cursor back                                |
+| C-f or Right Arrow | Move cursor forward                             |
+| M-<                | Move cursor to the beginning of the file        |
+| M->                | Move cursor to the end of the file              |
+| C-l                | Scroll current line to center                   |
+| C-d or DEL         | Delete the character after the cursor           |
+| BACKSPACE          | Delete the character before the cursor          |
+| C-k                | Kill to the end of the line                     |
+| M-d                | Kill forward till the end of the next word      |
+| M-DEL              | Kill back to the beginning of the previous word |
+| M-BACKSPACE        | Kill back to the beginning of the previous word |
+|                    |                                                 |
+
 ** GENERAL NOTES
 
 ** EMACS MANUAL NOTES
