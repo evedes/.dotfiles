@@ -1,0 +1,374 @@
+#+title: EMACS ORG FILE
+#+author: Eduardo Vedes
+#+date: 2022-05-04
+
+
+* EMACS
+"My adventure Learning Emacs and Everything Lispian"
+
+** FLEETING NOTES
+
+*** How to get info about a function?
+M-x describe function RET
+and then enter the name of the function you want to know about
+
+
+** SHORTCUTS
+
+| Command            | Description                                     |
+| -                  | -                                               |
+| C-p or Up Arrow    | Move cursor one line up                         |
+| C-n or Down Arrow  | Move cursor one line down                       |
+| C-b or Left Arrow  | Move cursor back                                |
+| C-f or Right Arrow | Move cursor forward                             |
+| M-<                | Move cursor to the beginning of the file        |
+| M->                | Move cursor to the end of the file              |
+| C-l                | Scroll current line to center                   |
+| C-d or DEL         | Delete the character after the cursor           |
+| BACKSPACE          | Delete the character before the cursor          |
+| C-k                | Kill to the end of the line                     |
+| M-d                | Kill forward till the end of the next word      |
+| M-DEL              | Kill back to the beginning of the previous word |
+| M-BACKSPACE        | Kill back to the beginning of the previous word |
+| C-x 0              | Delete window                                   |
+| C-x 1              | Delete other windows                            |
+| C-x 2              | Split window below                              |
+| C-x 3              | Split window right                              |
+| C-c C-c            | Run a code block                                |
+| C-c C-l            | Create a link                                   |
+| C-c C-o            | Open a link                                     |
+
+** GENERAL NOTES
+
+Emacs is for unicorns, which means "Unique Organizers". That's the why of the unicorn symbol
+
+** EMACS MANUAL NOTES
+
+## MAJOR MODES
+
+Every buffer processes a major mode.
+This determines the behavior of Emacs while in that buffer.
+The mode line usually shows the name of the current major mode. 
+
+The least specialized major mode is called *Fundamental model*
+This mode has no mode-specific redefinitions or variable settings.
+
+Most major modes fall into three major groups.
+The first group contains modes for normal text, either plain or with mark-up (text, html, sgml, tex, outline).
+The second group contains modes for specific programming languages (Lisp, C, Fortran, others)
+
+The third group consists of major modes that are not associated directly with files; they are used in buffers created for specific purposes by Emacs.
+
+Examples include:
+  - Dired mode for buffers made by Dired
+  - Message mode for buffers made by *C-x m*
+  - Shell mode for buffers used to communicate with an inferior shell process.
+
+Emacs usually sets the major mode automatically, when you first visit a file or create a buffer.
+You can switch to another mode by using an M-x command.
+Press M-x and then write the name of the mode followed by -mode.
+There's noway to "turn off" a major mode. Instead you must switch to a different one.
+
+The default of major-mode determines the major mode to use for files that do not specify a major mode, and for new buffers created with C-x b.
+
+More about Major Modes [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Major-Modes.html#:~:text=It%20includes%20Text%20mode%2C%20HTML,%2C%20Fortran%20mode%2C%20and%20others][here]].
+
+** EMACS PACKAGES
+
+*** PROJECTILE
+
+**** How to switch project?
+
+Hit *'C-p p'* to see the list of the projects
+Hit *'C-p p f'* to find a file inside the projects folders
+
+*** IBUFFER
+
+**** How to open IBuffer?
+Hit *C-x C-b*
+
+**** How to kill a Buffer?
+If you just want to kill one buffer, press *x* over the buffer line.
+
+If you want to kill more than one buffer, position the cursor in the line of the buffer and mark it with *d* 
+
+To unmark you can hit *u*
+When all your buffers are correctly marked, hit *x* to commit changes.
+
+
+
+** ORG MODE
+
+*** How to add a literal Example?
+
+Make sure what you want to write is wrapped in
+
+#+BEGIN_EXAMPLE
+  something something
+#+END_EXAMPLE
+
+*** How to write a link?
+
+#+BEGIN_EXAMPLE
+ [[LINK][DESCRIPTION]]
+#+END_EXAMPLE
+
+You can also do *C-c C-l*
+
+# SYSTEM CRAFTERS
+
+*** How to open a link?
+
+Put your cursor on top of the link and hit *C-c C-o*
+
+*** How to toggle all Headings?
+
+You just need to press *Shift+Tab*
+
+*** How to toggle just one Heading?
+
+Just press *Tab* on top of that heading
+
+*** How to create a new Heading of a type?
+Put the cursor on top or below of the heading you want to replicate, i.e: a 3 start heading, and press *C+RET*.
+
+
+
+*** How to create a table?
+
+
+| Name      | Age | Use Emacs |
+| -         |   - | -         |
+| David     |  37 | Yes       |
+| Edo       |  42 | Yes       |
+| John      |  21 | No        |
+| Alexander |  52 | No        |
+
+Tables ajust automatically, when you press *TAB*
+
+*** How to create a bulleted / numbered list / checklist?
+
+  - [X] First Item      
+  - [ ] Second Item
+  - [X] Third Item
+ 
+You can check/uncheck an item running *C-c C-x C-b*
+You can hit *Shift+Alt+Enter* to add more checkboxes
+
+*** How to add a code block?
+
+#+begin_src emacs-lisp
+(defun my-elisp-func ()
+    (message "Hello, world!"))
+#+end_src
+
+*** How to add a TODO?
+
+Orgmode comes with two states: TODO and DONE
+You can add more states.
+
+**** TODO Do something great!
+
+You can toggle a todo with *C-c C-t* or with *Shift+Right* while in the TODO line.
+
+** ORGANIZING YOUR LIFE WITH ORGMODE
+
+## AGENDA
+[[https://orgmode.org/manual/Agenda-Commands.html][Commands in the Agenda Buffer]]
+
+*** How to Open the Agenda?
+
+*M-x org-agenda*
+Pick *a*, which means Agenda for current week or day
+
+*** How to quit Agenda?
+
+Just press *q*
+
+*** How to schedule a Task?
+
+Put the cursor on the task line
+Do *M-x org-schedule*, or *C-c C-s*
+A calendar will appear, and you can move with *Shift+Arrow Keys*
+
+*** How to add a deadline to a Task?
+
+Put the cursor on the task line
+Do *M-x org-deadline*, or *C-c C-d*
+A calendar will appear, and you can move with *Shift+Arrow Keys*
+
+There's a variable called org-deadline-warning-days (check it with describe variable)
+
+*** Mark a task as Done
+
+Simply go to the task line and press Shift+Left till DONE is toggled.
+
+*** Check all Scheduled Tasks
+
+*M-x org-agenda* to open it
+Press *t* to get the list of all TODO entries
+Use *N r* to filter 0 ALL, 1 TODO, 2 DONE
+
+*** Schedule a Birthday
+
+*M-x org-time-stamp*, or *C-c .*
+
+For birthdays to repeat, you can set +1y
+i.e.: André Jonas <1990-04-29 Fri +1y>
+
+*** How to add a Tag?
+*M-x counsel-org-tag*, and insert the tag name
+
+You can also go to the line of the task you want to add the tag and hit *C-c C-q*
+
+When you apply a tag, you can hit *RET* to close immediately the menu, org hit *M-RET* to keep adding more tags.
+
+Note that in the orgmode.el config, you can define filtering by tags that exclude others.
+i.e:
+
+("W" "Work Tasks" tags-todo "+work") ;; will show all tasks that include the tag work
+("W" "Work Tasks" tags-todo "+work-email) ;; will show all tasks that include the tag work and don't include the tag email
+
+*** How to capture an idea?
+
+Doesn't matter in which file you are, just do *M-x org-capture* and then press *tt* to capture a TODO to the tasks.org file.
+
+You can also use it for journaling. Instead of *tt* press *jj* and it will be added to the journal.org file. It can capture many entries per day and keep it sorted.
+
+You can also capture metrics. Check how it's configured on the *orgmode.el* file and you can improve it from there.
+
+*** How to add an Habit?
+
+Create a todo in the habits.org file and schedule it.
+Set style with *M-x org-set-property*, or *C-c C-x p*
+Set *style* and then *habit*
+
+** ORG BABEL
+
+OrgBabel allows to add code blocks inside your org files, and execute them, or export the blocks into other files.
+
+*** How to run a src block?
+
+Type *M-x org-babel-execute-src-block* or *C-c C-c* on top of the block you want to execute.
+
+#+begin_src emacs-lisp :results value
+
+(message "Hello, World!")
+
+#+end_src
+
+#+RESULTS:
+: Hello, World!
+
+#+begin_src emacs-lisp
+
+(org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+      (python . t)))
+
+(setq org-confirm-babel-evaluate nil)
+
+#+end_src
+
+#+RESULTS:
+
+
+*** Structure Templates
+
+#+begin_src emacs-lisp
+
+ ;; This is needed as of Org 9.2
+ (require 'org-tempo)
+
+ (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+ (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+ (add-to-list 'org-structure-template-alist '("py" . "src python"))
+
+#+end_src
+
+With structure templates, you can type <el + TAB and it automatically creates an emacs-lisp source block.
+
+You can check all the languages Babel supports [[https://orgmode.org/worg/org-contrib/babel/languages/index.html][here.]]
+
+*** How to set an Emacs configuration file using OrgMode?
+
+You can create a config file named, i.e.: emacs.org
+
+You can create config code blocks in an emacs lisp template, which you can create with *<el + TAB*
+
+You can *tangle* the src block. This means "take all the blocks in this file and write them out to the files where they belong in the filesystem.
+
+Just run *M-x org-babel-tangle*
+
+You can set the tangle definition by source block, or at the end of the file.
+In a src block: *#+begin_src emacs-lisp :tangle ./init-new.el*
+
+At the top of the file:
+*#+PROPERTY: header-args:emacs-lisp :tangle ./init-new.el*
+
+*** How to output all the blocks of your configuration files automatically?
+
+#+begin_src emacs-lisp
+
+(org-babel-tangle)
+(org-babel-tangle-file "~/Projects/Code/emacs-from-scratch/Emacs.org")
+
+#+end_src
+
+Please check the *notes/emacs.org* file to see how an *Auto-tangle Confuration is done*
+Check that we add an hook for org mode. Anytime a orgmode buffer is open, this hook is gonna be fired.
+
+*** Different feature / Config nuances
+
+I didn't write this example, but in the future it is somethigng really interesting to explore. 
+
+Just search for the *:noweb yes* mark
+
+
+** BUFFER LISTS WITH PERSPECTIVE.EL
+
+[[https://www.youtube.com/watch?v=uyMdDzjQFMU&list=PLEoMzSkcN8oOP5WgckTbERn10CXxIFneB][Check David Wilson Video Here!]]
+[[https://github.com/nex3/perspective-el][Check GitHub Docs Here!]]
+
+** WATCHED VIDEOS
+*** Emacs from Scratch #1 - Getting Started with a Basic Configuration
+*** Emacs from Scratch #2 - Helpful UI Tweaksn
+*** Emacs from Scratch #3 - Key Bindings and Evil
+*** Emacs from Scratch #4 - Projectile and Magit
+*** Emacs from Scratch #5 - Org Mode Basics
+**** PROBLEMS:
+***** NOTE(SOLVED): I want org files to open expanded
+*** Emacs from Scratch #6 - Organize Your Life with Org Mode
+**** PROBLEMS:
+***** NOTE: Not able to display birtdhays with +1y on the agenda
+***** NOTE: Adding Habits is not working properly.
+
+*** Emacs from Scratch #7 - Configure Everything with Org Babel
+**** PROBLEMS:
+***** NOTE: Add ability to evaluate javascript blocks.
+
+*** Emacs from Scratch #8 - Build your Own IDE with lsp-mode
+**** TODO TO WATCH
+*** Emacs from Scratch #9 - Learn to Love the Terminal Modes
+**** TODO TO WATCH
+*** Emacs from Scratch #10 - Effortless File Management with Dired
+**** TODO TO WATCH
+*** Keeping your Emacs Packages Up to Date
+**** TODO TO WATCH
+*** How to Cut Emacs Start Up Time in Half!
+**** TODO TO WATCH
+*** EFFICIENT MOVEMENT
+**** TODO TO WATCH
+*** EFFICIENT SELECTION
+**** TODO TO WATCH
+
+*** Declutter Your Buffer Lists in Emacs with Perspective.el
+**** TODO TO WATCH
+
+
+** 5 Reasons to Learn Emacs in 2021
+
+*** If you want to go *really* far, install EXWM on Linux!
+*** It creates a complete desktop environment using EXWM on Linux.
+*** With org-mode you can do spreadsheets, or configure your entire system.

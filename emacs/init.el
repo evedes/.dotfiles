@@ -85,8 +85,8 @@
   ("C-c p" . projectile-command-map)
   :init
   ;; NOTE: Set this to the folder where you keep your Git repos!
-  (when (file-directory-p "~/OpenSource")
-    (setq projectile-project-search-path '("~/OpenSource")))
+  (when (file-directory-p "~/")
+    (setq projectile-project-search-path '("~/Multiverse" "~/Work" "~/SideProjects" "~/Study")))
   (setq projectile-switch-project-action #'projectile-dired))
 
 (use-package counsel-projectile
@@ -236,4 +236,3 @@
   :after (treemacs)
   :ensure t
   :config (treemacs-set-scope-type 'Tabs))
-

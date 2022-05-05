@@ -50,7 +50,7 @@
 
 ;; themes
 (use-package doom-themes
-  :init (load-theme 'doom-outrun-electric t) ;; doom-one, doom-dracula, doom-moonlight, doom-spacegrey, doom-outrun-electric, doom-palenight  also good
+  :init (load-theme 'doom-dracula t) ;; doom-one, doom-dracula, doom-moonlight, doom-spacegrey, doom-outrun-electric, doom-palenight  also good
   )
 
 (use-package all-the-icons)

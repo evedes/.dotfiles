@@ -1,17 +1,3 @@
-#+title: Emacs Configuration
-#+author: Eduardo Vedes
-#+date: 2022-05-05
-#+PROPERTY: header-args:emacs-lisp :tangle ./init-new.el
-
-* PACKAGE SYSTEM SETUP
-
-** TODO Hello World
-
-
-* BASIC UI CONFIGURATION
-
-#+begin_src emacs-lisp
-
 ;; set font sizes
 (defvar efs/default-font-size 135)
 (defvar efs/default-variable-font-size 135)
@@ -43,26 +29,12 @@
 		eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-#+end_src
-
-** Font Configuration
-
-#+begin_src emacs-lisp
-
 ;; Set fonts
 (set-face-attribute 'default nil :font "JetBrainsMonoMedium Nerd Font" :height efs/default-font-size)
 
 (set-face-attribute 'fixed-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height efs/default-font-size)
 
 (set-face-attribute 'variable-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height efs/default-variable-font-size :weight 'regular)
-
-#+end_src
-
-* ORG MODE
-
-** Configure Babel Languages
-
-#+begin_src emacs-lisp
 
 (org-babel-do-load-languages
    'org-babel-load-languages
@@ -71,15 +43,6 @@
 
 
 (push '("conf-unix" . conf-unix) org-src-lang-modes)
-
-#+end_src
-
-#+RESULTS:
-: ((conf-unix . conf-unix) (conf-unix . conf-unix) (conf-unix . conf-unix) (conf-unix . conf-unix) (C . c) (C++ . c++) (asymptote . asy) (bash . sh) (beamer . latex) (calc . fundamental) (cpp . c++) (ditaa . artist) (dot . fundamental) (elisp . emacs-lisp) (ocaml . tuareg) (screen . shell-script) (shell . sh) (sqlite . sql))
-
-** Auto-tangle Configuration Files
-
-#+begin_src emacs-lisp
 
 ;; Automatically tangle our Emacs.org config file when we save it
 (defun efs/org-babel-tangle-config ()
@@ -90,16 +53,3 @@
       (org-babel-tangle))))
 
 (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'efs/org-babel-tangle-config)))
-
-#+end_src
-
-#+RESULTS:
-| (lambda nil (add-hook 'after-save-hook #'efs/org-babel-tangle-config)) | org-tempo-setup | org-bullets-mode | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-show-all append local] 5] | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-babel-show-result-all append local] 5] | org-babel-result-hide-spec | org-babel-hide-all-hashes | #[0 \301\211\207 [imenu-create-index-function org-imenu-get-tree] 2] | efs/org-mode-visual-fill | efs/org-mode-setup | (lambda nil (display-line-numbers-mode 0)) |
-
-
-
-** Some App (Example)
-#+begin_src conf-unix :tangle .config/some-app/config :mkdirp yes
-value=553
-#+end_src
-
