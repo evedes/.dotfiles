@@ -29,7 +29,10 @@ and then enter the name of the function you want to know about
 | M-d                | Kill forward till the end of the next word      |
 | M-DEL              | Kill back to the beginning of the previous word |
 | M-BACKSPACE        | Kill back to the beginning of the previous word |
-|                    |                                                 |
+| C-x 0              | Delete window                                   |
+| C-x 1              | Delete other windows                            |
+| C-x 2              | Split window below                              |
+| C-x 3              | Split window right                              |
 
 ** GENERAL NOTES
 
@@ -52,7 +55,7 @@ The third group consists of major modes that are not associated directly with fi
 
 Examples include:
   - Dired mode for buffers made by Dired
-  - Message mode for buffers made by C-x m
+  - Message mode for buffers made by *C-x m*
   - Shell mode for buffers used to communicate with an inferior shell process.
 
 Emacs usually sets the major mode automatically, when you first visit a file or create a buffer.
@@ -80,24 +83,24 @@ Make sure what you want to write is wrapped in
  [[LINK][DESCRIPTION]]
 #+END_EXAMPLE
 
-You can also do C-c C-l
+You can also do *C-c C-l*
 
 # SYSTEM CRAFTERS
 
 *** How to open a link
 
-Put your cursor on top of the link and hit C-c C-o
+Put your cursor on top of the link and hit *C-c C-o*
 
 *** How to toggle all Headings
 
-You just need to press Shift+Tab
+You just need to press *Shift+Tab*
 
 *** How to toggle just one Heading
 
-Just press Tab on top of that heading
+Just press *Tab* on top of that heading
 
 *** How to create a new Heading of a type
-Put the cursor on top or below of the heading you want to replicate, i.e: a 3 start heading, and press C+RET.
+Put the cursor on top or below of the heading you want to replicate, i.e: a 3 start heading, and press *C+RET*.
 
 
 
@@ -111,7 +114,7 @@ Put the cursor on top or below of the heading you want to replicate, i.e: a 3 st
 | John      |  21 | No        |
 | Alexander |  52 | No        |
 
-Tables ajust automatically, when you press TAB
+Tables ajust automatically, when you press *TAB*
 
 *** How to create a bulleted / numbered list / checklist
 
@@ -119,8 +122,8 @@ Tables ajust automatically, when you press TAB
   - [ ] Second Item
   - [X] Third Item
  
-You can check/uncheck an item running C-c C-x C-b
-You can hit Shift+Alt+Enter to add more checkboxes
+You can check/uncheck an item running *C-c C-x C-b*
+You can hit *Shift+Alt+Enter* to add more checkboxes
 
 *** How to add a code block
 
@@ -136,19 +139,99 @@ You can add more states.
 
 **** TODO Do something great!
 
-You can toggle a todo with C-c C-t or with Shift+Right while in the TODO line.
+You can toggle a todo with *C-c C-t* or with *Shift+Right* while in the TODO line.
 
+** ORGANIZING YOUR LIFE WITH ORGMODE
+
+## AGENDA
+[[https://orgmode.org/manual/Agenda-Commands.html][Commands in the Agenda Buffer]]
+
+*** How to Open the Agenda
+
+*M-x org-agenda*
+Pick *a*, which means Agenda for current week or day
+
+*** How to quit Agenda 
+
+Just press *q*
+
+*** How to schedule a Task
+
+Put the cursor on the task line
+Do *M-x org-schedule*, or *C-c C-s*
+A calendar will appear, and you can move with *Shift+Arrow Keys*
+
+*** How to add a deadline to a Task
+
+Put the cursor on the task line
+Do *M-x org-deadline*, or *C-c C-d*
+A calendar will appear, and you can move with *Shift+Arrow Keys*
+
+There's a variable called org-deadline-warning-days (check it with describe variable)
+
+*** Mark a task as Done
+
+Simply go to the task line and press Shift+Left till DONE is toggled.
+
+*** Check all Scheduled Tasks
+
+*M-x org-agenda* to open it
+Press *t* to get the list of all TODO entries
+Use *N r* to filter 0 ALL, 1 TODO, 2 DONE
+
+*** Schedule a Birthday
+
+*M-x org-time-stamp*, or *C-c .*
+
+For birthdays to repeat, you can set +1y
+i.e.: André Jonas <1990-04-29 Fri +1y>
+
+*** How to add a Tag
+*M-x counsel-org-tag*, and insert the tag name
+
+You can also go to the line of the task you want to add the tag and hit *C-c C-q*
+
+When you apply a tag, you can hit *RET* to close immediately the menu, org hit *M-RET* to keep adding more tags.
+
+Note that in the orgmode.el config, you can define filtering by tags that exclude others.
+i.e:
+
+("W" "Work Tasks" tags-todo "+work") ;; will show all tasks that include the tag work
+("W" "Work Tasks" tags-todo "+work-email) ;; will show all tasks that include the tag work and don't include the tag email
+
+*** Capture an Idea
+
+Doesn't matter in which file you are, just do *M-x org-capture* and then press *tt* to capture a TODO to the tasks.org file.
+
+You can also use it for journaling. Instead of *tt* press *jj* and it will be added to the journal.org file. It can capture many entries per day and keep it sorted.
+
+You can also capture metrics. Check how it's configured on the *orgmode.el* file and you can improve it from there.
+
+*** How to add an Habit
+
+Create a todo in the habits.org file and schedule it.
+Set style with *M-x org-set-property*, or *C-c C-x p*
+Set *style* and then *habit*
 
 ** WATCHED VIDEOS
 
-### Emacs from Scratch #1 - Getting Started with a Basic Configuration
-### Emacs from Scratch #2 - Helpful UI Tweaks
-### Emacs from Scratch #3 - Key Bindings and Evil
-### Emacs from Scratch #4 - Projectile and Magit
-### Emacs from Scratch #5 - Org Mode Basics
+*** Emacs from Scratch #1 - Getting Started with a Basic Configuration
+*** Emacs from Scratch #2 - Helpful UI Tweaksn
+*** Emacs from Scratch #3 - Key Bindings and Evil
+*** Emacs from Scratch #4 - Projectile and Magit
+*** Emacs from Scratch #5 - Org Mode Basics
+**** PROBLEMS:
+***** NOTE(SOLVED): I want org files to open expanded
 
-### 5 Reasons to Learn Emacs in 2021
+*** Emacs from Scratch #6 - Organize Your Life with Org Mode
+**** PROBLEMS:
+***** NOTE: Not able to display birtdhays with +1y on the agenda
+***** NOTE: Make sure installed dw packages is the one really meant to be
+***** NOTE: Adding Habits is not working properly.
 
-If you want to go *really* far, install EXWM on Linux!
-It creates a complete desktop environment using EXWM on Linux.
-With org-mode you can do spreadsheets, or configure your entire system.
+
+** 5 Reasons to Learn Emacs in 2021
+
+*** If you want to go *really* far, install EXWM on Linux!
+*** It creates a complete desktop environment using EXWM on Linux.
+*** With org-mode you can do spreadsheets, or configure your entire system.

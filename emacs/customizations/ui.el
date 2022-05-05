@@ -34,9 +34,9 @@
 ;; Set frame transparency
 (set-frame-parameter (selected-frame) 'alpha efs/frame-transparency)
 (add-to-list 'default-frame-alist `(alpha . ,efs/frame-transparency))
-;; (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
-;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
-;
+(set-frame-parameter (selected-frame) 'fullscreen 'maximized)
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+                                        ;
 ;; Set fonts
 (set-face-attribute 'default nil :font "JetBrainsMonoMedium Nerd Font" :height efs/default-font-size)
 (set-face-attribute 'fixed-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height efs/default-font-size)
@@ -50,7 +50,8 @@
 
 ;; themes
 (use-package doom-themes
-  :init (load-theme 'doom-one t))
+  :init (load-theme 'doom-outrun-electric t) ;; doom-one, doom-dracula, doom-moonlight, doom-spacegrey, doom-outrun-electric, doom-palenight  also good
+  )
 
 (use-package all-the-icons)
 
@@ -71,16 +72,16 @@
   :after magit)
 
 (use-package beacon
- :config
- (progn
-   (beacon-mode 1)
-   (setq beacon-size 10)
-   (setq beacon-color "#ca6768")
-   (setq beacon-blink-duration 0.2)
-   (setq beacon-blink-when-window-scrolls t)
-   (setq beacon-blink-when-window-changes t)
-   (setq beacon-blink-when-point-moves-horizontally 20)
-   (setq beacon-blink-when-point-moves-vertically 10)))
+  :config
+  (progn
+    (beacon-mode 1)
+    (setq beacon-size 10)
+    (setq beacon-color "#ca6768")
+    (setq beacon-blink-duration 0.2)
+    (setq beacon-blink-when-window-scrolls t)
+    (setq beacon-blink-when-window-changes t)
+    (setq beacon-blink-when-point-moves-horizontally 20)
+    (setq beacon-blink-when-point-moves-vertically 10)))
 
 ;; replace buffer with ibuffer
 (global-set-key (kbd "C-x C-b") #'ibuffer)
