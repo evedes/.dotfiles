@@ -333,7 +333,7 @@ Just search for the *:noweb yes* mark
 
 ** WATCHED VIDEOS
 *** Emacs from Scratch #1 - Getting Started with a Basic Configuration
-*** Emacs from Scratch #2 - Helpful UI Tweaksn
+*** Emacs from Scratch #2 - Helpful UI Tweaks
 *** Emacs from Scratch #3 - Key Bindings and Evil
 *** Emacs from Scratch #4 - Projectile and Magit
 *** Emacs from Scratch #5 - Org Mode Basics
