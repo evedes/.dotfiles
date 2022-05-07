@@ -1,19 +1,25 @@
+
 #+TITLE: Emacs Configuration
 #+AUTHOR: Eduardo Vedes
 #+DATE: 2022-05-06
-#+PROPERTY: header-args:emacs-lisp :tangle ../init.el :mkdirp yes
+#+PROPERTY: header-args:emacs-lisp :tangle ~/.emacs.d/init.el :mkdirp yes
 
 * GENERAL
+
+Set garbage-collector threschold high, during loading:
 
 #+begin_src emacs-lisp
 
 (setq gc-cons-threshold (* 50 1000 1000))
 
+#+end_src
+
+#+begin_src emacs-lisp
 
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("org" . "https://orgmode.org/elpa/")
-			 ("elpa" . "https://elpa.gnu.org/packages/")))
+                         ("org" . "https://orgmode.org/elpa/")
+			   ("elpa" . "https://elpa.gnu.org/packages/")))
 
 (package-initialize)
 
@@ -39,8 +45,6 @@
   (auto-package-update-at-time "8:00"))
 
 (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
-
-(setq gc-cons-threshold (* 2 1000 1000))
 
 #+end_src
 
@@ -83,10 +87,13 @@
   :init
   ;; NOTE: Set this to the folder where you keep your Git repos!
   (when (file-directory-p "~/")
-    (setq projectile-project-search-path '("~/Multiverse" "~/Work" "~/SideProjects" "~/Study")))
+    (setq projectile-project-search-path '("~/.dotfiles" "~/Multiverse" "~/Work" "~/SideProjects" "~/Study")))
   (setq projectile-switch-project-action #'projectile-dired))
 
 #+end_src
+
+#+RESULTS:
+| lambda | nil | (interactive) | (use-package-autoload-keymap 'projectile-command-map 'projectile nil) |
 
 ** COUNSEL
 
@@ -272,14 +279,14 @@
 
 
 
-
 ** THEMES
 
    SUGGESTED THEMES: doom-one, doom-dracula, doom-moonlight, doom-spacegrey, doom-outrun-electric, doom-palenight
 
    #+begin_src emacs-lisp
+
    (use-package doom-themes
-   :init (load-theme 'doom-dracula t))
+   :init (load-theme 'doom-outrun-electric t))
 
    (use-package all-the-icons)
 
@@ -288,6 +295,8 @@
    :custom ((doom-modeline-height 15)))
 
    #+end_src
+
+   #+RESULTS:
 
 ** BEACON
 
@@ -307,12 +316,14 @@
 
    #+end_src
 
+   #+RESULTS:
+   : t
+
 ** REPLACE BUFFER WITH IBUFFER
 
    #+begin_src emacs-lisp
    (global-set-key (kbd "C-x C-b") #'ibuffer)
    #+end_src
-
 
 * ORGMODE
 
@@ -508,8 +519,6 @@
 (add-to-list 'org-structure-template-alist '("py" . "src python"))
 
 #+end_src
-
-
 
 * EDITING
 
@@ -776,5 +785,46 @@ nil
   :after (treemacs)
   :ensure t
   :config (treemacs-set-scope-type 'Tabs))
+
+#+end_src
+
+* EMACS STARTUP TIME
+
+#+begin_src emacs-lisp
+
+(defun display-startup-time ()
+  (message "Emacs loaded in %s with %d garbage collections."
+     (format "%.2f seconds"
+         (float-time
+         (time-subtract after-init-time before-init-time)))
+     gcs-done))
+
+(add-hook 'emacs-startup-hook #'display-startup-time)
+
+#+end_src
+
+Bring garbage collector down:
+
+#+begin_src emacs-lisp
+
+(setq gc-cons-threshold (* 2 1000 1000))
+
+#+end_src
+
+* AUTO TANGLE
+
+Automatically tangle emacs-config.org file we saved.
+
+#+begin_src emacs-lisp
+
+(defun org-babel-tangle-config ()
+  (when (string-equal (buffer-file-name)
+                      (expand-file-name "~/.dotfiles/emacs/config/emacs-config.org"))
+    ;; Dynamic scoping to the rescue
+    (let ((org-confirm-babel-evaluate nil))
+      (org-babel-tangle)))
+
+(add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'org-babel-tangle-config)))
+
 
 #+end_src

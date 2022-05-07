@@ -25,3 +25,13 @@ Btw, I use Arch!
 [INSTALL LOG](/arch/docs/install-log.md): where I've registered every tweak I've made while installing ARCH
 
 
+### 04. Emacs
+
+Though I don't need Emacs to do clojure, it has became my favourite computer game. Plus, there are a lot of amazing features one can grab out of Emacs such as Org Mode.
+
+I've started my Emacs config from scratch, and at this point all I've been doing is in this repo:
+
+[EMACS NOTES](/emacs/notes/emacs-notes.org)
+[EMACS LITERATE CONFIG](/emacs/config/emacs-config.org)
+
+
