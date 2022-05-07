@@ -172,7 +172,7 @@ Set garbage-collector threschold high, during loading:
 
    #+begin_src emacs-lisp
 
-   (setq inhibit-startup-message t)
+     (setq inhibit-startup-message t)
 
    #+end_src
 
@@ -180,7 +180,7 @@ Set garbage-collector threschold high, during loading:
 
    #+begin_src emacs-lisp
 
-   (setq visible-bell t)
+     (setq visible-bell t)
 
    #+end_src
 
@@ -188,20 +188,20 @@ Set garbage-collector threschold high, during loading:
 
    #+begin_src emacs-lisp
 
-   (scroll-bar-mode -1)
-   (tool-bar-mode -1)
-   (tooltip-mode -1)
-   (set-fringe-mode 10)
-   (menu-bar-mode -1)
-   
+     (scroll-bar-mode -1)
+     (tool-bar-mode -1)
+     (tooltip-mode -1)
+     (set-fringe-mode 10)
+     (menu-bar-mode -1)
+
    #+end_src
 
 ** SET FONT SIZES
 
    #+begin_src emacs-lisp
-   
-   (defvar efs/default-font-size 135)
-   (defvar efs/default-variable-font-size 135)
+
+     (defvar default-font-size 135)
+     (defvar default-variable-font-size 135)
 
    #+end_src
 
@@ -209,42 +209,40 @@ Set garbage-collector threschold high, during loading:
 
 #+begin_src emacs-lisp
 
-(use-package rainbow-delimiters
-  :hook (prog-mode . rainbow-delimiters-mode))
+  (use-package rainbow-delimiters
+    :hook (prog-mode . rainbow-delimiters-mode))
 
 #+end_src
-
 
 ** TRANSPARENCY
 
    #+begin_src emacs-lisp
-   
-   (defvar efs/frame-transparency '(90 . 90))
 
-   (set-frame-parameter (selected-frame) 'alpha efs/frame-transparency)
-   (add-to-list 'default-frame-alist `(alpha . ,efs/frame-transparency))
-   (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
-   (add-to-list 'default-frame-alist '(fullscreen . maximized))
-                                        ;
+     (defvar efs/frame-transparency '(90 . 90))
+
+     (set-frame-parameter (selected-frame) 'alpha efs/frame-transparency)
+     (add-to-list 'default-frame-alist `(alpha . ,efs/frame-transparency))
+     (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
+     (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
    #+end_src
 
 ** ADD LINE NUMBERS
 
    #+begin_src emacs-lisp
-   
-   (column-number-mode)
-   (global-display-line-numbers-mode t)
+
+     (column-number-mode)
+     (global-display-line-numbers-mode t)
 
    #+end_src
 ** DISABLE LINE NUMBERS FOR CERTAIN MODES
 
    #+begin_src emacs-lisp
-   (dolist (mode '(org-mode-hook
-                term-mode-hook
-		shell-mode-hook
-		eshell-mode-hook))
-		(add-hook mode (lambda () (display-line-numbers-mode 0))))
+     (dolist (mode '(org-mode-hook
+                     term-mode-hook
+                     shell-mode-hook
+                     eshell-mode-hook))
+       (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
    #+end_src
 
@@ -252,9 +250,9 @@ Set garbage-collector threschold high, during loading:
 
    #+begin_src emacs-lisp
 
-   (set-face-attribute 'default nil :font "JetBrainsMonoMedium Nerd Font" :height efs/default-font-size)
-   (set-face-attribute 'fixed-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height efs/default-font-size)
-   (set-face-attribute 'variable-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height efs/default-variable-font-size :weight 'regular)
+     (set-face-attribute 'default nil :font "JetBrainsMonoMedium Nerd Font" :height default-font-size)
+     (set-face-attribute 'fixed-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height default-font-size)
+     (set-face-attribute 'variable-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height default-variable-font-size :weight 'regular)
 
    #+end_src
 
@@ -262,7 +260,7 @@ Set garbage-collector threschold high, during loading:
 
    #+begin_src emacs-lisp
 
-   (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+     (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
    #+end_src
 
@@ -270,14 +268,9 @@ Set garbage-collector threschold high, during loading:
 
    #+begin_src emacs-lisp
 
-   (fset 'yes-or-no-p 'y-or-n-p)
+     (fset 'yes-or-no-p 'y-or-n-p)
 
    #+end_src
-
-
-
-
-
 
 ** THEMES
 
@@ -285,14 +278,14 @@ Set garbage-collector threschold high, during loading:
 
    #+begin_src emacs-lisp
 
-   (use-package doom-themes
-   :init (load-theme 'doom-outrun-electric t))
+     (use-package doom-themes
+       :init (load-theme 'doom-outrun-electric t))
 
-   (use-package all-the-icons)
+     (use-package all-the-icons)
 
-   (use-package doom-modeline
-   :init (doom-modeline-mode 1)
-   :custom ((doom-modeline-height 15)))
+     (use-package doom-modeline
+       :init (doom-modeline-mode 1)
+       :custom ((doom-modeline-height 15)))
 
    #+end_src
 
@@ -301,231 +294,237 @@ Set garbage-collector threschold high, during loading:
 ** BEACON
 
    #+begin_src emacs-lisp
-   
-   (use-package beacon
-   :config
-   (progn
-   (beacon-mode 1)
-   (setq beacon-size 10)
-   (setq beacon-color "#ca6768")
-   (setq beacon-blink-duration 0.2)
-   (setq beacon-blink-when-window-scrolls t)
-   (setq beacon-blink-when-window-changes t)
-   (setq beacon-blink-when-point-moves-horizontally 20)
-   (setq beacon-blink-when-point-moves-vertically 10)))
+
+     (use-package beacon
+       :config
+       (progn
+         (beacon-mode 1)
+         (setq beacon-size 10)
+         (setq beacon-color "#ca6768")
+         (setq beacon-blink-duration 0.2)
+         (setq beacon-blink-when-window-scrolls t)
+         (setq beacon-blink-when-window-changes t)
+         (setq beacon-blink-when-point-moves-horizontally 20)
+         (setq beacon-blink-when-point-moves-vertically 10)))
 
    #+end_src
-
-   #+RESULTS:
-   : t
 
 ** REPLACE BUFFER WITH IBUFFER
 
    #+begin_src emacs-lisp
-   (global-set-key (kbd "C-x C-b") #'ibuffer)
+     
+     (global-set-key (kbd "C-x C-b") #'ibuffer)
+
    #+end_src
 
 * ORGMODE
 
+*org-src-tab-acts-natively*: the effect of *TAB* in a code block is the same as in the language major mode buffer.
+
+
+
+
 #+begin_src emacs-lisp
 
-(defun efs/org-mode-setup ()
-  (org-indent-mode)
-  (variable-pitch-mode 1)
-  (visual-line-mode 1))
+  (defun org-mode-setup ()
+    (org-indent-mode)
+    (variable-pitch-mode 1)
+    (visual-line-mode 1))
 
-(defun efs/org-font-setup ()
-  (font-lock-add-keywords 'org-mode
-                          '(("^ *\\([-]\\) "
-                             (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
-
-
-  (dolist (face '((org-level-1 . 1.2)
-                  (org-level-2 . 1.1)
-                  (org-level-3 . 1.05)
-                  (org-level-4 . 1.0)
-                  (org-level-5 . 1.1)
-                  (org-level-6 . 1.1)
-                  (org-level-7 . 1.1)
-                  (org-level-8 . 1.1)))
-    (set-face-attribute (car face) nil :font "JetBrainsMonoMedium Nerd Font" :weight 'regular :height (cdr face)))
-
-  (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
-  (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
-  (set-face-attribute 'org-table nil   :inherit '(shadow fixed-pitch))
-  (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
-  (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
-  (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
-  (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch))
-
-(use-package org
-  :hook (org-mode . efs/org-mode-setup)
-  :config
-  (setq org-ellipsis " ▾")
-
-  (setq org-startup-folded "showall")
-  (setq org-agenda-start-with-log-mode t)
-  (setq org-log-done 'time)
-  (setq org-log-into-drawer t)
-  (setq org-agenda-window-setup 'current-window) ;; avoids agenda to destroy window splits
-
-  (setq org-directory "~/Multiverse")
-  (setq org-agenda-files '("tasks.org" "birthdays.org" "archive.org" "habits.org"))
-
-  (require 'org-habit)
-  (add-to-list 'org-modules 'org-habit)
-  (setq org-habit-graph-column 60)
-
-  (setq org-todo-keywords
-        '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
-          (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
+  (defun org-font-setup ()
+    (font-lock-add-keywords 'org-mode
+                            '(("^ *\\([-]\\) "
+                               (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
 
-  (setq org-refile-targets
-        '(("archive.org" :maxlevel . 1)
-          ("tasks.org" :maxlevel . 1)))
+    (dolist (face '((org-level-1 . 1.2)
+                    (org-level-2 . 1.1)
+                    (org-level-3 . 1.05)
+                    (org-level-4 . 1.0)
+                    (org-level-5 . 1.1)
+                    (org-level-6 . 1.1)
+                    (org-level-7 . 1.1)
+                    (org-level-8 . 1.1)))
+      (set-face-attribute (car face) nil :font "JetBrainsMonoMedium Nerd Font" :weight 'regular :height (cdr face)))
 
-  ;; Save Org buffers after refiling!
-  (advice-add 'org-refile :after 'org-save-all-org-buffers)
+    (set-face-attribute 'org-block nil :foreground nil :inherit 'fixed-pitch)
+    (set-face-attribute 'org-code nil   :inherit '(shadow fixed-pitch))
+    (set-face-attribute 'org-table nil   :inherit '(shadow fixed-pitch))
+    (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch))
+    (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
+    (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
+    (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch))
 
-  (setq org-tag-alist
-        '((:startgroup)
-                                        ; Put mutually exclusive tags here
-          (:endgroup)
-          ("@errand" . ?E)
-          ("@home" . ?H)
-          ("@work" . ?W)
-          ("agenda" . ?a)
-          ("planning" . ?p)
-          ("publish" . ?P)
-          ("batch" . ?b)
-          ("note" . ?n)
-          ("idea" . ?i)))
+  (use-package org
+    :hook (org-mode . org-mode-setup)
+    :config
+    (setq org-ellipsis " ▾")
 
+    ;;(setq org-startup-folded "showall")
+    (setq org-src-tab-acts-natively t) ;; preserver code blocks identation
+    (setq org-agenda-start-with-log-mode t)
+    (setq org-log-done 'time)
+    (setq org-log-into-drawer t)
+    (setq org-agenda-window-setup 'current-window) ;; avoids agenda to destroy window splits
 
+    (setq org-directory "~/Multiverse/")
+    (setq org-agenda-files '("tasks.org" "birthdays.org" "archive.org" "habits.org"))
 
-  ;; Configure custom agenda views
-  (setq org-agenda-custom-commands
-        '(("d" "Dashboard"
-           ((agenda "" ((org-deadline-warning-days 7)))
-            (todo "NEXT"
-                  ((org-agenda-overriding-header "Next Tasks")))
-            (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))))
+    (require 'org-habit)
+    (add-to-list 'org-modules 'org-habit)
+    (setq org-habit-graph-column 60)
 
-          ("n" "Next Tasks"
-           ((todo "NEXT"
-                  ((org-agenda-overriding-header "Next Tasks")))))
-
-
-          ("W" "Work Tasks" tags-todo "+work")
-          ("S" "Study Tasks" tags-todo "+study")
-          ("H" "House Chores" tags-todo "+housechores")
-
-          ;; Low-effort next actions
-          ("e" tags-todo "+TODO=\"NEXT\"+Effort<15&+Effort>0"
-           ((org-agenda-overriding-header "Low Effort Tasks")
-            (org-agenda-max-todos 20)
-            (org-agenda-files org-agenda-files)))
-
-          ("w" "Workflow Status"
-           ((todo "WAIT"
-                  ((org-agenda-overriding-header "Waiting on External")
-                   (org-agenda-files org-agenda-files)))
-            (todo "REVIEW"
-                  ((org-agenda-overriding-header "In Review")
-                   (org-agenda-files org-agenda-files)))
-            (todo "PLAN"
-                  ((org-agenda-overriding-header "In Planning")
-                   (org-agenda-todo-list-sublevels nil)
-                   (org-agenda-files org-agenda-files)))
-            (todo "BACKLOG"
-                  ((org-agenda-overriding-header "Project Backlog")
-                   (org-agenda-todo-list-sublevels nil)
-                   (org-agenda-files org-agenda-files)))
-            (todo "READY"
-                  ((org-agenda-overriding-header "Ready for Work")
-                   (org-agenda-files org-agenda-files)))
-            (todo "ACTIVE"
-                  ((org-agenda-overriding-header "Active Projects")
-                   (org-agenda-files org-agenda-files)))
-            (todo "COMPLETED"
-                  ((org-agenda-overriding-header "Completed Projects")
-                   (org-agenda-files org-agenda-files)))
-            (todo "CANC"
-                  ((org-agenda-overriding-header "Cancelled Projects")
-                   (org-agenda-files org-agenda-files)))))))
+    (setq org-todo-keywords
+          '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d!)")
+            (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
 
 
- (setq org-capture-templates
-    `(("t" "Tasks / Projects")
-      ("tt" "Task" entry (file+olp "~/Multiverse/tasks.org" "INBOX")
-           "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+    (setq org-refile-targets
+          '(("archive.org" :maxlevel . 1)
+            ("tasks.org" :maxlevel . 1)))
 
-      ("j" "Journal Entries")
-      ("jj" "Journal" entry
-           (file+olp+datetree "~/Multiverse/journal.org")
-           "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
-           ;; ,(dw/read-file-as-string "~/Notes/Templates/Daily.org")
-           :clock-in :clock-resume
-           :empty-lines 1)
-      ("jm" "Meeting" entry
-           (file+olp+datetree "~/Multiverse/journal.org")
-           "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
-           :clock-in :clock-resume
-           :empty-lines 1)
+    ;; Save Org buffers after refiling!
+    (advice-add 'org-refile :after 'org-save-all-org-buffers)
 
-      ("w" "Workflows")
-      ("we" "Checking Email" entry (file+olp+datetree "~/Multiverse/journal.org")
-           "* Checking Email :email:\n\n%?" :clock-in :clock-resume :empty-lines 1)
-
-      ("m" "Metrics Capture")
-      ("mw" "Weight" table-line (file+headline "~/Multiverse/metrics.org" "Weight")
-       "| %U | %^{Weight} | %^{Notes} |" :kill-buffer t)))
-
- (define-key global-map (kbd "C-c j")
-   (lambda () (interactive) (org-capture nil "jj")))
-
-  (efs/org-font-setup))
-
-(use-package org-bullets
-  :after org
-  :hook (org-mode . org-bullets-mode)
-  :custom
-  ;; (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●"))
-  (org-bullets-bullet-list '( "●" "○" "●" "○" "●" "○" "●")))
-
-(defun efs/org-mode-visual-fill ()
-  (setq visual-fill-column-width 100
-        visual-fill-column-center-text t)
-  (visual-fill-column-mode 1))
-
-(use-package visual-fill-column
-  :hook (org-mode . efs/org-mode-visual-fill))
+    (setq org-tag-alist
+          '((:startgroup)
+                                          ; Put mutually exclusive tags here
+            (:endgroup)
+            ("@errand" . ?E)
+            ("@home" . ?H)
+            ("@work" . ?W)
+            ("agenda" . ?a)
+            ("planning" . ?p)
+            ("publish" . ?P)
+            ("batch" . ?b)
+            ("note" . ?n)
+            ("idea" . ?i)))
 
 
-(org-babel-do-load-languages
-  'org-babel-load-languages
-  '((emacs-lisp . t)
-    (python . t)))
 
-(setq org-confirm-babel-evaluate nil)
+    ;; Configure custom agenda views
+    (setq org-agenda-custom-commands
+          '(("d" "Dashboard"
+             ((agenda "" ((org-deadline-warning-days 7)))
+              (todo "NEXT"
+                    ((org-agenda-overriding-header "Next Tasks")))
+              (tags-todo "agenda/ACTIVE" ((org-agenda-overriding-header "Active Projects")))))
+
+            ("n" "Next Tasks"
+             ((todo "NEXT"
+                    ((org-agenda-overriding-header "Next Tasks")))))
 
 
-;; This is needed as of Org 9.2
-(require 'org-tempo)
+            ("W" "Work Tasks" tags-todo "+work")
+            ("S" "Study Tasks" tags-todo "+study")
+            ("H" "House Chores" tags-todo "+housechores")
 
-(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
-(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
-(add-to-list 'org-structure-template-alist '("py" . "src python"))
+            ;; Low-effort next actions
+            ("e" tags-todo "+TODO=\"NEXT\"+Effort<15&+Effort>0"
+             ((org-agenda-overriding-header "Low Effort Tasks")
+              (org-agenda-max-todos 20)
+              (org-agenda-files org-agenda-files)))
+
+            ("w" "Workflow Status"
+             ((todo "WAIT"
+                    ((org-agenda-overriding-header "Waiting on External")
+                     (org-agenda-files org-agenda-files)))
+              (todo "REVIEW"
+                    ((org-agenda-overriding-header "In Review")
+                     (org-agenda-files org-agenda-files)))
+              (todo "PLAN"
+                    ((org-agenda-overriding-header "In Planning")
+                     (org-agenda-todo-list-sublevels nil)
+                     (org-agenda-files org-agenda-files)))
+              (todo "BACKLOG"
+                    ((org-agenda-overriding-header "Project Backlog")
+                     (org-agenda-todo-list-sublevels nil)
+                     (org-agenda-files org-agenda-files)))
+              (todo "READY"
+                    ((org-agenda-overriding-header "Ready for Work")
+                     (org-agenda-files org-agenda-files)))
+              (todo "ACTIVE"
+                    ((org-agenda-overriding-header "Active Projects")
+                     (org-agenda-files org-agenda-files)))
+              (todo "COMPLETED"
+                    ((org-agenda-overriding-header "Completed Projects")
+                     (org-agenda-files org-agenda-files)))
+              (todo "CANC"
+                    ((org-agenda-overriding-header "Cancelled Projects")
+                     (org-agenda-files org-agenda-files)))))))
+
+
+    (setq org-capture-templates
+          `(("t" "Tasks / Projects")
+            ("tt" "Task" entry (file+olp "~/Multiverse/tasks.org" "INBOX")
+             "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+
+            ("j" "Journal Entries")
+            ("jj" "Journal" entry
+             (file+olp+datetree "~/Multiverse/journal.org")
+             "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
+             ;; ,(dw/read-file-as-string "~/Notes/Templates/Daily.org")
+             :clock-in :clock-resume
+             :empty-lines 1)
+            ("jm" "Meeting" entry
+             (file+olp+datetree "~/Multiverse/journal.org")
+             "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
+             :clock-in :clock-resume
+             :empty-lines 1)
+
+            ("w" "Workflows")
+            ("we" "Checking Email" entry (file+olp+datetree "~/Multiverse/journal.org")
+             "* Checking Email :email:\n\n%?" :clock-in :clock-resume :empty-lines 1)
+
+            ("m" "Metrics Capture")
+            ("mw" "Weight" table-line (file+headline "~/Multiverse/metrics.org" "Weight")
+             "| %U | %^{Weight} | %^{Notes} |" :kill-buffer t)))
+
+    (define-key global-map (kbd "C-c j")
+      (lambda () (interactive) (org-capture nil "jj")))
+
+    (org-font-setup))
+
+  (use-package org-bullets
+    :after org
+    :hook (org-mode . org-bullets-mode)
+    :custom
+    ;; (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●"))
+    (org-bullets-bullet-list '( "●" "○" "●" "○" "●" "○" "●")))
+
+  (defun org-mode-visual-fill ()
+    (setq visual-fill-column-width 100
+          visual-fill-column-center-text t)
+    (visual-fill-column-mode 1))
+
+  (use-package visual-fill-column
+    :hook (org-mode . org-mode-visual-fill))
+
+
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (python . t)))
+
+  (setq org-confirm-babel-evaluate nil)
+
+
+  ;; This is needed as of Org 9.2
+  (require 'org-tempo)
+
+  (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+  (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+  (add-to-list 'org-structure-template-alist '("py" . "src python"))
 
 #+end_src
+
+#+RESULTS:
+: ((py . src python) (el . src emacs-lisp) (sh . src shell) (a . export ascii) (c . center) (C . comment) (e . example) (E . export) (h . export html) (l . export latex) (q . quote) (s . src) (v . verse))
 
 * EDITING
 
   #+begin_src emacs-lisp
   
-  (provide 'editing)
-
   (global-set-key (kbd "M-/") 'hippie-expand)
 
 
@@ -588,19 +587,17 @@ Set garbage-collector threschold high, during loading:
 * ELISP EDITING
 
   #+begin_src emacs-lisp
-  (provide 'elisp-editing)
 
-
-  (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
-  (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
-  (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-  (add-hook 'ielm-mode-hook #'enable-paredit-mode)
-  (add-hook 'lisp-mode-hook #'enable-paredit-mode)
-  (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-  (add-hook 'scheme-mode-hook #'enable-paredit-mode)
-  (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-  (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
-  (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+    (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+    (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
+    (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+    (add-hook 'ielm-mode-hook #'enable-paredit-mode)
+    (add-hook 'lisp-mode-hook #'enable-paredit-mode)
+    (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+    (add-hook 'scheme-mode-hook #'enable-paredit-mode)
+    (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+    (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
+    (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
 
   #+end_src
 
@@ -608,13 +605,13 @@ Set garbage-collector threschold high, during loading:
 
   #+begin_src emacs-lisp
 
-  (use-package magit
-  :commands magit-status
-  :custom
-  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+    (use-package magit
+      :commands magit-status
+      :custom
+      (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
-  (use-package forge
-  :after magit)
+    (use-package forge
+      :after magit)
 
   #+end_src
 
@@ -622,57 +619,57 @@ Set garbage-collector threschold high, during loading:
 
 #+begin_src emacs-lisp
 
-(add-hook 'clojure-mode-hook 'enable-paredit-mode)
-(add-hook 'clojure-mode-hook 'subword-mode)
-(require 'clojure-mode-extra-font-locking)
-(add-hook 'clojure-mode-hook
-(lambda ()
-(setq inferior-lisp-program "lein repl")
-(font-lock-add-keywords
-nil
-'(("(\\(facts?\\)"
-                (1 font-lock-keyword-face))
-                ("(\\(background?\\)"
-                (1 font-lock-keyword-face))))
-            (define-clojure-indent (fact 1))
-            (define-clojure-indent (facts 1))
-            (rainbow-delimiters-mode)))
+  (add-hook 'clojure-mode-hook 'enable-paredit-mode)
+  (add-hook 'clojure-mode-hook 'subword-mode)
+  (require 'clojure-mode-extra-font-locking)
+  (add-hook 'clojure-mode-hook
+            (lambda ()
+              (setq inferior-lisp-program "lein repl")
+              (font-lock-add-keywords
+               nil
+               '(("(\\(facts?\\)"
+                  (1 font-lock-keyword-face))
+                 ("(\\(background?\\)"
+                  (1 font-lock-keyword-face))))
+              (define-clojure-indent (fact 1))
+              (define-clojure-indent (facts 1))
+              (rainbow-delimiters-mode)))
 
-(add-hook 'cider-mode-hook 'eldoc-mode)
+  (add-hook 'cider-mode-hook 'eldoc-mode)
 
-(setq cider-repl-pop-to-buffer-on-connect t)
-(setq cider-show-error-buffer t)
-(setq cider-auto-select-error-buffer t)
-(setq cider-repl-history-file "~/.emacs.d/cider-history")
-(setq cider-repl-wrap-history t)
+  (setq cider-repl-pop-to-buffer-on-connect t)
+  (setq cider-show-error-buffer t)
+  (setq cider-auto-select-error-buffer t)
+  (setq cider-repl-history-file "~/.emacs.d/cider-history")
+  (setq cider-repl-wrap-history t)
 
-(add-hook 'cider-repl-mode-hook 'paredit-mode)
-(add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
-(add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))
-(add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojure-mode))
-(add-to-list 'auto-mode-alist '("lein-env" . enh-ruby-mode))
+  (add-hook 'cider-repl-mode-hook 'paredit-mode)
+  (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
+  (add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))
+  (add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojure-mode))
+  (add-to-list 'auto-mode-alist '("lein-env" . enh-ruby-mode))
 
-(defun cider-start-http-server ()
-(interactive)
-  (cider-load-current-buffer)
-  (let ((ns (cider-current-ns)))
-    (cider-repl-set-ns ns)
-    (cider-interactive-eval (format "(println '(def server (%s/start))) (println 'server)" ns))
-    (cider-interactive-eval (format "(def server (%s/start)) (println server)" ns))))
-    (defun cider-refresh ()
+  (defun cider-start-http-server ()
+    (interactive)
+    (cider-load-current-buffer)
+    (let ((ns (cider-current-ns)))
+      (cider-repl-set-ns ns)
+      (cider-interactive-eval (format "(println '(def server (%s/start))) (println 'server)" ns))
+      (cider-interactive-eval (format "(def server (%s/start)) (println server)" ns))))
+  (defun cider-refresh ()
     (interactive)
     (cider-interactive-eval (format "(user/reset)")))
 
   (defun cider-user-ns ()
-  (interactive)
-  (cider-repl-set-ns "user"))
+    (interactive)
+    (cider-repl-set-ns "user"))
 
   (eval-after-load 'cider
-  '(progn
-     (define-key clojure-mode-map (kbd "C-c C-v") 'cider-start-http-server)
-     (define-key clojure-mode-map (kbd "C-M-r")   'cider-refresh)
-     (define-key clojure-mode-map (kbd "C-c u")   'cider-user-ns)
-     (define-key cider-mode-map   (kbd "C-c u")   'cider-user-ns)))
+    '(progn
+       (define-key clojure-mode-map (kbd "C-c C-v") 'cider-start-http-server)
+       (define-key clojure-mode-map (kbd "C-M-r")   'cider-refresh)
+       (define-key clojure-mode-map (kbd "C-c u")   'cider-user-ns)
+       (define-key cider-mode-map   (kbd "C-c u")   'cider-user-ns)))
 
 #+end_src
 
@@ -680,111 +677,111 @@ nil
 
 #+begin_src emacs-lisp
 
-(use-package treemacs
-  :ensure t
-  :defer t
-  :init
-  (with-eval-after-load 'winum
-    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
-  :config
-  (progn
-    (setq treemacs-collapse-dirs                   (if treemacs-python-executable 3 0)
-          treemacs-deferred-git-apply-delay        0.5
-          treemacs-directory-name-transformer      #'identity
-          treemacs-display-in-side-window          t
-          treemacs-eldoc-display                   'simple
-          treemacs-file-event-delay                5000
-          treemacs-file-extension-regex            treemacs-last-period-regex-value
-          treemacs-file-follow-delay               0.2
-          treemacs-file-name-transformer           #'identity
-          treemacs-follow-after-init               t
-          treemacs-expand-after-init               t
-          treemacs-find-workspace-method           'find-for-file-or-pick-first
-          treemacs-git-command-pipe                ""
-          treemacs-goto-tag-strategy               'refetch-index
-          treemacs-indentation                     2
-          treemacs-indentation-string              " "
-          treemacs-is-never-other-window           nil
-          treemacs-max-git-entries                 5000
-          treemacs-missing-project-action          'ask
-          treemacs-move-forward-on-expand          nil
-          treemacs-no-png-images                   nil
-          treemacs-no-delete-other-windows         t
-          treemacs-project-follow-cleanup          nil
-          treemacs-persist-file                    (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
-          treemacs-position                        'left
-          treemacs-read-string-input               'from-child-frame
-          treemacs-recenter-distance               0.1
-          treemacs-recenter-after-file-follow      nil
-          treemacs-recenter-after-tag-follow       nil
-          treemacs-recenter-after-project-jump     'always
-          treemacs-recenter-after-project-expand   'on-distance
-          treemacs-litter-directories              '("/node_modules" "/.venv" "/.cask")
-          treemacs-show-cursor                     nil
-          treemacs-show-hidden-files               t
-          treemacs-silent-filewatch                nil
-          treemacs-silent-refresh                  nil
-          treemacs-sorting                         'alphabetic-asc
-          treemacs-select-when-already-in-treemacs 'move-back
-          treemacs-space-between-root-nodes        t
-          treemacs-tag-follow-cleanup              t
-          treemacs-tag-follow-delay                1.5
-          treemacs-text-scale                      nil
-          treemacs-user-mode-line-format           nil
-          treemacs-user-header-line-format         nil
-          treemacs-wide-toggle-width               70
-          treemacs-width                           35
-          treemacs-width-increment                 1
-          treemacs-width-is-initially-locked       t
-          treemacs-workspace-switch-cleanup        nil)
+  (use-package treemacs
+    :ensure t
+    :defer t
+    :init
+    (with-eval-after-load 'winum
+      (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+    :config
+    (progn
+      (setq treemacs-collapse-dirs                   (if treemacs-python-executable 3 0)
+            treemacs-deferred-git-apply-delay        0.5
+            treemacs-directory-name-transformer      #'identity
+            treemacs-display-in-side-window          t
+            treemacs-eldoc-display                   'simple
+            treemacs-file-event-delay                5000
+            treemacs-file-extension-regex            treemacs-last-period-regex-value
+            treemacs-file-follow-delay               0.2
+            treemacs-file-name-transformer           #'identity
+            treemacs-follow-after-init               t
+            treemacs-expand-after-init               t
+            treemacs-find-workspace-method           'find-for-file-or-pick-first
+            treemacs-git-command-pipe                ""
+            treemacs-goto-tag-strategy               'refetch-index
+            treemacs-indentation                     2
+            treemacs-indentation-string              " "
+            treemacs-is-never-other-window           nil
+            treemacs-max-git-entries                 5000
+            treemacs-missing-project-action          'ask
+            treemacs-move-forward-on-expand          nil
+            treemacs-no-png-images                   nil
+            treemacs-no-delete-other-windows         t
+            treemacs-project-follow-cleanup          nil
+            treemacs-persist-file                    (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
+            treemacs-position                        'left
+            treemacs-read-string-input               'from-child-frame
+            treemacs-recenter-distance               0.1
+            treemacs-recenter-after-file-follow      nil
+            treemacs-recenter-after-tag-follow       nil
+            treemacs-recenter-after-project-jump     'always
+            treemacs-recenter-after-project-expand   'on-distance
+            treemacs-litter-directories              '("/node_modules" "/.venv" "/.cask")
+            treemacs-show-cursor                     nil
+            treemacs-show-hidden-files               t
+            treemacs-silent-filewatch                nil
+            treemacs-silent-refresh                  nil
+            treemacs-sorting                         'alphabetic-asc
+            treemacs-select-when-already-in-treemacs 'move-back
+            treemacs-space-between-root-nodes        t
+            treemacs-tag-follow-cleanup              t
+            treemacs-tag-follow-delay                1.5
+            treemacs-text-scale                      nil
+            treemacs-user-mode-line-format           nil
+            treemacs-user-header-line-format         nil
+            treemacs-wide-toggle-width               70
+            treemacs-width                           35
+            treemacs-width-increment                 1
+            treemacs-width-is-initially-locked       t
+            treemacs-workspace-switch-cleanup        nil)
 
-    (treemacs-follow-mode t)
-    (treemacs-filewatch-mode t)
-    (treemacs-fringe-indicator-mode 'always)
+      (treemacs-follow-mode t)
+      (treemacs-filewatch-mode t)
+      (treemacs-fringe-indicator-mode 'always)
 
-    (pcase (cons (not (null (executable-find "git")))
-                 (not (null treemacs-python-executable)))
-      (`(t . t)
-       (treemacs-git-mode 'deferred))
-      (`(t . _)
-       (treemacs-git-mode 'simple)))
+      (pcase (cons (not (null (executable-find "git")))
+                   (not (null treemacs-python-executable)))
+        (`(t . t)
+         (treemacs-git-mode 'deferred))
+        (`(t . _)
+         (treemacs-git-mode 'simple)))
 
-    (treemacs-hide-gitignored-files-mode nil))
-  :bind
-  (:map global-map
-        ("M-0"       . treemacs-select-window)
-        ("C-x t 1"   . treemacs-delete-other-windows)
-        ("C-x t t"   . treemacs)
-        ("C-x t d"   . treemacs-select-directory)
-        ("C-x t B"   . treemacs-bookmark)
-        ("C-x t C-t" . treemacs-find-file)
-        ("C-x t M-t" . treemacs-find-tag)))
+      (treemacs-hide-gitignored-files-mode nil))
+    :bind
+    (:map global-map
+          ("M-0"       . treemacs-select-window)
+          ("C-x t 1"   . treemacs-delete-other-windows)
+          ("C-x t t"   . treemacs)
+          ("C-x t d"   . treemacs-select-directory)
+          ("C-x t B"   . treemacs-bookmark)
+          ("C-x t C-t" . treemacs-find-file)
+          ("C-x t M-t" . treemacs-find-tag)))
 
-(use-package treemacs-evil
-  :after (treemacs evil)
-  :ensure t)
+  (use-package treemacs-evil
+    :after (treemacs evil)
+    :ensure t)
 
-(use-package treemacs-projectile
-  :after (treemacs projectile)
-  :ensure t)
+  (use-package treemacs-projectile
+    :after (treemacs projectile)
+    :ensure t)
 
-(use-package treemacs-icons-dired
-  :hook (dired-mode . treemacs-icons-dired-enable-once)
-  :ensure t)
+  (use-package treemacs-icons-dired
+    :hook (dired-mode . treemacs-icons-dired-enable-once)
+    :ensure t)
 
-(use-package treemacs-magit
-  :after (treemacs magit)
-  :ensure t)
+  (use-package treemacs-magit
+    :after (treemacs magit)
+    :ensure t)
 
-(use-package treemacs-persp
-  :after (treemacs persp-mode)
-  :ensure t
-  :config (treemacs-set-scope-type 'Perspectives))
+  (use-package treemacs-persp
+    :after (treemacs persp-mode)
+    :ensure t
+    :config (treemacs-set-scope-type 'Perspectives))
 
-(use-package treemacs-tab-bar
-  :after (treemacs)
-  :ensure t
-  :config (treemacs-set-scope-type 'Tabs))
+  (use-package treemacs-tab-bar
+    :after (treemacs)
+    :ensure t
+    :config (treemacs-set-scope-type 'Tabs))
 
 #+end_src
 
@@ -792,14 +789,14 @@ nil
 
 #+begin_src emacs-lisp
 
-(defun display-startup-time ()
-  (message "Emacs loaded in %s with %d garbage collections."
-     (format "%.2f seconds"
-         (float-time
-         (time-subtract after-init-time before-init-time)))
-     gcs-done))
+  (defun display-startup-time ()
+    (message "Emacs loaded in %s with %d garbage collections."
+             (format "%.2f seconds"
+                     (float-time
+                      (time-subtract after-init-time before-init-time)))
+             gcs-done))
 
-(add-hook 'emacs-startup-hook #'display-startup-time)
+  (add-hook 'emacs-startup-hook #'display-startup-time)
 
 #+end_src
 
@@ -807,7 +804,7 @@ Bring garbage collector down:
 
 #+begin_src emacs-lisp
 
-(setq gc-cons-threshold (* 2 1000 1000))
+  (setq gc-cons-threshold (* 2 1000 1000))
 
 #+end_src
 
@@ -817,14 +814,14 @@ Automatically tangle emacs-config.org file we saved.
 
 #+begin_src emacs-lisp
 
-(defun org-babel-tangle-config ()
-  (when (string-equal (buffer-file-name)
-                      (expand-file-name "~/.dotfiles/emacs/config/emacs-config.org"))
-    ;; Dynamic scoping to the rescue
-    (let ((org-confirm-babel-evaluate nil))
-      (org-babel-tangle)))
+  (defun org-babel-tangle-config ()
+    (when (string-equal (buffer-file-name)
+                        (expand-file-name "~/.dotfiles/emacs/config/emacs-config.org"))
+      ;; Dynamic scoping to the rescue
+      (let ((org-confirm-babel-evaluate nil))
+        (org-babel-tangle)))
 
-(add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'org-babel-tangle-config)))
+    (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'org-babel-tangle-config)))
 
 
 #+end_src
