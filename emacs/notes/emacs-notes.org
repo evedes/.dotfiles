@@ -334,7 +334,11 @@ To refresh status after changes, press *g*
 
 You can hover a change, and press *s* for stage.
 
-To commit changes, press *c*
+To commit changes, press *c*, a menu will open, press *c* again for commit.
+
+Write a commit message and press *C-c C-c*
+
+
 
 ** BUFFER LISTS WITH PERSPECTIVE.EL
 
