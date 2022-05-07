@@ -30,5 +30,6 @@ Though I don't need Emacs to do *Clojure*, it has became my favourite computer g
 I've started my Emacs config from scratch, and at this point all I've been doing is in this repo:
 
 [EMACS NOTES](/emacs/notes/emacs-notes.org)
+
 [EMACS LITERATE CONFIG](/emacs/config/emacs-config.org)
 
