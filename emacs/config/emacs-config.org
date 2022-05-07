@@ -279,7 +279,7 @@ Set garbage-collector threschold high, during loading:
    #+begin_src emacs-lisp
 
      (use-package doom-themes
-       :init (load-theme 'doom-outrun-electric t))
+       :init (load-theme 'doom-moonlight t))
 
      (use-package all-the-icons)
 
@@ -785,6 +785,89 @@ Set garbage-collector threschold high, during loading:
 
 #+end_src
 
+* TERM MODES
+
+** TERM 
+
+#+begin_src emacs-lisp
+
+  (use-package term
+    :config
+    (setq explicit-shell-file-name "zsh")
+    ;;(setq explicit-zsh-args '())
+    (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *"))
+
+
+  (use-package eterm-256color
+    :hook (term-mode . eterm-256color-mode))
+
+
+#+end_src
+
+#+RESULTS:
+| eterm-256color-mode | (lambda nil (display-line-numbers-mode 0)) |
+
+
+** VTERM
+
+To run vterm you'll need CMake and libtool.
+*Cmake* can be installed in PopShop.
+*Libtool* can be installed in PopOs by running `sudo apt-get install libtool-bin`
+
+#+begin_src emacs-lisp
+
+  (use-package vterm
+    :ensure t
+    :preface
+    (defun my/vterm-mode-hook ()
+      (hl-line-mode -1)
+      (display-line-numbers-mode -1)
+      (display-fill-column-indicator-mode -1)
+      (auto-fill-mode -1))
+    :hook
+    ((vterm-mode . my/vterm-mode-hook))
+    :custom
+    (vterm-module-cmake-args " -DUSE_SYSTEM_LIBVTERM=yes")
+    (vterm-always-compile-module t)
+    (vterm-kill-buffer-on-exit t)
+    (vterm-max-scrollback 10000)
+    :init
+    (which-key-add-key-based-replacements "C-c t" "term")
+    :config
+    ;; Add find-file-other-window to accepted commands
+    (setq vterm-shell (executable-find "zsh"))
+    (add-to-list 'vterm-eval-cmds
+                 '("find-file-other-window" find-file-other-window)))
+
+  (use-package vterm-toggle
+    :ensure t
+    :bind (("C-c p" . vterm-toggle-cd)
+           :map vterm-mode-map
+           (("<C-return>" . vterm-toggle-insert-cd)
+            ("C-M-n" . vterm-toggle-forward)
+            ("C-M-p" . vterm-toggle-backward)))
+    :custom
+    (vterm-toggle-scope 'project)
+    (vterm-toggle-project-root t)
+    (vterm-toggle-fullscreen-p nil)
+    :config
+    ;; Show at bottom
+    (add-to-list 'display-buffer-alist
+                 '((lambda(bufname _)
+                     (with-current-buffer bufname
+                       (equal major-mode 'vterm-mode)))
+                   ;; (display-buffer-reuse-window display-buffer-at-bottom)
+                   (display-buffer-reuse-window display-buffer-in-direction)
+                   ;;display-buffer-in-direction/direction/dedicated is added in emacs27
+                   (direction . bottom)
+                   (dedicated . t) ;dedicated is supported in emacs27
+                   (reusable-frames . visible)
+                   (window-height . 0.3))))
+
+#+end_src
+
+#+RESULTS:
+
 * EMACS STARTUP TIME
 
 #+begin_src emacs-lisp
@@ -819,7 +902,7 @@ Automatically tangle emacs-config.org file we saved.
                         (expand-file-name "~/.dotfiles/emacs/config/emacs-config.org"))
       ;; Dynamic scoping to the rescue
       (let ((org-confirm-babel-evaluate nil))
-        (org-babel-tangle)))
+        (org-babel-tangle))))
 
     (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'org-babel-tangle-config)))
 

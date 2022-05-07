@@ -10,9 +10,14 @@
 ** FLEETING NOTES
 
 *** How to get info about a function?
+
 M-x describe function RET
 and then enter the name of the function you want to know about
 
+*** How to find missing parens?
+
+To find missing parens, run *M-x check-parens* in the file you want to check.
+It's helpful to "debug" errors in init.el, as an example.
 
 ** SHORTCUTS
 
@@ -96,7 +101,6 @@ If you want to kill more than one buffer, position the cursor in the line of the
 
 To unmark you can hit *u*
 When all your buffers are correctly marked, hit *x* to commit changes.
-
 
 
 ** ORG MODE
@@ -353,7 +357,13 @@ Press *P* and then *p*
 
 NOTE: before pressing *p* make sure you're pushing to the right origin.
 
+** TERM MODES
 
+Hit *C-c C-k* to get into *term char mode*
+Notice a lock will appear when you activate it.
+
+Hit *C-c C-j* to get back to *term line mode*
+Lock will disappear
 
 ** BUFFER LISTS WITH PERSPECTIVE.EL
 
@@ -361,6 +371,7 @@ NOTE: before pressing *p* make sure you're pushing to the right origin.
 [[https://github.com/nex3/perspective-el][Check GitHub Docs Here!]]
 
 ** WATCHED VIDEOS
+
 *** Emacs from Scratch #1 - Getting Started with a Basic Configuration
 *** Emacs from Scratch #2 - Helpful UI Tweaks
 *** Emacs from Scratch #3 - Key Bindings and Evil
@@ -380,7 +391,12 @@ NOTE: before pressing *p* make sure you're pushing to the right origin.
 *** Emacs from Scratch #8 - Build your Own IDE with lsp-mode
 **** TODO TO WATCH
 *** Emacs from Scratch #9 - Learn to Love the Terminal Modes
-**** TODO TO WATCH
+
+This is not a good video.
+David Wilson fails configuring VTERM
+
+
+
 *** Emacs from Scratch #10 - Effortless File Management with Dired
 **** TODO TO WATCH
 *** Keeping your Emacs Packages Up to Date
