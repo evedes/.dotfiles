@@ -133,8 +133,6 @@ Just press *Tab* on top of that heading
 *** How to create a new Heading of a type?
 Put the cursor on top or below of the heading you want to replicate, i.e: a 3 start heading, and press *C+RET*.
 
-
-
 *** How to create a table?
 
 
@@ -326,6 +324,17 @@ I didn't write this example, but in the future it is somethigng really interesti
 
 Just search for the *:noweb yes* mark
 
+** MAGIT
+
+Hit *C-x g* which is the equivalent to git status.
+
+Hiding/Showing Details: *TAB*
+
+To refresh status after changes, press *g* 
+
+You can hover a change, and press *s* for stage.
+
+To commit changes, press *c*
 
 ** BUFFER LISTS WITH PERSPECTIVE.EL
 
