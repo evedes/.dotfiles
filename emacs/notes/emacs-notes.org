@@ -38,6 +38,7 @@ and then enter the name of the function you want to know about
 | C-c C-c            | Run a code block                                |
 | C-c C-l            | Create a link                                   |
 | C-c C-o            | Open a link                                     |
+| C-x g              | Magit Status                                    |
 
 ** GENERAL NOTES
 
@@ -326,17 +327,31 @@ Just search for the *:noweb yes* mark
 
 ** MAGIT
 
+*** How to run git status?
+
 Hit *C-x g* which is the equivalent to git status.
 
-Hiding/Showing Details: *TAB*
+Note: You can Hide/Show Details hitting: *TAB*
 
 To refresh status after changes, press *g* 
 
+*** How to stage a change?
+
 You can hover a change, and press *s* for stage.
+
+
+*** How to commit?
 
 To commit changes, press *c*, a menu will open, press *c* again for commit.
 
 Write a commit message and press *C-c C-c*
+
+
+*** How to push a commit?
+
+Press *P* and then *p* 
+
+NOTE: before pressing *p* make sure you're pushing to the right origin.
 
 
 
