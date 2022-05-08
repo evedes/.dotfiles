@@ -269,7 +269,8 @@ Set garbage-collector threschold high, during loading:
      (dolist (mode '(org-mode-hook
                      term-mode-hook
                      shell-mode-hook
-                     eshell-mode-hook))
+                     eshell-mode-hook
+                     vterm-mode-hook))
        (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
    #+end_src
@@ -849,7 +850,7 @@ Set garbage-collector threschold high, during loading:
       (treemacs-hide-gitignored-files-mode nil))
     :bind
     (:map global-map
-          ;;("M-0"       . treemacs-select-window)
+          ("M-p"       . treemacs-select-window)
           ("C-x t 1"   . treemacs-delete-other-windows)
           ("M-0"   . treemacs)
           ("C-x t d"   . treemacs-select-directory)
@@ -907,13 +908,13 @@ To run vterm you'll need CMake and libtool.
   (use-package vterm
     :ensure t
     :preface
-    (defun my/vterm-mode-hook ()
+    (defun vterm-mode-hook ()
       (hl-line-mode -1)
       (display-line-numbers-mode -1)
       (display-fill-column-indicator-mode -1)
       (auto-fill-mode -1))
     :hook
-    ((vterm-mode . my/vterm-mode-hook))
+    ((vterm-mode . vterm-mode-hook))
     :custom
     (vterm-module-cmake-args " -DUSE_SYSTEM_LIBVTERM=yes")
     (vterm-always-compile-module t)
