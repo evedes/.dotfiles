@@ -1,8 +1,8 @@
-
 #+TITLE: EMACS ORG FILE
 #+AUTHOR: Eduardo Vedes
 #+DATE: 2022-05-04
 #+OPTIONS: toc:2 num:nil
+#+STARTUP: showall
 
 * EMACS
 "My adventure Learning Emacs and Everything Lispian"
@@ -42,6 +42,7 @@ It's helpful to "debug" errors in init.el, as an example.
 | C-c C-l            | Create a link                                   |
 | C-c C-o            | Open a link                                     |
 | C-x g              | Magit Status                                    |
+| C-c $              | Add word to dictionary                          |
 ** GENERAL NOTES
 
 Emacs is for unicorns, which means "Unique Organizers". That's the why of the unicorn symbol
@@ -95,6 +96,11 @@ To unmark you can hit *u*
 When all your buffers are correctly marked, hit *x* to commit changes.
 
 ** ORG MODE
+*** How to check which orgmode version I'm using?
+
+*M-x org-version*
+
+
 *** How to add a literal Example?
 
 Make sure what you want to write is wrapped in
@@ -158,12 +164,30 @@ You can hit *Shift+Alt+Enter* to add more checkboxes
 
 *** How to add a TODO?
 
-Orgmode comes with two states: TODO and DONE
+OrgMode comes with two states: TODO and DONE
 You can add more states.
 
 **** TODO Do something great!
 
 You can toggle a todo with *C-c C-t* or with *Shift+Right* while in the TODO line.
+
+** ORG ROAM
+
+It's inspired by a program called *Roam* and a note-taking strategy called *"Zettelkasten"*, where the goal is to create many individual single-topic notes that are linked together to create a "networked" knowledge base.
+
+Many people consider it like a "second brain". It can easily handle a huge amount of knowledge and reminding you of connections between topics very effectively.
+
+*** Prerequisites
+
+Org Roam v2 depends on a customized build of the SQLite database tool to operate.
+
+For Linux and MacOS users, make sure you have a C/C++ compiler like *gcc* or *clang* installed.
+
+Database enables Org Roam to keep track of all of the "nodes" that you create and the links between them *very* efficiently.
+
+*** Basic Configuration
+
+After Org Roam has been installed, the most important thing to configure is the folder where your Org Roam files will be located.
 
 ** ORGANIZING YOUR LIFE WITH ORGMODE
 [[https://orgmode.org/manual/Agenda-Commands.html][Commands in the Agenda Buffer]]
@@ -285,7 +309,7 @@ You can create a config file named, i.e.: emacs.org
 
 You can create config code blocks in an emacs lisp template, which you can create with *<el + TAB*
 
-You can *tangle* the src block. This means "take all the blocks in this file and write them out to the files where they belong in the filesystem.
+You can *tangle* the src block. This means "take all the blocks in this file and write them out to the files where they belong in the file system.
 
 Just run *M-x org-babel-tangle*
 

@@ -4,6 +4,19 @@
 #+PROPERTY: header-args:emacs-lisp :tangle ~/.emacs.d/init.el :mkdirp yes
 #+OPTIONS: toc:2 num:nil
 
+* How to install this Emacs literate config?
+
+- Make sure you clone *.dotfiles* repository from GitHub.
+- Create *.emacs.d* folder at ~/
+- Do `ln -s ~/.dotfiles/emacs/* ~/.emacs.d/`
+- At this point if you ls *.emacs.d* folder you'll find 2 folders:
+  - *notes/emacs-notes.org:* where I take notes about Emacs
+  - *config/emacs-config.org:* Emacs literate config
+- Open emacs-config.org
+- Type 'M-x org-babel-tangle' to create *init.el*
+- Restart Emacs or type *M-x load-file* and reload ~/.emacs.d/init.el
+
+
 * GENERAL
 
 Set garbage-collector threschold high, during loading:
@@ -17,7 +30,9 @@ Set garbage-collector threschold high, during loading:
 #+begin_src emacs-lisp
 
   (require 'package)
+  (setq package-check-signature nil)
   (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                           ("nongnu" . "https://elpa.nongnu.org/nongnu/")                           
                            ("org" . "https://orgmode.org/elpa/")
                            ("gnu" . "https://elpa.gnu.org/packages/")
                            ("elpa" . "https://elpa.gnu.org/packages/")))
@@ -48,6 +63,9 @@ Set garbage-collector threschold high, during loading:
   (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 
 #+end_src
+
+#+RESULTS:
+: ((. . ~/.emacs.d/backups))
 
 
 ** USE PACKAGES
@@ -434,9 +452,6 @@ Set garbage-collector threschold high, during loading:
 
 *org-src-tab-acts-natively*: the effect of *TAB* in a code block is the same as in the language major mode buffer.
 
-
-
-
 #+begin_src emacs-lisp
 
   (defun org-mode-setup ()
@@ -633,6 +648,36 @@ Set garbage-collector threschold high, during loading:
 
 #+RESULTS:
 : ((py . src python) (el . src emacs-lisp) (sh . src shell) (a . export ascii) (c . center) (C . comment) (e . example) (E . export) (h . export html) (l . export latex) (q . quote) (s . src) (v . verse))
+
+* ORG ROAM
+
+#+begin_src emacs-lisp
+
+  (setq org-directory (concat (getenv "HOME") "/Multiverse/Zettelkasten"))
+
+  (use-package org-roam
+    :after org
+    :init (setq org-roam-v2-ack t) ;; Acknowledge V2 upgrade
+    :custom
+    (org-roam-directory (file-truename org-directory))
+    (org-roam-completion-everywhere t)
+    :config
+    (org-roam-setup)
+    :bind (
+           ("C-c n l" . org-roam-buffer-toggle)
+           ("C-c n f" . org-roam-node-find)
+           ("C-c n r" . org-roam-node-random)		    
+           (:map org-mode-map
+                 (("C-c n i" . org-roam-node-insert)
+                  ("C-c n o" . org-id-get-create)
+                  ("C-c n t" . org-roam-tag-add)
+                  ("C-c n a" . org-roam-alias-add)
+                  ("C-c n l" . org-roam-buffer-toggle)))))
+
+#+end_src
+
+#+RESULTS:
+: org-roam-buffer-toggle
 
 * EDITING
 
