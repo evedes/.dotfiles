@@ -320,7 +320,7 @@ Hit *C-x g* which is the equivalent to git status.
 
 Note: You can Hide/Show Details hitting: *TAB*
 
-To refresh status after changes, press *g* 
+If you change something outside of Emacs, you can press *g* to refresh the current status buffer or *G* to refresh all Magit buffers.
 
 *** How to stage a change?
 
@@ -337,6 +337,10 @@ Write a commit message and press *C-c C-c*
 Press *P* and then *p* 
 
 NOTE: before pressing *p* make sure you're pushing to the right origin.
+
+*** How to discard?
+
+Press *k* to discard a hunk.
 
 ** TERM MODES
 Hit *C-c C-k* to get into *term char mode*
