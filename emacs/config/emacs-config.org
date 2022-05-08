@@ -36,7 +36,6 @@ Set garbage-collector threschold high, during loading:
                            ("org" . "https://orgmode.org/elpa/")
                            ("gnu" . "https://elpa.gnu.org/packages/")
                            ("elpa" . "https://elpa.gnu.org/packages/")))
-
   (package-initialize)
 
   (unless package-archive-contents
@@ -237,10 +236,13 @@ Set garbage-collector threschold high, during loading:
 
    #+begin_src emacs-lisp
 
-     (defvar default-font-size 140)
-     (defvar default-variable-font-size 140)
+     (defvar default-font-size 160)
+     (defvar default-variable-font-size 160)
 
    #+end_src
+
+   #+RESULTS:
+   : default-variable-font-size
 
 ** RAINBOW DELIMITERS
 
@@ -321,12 +323,12 @@ Set garbage-collector threschold high, during loading:
 
 ** THEMES
 
-   SUGGESTED THEMES: doom-one, doom-dracula, doom-moonlight, doom-spacegrey, doom-outrun-electric, doom-palenight
+   SUGGESTED THEMES: doom-one, doom-dracula, doom-moonlight, doom-spacegrey, doom-outrun-electric, doom-palenight, doom-shades-of-purple, doom-tokyo-night
 
    #+begin_src emacs-lisp
 
      (use-package doom-themes
-       :init (load-theme 'doom-outrun-electric t))
+       :init (load-theme 'doom-moonlight t))
 
      (use-package all-the-icons
        :ensure t)
@@ -442,6 +444,24 @@ Set garbage-collector threschold high, during loading:
            ("M-O" . ace-swap-window)))
 
 #+end_src
+** WINDMOVE
+
+#+begin_src emacs-lisp
+
+  (use-package windmove
+    ;; :defer 4
+    :ensure t
+    :config
+    ;; use command key on Mac
+    (windmove-default-keybindings 'super)
+    ;; wrap around at edges
+    (setq windmove-wrap-around t))
+
+#+end_src
+
+#+RESULTS:
+: t
+
 ** EMOJIS IN EMACS
 #+begin_src emacs-lisp
 

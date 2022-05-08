@@ -17,6 +17,8 @@ and then enter the name of the function you want to know about
 
 To find missing parens, run *M-x check-parens* in the file you want to check.
 It's helpful to "debug" errors in init.el, as an example.
+*** How to swap windows?
+Do *M-x window-swap-states*
 
 ** SHORTCUTS
 | Command            | Description                                     |
@@ -94,8 +96,13 @@ If you want to kill more than one buffer, position the cursor in the line of the
 
 To unmark you can hit *u*
 When all your buffers are correctly marked, hit *x* to commit changes.
+*** WINDMOVE
+**** How to move around windows?
+
+You can use *Super + Arrow Keys* to move around windows.
 
 ** ORG MODE
+
 *** How to check which orgmode version I'm using?
 
 *M-x org-version*
