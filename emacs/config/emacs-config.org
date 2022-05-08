@@ -775,7 +775,6 @@ Set garbage-collector threschold high, during loading:
 #+end_src
 
 * TREEMACS
-
 #+begin_src emacs-lisp
 
   (use-package treemacs
@@ -850,17 +849,13 @@ Set garbage-collector threschold high, during loading:
       (treemacs-hide-gitignored-files-mode nil))
     :bind
     (:map global-map
-          ("M-0"       . treemacs-select-window)
+          ;;("M-0"       . treemacs-select-window)
           ("C-x t 1"   . treemacs-delete-other-windows)
-          ("C-x t t"   . treemacs)
+          ("M-0"   . treemacs)
           ("C-x t d"   . treemacs-select-directory)
           ("C-x t B"   . treemacs-bookmark)
           ("C-x t C-t" . treemacs-find-file)
           ("C-x t M-t" . treemacs-find-tag)))
-
-  (use-package treemacs-evil
-    :after (treemacs evil)
-    :ensure t)
 
   (use-package treemacs-projectile
     :after (treemacs projectile)
@@ -874,18 +869,12 @@ Set garbage-collector threschold high, during loading:
     :after (treemacs magit)
     :ensure t)
 
-  (use-package treemacs-persp
-    :after (treemacs persp-mode)
-    :ensure t
-    :config (treemacs-set-scope-type 'Perspectives))
-
   (use-package treemacs-tab-bar
     :after (treemacs)
     :ensure t
     :config (treemacs-set-scope-type 'Tabs))
 
 #+end_src
-
 * TERM MODES
 ** TERM 
 

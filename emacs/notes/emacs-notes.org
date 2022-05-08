@@ -314,6 +314,7 @@ I didn't write this example, but in the future it is somethigng really interesti
 Just search for the *:noweb yes* mark
 
 ** MAGIT
+
 *** How to run git status?
 
 Hit *C-x g* which is the equivalent to git status.
@@ -353,10 +354,12 @@ You can also stage multiple files or hunks at once. To do so, mark these sibling
 Multiple select a region and press *s* to stage it.
 
 ** TERM MODES
+
 Hit *C-c C-k* to get into *term char mode*
 Notice a lock will appear when you activate it.
 Hit *C-c C-j* to get back to *term line mode*
 Lock will disappear
+
 ** BUFFER LISTS WITH PERSPECTIVE.EL
 [[https://www.youtube.com/watch?v=uyMdDzjQFMU&list=PLEoMzSkcN8oOP5WgckTbERn10CXxIFneB][Check David Wilson Video Here!]]
 [[https://github.com/nex3/perspective-el][Check GitHub Docs Here!]]
