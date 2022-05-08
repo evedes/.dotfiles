@@ -1,5 +1,4 @@
-
-#+TITLE: Emacs Configuration
+loa#+TITLE: Emacs Configuration
 #+AUTHOR: Eduardo Vedes
 #+DATE: 2022-05-06
 #+PROPERTY: header-args:emacs-lisp :tangle ~/.emacs.d/init.el :mkdirp yes
@@ -167,7 +166,6 @@ Set garbage-collector threschold high, during loading:
 #+end_src
 
 * UI
-
 ** DISABLE STARTUP MESSAGE
 
    #+begin_src emacs-lisp
@@ -200,8 +198,8 @@ Set garbage-collector threschold high, during loading:
 
    #+begin_src emacs-lisp
 
-     (defvar default-font-size 135)
-     (defvar default-variable-font-size 135)
+     (defvar default-font-size 140)
+     (defvar default-variable-font-size 140)
 
    #+end_src
 
@@ -218,14 +216,23 @@ Set garbage-collector threschold high, during loading:
 
    #+begin_src emacs-lisp
 
-     (defvar efs/frame-transparency '(90 . 90))
+     (defvar frame-transparency '(88 . 88))
 
-     (set-frame-parameter (selected-frame) 'alpha efs/frame-transparency)
-     (add-to-list 'default-frame-alist `(alpha . ,efs/frame-transparency))
-     (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
-     (add-to-list 'default-frame-alist '(fullscreen . maximized))
+     (set-frame-parameter (selected-frame) 'alpha frame-transparency)
+     (add-to-list 'default-frame-alist `(alpha . ,frame-transparency))
 
    #+end_src
+
+   #+RESULTS:
+   : ((fullscreen . maximized) (alpha 50 . 50) (vertical-scroll-bars) (left-fringe . 10) (right-fringe . 10))
+** FRAME MAXIMIZED
+
+#+begin_src emacs-lisp
+
+  (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
+  (add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+#+end_src
 
 ** ADD LINE NUMBERS
 
@@ -279,13 +286,21 @@ Set garbage-collector threschold high, during loading:
    #+begin_src emacs-lisp
 
      (use-package doom-themes
-       :init (load-theme 'doom-moonlight t))
+       :init (load-theme 'doom-outrun-electric t))
 
-     (use-package all-the-icons)
+     (use-package all-the-icons
+       :ensure t)
 
      (use-package doom-modeline
+       :ensure t
        :init (doom-modeline-mode 1)
-       :custom ((doom-modeline-height 15)))
+       :config
+       (setq doom-modeline-height 40)
+       (setq doom-modeline-buffer-file-name-style 'relative-to-project)
+       (setq doom-line-numbers-style 'relative)
+       (setq doom-modeline-major-mode-icon t)
+       (setq doom-modeline-buffer-state-icon t)
+       (setq doom-modeline-major-mode-color-icon t))
 
    #+end_src
 
@@ -317,6 +332,50 @@ Set garbage-collector threschold high, during loading:
 
    #+end_src
 
+** FLYCHECK
+#+begin_src emacs-lisp
+
+  (use-package flycheck
+    :init
+    (setq-default flycheck-disabled-checkers '(python-mypy))
+    :config
+    (setq flycheck-check-syntax-automatically '(save mode-enable))
+    (setq flycheck-scheme-chicken-executable "chicken-csc")
+    :hook
+    (after-init . global-flycheck-mode))
+
+#+end_src
+** FILE BROWSERS
+#+begin_src emacs-lisp
+  (use-package ranger
+    :ensure t
+    :disabled
+    :config
+    (setq ranger-preview-file t))
+
+  (use-package neotree
+    :ensure t
+    :bind ("<f8>" . 'neotree-toggle)
+    :init
+    ;; slow rendering
+    (setq inhibit-compacting-font-caches t)
+    ;; set icons theme
+    (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+    (setq neo-smart-open t))
+
+  (use-package all-the-icons-dired
+    :ensure t)
+
+  (use-package dired
+    :ensure nil
+    :custom ((dired-listing-switches "-agho --group-directories-first"))
+    :commands (dired dired-jump)
+    :bind (("C-x C-j" . dired-jump))
+    :hook
+    (dired-mode . all-the-icons-dired-mode))
+
+  (use-package dired-single :ensure t)
+#+end_src
 * ORGMODE
 
 *org-src-tab-acts-natively*: the effect of *TAB* in a code block is the same as in the language major mode buffer.

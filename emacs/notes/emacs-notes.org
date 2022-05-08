@@ -3,12 +3,10 @@
 #+author: Eduardo Vedes
 #+date: 2022-05-04
 
-
 * EMACS
 "My adventure Learning Emacs and Everything Lispian"
 
 ** FLEETING NOTES
-
 *** How to get info about a function?
 
 M-x describe function RET
@@ -20,7 +18,6 @@ To find missing parens, run *M-x check-parens* in the file you want to check.
 It's helpful to "debug" errors in init.el, as an example.
 
 ** SHORTCUTS
-
 | Command            | Description                                     |
 | -                  | -                                               |
 | C-p or Up Arrow    | Move cursor one line up                         |
@@ -44,14 +41,13 @@ It's helpful to "debug" errors in init.el, as an example.
 | C-c C-l            | Create a link                                   |
 | C-c C-o            | Open a link                                     |
 | C-x g              | Magit Status                                    |
-
 ** GENERAL NOTES
 
 Emacs is for unicorns, which means "Unique Organizers". That's the why of the unicorn symbol
 
 ** EMACS MANUAL NOTES
 
-## MAJOR MODES
+*MAJOR MODES*
 
 Every buffer processes a major mode.
 This determines the behavior of Emacs while in that buffer.
@@ -82,14 +78,10 @@ More about Major Modes [[https://www.gnu.org/software/emacs/manual/html_node/ema
 
 ** EMACS PACKAGES
 *** PROJECTILE
-
 **** How to switch project?
-
 Hit *'C-p p'* to see the list of the projects
 Hit *'C-p p f'* to find a file inside the projects folders
-
 *** IBUFFER
-
 **** How to open IBuffer?
 Hit *C-x C-b*
 
@@ -242,9 +234,7 @@ Set style with *M-x org-set-property*, or *C-c C-x p*
 Set *style* and then *habit*
 
 ** ORG BABEL
-
 OrgBabel allows to add code blocks inside your org files, and execute them, or export the blocks into other files.
-
 *** How to run a src block?
 
 Type *M-x org-babel-execute-src-block* or *C-c C-c* on top of the block you want to execute.
@@ -270,7 +260,6 @@ Type *M-x org-babel-execute-src-block* or *C-c C-c* on top of the block you want
 #+end_src
 
 #+RESULTS:
-
 
 *** Structure Templates
 
@@ -324,7 +313,6 @@ I didn't write this example, but in the future it is somethigng really interesti
 Just search for the *:noweb yes* mark
 
 ** MAGIT
-
 *** How to run git status?
 
 Hit *C-x g* which is the equivalent to git status.
@@ -337,13 +325,11 @@ To refresh status after changes, press *g*
 
 You can hover a change, and press *s* for stage.
 
-
 *** How to commit?
 
 To commit changes, press *c*, a menu will open, press *c* again for commit.
 
 Write a commit message and press *C-c C-c*
-
 
 *** How to push a commit?
 
@@ -352,20 +338,14 @@ Press *P* and then *p*
 NOTE: before pressing *p* make sure you're pushing to the right origin.
 
 ** TERM MODES
-
 Hit *C-c C-k* to get into *term char mode*
 Notice a lock will appear when you activate it.
-
 Hit *C-c C-j* to get back to *term line mode*
 Lock will disappear
-
 ** BUFFER LISTS WITH PERSPECTIVE.EL
-
 [[https://www.youtube.com/watch?v=uyMdDzjQFMU&list=PLEoMzSkcN8oOP5WgckTbERn10CXxIFneB][Check David Wilson Video Here!]]
 [[https://github.com/nex3/perspective-el][Check GitHub Docs Here!]]
-
 ** WATCHED VIDEOS
-
 *** Emacs from Scratch #1 - Getting Started with a Basic Configuration
 *** Emacs from Scratch #2 - Helpful UI Tweaks
 *** Emacs from Scratch #3 - Key Bindings and Evil
@@ -390,7 +370,6 @@ This is not a good video.
 David Wilson fails configuring VTERM
 
 
-
 *** Emacs from Scratch #10 - Effortless File Management with Dired
 **** TODO TO WATCH
 *** Keeping your Emacs Packages Up to Date
@@ -406,7 +385,6 @@ David Wilson fails configuring VTERM
 **** TODO TO WATCH
 
 ** REASONS TO LEARN EMACS IN 2022
-
 *** If you want to go *really* far, install EXWM on Linux!
 *** It creates a complete desktop environment using EXWM on Linux.
 *** With org-mode you can do spreadsheets, or configure your entire system.
