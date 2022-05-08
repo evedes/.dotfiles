@@ -322,6 +322,10 @@ Note: You can Hide/Show Details hitting: *TAB*
 
 If you change something outside of Emacs, you can press *g* to refresh the current status buffer or *G* to refresh all Magit buffers.
 
+*** The popup of popups
+
+There are many popups. For the most commonly used ones, you'll quickly learn the keys you have to press because they are mnemonic. Until then, or when you need to do something you rarely do, then the "popup of popups" comes to the rescue. Show it by typing *?*.
+
 *** How to stage a change?
 
 You can hover a change, and press *s* for stage.
