@@ -107,17 +107,17 @@ Set garbage-collector threschold high, during loading:
 
 #+begin_src emacs-lisp
 
-(use-package projectile
-  :diminish projectile-mode
-  :config (projectile-mode)
-  :custom ((projectile-completion-system 'ivy))
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
-  :init
-  ;; NOTE: Set this to the folder where you keep your Git repos!
-  (when (file-directory-p "~/")
-    (setq projectile-project-search-path '("~/.dotfiles" "~/Multiverse" "~/Work" "~/SideProjects" "~/Study")))
-  (setq projectile-switch-project-action #'projectile-dired))
+  (use-package projectile
+    :diminish projectile-mode
+    :config (projectile-mode)
+    :custom ((projectile-completion-system 'ivy))
+    :bind-keymap
+    ("C-c p" . projectile-command-map)
+    :init
+    ;; NOTE: Set this to the folder where you keep your Git repos!
+    (when (file-directory-p "~/")
+      (setq projectile-project-search-path '("~/.dotfiles" "~/Multiverse" "~/Work" "~/SideProjects" "~/Study" "~/OpenSource")))
+    (setq projectile-switch-project-action #'projectile-dired))
 
 #+end_src
 
@@ -345,6 +345,7 @@ Set garbage-collector threschold high, during loading:
    #+end_src
 
    #+RESULTS:
+   : t
 
 ** BEACON
 
