@@ -423,6 +423,13 @@ Set garbage-collector threschold high, during loading:
            ("M-O" . ace-swap-window)))
 
 #+end_src
+** EMOJIS IN EMACS
+#+begin_src emacs-lisp
+
+(use-package emojify
+:hook (after-init . global-emojify-mode))
+
+#+end_src
 * ORG MODE
 
 *org-src-tab-acts-natively*: the effect of *TAB* in a code block is the same as in the language major mode buffer.

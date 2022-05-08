@@ -406,3 +406,11 @@ David Wilson fails configuring VTERM
 *** If you want to go *really* far, install EXWM on Linux!
 *** It creates a complete desktop environment using EXWM on Linux.
 *** With org-mode you can do spreadsheets, or configure your entire system.
+
+** EMACS LISP
+
+*** What is Lisp?
+
+- A language and environment based on the idea of interactivity
+- The syntax enables new language constructs to be defined
+- the ultimate hacker language!!!
