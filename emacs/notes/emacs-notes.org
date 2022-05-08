@@ -346,6 +346,12 @@ NOTE: before pressing *p* make sure you're pushing to the right origin.
 
 Press *k* to discard a hunk.
 
+*** Acting on the selection
+
+You can also stage multiple files or hunks at once. To do so, mark these sibling sections using the region.
+
+Multiple select a region and press *s* to stage it.
+
 ** TERM MODES
 Hit *C-c C-k* to get into *term char mode*
 Notice a lock will appear when you activate it.
