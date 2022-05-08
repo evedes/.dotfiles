@@ -408,7 +408,21 @@ Set garbage-collector threschold high, during loading:
 
   (use-package dired-single :ensure t)
 #+end_src
-* ORGMODE
+** ACE WINDOW
+#+begin_src emacs-lisp
+
+  (use-package ace-window
+    :ensure t
+    :init (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)
+                aw-char-position 'left
+                aw-ignore-current nil
+                aw-leading-char-style 'char
+                aw-scope 'frame)
+    :bind (("M-o" . ace-window)
+           ("M-O" . ace-swap-window)))
+
+#+end_src
+* ORG MODE
 
 *org-src-tab-acts-natively*: the effect of *TAB* in a code block is the same as in the language major mode buffer.
 
@@ -618,10 +632,6 @@ Set garbage-collector threschold high, during loading:
   
   (global-set-key (kbd "M-/") 'hippie-expand)
 
-
-  (global-set-key (kbd "M-p") 'ace-window)
-
-  
   (setq hippie-expand-try-functions-list
   '(try-expand-dabbrev
   try-expand-dabbrev-all-buffers
