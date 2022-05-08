@@ -1,7 +1,8 @@
 
-#+title: EMACS ORG FILE
-#+author: Eduardo Vedes
-#+date: 2022-05-04
+#+TITLE: EMACS ORG FILE
+#+AUTHOR: Eduardo Vedes
+#+DATE: 2022-05-04
+#+OPTIONS: toc:2 num:nil
 
 * EMACS
 "My adventure Learning Emacs and Everything Lispian"

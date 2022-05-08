@@ -1,7 +1,8 @@
-loa#+TITLE: Emacs Configuration
+#+TITLE: Emacs Configuration
 #+AUTHOR: Eduardo Vedes
 #+DATE: 2022-05-06
 #+PROPERTY: header-args:emacs-lisp :tangle ~/.emacs.d/init.el :mkdirp yes
+#+OPTIONS: toc:2 num:nil
 
 * GENERAL
 
@@ -18,6 +19,7 @@ Set garbage-collector threschold high, during loading:
   (require 'package)
   (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                            ("org" . "https://orgmode.org/elpa/")
+                           ("gnu" . "https://elpa.gnu.org/packages/")
                            ("elpa" . "https://elpa.gnu.org/packages/")))
 
   (package-initialize)
@@ -48,31 +50,41 @@ Set garbage-collector threschold high, during loading:
 #+end_src
 
 
-** WHICH KEY
-
-#+begin_src emacs-lisp
-
-(use-package which-key
-:defer 0
-:diminish which-key-mode
-:config
-(which-key-mode)
-(setq which-key-idle-delay 1))
-
-#+end_src
-
 ** USE PACKAGES
 
 #+begin_src emacs-lisp
 
-(use-package paredit)
-(use-package clojure-mode)
-(use-package clojure-mode-extra-font-locking)
-(use-package cider)
-(use-package tagedit)
+  (use-package paredit)
+  (use-package clojure-mode)
+  (use-package clojure-mode-extra-font-locking)
+  (use-package cider)
+  (use-package tagedit)
 
 #+end_src
 
+** WHICH KEY
+
+#+begin_src emacs-lisp
+
+  (use-package which-key
+    :ensure t
+    :diminish
+    :custom
+    (which-key-idle-secondary-delay 0.01)
+    (which-key-dont-use-unicode t)
+    :config
+    (which-key-mode t))
+
+#+end_src
+
+** IMPROVED PARENTHESES
+#+begin_src emacs-lisp
+
+  (use-package smartparens
+    :ensure t
+    :hook (prog-mode . smartparens-mode))
+
+#+end_src
 ** PROJECTILE
 
 #+begin_src emacs-lisp
@@ -165,7 +177,16 @@ Set garbage-collector threschold high, during loading:
 
 #+end_src
 
-* UI
+* USER INTERFACE
+** UNDO TREE
+#+begin_src emacs-lisp
+
+  (use-package undo-tree
+    :ensure t
+    :init
+    (global-undo-tree-mode))
+
+#+end_src
 ** DISABLE STARTUP MESSAGE
 
    #+begin_src emacs-lisp
@@ -332,6 +353,17 @@ Set garbage-collector threschold high, during loading:
 
    #+end_src
 
+** FLYSPELL
+#+begin_src emacs-lisp
+
+  (use-package flyspell
+    :hook
+    ((prog-mode . flyspell-prog-mode)
+     (text-mode . turn-on-flyspell))
+    :config
+    (flyspell-mode +1))
+
+#+end_src
 ** FLYCHECK
 #+begin_src emacs-lisp
 
