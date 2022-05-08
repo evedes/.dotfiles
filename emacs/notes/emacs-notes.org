@@ -81,7 +81,6 @@ The default of major-mode determines the major mode to use for files that do not
 More about Major Modes [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Major-Modes.html#:~:text=It%20includes%20Text%20mode%2C%20HTML,%2C%20Fortran%20mode%2C%20and%20others][here]].
 
 ** EMACS PACKAGES
-
 *** PROJECTILE
 
 **** How to switch project?
@@ -102,9 +101,7 @@ If you want to kill more than one buffer, position the cursor in the line of the
 To unmark you can hit *u*
 When all your buffers are correctly marked, hit *x* to commit changes.
 
-
 ** ORG MODE
-
 *** How to add a literal Example?
 
 Make sure what you want to write is wrapped in
@@ -176,10 +173,7 @@ You can add more states.
 You can toggle a todo with *C-c C-t* or with *Shift+Right* while in the TODO line.
 
 ** ORGANIZING YOUR LIFE WITH ORGMODE
-
-## AGENDA
 [[https://orgmode.org/manual/Agenda-Commands.html][Commands in the Agenda Buffer]]
-
 *** How to Open the Agenda?
 
 *M-x org-agenda*
@@ -411,8 +405,7 @@ David Wilson fails configuring VTERM
 *** Declutter Your Buffer Lists in Emacs with Perspective.el
 **** TODO TO WATCH
 
-
-** 5 Reasons to Learn Emacs in 2021
+** REASONS TO LEARN EMACS IN 2022
 
 *** If you want to go *really* far, install EXWM on Linux!
 *** It creates a complete desktop environment using EXWM on Linux.

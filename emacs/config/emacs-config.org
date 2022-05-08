@@ -786,7 +786,6 @@ Set garbage-collector threschold high, during loading:
 #+end_src
 
 * TERM MODES
-
 ** TERM 
 
 #+begin_src emacs-lisp
@@ -806,7 +805,6 @@ Set garbage-collector threschold high, during loading:
 
 #+RESULTS:
 | eterm-256color-mode | (lambda nil (display-line-numbers-mode 0)) |
-
 
 ** VTERM
 
