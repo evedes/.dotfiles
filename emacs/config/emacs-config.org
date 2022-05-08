@@ -830,7 +830,7 @@ Set garbage-collector threschold high, during loading:
             treemacs-user-mode-line-format           nil
             treemacs-user-header-line-format         nil
             treemacs-wide-toggle-width               70
-            treemacs-width                           35
+            treemacs-width                           50
             treemacs-width-increment                 1
             treemacs-width-is-initially-locked       t
             treemacs-workspace-switch-cleanup        nil)
@@ -929,7 +929,7 @@ To run vterm you'll need CMake and libtool.
 
   (use-package vterm-toggle
     :ensure t
-    :bind (("C-c p" . vterm-toggle-cd)
+    :bind (("C-c j" . vterm-toggle-cd)
            :map vterm-mode-map
            (("<C-return>" . vterm-toggle-insert-cd)
             ("C-M-n" . vterm-toggle-forward)
