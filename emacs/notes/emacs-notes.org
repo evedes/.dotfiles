@@ -45,6 +45,9 @@ Do *M-x window-swap-states*
 | C-c C-o            | Open a link                                     |
 | C-x g              | Magit Status                                    |
 | C-c $              | Add word to dictionary                          |
+| C-_ or C-/         | Undo                                            |
+| M-_ or C-?         | Redo                                            |
+
 ** GENERAL NOTES
 
 Emacs is for unicorns, which means "Unique Organizers". That's the why of the unicorn symbol
