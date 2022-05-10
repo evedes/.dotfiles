@@ -67,9 +67,9 @@ The second group contains modes for specific programming languages (Lisp, C, For
 The third group consists of major modes that are not associated directly with files; they are used in buffers created for specific purposes by Emacs.
 
 Examples include:
-  - Dired mode for buffers made by Dired
-  - Message mode for buffers made by *C-x m*
-  - Shell mode for buffers used to communicate with an inferior shell process.
+- Dired mode for buffers made by Dired
+- Message mode for buffers made by *C-x m*
+- Shell mode for buffers used to communicate with an inferior shell process.
 
 Emacs usually sets the major mode automatically, when you first visit a file or create a buffer.
 You can switch to another mode by using an M-x command.
@@ -155,17 +155,17 @@ Tables ajust automatically, when you press *TAB*
 
 *** How to create a bulleted / numbered list / checklist?
 
-  - [X] First Item      
-  - [ ] Second Item
-  - [X] Third Item
- 
+- [X] First Item      
+- [ ] Second Item
+- [X] Third Item
+
 You can check/uncheck an item running *C-c C-x C-b*
 You can hit *Shift+Alt+Enter* to add more checkboxes
 
 *** How to add a code block?
 
 #+begin_src emacs-lisp
-(defun my-elisp-func ()
+  (defun my-elisp-func ()
     (message "Hello, world!"))
 #+end_src
 
@@ -273,7 +273,7 @@ Type *M-x org-babel-execute-src-block* or *C-c C-c* on top of the block you want
 
 #+begin_src emacs-lisp :results value
 
-(message "Hello, World!")
+  (message "Hello, World!")
 
 #+end_src
 
@@ -282,12 +282,12 @@ Type *M-x org-babel-execute-src-block* or *C-c C-c* on top of the block you want
 
 #+begin_src emacs-lisp
 
-(org-babel-do-load-languages
+  (org-babel-do-load-languages
    'org-babel-load-languages
    '((emacs-lisp . t)
-      (python . t)))
+     (python . t)))
 
-(setq org-confirm-babel-evaluate nil)
+  (setq org-confirm-babel-evaluate nil)
 
 #+end_src
 
@@ -297,12 +297,12 @@ Type *M-x org-babel-execute-src-block* or *C-c C-c* on top of the block you want
 
 #+begin_src emacs-lisp
 
- ;; This is needed as of Org 9.2
- (require 'org-tempo)
+  ;; This is needed as of Org 9.2
+  (require 'org-tempo)
 
- (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
- (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
- (add-to-list 'org-structure-template-alist '("py" . "src python"))
+  (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+  (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+  (add-to-list 'org-structure-template-alist '("py" . "src python"))
 
 #+end_src
 
@@ -330,8 +330,8 @@ At the top of the file:
 
 #+begin_src emacs-lisp
 
-(org-babel-tangle)
-(org-babel-tangle-file "~/Projects/Code/emacs-from-scratch/Emacs.org")
+  (org-babel-tangle)
+  (org-babel-tangle-file "~/Projects/Code/emacs-from-scratch/Emacs.org")
 
 #+end_src
 

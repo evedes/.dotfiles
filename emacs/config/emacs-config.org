@@ -23,7 +23,7 @@ Set garbage-collector threschold high, during loading:
 
 #+begin_src emacs-lisp
 
-(setq gc-cons-threshold (* 50 1000 1000))
+  (setq gc-cons-threshold (* 50 1000 1000))
 
 #+end_src
 
@@ -33,8 +33,8 @@ Set garbage-collector threschold high, during loading:
   (setq package-check-signature nil)
   (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                            ("nongnu" . "https://elpa.nongnu.org/nongnu/")                           
-                           ("org" . "https://orgmode.org/elpa/")
                            ("gnu" . "https://elpa.gnu.org/packages/")
+                           ("org" . "https://orgmode.org/elpa/")
                            ("elpa" . "https://elpa.gnu.org/packages/")))
   (package-initialize)
 
@@ -127,14 +127,14 @@ Set garbage-collector threschold high, during loading:
 
 #+begin_src emacs-lisp
 
-(use-package counsel
-  :bind (("C-M-j" . 'counsel-switch-buffer)
-	 :map minibuffer-local-map
-	 ("C-r" . 'counsel-minibuffer-history))
-  :custom
-  (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
-  :config
-  (counsel-mode 1))
+  (use-package counsel
+    :bind (("C-M-j" . 'counsel-switch-buffer)
+           :map minibuffer-local-map
+           ("C-r" . 'counsel-minibuffer-history))
+    :custom
+    (counsel-linux-app-format-function #'counsel-linux-app-format-function-name-only)
+    :config
+    (counsel-mode 1))
 
 #+end_src
 
@@ -142,9 +142,9 @@ Set garbage-collector threschold high, during loading:
 
 #+begin_src emacs-lisp
 
-(use-package counsel-projectile
-  :after projectile
-  :config (counsel-projectile-mode))
+  (use-package counsel-projectile
+    :after projectile
+    :config (counsel-projectile-mode))
 
 #+end_src
 
@@ -152,27 +152,27 @@ Set garbage-collector threschold high, during loading:
 
 #+begin_src emacs-lisp
 
-(use-package ivy
-  :diminish
-  :bind (("C-s" . swiper)
-	 :map ivy-minibuffer-map
-	 ("TAB" . ivy-alt-done)
-	 ("C-l" . ivy-alt-done)
-	 ("C-j" . ivy-next-line)
-	 ("C-k" . ivy-previous-line)
-	 :map ivy-switch-buffer-map
-	 ("C-k" . ivy-previous-line)
-	 ("C-l" . ivy-done)
-	 ("C-d" . ivy-switch-buffer-kill)
-	 :map ivy-reverse-i-search-map
-	 ("C-k" . ivy-previous-line)
-	 ("C-d" . ivy-reverse-i-search-kill))
-  :config
-  (ivy-mode 1))
+  (use-package ivy
+    :diminish
+    :bind (("C-s" . swiper)
+           :map ivy-minibuffer-map
+           ("TAB" . ivy-alt-done)
+           ("C-l" . ivy-alt-done)
+           ("C-j" . ivy-next-line)
+           ("C-k" . ivy-previous-line)
+           :map ivy-switch-buffer-map
+           ("C-k" . ivy-previous-line)
+           ("C-l" . ivy-done)
+           ("C-d" . ivy-switch-buffer-kill)
+           :map ivy-reverse-i-search-map
+           ("C-k" . ivy-previous-line)
+           ("C-d" . ivy-reverse-i-search-kill))
+    :config
+    (ivy-mode 1))
 
-(use-package ivy-rich
-  :init
-  (ivy-rich-mode 1))
+  (use-package ivy-rich
+    :init
+    (ivy-rich-mode 1))
 
 
 #+end_src
@@ -181,20 +181,24 @@ Set garbage-collector threschold high, during loading:
 
 #+begin_src emacs-lisp
 
-(use-package helpful
-  :commands (helpful-callable helpful-variable helpful-command helpful-key)
-  :custom
-  (counsel-describe-function-function #'helpful-callable)
-  (counsel-describe-variable-function #'helpful-variable)
-  :bind
-  ([remap describe-function] . counsel-describe-function)
-  ([remap describe-command] . helpful-command)
-  ([remap describe-variable] . counsel-describe-variable)
-  ([remap describe-key] . helpful-key))
+  (use-package helpful
+    :commands (helpful-callable helpful-variable helpful-command helpful-key)
+    :custom
+    (counsel-describe-function-function #'helpful-callable)
+    (counsel-describe-variable-function #'helpful-variable)
+    :bind
+    ([remap describe-function] . counsel-describe-function)
+    ([remap describe-command] . helpful-command)
+    ([remap describe-variable] . counsel-describe-variable)
+    ([remap describe-key] . helpful-key))
 
 #+end_src
 
 * USER INTERFACE
+** SUPPRESS WARNINGS
+#+begin_src emacs-lisp
+  (setq ad-redefinition-action 'accept)
+#+end_src
 ** UNDO TREE
 #+begin_src emacs-lisp
 
@@ -206,40 +210,40 @@ Set garbage-collector threschold high, during loading:
 #+end_src
 ** DISABLE STARTUP MESSAGE
 
-   #+begin_src emacs-lisp
+#+begin_src emacs-lisp
 
-     (setq inhibit-startup-message t)
+  (setq inhibit-startup-message t)
 
-   #+end_src
+#+end_src
 
 ** DISABLE BEEP
 
-   #+begin_src emacs-lisp
+#+begin_src emacs-lisp
 
-     (setq visible-bell t)
+  (setq visible-bell t)
 
-   #+end_src
+#+end_src
 
 ** DISABLE UI ELEMENTS
 
-   #+begin_src emacs-lisp
+#+begin_src emacs-lisp
 
-     (scroll-bar-mode -1)
-     (tool-bar-mode -1)
-     (tooltip-mode -1)
-     (set-fringe-mode 10)
-     (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+  (tool-bar-mode -1)
+  (tooltip-mode -1)
+  (set-fringe-mode 10)
+  (menu-bar-mode -1)
 
-   #+end_src
+#+end_src
 
 ** SET FONT SIZES
 
-   #+begin_src emacs-lisp
+#+begin_src emacs-lisp
 
-     (defvar default-font-size 160)
-     (defvar default-variable-font-size 160)
+  (defvar default-font-size 140)
+  (defvar default-variable-font-size 140)
 
-   #+end_src
+#+end_src
 
    #+RESULTS:
    : default-variable-font-size
@@ -255,17 +259,17 @@ Set garbage-collector threschold high, during loading:
 
 ** TRANSPARENCY
 
-   #+begin_src emacs-lisp
+#+begin_src emacs-lisp
 
-     (defvar frame-transparency '(88 . 88))
+  (defvar frame-transparency '(88 . 88))
 
-     (set-frame-parameter (selected-frame) 'alpha frame-transparency)
-     (add-to-list 'default-frame-alist `(alpha . ,frame-transparency))
+  (set-frame-parameter (selected-frame) 'alpha frame-transparency)
+  (add-to-list 'default-frame-alist `(alpha . ,frame-transparency))
 
-   #+end_src
+#+end_src
 
-   #+RESULTS:
-   : ((fullscreen . maximized) (alpha 50 . 50) (vertical-scroll-bars) (left-fringe . 10) (right-fringe . 10))
+#+RESULTS:
+: ((fullscreen . maximized) (alpha 50 . 50) (vertical-scroll-bars) (left-fringe . 10) (right-fringe . 10))
 ** FRAME MAXIMIZED
 
 #+begin_src emacs-lisp
@@ -277,103 +281,103 @@ Set garbage-collector threschold high, during loading:
 
 ** ADD LINE NUMBERS
 
-   #+begin_src emacs-lisp
+#+begin_src emacs-lisp
 
-     (column-number-mode)
-     (global-display-line-numbers-mode t)
+  (column-number-mode)
+  (global-display-line-numbers-mode t)
 
-   #+end_src
+#+end_src
 ** DISABLE LINE NUMBERS FOR CERTAIN MODES
 
-   #+begin_src emacs-lisp
-     (dolist (mode '(org-mode-hook
-                     term-mode-hook
-                     shell-mode-hook
-                     eshell-mode-hook
-                     vterm-mode-hook))
-       (add-hook mode (lambda () (display-line-numbers-mode 0))))
+#+begin_src emacs-lisp
+  (dolist (mode '(org-mode-hook
+                  term-mode-hook
+                  shell-mode-hook
+                  eshell-mode-hook
+                  vterm-mode-hook))
+    (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-   #+end_src
+#+end_src
 
 ** FONTS
 
-   #+begin_src emacs-lisp
+#+begin_src emacs-lisp
 
-     (set-face-attribute 'default nil :font "JetBrainsMonoMedium Nerd Font" :height default-font-size)
-     (set-face-attribute 'fixed-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height default-font-size)
-     (set-face-attribute 'variable-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height default-variable-font-size :weight 'regular)
+  (set-face-attribute 'default nil :font "JetBrainsMonoMedium Nerd Font" :height default-font-size)
+  (set-face-attribute 'fixed-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height default-font-size)
+  (set-face-attribute 'variable-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height default-variable-font-size :weight 'regular)
 
-   #+end_src
+#+end_src
 
 ** ESC QUIT PROMPTS
 
-   #+begin_src emacs-lisp
+#+begin_src emacs-lisp
 
-     (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+  (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-   #+end_src
+#+end_src
 
 ** YES/NO to Y/N
 
-   #+begin_src emacs-lisp
+#+begin_src emacs-lisp
 
-     (fset 'yes-or-no-p 'y-or-n-p)
+  (fset 'yes-or-no-p 'y-or-n-p)
 
-   #+end_src
+#+end_src
 
 ** THEMES
 
    SUGGESTED THEMES: doom-one, doom-dracula, doom-moonlight, doom-spacegrey, doom-outrun-electric, doom-palenight, doom-shades-of-purple, doom-tokyo-night
 
-   #+begin_src emacs-lisp
+#+begin_src emacs-lisp
 
-     (use-package doom-themes
-       :init (load-theme 'doom-moonlight t))
+  (use-package doom-themes
+    :init (load-theme 'doom-outrun-electric t))
 
-     (use-package all-the-icons
-       :ensure t)
+  (use-package all-the-icons
+    :ensure t)
 
-     (use-package doom-modeline
-       :ensure t
-       :init (doom-modeline-mode 1)
-       :config
-       (setq doom-modeline-height 40)
-       (setq doom-modeline-buffer-file-name-style 'relative-to-project)
-       (setq doom-line-numbers-style 'relative)
-       (setq doom-modeline-major-mode-icon t)
-       (setq doom-modeline-buffer-state-icon t)
-       (setq doom-modeline-major-mode-color-icon t))
+  (use-package doom-modeline
+    :ensure t
+    :init (doom-modeline-mode 1)
+    :config
+    (setq doom-modeline-height 40)
+    (setq doom-modeline-buffer-file-name-style 'relative-to-project)
+    (setq doom-line-numbers-style 'relative)
+    (setq doom-modeline-major-mode-icon t)
+    (setq doom-modeline-buffer-state-icon t)
+    (setq doom-modeline-major-mode-color-icon t))
 
-   #+end_src
+#+end_src
 
-   #+RESULTS:
-   : t
+#+RESULTS:
+: t
 
 ** BEACON
 
-   #+begin_src emacs-lisp
+#+begin_src emacs-lisp
 
-     (use-package beacon
-       :config
-       (progn
-         (beacon-mode 1)
-         (setq beacon-size 10)
-         (setq beacon-color "#ca6768")
-         (setq beacon-blink-duration 0.2)
-         (setq beacon-blink-when-window-scrolls t)
-         (setq beacon-blink-when-window-changes t)
-         (setq beacon-blink-when-point-moves-horizontally 20)
-         (setq beacon-blink-when-point-moves-vertically 10)))
+  (use-package beacon
+    :config
+    (progn
+      (beacon-mode 1)
+      (setq beacon-size 10)
+      (setq beacon-color "#ca6768")
+      (setq beacon-blink-duration 0.2)
+      (setq beacon-blink-when-window-scrolls t)
+      (setq beacon-blink-when-window-changes t)
+      (setq beacon-blink-when-point-moves-horizontally 20)
+      (setq beacon-blink-when-point-moves-vertically 10)))
 
-   #+end_src
+#+end_src
 
 ** REPLACE BUFFER WITH IBUFFER
 
-   #+begin_src emacs-lisp
-     
-     (global-set-key (kbd "C-x C-b") #'ibuffer)
+#+begin_src emacs-lisp
 
-   #+end_src
+  (global-set-key (kbd "C-x C-b") #'ibuffer)
+
+#+end_src
 
 ** FLYSPELL
 #+begin_src emacs-lisp
@@ -465,8 +469,8 @@ Set garbage-collector threschold high, during loading:
 ** EMOJIS IN EMACS
 #+begin_src emacs-lisp
 
-(use-package emojify
-:hook (after-init . global-emojify-mode))
+  (use-package emojify
+    :hook (after-init . global-emojify-mode))
 
 #+end_src
 * ORG MODE
@@ -702,16 +706,16 @@ Set garbage-collector threschold high, during loading:
 
 * EDITING
 
-  #+begin_src emacs-lisp
-  
+#+begin_src emacs-lisp
+
   (global-set-key (kbd "M-/") 'hippie-expand)
 
   (setq hippie-expand-try-functions-list
-  '(try-expand-dabbrev
-  try-expand-dabbrev-all-buffers
-  try-expand-dabbrev-from-kill
-  try-complete-lisp-symbol-partially
-  try-complete-lisp-symbol))
+        '(try-expand-dabbrev
+          try-expand-dabbrev-all-buffers
+          try-expand-dabbrev-from-kill
+          try-complete-lisp-symbol-partially
+          try-complete-lisp-symbol))
 
 
   (show-paren-mode 1)
@@ -727,68 +731,68 @@ Set garbage-collector threschold high, during loading:
 
 
   (defun toggle-comment-on-line ()
-  (interactive)
-  (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
+    (interactive)
+    (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
   (global-set-key (kbd "C-;") 'toggle-comment-on-line)
 
   (defun die-tabs ()
-  (interactive)
-  (set-variable 'tab-width 2)
-  (mark-whole-buffer)
-  (untabify (region-beginning) (region-end))
-  (keyboard-quit))
+    (interactive)
+    (set-variable 'tab-width 2)
+    (mark-whole-buffer)
+    (untabify (region-beginning) (region-end))
+    (keyboard-quit))
 
 
   (defun ns-get-pasteboard ()
-  (condition-case nil
-  (ns-get-selection-internal 'CLIPBOARD)
-  (quit nil)))
-  
-  (setq electric-indent-mode nil)
- 
-  (defun move-line (n)
-  (interactive "p")
-  (setq col (current-column))
-  (beginning-of-line) (setq start (point))
-  (end-of-line) (forward-char) (setq end (point))
-  (let ((line-text (delete-and-extract-region start end)))
-  (forward-line n)
-  (insert line-text)
-  (forward-line -1)
-  (forward-char col)))
+    (condition-case nil
+        (ns-get-selection-internal 'CLIPBOARD)
+      (quit nil)))
 
-  #+end_src
+  (setq electric-indent-mode nil)
+
+  (defun move-line (n)
+    (interactive "p")
+    (setq col (current-column))
+    (beginning-of-line) (setq start (point))
+    (end-of-line) (forward-char) (setq end (point))
+    (let ((line-text (delete-and-extract-region start end)))
+      (forward-line n)
+      (insert line-text)
+      (forward-line -1)
+      (forward-char col)))
+
+#+end_src
 
 * ELISP EDITING
 
-  #+begin_src emacs-lisp
+#+begin_src emacs-lisp
 
-    (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
-    (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
-    (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
-    (add-hook 'ielm-mode-hook #'enable-paredit-mode)
-    (add-hook 'lisp-mode-hook #'enable-paredit-mode)
-    (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
-    (add-hook 'scheme-mode-hook #'enable-paredit-mode)
-    (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
-    (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
-    (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+  (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+  (add-hook 'emacs-lisp-mode-hook #'enable-paredit-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+  (add-hook 'ielm-mode-hook #'enable-paredit-mode)
+  (add-hook 'lisp-mode-hook #'enable-paredit-mode)
+  (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+  (add-hook 'scheme-mode-hook #'enable-paredit-mode)
+  (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+  (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
+  (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
 
-  #+end_src
+#+end_src
 
 * MAGIT
 
-  #+begin_src emacs-lisp
+#+begin_src emacs-lisp
 
-    (use-package magit
-      :commands magit-status
-      :custom
-      (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+  (use-package magit
+    :commands magit-status
+    :custom
+    (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
-    (use-package forge
-      :after magit)
+  (use-package forge
+    :after magit)
 
-  #+end_src
+#+end_src
 
 * CLOJURE
 
@@ -1066,7 +1070,7 @@ Automatically tangle emacs-config.org file we saved.
       (let ((org-confirm-babel-evaluate nil))
         (org-babel-tangle))))
 
-    (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'org-babel-tangle-config)))
+  (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'org-babel-tangle-config)))
 
 
 #+end_src
