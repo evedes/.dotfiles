@@ -83,6 +83,35 @@ The default of major-mode determines the major mode to use for files that do not
 
 More about Major Modes [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Major-Modes.html#:~:text=It%20includes%20Text%20mode%2C%20HTML,%2C%20Fortran%20mode%2C%20and%20others][here]].
 
+** BACKUP FILES
+
+Emacs doesn't create backup files on version controlled folders.
+Emacs backup files usually end with a tilde *~*.
+
+In my literate config, backups are set to be stored on *~/.emacs.d/backups/*.
+
+You can disable backups by doing:
+
+#+begin_src emacs-lisp
+
+  (setq make-backup-files nil)
+
+#+end_src
+
+#+end_src
+
+** AUTO SAVE FILES
+
+Will create temp files in the same folder as edited files.
+I've tweaked config for them to be saved in *~/.emacs/auto-saves/*
+
+
+** LOCK FILES
+
+These are files that look like *.#Emacs.org*. They appear when you have unsaved changes to a file in a buffer.
+
+Unfortunately, these can't be moved, but they can be disabled. No problem to disable it since it only prevents other instances or people to modify the files while they're being edited.
+
 ** EMACS PACKAGES
 *** PROJECTILE
 **** How to switch project?
@@ -103,6 +132,11 @@ When all your buffers are correctly marked, hit *x* to commit changes.
 **** How to move around windows?
 
 You can use *Super + Arrow Keys* to move around windows.
+
+** NO LITTERING!
+
+One community-maintained solution for this is the package *no-littering* : [[https://github.com/emacscollective/no-littering][no-littering]]
+Even if you don't want to use it, the settings it applies are very useful to learn what you might want to set!
 
 ** ORG MODE
 
@@ -421,7 +455,6 @@ Lock will disappear
 This is not a good video.
 David Wilson fails configuring VTERM
 
-
 *** Emacs from Scratch #10 - Effortless File Management with Dired
 **** TODO TO WATCH
 *** Keeping your Emacs Packages Up to Date
@@ -432,7 +465,8 @@ David Wilson fails configuring VTERM
 **** TODO TO WATCH
 *** EFFICIENT SELECTION
 **** TODO TO WATCH
-
+*** TEACH EMACS TO KEEP YOUR FOLDERS CLEAN
+Very useful [[https://www.youtube.com/watch?v=XZjyJG-sFZI][video]]!
 *** Declutter Your Buffer Lists in Emacs with Perspective.el
 **** TODO TO WATCH
 

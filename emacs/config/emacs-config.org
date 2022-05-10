@@ -61,19 +61,39 @@ Set garbage-collector threschold high, during loading:
 
 #+end_src
 
-#+RESULTS:
-: ((. . ~/.emacs.d/backups))
-
-** BACKUP, AUTO-SAVE AND LOCKS
+** BACKUP
 #+begin_src emacs-lisp
 
-  (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
-  (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+  (setq backup-directory-alist `((".*" . ,"~/.emacs.d/backups")))
 
 #+end_src
 
 #+RESULTS:
-| .* | /tmp/ | t |
+| .* | ~/.emacs.d/auto-save | t |
+
+** AUTO-SAVE
+
+#+begin_src emacs-lisp
+
+  (make-directory (expand-file-name "auto-saves/" user-emacs-directory) t)
+
+  (setq auto-save-list-file-prefix (expand-file-name "auto-saves/sessions/" user-emacs-directory)
+        auto-save-file-name-transforms `((".*" ,(expand-file-name "auto-saves/" user-emacs-directory) t)))
+
+#+end_src
+
+#+RESULTS:
+| .* | /home/edo/.emacs.d/auto-saves/ | t |
+
+** LOCKS
+
+#+begin_src emacs-lisp
+
+  (setq create-lockfiles nil)
+
+#+end_src
+
+#+RESULTS:
 
 ** USE PACKAGES
 
