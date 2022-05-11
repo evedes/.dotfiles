@@ -9,7 +9,6 @@
 
 ** FLEETING NOTES
 *** How to get info about a function?
-
 M-x describe function RET
 and then enter the name of the function you want to know about
 
@@ -17,10 +16,13 @@ and then enter the name of the function you want to know about
 
 To find missing parens, run *M-x check-parens* in the file you want to check.
 It's helpful to "debug" errors in init.el, as an example.
+
 *** How to swap windows?
+
 Do *M-x window-swap-states*
 
 ** SHORTCUTS
+
 | Command            | Description                                     |
 | -                  | -                                               |
 | C-p or Up Arrow    | Move cursor one line up                         |
@@ -45,8 +47,11 @@ Do *M-x window-swap-states*
 | C-c C-o            | Open a link                                     |
 | C-x g              | Magit Status                                    |
 | C-c $              | Add word to dictionary                          |
+<<<<<<< Updated upstream
 | C-_ or C-/         | Undo                                            |
 | M-_ or C-?         | Redo                                            |
+=======
+>>>>>>> Stashed changes
 
 ** GENERAL NOTES
 
@@ -54,7 +59,7 @@ Emacs is for unicorns, which means "Unique Organizers". That's the why of the un
 
 ** EMACS MANUAL NOTES
 
-*MAJOR MODES*
+*** MAJOR MODES
 
 Every buffer processes a major mode.
 This determines the behavior of Emacs while in that buffer.
@@ -113,22 +118,32 @@ These are files that look like *.#Emacs.org*. They appear when you have unsaved 
 Unfortunately, these can't be moved, but they can be disabled. No problem to disable it since it only prevents other instances or people to modify the files while they're being edited.
 
 ** EMACS PACKAGES
+
 *** PROJECTILE
 **** How to switch project?
+
 Hit *'C-p p'* to see the list of the projects
+
 Hit *'C-p p f'* to find a file inside the projects folders
+
 *** IBUFFER
+
 **** How to open IBuffer?
+
 Hit *C-x C-b*
 
 **** How to kill a Buffer?
+
 If you just want to kill one buffer, press *x* over the buffer line.
 
 If you want to kill more than one buffer, position the cursor in the line of the buffer and mark it with *d* 
 
 To unmark you can hit *u*
+
 When all your buffers are correctly marked, hit *x* to commit changes.
+
 *** WINDMOVE
+
 **** How to move around windows?
 
 You can use *Super + Arrow Keys* to move around windows.
@@ -143,7 +158,6 @@ Even if you don't want to use it, the settings it applies are very useful to lea
 *** How to check which orgmode version I'm using?
 
 *M-x org-version*
-
 
 *** How to add a literal Example?
 
@@ -162,77 +176,57 @@ Make sure what you want to write is wrapped in
 You can also do *C-c C-l*
 
 # SYSTEM CRAFTERS
-
 *** How to open a link?
-
 Put your cursor on top of the link and hit *C-c C-o*
-
 *** How to toggle all Headings?
-
 You just need to press *Shift+Tab*
-
 *** How to toggle just one Heading?
-
 Just press *Tab* on top of that heading
-
 *** How to create a new Heading of a type?
 Put the cursor on top or below of the heading you want to replicate, i.e: a 3 start heading, and press *C+RET*.
-
 *** How to create a table?
-
-
 | Name      | Age | Use Emacs |
 | -         |   - | -         |
 | David     |  37 | Yes       |
 | Edo       |  42 | Yes       |
 | John      |  21 | No        |
 | Alexander |  52 | No        |
-
 Tables ajust automatically, when you press *TAB*
-
 *** How to create a bulleted / numbered list / checklist?
+<<<<<<< Updated upstream
 
 - [X] First Item      
 - [ ] Second Item
 - [X] Third Item
 
+=======
+  - [X] First Item      
+  - [ ] Second Item
+  - [X] Third Item
+>>>>>>> Stashed changes
 You can check/uncheck an item running *C-c C-x C-b*
 You can hit *Shift+Alt+Enter* to add more checkboxes
-
 *** How to add a code block?
-
 #+begin_src emacs-lisp
   (defun my-elisp-func ()
     (message "Hello, world!"))
 #+end_src
-
 *** How to add a TODO?
-
 OrgMode comes with two states: TODO and DONE
 You can add more states.
 
 **** TODO Do something great!
 
 You can toggle a todo with *C-c C-t* or with *Shift+Right* while in the TODO line.
-
 ** ORG ROAM
-
 It's inspired by a program called *Roam* and a note-taking strategy called *"Zettelkasten"*, where the goal is to create many individual single-topic notes that are linked together to create a "networked" knowledge base.
-
 Many people consider it like a "second brain". It can easily handle a huge amount of knowledge and reminding you of connections between topics very effectively.
-
 *** Prerequisites
-
 Org Roam v2 depends on a customized build of the SQLite database tool to operate.
-
 For Linux and MacOS users, make sure you have a C/C++ compiler like *gcc* or *clang* installed.
-
 Database enables Org Roam to keep track of all of the "nodes" that you create and the links between them *very* efficiently.
-
 *** Basic Configuration
-
 After Org Roam has been installed, the most important thing to configure is the folder where your Org Roam files will be located.
-
 ** ORGANIZING YOUR LIFE WITH ORGMODE
 [[https://orgmode.org/manual/Agenda-Commands.html][Commands in the Agenda Buffer]]
 *** How to Open the Agenda?
@@ -382,7 +376,6 @@ I didn't write this example, but in the future it is somethigng really interesti
 Just search for the *:noweb yes* mark
 
 ** MAGIT
-
 *** How to run git status?
 
 Hit *C-x g* which is the equivalent to git status.
@@ -422,12 +415,10 @@ You can also stage multiple files or hunks at once. To do so, mark these sibling
 Multiple select a region and press *s* to stage it.
 
 ** TERM MODES
-
 Hit *C-c C-k* to get into *term char mode*
 Notice a lock will appear when you activate it.
 Hit *C-c C-j* to get back to *term line mode*
 Lock will disappear
-
 ** BUFFER LISTS WITH PERSPECTIVE.EL
 [[https://www.youtube.com/watch?v=uyMdDzjQFMU&list=PLEoMzSkcN8oOP5WgckTbERn10CXxIFneB][Check David Wilson Video Here!]]
 [[https://github.com/nex3/perspective-el][Check GitHub Docs Here!]]
@@ -476,7 +467,6 @@ Very useful [[https://www.youtube.com/watch?v=XZjyJG-sFZI][video]]!
 *** With org-mode you can do spreadsheets, or configure your entire system.
 
 ** EMACS LISP
-
 *** What is Lisp?
 
 - A language and environment based on the idea of interactivity
