@@ -47,11 +47,8 @@ Do *M-x window-swap-states*
 | C-c C-o            | Open a link                                     |
 | C-x g              | Magit Status                                    |
 | C-c $              | Add word to dictionary                          |
-<<<<<<< Updated upstream
 | C-_ or C-/         | Undo                                            |
 | M-_ or C-?         | Redo                                            |
-=======
->>>>>>> Stashed changes
 
 ** GENERAL NOTES
 
@@ -193,17 +190,10 @@ Put the cursor on top or below of the heading you want to replicate, i.e: a 3 st
 | Alexander |  52 | No        |
 Tables ajust automatically, when you press *TAB*
 *** How to create a bulleted / numbered list / checklist?
-<<<<<<< Updated upstream
-
 - [X] First Item      
 - [ ] Second Item
 - [X] Third Item
 
-=======
-  - [X] First Item      
-  - [ ] Second Item
-  - [X] Third Item
->>>>>>> Stashed changes
 You can check/uncheck an item running *C-c C-x C-b*
 You can hit *Shift+Alt+Enter* to add more checkboxes
 *** How to add a code block?

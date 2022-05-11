@@ -25,6 +25,11 @@ alias npmg='npm list -g --depth 0'
 alias dotfiles='code ~/.dotfiles'
 alias dl='youtube-dl'
 
+# MAC M1
+
+alias arm64='arch -arm64 zsh'
+alias x86='arch -x86_64 zsh'
+
 # K8s
 alias k='kubectl'
 alias mk='minikube'

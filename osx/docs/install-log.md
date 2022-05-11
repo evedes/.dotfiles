@@ -1,9 +1,8 @@
 # MACBOOK PRO - BACH
 
-
 ## 1. OSX General Setup
 
-- Add 192.168.1.200 mozart to /etc/hosts
+- Add 192.168.1.200 rubik to /etc/hosts
 - System Prefs -> General -> Default browser: Chrome (after Chrome installation)
 - System Prefs -> General -> Sidebar Icon Size: Small
 - Display Arrangement and Wallpapers
@@ -32,13 +31,16 @@
 ## 02. Software
 
 1. Visual Studio Code
+
    - Shell Command -> Install Code in the PATH
    - Turn Sync On
 
 2. Karabiner-Elements
+
    - Configure Complex Modifications (Caps Lock -> Hyper Key)
 
 3. iTerm 2
+
    - Preferences - General -> Closing -> Uncheck Confirm closing multiple sessions
    - Preferences - General -> Closing -> Uncheck Confirm "Quit iTerm2"
    - Preferences -> Keys -> Hotkey to ALT + <
@@ -48,6 +50,7 @@
    - Preferences -> Appearance -> Dimming -> Uncheck Dim inactive split panes
 
 4. Chrome
+
    - Sign-in
    - Turn on sync
    - 1Pass
@@ -56,7 +59,7 @@
 6. Slack
 7. Franz
 8. Telegram
-9.  Kelir
+9. Kelir
 10. Spotify
 11. Backup & Sync (Google)
 12. Dropbox
@@ -64,15 +67,16 @@
 14. iStat Menus
 
 15. Alfred 4
-   - Enable shortcut CMD + Space
-   - Default Results -> Disable Contacts
-   - Default Results -> Enable Folders
-   - Appearence -> Alfred macOS Dark
-   - Appearence -> Options -> Show result subtext -> Never
-   - Appearence -> Options -> Hide hat on Alfred Window
-   - Appearence -> Options -> Hide result shortcuts
-   - Appearence -> Options -> Hide menu bar icon
-   - Features -> Default Results -> Search Scope -> Remove everything except /Applications
+
+- Enable shortcut CMD + Space
+- Default Results -> Disable Contacts
+- Default Results -> Enable Folders
+- Appearence -> Alfred macOS Dark
+- Appearence -> Options -> Show result subtext -> Never
+- Appearence -> Options -> Hide hat on Alfred Window
+- Appearence -> Options -> Hide result shortcuts
+- Appearence -> Options -> Hide menu bar icon
+- Features -> Default Results -> Search Scope -> Remove everything except /Applications
 
 16. Cleanshot
 17. Postman
@@ -85,9 +89,10 @@
 ## 03. Fonts
 
 Install font files:
-   - Hack Nerd Font
-   - Sauce Code Pro Nerd Font
-   - JetBrains Mono Nerd Font
+
+- Hack Nerd Font
+- Sauce Code Pro Nerd Font
+- JetBrains Mono Nerd Font
 
 ### 03. DEV STUFF
 
@@ -98,10 +103,10 @@ Install font files:
 
 2. Configure Git:
 
-   `git config --global user.name "Your Name Here"
-   `git config --global user.email "<your-email-address>"`
-   `git config --global core.editor "code --wait"`
-   `git config pull.rebase true`
+   git config --global user.name "Your Name Here"
+   git config --global user.email "<your-email-address>"
+   git config --global core.editor "code --wait"
+   git config pull.rebase true
 
 If needed: `git config --global url."git@github.com:".insteadOf "https://github.com/"`
 
@@ -110,120 +115,76 @@ If needed: `git config --global url."git@github.com:".insteadOf "https://github.
    get folder from google drive
 
    permissions:
-   - 700 .ssh folder 
+
+   - 700 .ssh folder
    - 600 private key
    - 644 remaining files
 
-4. Install Homebrew 
-   
-   `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
+4. Install Homebrew
 
-1. Glances: `brew install glances`
-2. youtube-dl: ` brew install youtube-dl` 
-3. hub: `brew install hub`
-4. telnet: `brew install telnet`
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-5. Install Yarn
+5. Glances: `brew install glances`
+6. youtube-dl: ` brew install youtube-dl`
+7. hub: `brew install hub`
+8. telnet: `brew install telnet`
 
-   `sudo npm install --global yarn`
+9. Install NVM
 
-6. Install NVM
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
 
-   `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash`
+   Node 14 requires to be installed with x86_64
 
-7. Configure ZSH
+10. Configure ZSH
 
 - Install oh-my-zsh doing:
 
-   `sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 - Install powerlevel 10k:
 
-   `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-   Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in ~/.zshrc.
+  Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in ~/.zshrc.
 
 - Install plugins:
 
   - zsh-autosuggestions
 
-      `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
-
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
   - zsh-syntax-highlighting
 
-      `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-   Note: *Add both plugins to .zshrc.*
+  Note: _Add both plugins to .zshrc._
 
-1. Install Gogh
+11. Install Gogh
 
-   Link to [Mayccoll/Gogh GitHub Repo](https://github.com/Mayccoll/Gogh)
+Link to [Mayccoll/Gogh GitHub Repo](https://github.com/Mayccoll/Gogh)
 
-   `bash -c "$(curl -sLo- https://git.io/vQgMr)"`
+Run:
+bash -c "$(curl -sLo- https://git.io/vQgMr)"
 
-1. Install OpenJDK 8
+12. Install Yarn
 
-   `brew tap AdoptOpenJDK/openjdk`
+`sudo npm install --global yarn`
 
-   `brew install --cask adoptopenjdk8`
+13. Install Java
 
-   Check JDK Version with: `java -version`
-   Check Java Location: `which java`
+Download dmg with Azul OpenJDK 11 for Mac M1
 
-1. Install Leiningen (using Brew)
+14. Install Leiningen (using Brew)
 
-   `brew install leiningen`
+brew install leiningen
 
-1. Install Clojure
+15. Install Clojure
 
-   `brew install clojure/tools/clojure`
+brew install clojure/tools/clojure
 
+16. Install Docker and Docker Compose
 
-1. Install jEnv
-   
-   Link to the article: 
-   https://chamikakasun.medium.com/how-to-manage-multiple-java-version-in-macos-e5421345f6d0
+17. Install Kubectl and Minikube
 
-   `brew install jenv`
-
-   Add the following to .zshrc
-
-   ```
-      export PATH="$HOME/.jenv/bin:$PATH"
-      eval "$(jenv init -)"
-   ```
-
-   source ~/.zshrc or reload
-
-
-   Run the following commands in the terminal if you're using maven:
-
-   `jenv enable-plugin export`
-   `jenv enable-plugin maven`
-
-   Now let's install java versions (adoptOpenJDK):
-
-   brew install java
-
-   brew install AdoptOpenJDK/openjdk/adoptopenjdk{8,11}
-
-   Configuring JDK Versions with jEnv:
-
-   `/usr/libexec/java_home -V` will list all of your installed JDK versions.
-
-   Add versions to jEnv:
-
-   Use auto-completion (TAB) to do this!
-
-   `jenv add /Library/Java/JavaVirtualMachines/openjdk-14.0.1.jdk/Contents/Home`
-
-   Now type `jenv verions` too see available versions.
-
-   Set the system-wide Java version:
-
-   `jenv global 11`
-
-   Sett a project-wide Java version
-
-   `jenv local 11`
+brew install kubectl
+brew install minikube

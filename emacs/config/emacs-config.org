@@ -351,13 +351,8 @@ Set garbage-collector threschold high, during loading:
 
 #+begin_src emacs-lisp
 
-<<<<<<< Updated upstream
   (use-package doom-themes
-    :init (load-theme 'doom-outrun-electric t))
-=======
-     (use-package doom-themes
-       :init (load-theme 'doom-outrun-electric t))
->>>>>>> Stashed changes
+    :init (load-theme 'doom-dracula t))
 
   (use-package all-the-icons
     :ensure t)
