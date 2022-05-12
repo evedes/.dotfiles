@@ -107,7 +107,6 @@ You can disable backups by doing:
 Will create temp files in the same folder as edited files.
 I've tweaked config for them to be saved in *~/.emacs/auto-saves/*
 
-
 ** LOCK FILES
 
 These are files that look like *.#Emacs.org*. They appear when you have unsaved changes to a file in a buffer.
@@ -140,7 +139,6 @@ To unmark you can hit *u*
 When all your buffers are correctly marked, hit *x* to commit changes.
 
 *** WINDMOVE
-
 **** How to move around windows?
 
 You can use *Super + Arrow Keys* to move around windows.
@@ -151,7 +149,6 @@ One community-maintained solution for this is the package *no-littering* : [[htt
 Even if you don't want to use it, the settings it applies are very useful to learn what you might want to set!
 
 ** ORG MODE
-
 *** How to check which orgmode version I'm using?
 
 *M-x org-version*
@@ -174,13 +171,21 @@ You can also do *C-c C-l*
 
 # SYSTEM CRAFTERS
 *** How to open a link?
+
 Put your cursor on top of the link and hit *C-c C-o*
+
 *** How to toggle all Headings?
+
 You just need to press *Shift+Tab*
+
 *** How to toggle just one Heading?
+
 Just press *Tab* on top of that heading
+
 *** How to create a new Heading of a type?
+
 Put the cursor on top or below of the heading you want to replicate, i.e: a 3 start heading, and press *C+RET*.
+
 *** How to create a table?
 | Name      | Age | Use Emacs |
 | -         |   - | -         |
@@ -188,7 +193,9 @@ Put the cursor on top or below of the heading you want to replicate, i.e: a 3 st
 | Edo       |  42 | Yes       |
 | John      |  21 | No        |
 | Alexander |  52 | No        |
+
 Tables ajust automatically, when you press *TAB*
+
 *** How to create a bulleted / numbered list / checklist?
 - [X] First Item      
 - [ ] Second Item
@@ -202,21 +209,35 @@ You can hit *Shift+Alt+Enter* to add more checkboxes
     (message "Hello, world!"))
 #+end_src
 *** How to add a TODO?
+
 OrgMode comes with two states: TODO and DONE
 You can add more states.
 
-**** TODO Do something great!
+**** WAIT Do something great!
+
+:LOGBOOK:
+- State "DONE"       from "NEXT"       [2022-05-12 Thu 23:04]
+- State "HOLD"       from "WAIT"       [2022-05-12 Thu 23:04]
+- State "DONE"       from "NEXT"       [2022-05-12 Thu 23:04]
+:END:
 
 You can toggle a todo with *C-c C-t* or with *Shift+Right* while in the TODO line.
+
 ** ORG ROAM
+
 It's inspired by a program called *Roam* and a note-taking strategy called *"Zettelkasten"*, where the goal is to create many individual single-topic notes that are linked together to create a "networked" knowledge base.
 Many people consider it like a "second brain". It can easily handle a huge amount of knowledge and reminding you of connections between topics very effectively.
+
 *** Prerequisites
+
 Org Roam v2 depends on a customized build of the SQLite database tool to operate.
 For Linux and MacOS users, make sure you have a C/C++ compiler like *gcc* or *clang* installed.
 Database enables Org Roam to keep track of all of the "nodes" that you create and the links between them *very* efficiently.
+
 *** Basic Configuration
+
 After Org Roam has been installed, the most important thing to configure is the folder where your Org Roam files will be located.
+
 ** ORGANIZING YOUR LIFE WITH ORGMODE
 [[https://orgmode.org/manual/Agenda-Commands.html][Commands in the Agenda Buffer]]
 *** How to Open the Agenda?
@@ -231,7 +252,7 @@ Just press *q*
 *** How to schedule a Task?
 
 Put the cursor on the task line
-Do *M-x org-schedule*, or *C-c C-s*
+oDo *M-x org-schedule*, or *C-c C-s*
 A calendar will appear, and you can move with *Shift+Arrow Keys*
 
 *** How to add a deadline to a Task?
@@ -287,6 +308,7 @@ Set style with *M-x org-set-property*, or *C-c C-x p*
 Set *style* and then *habit*
 
 ** ORG BABEL
+
 OrgBabel allows to add code blocks inside your org files, and execute them, or export the blocks into other files.
 *** How to run a src block?
 
@@ -405,13 +427,17 @@ You can also stage multiple files or hunks at once. To do so, mark these sibling
 Multiple select a region and press *s* to stage it.
 
 ** TERM MODES
+
 Hit *C-c C-k* to get into *term char mode*
 Notice a lock will appear when you activate it.
 Hit *C-c C-j* to get back to *term line mode*
 Lock will disappear
+
 ** BUFFER LISTS WITH PERSPECTIVE.EL
+
 [[https://www.youtube.com/watch?v=uyMdDzjQFMU&list=PLEoMzSkcN8oOP5WgckTbERn10CXxIFneB][Check David Wilson Video Here!]]
 [[https://github.com/nex3/perspective-el][Check GitHub Docs Here!]]
+
 ** WATCHED VIDEOS
 *** Emacs from Scratch #1 - Getting Started with a Basic Configuration
 *** Emacs from Scratch #2 - Helpful UI Tweaks
@@ -452,13 +478,13 @@ Very useful [[https://www.youtube.com/watch?v=XZjyJG-sFZI][video]]!
 **** TODO TO WATCH
 
 ** REASONS TO LEARN EMACS IN 2022
-*** If you want to go *really* far, install EXWM on Linux!
-*** It creates a complete desktop environment using EXWM on Linux.
-*** With org-mode you can do spreadsheets, or configure your entire system.
+ 
+ - If you want to go *really* far, install EXWM on Linux!
+ - It creates a complete desktop environment using EXWM on Linux.
+ - With org-mode you can do spreadsheets, or configure your entire system.
 
 ** EMACS LISP
 *** What is Lisp?
-
 - A language and environment based on the idea of interactivity
 - The syntax enables new language constructs to be defined
 - the ultimate hacker language!!!
