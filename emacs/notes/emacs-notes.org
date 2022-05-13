@@ -7,8 +7,21 @@
 * EMACS
 "My adventure Learning Emacs and Everything Lispian"
 
+** QUOTES
+
+“I’m using Linux. A library that emacs uses to communicate with Intel hardware.”
+
+
+"I use Emacs, which might be thought of as a thermonuclear word processor." 
+- Neal Stephenson, "In the Beginning... was the Command Line"
+
+"An infinite number of monkyes typing into GNU Emacs would never make a good program."
+- Linus Torvalds, Linux Kernel Coding Style Documentation
+
 ** FLEETING NOTES
+
 *** How to get info about a function?
+
 M-x describe function RET
 and then enter the name of the function you want to know about
 
@@ -20,6 +33,10 @@ It's helpful to "debug" errors in init.el, as an example.
 *** How to swap windows?
 
 Do *M-x window-swap-states*
+
+*** Emacs uptime
+
+Hit 'M-x emacs-uptime'
 
 ** SHORTCUTS
 
@@ -49,6 +66,15 @@ Do *M-x window-swap-states*
 | C-c $              | Add word to dictionary                          |
 | C-_ or C-/         | Undo                                            |
 | M-_ or C-?         | Redo                                            |
+| C-h i or M-x info  | Access Emacs' info reader                       |
+| C-h R              | Open a manual (only in Emacs 28)                |
+| C-h a              | apropos                                         |
+| C-x 5              | prefix use for frames                           |
+| C-x 5 2            | create a new frame                              |
+| C-x r m            | set a bookmark                                  |
+| C-x r l            | list bookmarks                                  |
+| C-x r b            | jump to a bookmark                              |
+| M-g M-g            | go to line                                      |
 
 ** GENERAL NOTES
 
@@ -262,6 +288,24 @@ Do *M-x org-deadline*, or *C-c C-d*
 A calendar will appear, and you can move with *Shift+Arrow Keys*
 
 There's a variable called org-deadline-warning-days (check it with describe variable)
+
+*** Recurring tasks
+
+Example:
+
+TODO Pay phone bill.
+SCHEDULED <2021-05-07 Mon 18:00 +1m>
+
++1y - repeat yearly
++1m - repeat monthly
++2w - repeat biweekly
++3d - repeat after 3 days
++8h - repeat after 8 hours
+
+Advanced usage:
+
+DEADLINE: <2017-12-10 Sun ++1W> - will push the date to the first Sunday in the future.
+DEADLINE: <2017-12-10 Sun .+1W> - will push the date to the same day in the next week.
 
 *** Mark a task as Done
 
