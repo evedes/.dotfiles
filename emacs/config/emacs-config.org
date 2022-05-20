@@ -146,7 +146,7 @@ Set garbage-collector threschold high, during loading:
     :init
     ;; NOTE: Set this to the folder where you keep your Git repos!
     (when (file-directory-p "~/")
-      (setq projectile-project-search-path '("~/.dotfiles" "~/Multiverse" "~/Work" "~/SideProjects" "~/Study" "~/OpenSource")))
+      (setq projectile-project-search-path '("~/.dotfiles" "~/Dropbox/Multiverse" "~/Work" "~/SideProjects" "~/Study" "~/OpenSource")))
     (setq projectile-switch-project-action #'projectile-dired))
 
 #+end_src
@@ -355,7 +355,7 @@ Set garbage-collector threschold high, during loading:
 #+begin_src emacs-lisp
 
   (use-package doom-themes
-    :init (load-theme 'doom-dracula t))
+    :init (load-theme 'doom-tokyo-night t))
 
   (use-package all-the-icons
     :ensure t)
@@ -393,6 +393,9 @@ Set garbage-collector threschold high, during loading:
       (setq beacon-blink-when-point-moves-vertically 10)))
 
 #+end_src
+
+#+RESULTS:
+: t
 
 ** REPLACE BUFFER WITH IBUFFER
 
@@ -546,7 +549,7 @@ Set garbage-collector threschold high, during loading:
               (setq org-log-into-drawer t)
               (setq org-agenda-window-setup 'current-window) ;; avoids agenda to destroy window splits
 
-              (setq org-directory "~/Multiverse")
+              (setq org-directory "~/Dropbox/Multiverse")
               (setq org-agenda-files '("tasks.org" "birthdays.org" "archive.org" "habits.org"))
 
               (require 'org-habit)
@@ -635,28 +638,28 @@ Set garbage-collector threschold high, during loading:
 
               (setq org-capture-templates
                     `(("t" "Tasks / Projects")
-                      ("tt" "Task" entry (file+olp "~/Multiverse/tasks.org" "INBOX")
+                      ("tt" "Task" entry (file+olp "~/Dropbox/Multiverse/tasks.org" "INBOX")
                        "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
 
                       ("j" "Journal Entries")
                       ("jj" "Journal" entry
-                       (file+olp+datetree "~/Multiverse/journal.org")
+                       (file+olp+datetree "~/Dropbox/Multiverse/journal.org")
                        "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
                        ;; ,(dw/read-file-as-string "~/Notes/Templates/Daily.org")
                        :clock-in :clock-resume
                        :empty-lines 1)
                       ("jm" "Meeting" entry
-                       (file+olp+datetree "~/Multiverse/journal.org")
+                       (file+olp+datetree "~/Dropbox/Multiverse/journal.org")
                        "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
                        :clock-in :clock-resume
                        :empty-lines 1)
 
                       ("w" "Workflows")
-                      ("we" "Checking Email" entry (file+olp+datetree "~/Multiverse/journal.org")
+                      ("we" "Checking Email" entry (file+olp+datetree "~/Dropbox/Multiverse/journal.org")
                        "* Checking Email :email:\n\n%?" :clock-in :clock-resume :empty-lines 1)
 
                       ("m" "Metrics Capture")
-                      ("mw" "Weight" table-line (file+headline "~/Multiverse/metrics.org" "Weight")
+                      ("mw" "Weight" table-line (file+headline "~/Dropbox/Multiverse/metrics.org" "Weight")
                        "| %U | %^{Weight} | %^{Notes} |" :kill-buffer t)))
 
               (define-key global-map (kbd "C-c j")
@@ -704,7 +707,7 @@ Set garbage-collector threschold high, during loading:
 
 #+begin_src emacs-lisp
 
-  (setq zettelkasten-directory (concat (getenv "HOME") "/Multiverse/Zettelkasten"))
+  (setq zettelkasten-directory (concat (getenv "HOME") "/Dropbox/Multiverse/Zettelkasten"))
 
   (use-package org-roam
     :after org
