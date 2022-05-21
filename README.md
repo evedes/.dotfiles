@@ -32,4 +32,3 @@ I've started my Emacs config from scratch, and at this point all I've been doing
 [EMACS NOTES](/emacs/notes/emacs-notes.org)
 
 [EMACS LITERATE CONFIG](/emacs/config/emacs-config.org)
-

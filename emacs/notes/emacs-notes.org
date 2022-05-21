@@ -1,4 +1,4 @@
-#+TITLE: EMACS ORG FILE
+#+TITLE: EMACS NOTES
 #+AUTHOR: Eduardo Vedes
 #+DATE: 2022-05-04
 #+OPTIONS: toc:2 num:nil
