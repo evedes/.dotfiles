@@ -11,7 +11,6 @@
 
 “I’m using Linux. A library that emacs uses to communicate with Intel hardware.”
 
-
 "I use Emacs, which might be thought of as a thermonuclear word processor." 
 - Neal Stephenson, "In the Beginning... was the Command Line"
 
@@ -532,3 +531,10 @@ Very useful [[https://www.youtube.com/watch?v=XZjyJG-sFZI][video]]!
 - A language and environment based on the idea of interactivity
 - The syntax enables new language constructs to be defined
 - the ultimate hacker language!!!
+
+** THINGS TO INVESTIGATE
+*** TODO Learn how to use straight.el
+*** TODO Learn how to open PDF files on Emacs
+*** TODO Learn how to evaluate js/node.js code on org
+*** TODO Configure LSP + JS/Typescript major mode
+*** TODO Adding images to an org.file.
