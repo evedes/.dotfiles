@@ -64,6 +64,9 @@ Set garbage-collector threschold high, during loading:
 
 #+end_src
 
+#+RESULTS:
+: t
+
 ** BACKUP
 #+begin_src emacs-lisp
 
