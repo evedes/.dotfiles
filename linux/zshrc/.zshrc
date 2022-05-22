@@ -125,3 +125,5 @@ source $HOME/.dotfiles/linux/alias/.bash_functions
 # DIRENV
 eval "$(direnv hook zsh)"
 source <(kubectl completion zsh)
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
