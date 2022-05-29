@@ -587,6 +587,7 @@ NOTE: Darwin is OSX
             ("company" . ?c)
             ("personal" . ?p)
             ("longterm" . ?l)
+            ("study" . ?s)
             ("agenda" . ?a)
             ("note" . ?n)
             ("idea" . ?i)))
@@ -635,7 +636,7 @@ NOTE: Darwin is OSX
               ("h" "Home Tasks" tags-todo "+home")
               ("p" "Personal Tasks" tags-todo "+personal")
               ("l" "Long Term Tasks" tags-todo "+longterm")
-
+              ("s" "Study Tasks" tags-todo "+study")
 
 
               ;; Low-effort next actions
