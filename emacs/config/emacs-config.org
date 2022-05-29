@@ -350,7 +350,7 @@ NOTE: Darwin is OSX
 #+begin_src emacs-lisp :results silent
 
   (use-package doom-themes
-    :init (load-theme 'doom-outrun-electric t))
+    :init (load-theme 'doom-moonlight t))
 
   (use-package all-the-icons
     :straight t)
@@ -548,8 +548,8 @@ NOTE: Darwin is OSX
 
 #+begin_src emacs-lisp :results silent
 
-  (global-set-key "C-a" 'org-agenda)
-
+  (global-set-key (kbd "C-c a") 'org-agenda)
+  
 #+end_src
 
 ** USE PACKAGE
@@ -1124,7 +1124,7 @@ To run vterm you'll need CMake and libtool.
     (vterm-kill-buffer-on-exit t)
     (vterm-max-scrollback 10000)
     :init
-    (which-key-add-key-based-replacements "C-c t" "term")
+    (which-key-add-key-based-replacements "C-c j" "term")
     :config
     ;; Add find-file-other-window to accepted commands
     (setq vterm-shell (executable-find "zsh"))
@@ -1133,7 +1133,7 @@ To run vterm you'll need CMake and libtool.
 
   (use-package vterm-toggle
     :straight t
-    :bind (("C-c t" . vterm-toggle-cd)
+    :bind (("C-c j" . vterm-toggle-cd)
            :map vterm-mode-map
            (("<C-return>" . vterm-toggle-insert-cd)
             ("C-M-n" . vterm-toggle-forward)
