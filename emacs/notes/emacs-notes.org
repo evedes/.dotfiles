@@ -67,13 +67,14 @@ Hit 'M-x emacs-uptime'
 | M-_ or C-?         | Redo                                            |
 | C-h i or M-x info  | Access Emacs' info reader                       |
 | C-h R              | Open a manual (only in Emacs 28)                |
-| C-h a              | apropos                                         |
-| C-x 5              | prefix use for frames                           |
-| C-x 5 2            | create a new frame                              |
-| C-x r m            | set a bookmark                                  |
-| C-x r l            | list bookmarks                                  |
-| C-x r b            | jump to a bookmark                              |
-| M-g M-g            | go to line                                      |
+| C-h a              | Apropos                                         |
+| C-x 5              | Prefix use for frames                           |
+| C-x 5 2            | Create a new frame                              |
+| C-x r m            | Set a bookmark                                  |
+| C-x r l            | List bookmarks                                  |
+| C-x r b            | Jump to a bookmark                              |
+| M-g M-g            | Go to line                                      |
+| C-c n a            | Add org-roam alias to an org file               |
 
 ** GENERAL NOTES
 
@@ -229,10 +230,12 @@ Tables ajust automatically, when you press *TAB*
 You can check/uncheck an item running *C-c C-x C-b*
 You can hit *Shift+Alt+Enter* to add more checkboxes
 *** How to add a code block?
+
 #+begin_src emacs-lisp
   (defun my-elisp-func ()
     (message "Hello, world!"))
 #+end_src
+
 *** How to add a TODO?
 
 OrgMode comes with two states: TODO and DONE
@@ -263,12 +266,215 @@ Database enables Org Roam to keep track of all of the "nodes" that you create an
 
 After Org Roam has been installed, the most important thing to configure is the folder where your Org Roam files will be located.
 
+*** How to link between nodes?
+
+We link between nodes using org's standard ID link (e.g. id:foo). while only ID links will be considered during the computation of links between nodes, org-roam caches all other links in the documents for external use.
+
+*** Org-roam Sync
+
+We sync org-roam on startup (check emacs-config.org).
+If we need to sync it manually just hit *M-x org-roam-db-sync*
+
+*** Creating nodes
+
+You can use *org-roam-node-insert* (C-c n i), or *org-roam-node-find* (C-c n f) which in case it doesn't  find the node, it creates a new one.
+
+*org-roam-capture* creates a node if it does not exist, and restores the current window configuration upon completion.
+
+*** Caching & How to Cache?
+
+Org-roam uses a sqlite database to perform caching, but there are multiple Emacs libraries that can be used. The default is *emacs-sqlite*
+
+By default, all nodes are cached by org-roam.
+
+*** The Org-roam Buffer
+
+Org-roam provides a buffer: an interface to view relationships with other nodes (backlinks, reference links, unlinked references, etc.)
+
+There are two main commands here:
+
+*org-roam-buffer-toggle* (C-c n l), which launches an org-roam buffer that tracks the node currently at point. This means that the content of the buffer changes as the point is moved, if necessary.
+
+*org-roam-buffer-display-dedicated*, which launches an org-roam buffer for a specific node without visiting its file.
+
+*** Node Properties
+
+**** Standard Org properties
+
+Org-roam caches most of the standard Org properties. The full list now includes:
+- outline level
+- todo state
+- priority
+- scheduled
+- deadline
+- tags
+
+
+**** Titles and Aliases
+
+Each node has a single title. For the file nodes, this is specified with the '#+title' property for the file.
+
+For headline nodes, this is the main text.
+
+Nodes can also have multiple aliases. Aliases allow searching for nodes via an alternative name. For example, one may want to assign a well-known (AI) to a node title "Artificial Intelligence".
+
+Just add :ROAM_ALIASES: AI just bellow :PROPERTIES: and it will work.
+
+Org-roam provides some functions to add or remove aliases
+
+*org-roam-alias-add* (C-c n a)
+*org-roam-alias-remove*
+
+**** Tags
+
+Tags for top-level (file) nodes are pulled from the variable *org-file-tags*, which is set by the #+filetags keyword, as well as other tags the file may have inherited.
+
+Tags are inherited by headers within the file.
+This makes it impossible for selective tag inheritance: i.e. either tag inheritance is turned off, or all headline nodes will inherit the tags from the file node. This is a design compromise of Org-roam.
+
+**** Refs
+
+Refs are unique identifiers for nodes. These keys allow references to the key to show up in the org-roam buffer. For example, a node for a website may use the URL as the ref, and a node for a paper may use an org-ref citation key.
+
+If we add :ROAM_REFS: https://www.google.com/
+
+And another node links to the same URL, it will show up as a "reference backlink".
+
+These keys also come in useful for when taking website notes, using the roam-ref protocol.
+
+See [[https://www.orgroam.com/manual.html#org_002droam_002dprotocol][org-roam-protocol]] for more info on that.
+
+Org-roam provides functions to add/remove refs:
+
+*org-roam-ref-add*
+*org-roam-ref-remove*
+
+**** Citations
+
+Org has first-class support for citations. It supports the caching of both these in-built citations *[cite:@key]* and org-ref citations (of form *cite:key*).
+
+You can add a citation by adding :ROAM_REFS: @key or :ROAM_REFS: [cite:@key]
+
+When another node has a citation for that key, we can see it using the RefLinks section of the Org-roam buffer.
+
+*** Completion
+
+**** TODO Investigate Completions in org-roam
+
+*** The Templating System
+
+Org-roam extends the *org-capture* system, providing a smoother note-taking experience.
+These extensions mean org-roam capture templates are incompatible with the org-capture templates.
+
+Org-roam's templates are specified by *org-roam-capture-templates*
+
+**** TODO Investigate Templates in org-roam. Here's the [[https://www.orgroam.com/manual.html#Getting-Started][link]] to the point 12.1 of the manual.
+
+*** Extensions
+
+**** org-roam-protocol
+
+To enable org-roam-protocol, simply add the following to your init file:
+
+#+begin_src emacs-lisp
+
+(require 'org-roam-protocol)
+
+#+end_src
+
+**** org-roam-graph
+
+Org-roam provides basic graphing capabilities to explore interconnections between notes, in *org-roam-graph* This is done by performing SQL queries and generating images using Graphviz.
+
+**** org-roam-dailies
+
+Org-roam provides journaling capabilities akin to org-journal with *org-roam-dailies*
+
+**** org-roam-export
+
+Because Org-roam files are plain org files, they can be exported easily using *org-export* to a variety of formats (including html and pdf).
+
+
+*** Performance Optimization
+
+**** Garbage Collection
+
+During the cache-build process, Org-roam generates a lot of in-memory data-structures which are discarded after use. These structures are garbage collected at regular intervals.
+
+Org-roam provides the option *org-roam-db-gc-threshold* to temporarily change the threshold value for GC to be triggered during these memory-intensive operations.
+
+To reduce the number of garbage collection processes, one may set *org-roam-db-gc-threshold* to a high value:
+
+#+begin_src emacs-lisp :results silent
+
+(setq org-roam-db-gc-threshold most-positive-fixnum)
+
+#+end_src
+
+*** Org-download
+
+**** TODO Learn how to use org-download
+
+*** How to do fast note insertion
+
+Sometimes you want to create a node, but you don't want the node to open.
+
+This piece of code will allow you to do this:
+
+#+begin_src emacs-lisp :results silent
+
+  ;; Bind this to C-c n I
+  (defun org-roam-node-insert-immediate (arg &rest args)
+    (interactive "P")
+    (let ((args (cons arg args))
+          (org-roam-capture-templates (list (append (car org-roam-capture-templates)
+                                                    '(:immediate-finish t)))))
+      (apply #'org-roam-node-insert args)))
+
+#+end_src
+
+*** How to build your Org agenda from Org Roam notes
+
+One of the most useful features of Org Mode is the agenda view. You can actually use your Org Roam notes as the source for this view.
+
+Typically you won't want to pull in *all* of your Org Roam notes, so we'll only use the notes with a specific tag like =Project=.
+
+Here is a snippet that will find all the notes with a specific tag and then set your *org-agenda-list* with the corresponding note files.
+
+#+begin_src emacs-lisp :results silent
+
+;; The buffer you put this code in must have lexical-binding set to t!
+;; See the final configuration at the end for more details.
+
+(defun my/org-roam-filter-by-tag (tag-name)
+  (lambda (node)
+    (member tag-name (org-roam-node-tags node))))
+
+(defun my/org-roam-list-notes-by-tag (tag-name)
+  (mapcar #'org-roam-node-file
+          (seq-filter
+           (my/org-roam-filter-by-tag tag-name)
+           (org-roam-node-list))))
+
+(defun my/org-roam-refresh-agenda-list ()
+  (interactive)
+  (setq org-agenda-files (my/org-roam-list-notes-by-tag "Project")))
+
+;; Build the agenda list the first time for the session
+(my/org-roam-refresh-agenda-list)
+
+#+end_src
+
+*** Selecting from a list of notes with a specific tag
+
+
+
 ** ORGANIZING YOUR LIFE WITH ORGMODE
 [[https://orgmode.org/manual/Agenda-Commands.html][Commands in the Agenda Buffer]]
 *** How to Open the Agenda?
 
 *M-x org-agenda*
-Pick *a*, which means Agenda for current week or day
+
 
 *** How to quit Agenda?
 
@@ -476,6 +682,93 @@ Notice a lock will appear when you activate it.
 Hit *C-c C-j* to get back to *term line mode*
 Lock will disappear
 
+** STRAIGHT.EL
+
+Here's the link to straight.el GitHub [[https://github.com/radian-software/straight.el][repo]].
+Here's the link to David Wilson (System Crafters) GitHub [[Advanced Emacs Package Management with straight.el][repo]].
+
+*** What is straight.el
+
+straight.el describes itself as a "next-generation, purely functional package manager for Emacs."
+
+It enables you to have more detailed control over how you manage the Emacs packages you use in your configuration.
+
+It clones the actual source repositories of all the Emacs packages you use regardless of whether you find them on MELPA, ELPA, or others.
+
+Using source repositories, allows us to be more explicit about which version to use.
+
+straight.el is an alternative to package.el (Emacs built in package manager).
+
+It integrates with *use-package* so that you can use *:straight t* instead of *:ensure t*
+
+straight.el is very straightforward for any Emacs user.
+
+*** How to see a list of all packages? 
+
+An easy way to see a list of all packages that you might want to install is run *M-x straight-use-package"
+
+If you go to the [[https://github.com/melpa/melpa][MELPA]] GitHub repository, you'll find a folder called recipes from where you can get the code to quickly install a package.
+
+There's also *gnu-elpa-mirror*, which uses a special mirror of package from the GNU ELPA repo.
+And there's emacsmirror-mirror, which uses a special mirror of packages from the Emacsmirror.
+
+*** How to install a package?
+
+You can also do *M-x straight-get-recipe*
+
+*** How to upgrade a package?
+
+You can upgrade packages individually or all at once.
+
+*M-x straight-pull-package* will pull a single package to upgrade it to the latest.
+*M-x straight-pull-package-and-deps* will pull package + all of its deps.
+*M-x straight-pull-all* will upgrade all of your active packages.
+
+Keep in mind that pulling/upgrading a package doesn't take effect immediately. When you restart Emacs, straight.el will reuild and load the latest versions of the packages you've installed.
+
+If you want to activate the upgraded version of a package while Emacs is running, you can run *M-x straight-check-package* (or *M-x straight-check-all*)
+
+There's no explicit way to "uninstall" a package. Simply remove  the *straight-use-package* line from your configuration.
+
+If you want to make sure those unused repository folders are gone, you can hit *M-x straight-remove-unused-repos* to delete them. Note that those unused repos won't be loaded if they aren't referenced in your *init.el* file, though!
+
+*** Integrating with use-package
+
+Just add this line to your config.
+
+#+begin_src emacs-lisp
+(straight-use-package 'use-package)
+#+end_src
+
+If you want *use-package* to automatically install all of your packages without the need for adding *:straight t*, you can replicate the same behavior with the following setting:
+
+#+begin_src emacs-lisp
+(setq straight-use-package-by-default t)
+#+end_src
+
+*** Locking package versions
+
+To have a more consistent and repeatable config across multiple machines, you can create a "lockfile".
+
+*** Converting an existing configuration to straight.el
+
+You can use both package.el and straight.el at the same time. But it's good to pick one of them to avoid weird issues.
+
+How to migrate to straight.el:
+- Delete your old elpa folder where package.el packages are installed
+- add the bootstrap script ;; added in the emacs-config file
+- add (straight-use-package 'use-package) to the config ;; added in the emacs-config file
+- replace =:ensure= with =:straight=
+- if you use *use-package-always-ensure*, replace it with *straight-use-package-by-default*
+- close emacs and delete your ~/.emacs.d/elpa
+- startup emacs
+
+*** Why should I use straight.el?
+
+- you prefer having a stable configuration
+- you might develop Emacs packages or you maintain your own forks of Emacs packages
+- you need to use Emacs packages that aren't in =MELPA= or =ELPA=.
+
 ** BUFFER LISTS WITH PERSPECTIVE.EL
 
 [[https://www.youtube.com/watch?v=uyMdDzjQFMU&list=PLEoMzSkcN8oOP5WgckTbERn10CXxIFneB][Check David Wilson Video Here!]]
@@ -493,11 +786,9 @@ Lock will disappear
 **** PROBLEMS:
 ***** NOTE: Not able to display birtdhays with +1y on the agenda
 ***** NOTE: Adding Habits is not working properly.
-
 *** Emacs from Scratch #7 - Configure Everything with Org Babel
 **** PROBLEMS:
 ***** NOTE: Add ability to evaluate javascript blocks.
-
 *** Emacs from Scratch #8 - Build your Own IDE with lsp-mode
 **** TODO TO WATCH
 *** Emacs from Scratch #9 - Learn to Love the Terminal Modes
@@ -516,9 +807,20 @@ David Wilson fails configuring VTERM
 *** EFFICIENT SELECTION
 **** TODO TO WATCH
 *** TEACH EMACS TO KEEP YOUR FOLDERS CLEAN
+
 Very useful [[https://www.youtube.com/watch?v=XZjyJG-sFZI][video]]!
+
 *** Declutter Your Buffer Lists in Emacs with Perspective.el
 **** TODO TO WATCH
+
+*** Advanced Emacs Package Management: straight.el 
+Here's the [[https://www.youtube.com/watch?v=UmbVeqphGlc&t=8s][video]].
+
+
+*** 5 Org Roam Hacks for Better Productivity in Emacs
+**** TODO TO WATCH
+Here's the [[https://www.youtube.com/watch?v=CUkuyW6hr18][link]] of this video.
+Here's the link to the system crafters [[https://systemcrafters.net/build-a-second-brain-in-emacs/5-org-roam-hacks/][article]].
 
 ** REASONS TO LEARN EMACS IN 2022
  
@@ -538,3 +840,4 @@ Very useful [[https://www.youtube.com/watch?v=XZjyJG-sFZI][video]]!
 *** TODO Learn how to evaluate js/node.js code on org
 *** TODO Configure LSP + JS/Typescript major mode
 *** TODO Adding images to an org.file.
+ 
