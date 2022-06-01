@@ -98,7 +98,15 @@ Set garbage-collector threshold high, during loading:
 
 #+end_src
 
-#+RESULTS:
+** KILL ALL BUFFER
+
+#+begin_src emacs-lisp :results silent
+
+  (defun kill-all-buffers ()
+  (interactive)
+    (mapc 'kill-buffer (buffer-list)))
+
+#+end_src
 
 ** WHICH KEY
 
@@ -176,11 +184,7 @@ Set garbage-collector threshold high, during loading:
            :map ivy-minibuffer-map
            ("TAB" . ivy-alt-done)
            ("C-l" . ivy-alt-done)
-           ("C-j" . ivy-next-line)
-           ("C-k" . ivy-previous-line)
            :map ivy-switch-buffer-map
-           ("C-k" . ivy-previous-line)
-           ("C-l" . ivy-done)
            ("C-d" . ivy-switch-buffer-kill)
            :map ivy-reverse-i-search-map
            ("C-k" . ivy-previous-line)
@@ -346,11 +350,13 @@ NOTE: Darwin is OSX
 ** THEMES
 
    SUGGESTED THEMES: doom-one, doom-dracula, doom-moonlight, doom-spacegrey, doom-outrun-electric, doom-palenight, doom-shades-of-purple, doom-tokyo-night
+   doom-monokai-ristretto, doom-monokai-pro, doom-monokai-octagon, doom-monokai-spectrum
+   doom-sourcerer, doom-nord, doom-spacegrey
 
 #+begin_src emacs-lisp :results silent
 
   (use-package doom-themes
-    :init (load-theme 'doom-moonlight t))
+    :init (load-theme 'doom-outrun-electric t))
 
   (use-package all-the-icons
     :straight t)
@@ -377,7 +383,7 @@ NOTE: Darwin is OSX
     (progn
       (beacon-mode 1)
       (setq beacon-size 10)
-      (setq beacon-color "#ca6768")
+      (setq beacon-color "#68C4C2")
       (setq beacon-blink-duration 0.2)
       (setq beacon-blink-when-window-scrolls t)
       (setq beacon-blink-when-window-changes t)
@@ -770,6 +776,7 @@ NOTE: Darwin is OSX
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((emacs-lisp . t)
+     (clojure . t)
      (shell . t)))
 
   (setq org-confirm-babel-evaluate nil)
@@ -781,6 +788,7 @@ NOTE: Darwin is OSX
 
   (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
   (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+  (add-to-list 'org-structure-template-alist '("cl" . "src clojure"))
 
 #+end_src
 
