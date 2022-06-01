@@ -566,7 +566,7 @@ NOTE: Darwin is OSX
     :hook (org-mode . org-mode-setup)
     :config
     (setq org-ellipsis " ▾")
-    (setq org-src-tab-acts-natively t) ;; preserver code blocks identation
+    (setq org-src-tab-acts-natively t) ;; preserve code blocks identation
     (setq org-agenda-start-with-log-mode t)
     (setq org-agenda-span 15)
     (setq org-agenda-start-on-weekday nil)
