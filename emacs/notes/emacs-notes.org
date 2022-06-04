@@ -418,7 +418,6 @@ Org-roam provides journaling capabilities akin to org-journal with *org-roam-dai
 
 Because Org-roam files are plain org files, they can be exported easily using *org-export* to a variety of formats (including html and pdf).
 
-
 *** Performance Optimization
 
 **** Garbage Collection
