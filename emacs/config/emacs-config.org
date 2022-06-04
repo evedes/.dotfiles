@@ -3,6 +3,7 @@
 #+DATE: 2022-05-06
 #+PROPERTY: header-args:emacs-lisp :tangle ~/.emacs.d/init.el :mkdirp yes
 #+OPTIONS: toc:2 num:nil
+#+STARTUP: content
 
 * How to install this Emacs literate config?
 
@@ -15,7 +16,6 @@
 - Open emacs-config.org
 - Type 'M-x org-babel-tangle' to create *init.el*
 - Restart Emacs or type *M-x load-file* and reload ~/.emacs.d/init.el
-
 
 * USER
 
@@ -58,14 +58,12 @@ Set garbage-collector threshold high, during loading:
 
 #+end_src
 
-
 ** BACKUP
 #+begin_src emacs-lisp :results silent
 
   (setq backup-directory-alist `((".*" . ,"~/.emacs.d/backups")))
 
 #+end_src
-
 
 ** AUTO-SAVE
 
@@ -124,6 +122,7 @@ Set garbage-collector threshold high, during loading:
 #+end_src
 
 ** IMPROVED PARENTHESES
+
 #+begin_src emacs-lisp
 
   (use-package smartparens
@@ -131,6 +130,7 @@ Set garbage-collector threshold high, during loading:
     :hook (prog-mode . smartparens-mode))
 
 #+end_src
+
 ** PROJECTILE
 
 #+begin_src emacs-lisp :results silent
@@ -356,7 +356,7 @@ NOTE: Darwin is OSX
 #+begin_src emacs-lisp :results silent
 
   (use-package doom-themes
-    :init (load-theme 'doom-outrun-electric t))
+    :init (load-theme 'doom-moonlight t))
 
   (use-package all-the-icons
     :straight t)
@@ -412,6 +412,7 @@ NOTE: Darwin is OSX
     (flyspell-mode +1))
 
 #+end_src
+
 ** FLYCHECK
 
 #+begin_src emacs-lisp :results silent
@@ -426,6 +427,7 @@ NOTE: Darwin is OSX
     (after-init . global-flycheck-mode))
 
 #+end_src
+
 ** FILE BROWSERS
 
 #+begin_src emacs-lisp :results silent
@@ -601,7 +603,6 @@ NOTE: Darwin is OSX
     (org-font-setup))
 
 #+end_src
-
 
 ** ORG REFILE TARGET
 
@@ -789,7 +790,7 @@ NOTE: Darwin is OSX
   (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
   (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
   (add-to-list 'org-structure-template-alist '("cl" . "src clojure"))
-
+  
 #+end_src
 
 * ORG ROAM
@@ -830,7 +831,6 @@ Personally, I use it in Dropbox. It's fast and I get sync out-of-the-box with my
     (org-roam-db-autosync-mode))
 
 #+end_src
-
 
 ** Fast note insertion for a smoother writing flow
 

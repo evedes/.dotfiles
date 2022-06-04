@@ -2,9 +2,10 @@
 #+AUTHOR: Eduardo Vedes
 #+DATE: 2022-05-04
 #+OPTIONS: toc:2 num:nil
-#+STARTUP: showall
+#+STARTUP: content
 
 * EMACS
+
 "My adventure Learning Emacs and Everything Lispian"
 
 ** QUOTES
@@ -37,7 +38,7 @@ Do *M-x window-swap-states*
 
 Hit 'M-x emacs-uptime'
 
-** SHORTCUTS
+n** SHORTCUTS
 
 | Command            | Description                                     |
 | -                  | -                                               |
@@ -213,6 +214,7 @@ Just press *Tab* on top of that heading
 Put the cursor on top or below of the heading you want to replicate, i.e: a 3 start heading, and press *C+RET*.
 
 *** How to create a table?
+
 | Name      | Age | Use Emacs |
 | -         |   - | -         |
 | David     |  37 | Yes       |
@@ -222,13 +224,34 @@ Put the cursor on top or below of the heading you want to replicate, i.e: a 3 st
 
 Tables ajust automatically, when you press *TAB*
 
+*** Org as a spreadsheet system
+
+| Student  | Maths | Physics |   Average |
+|----------+-------+---------+-----------|
+| Bertrand |    13 |      09 |        11 |
+| Henri    |    15 |      14 |      14.5 |
+| Arnold   |    17 |      13 |        15 |
+| Edward   |    10 |      20 |        15 |
+
+#+TBLFM: $4=vmean($2..$3)
+
+Create a table using *C-|*
+How to discover a cell reference? Go to the cell and hit *C-c ?*
+How to see table's lines/cols? Hit *C-c }*
+How to add a table separator row? *C-c -*
+How to spread calculation along column *C-u C-c **
+How to edit a column formula? C-c =
+How to edit a cell formula? C-u C-c =
+
 *** How to create a bulleted / numbered list / checklist?
+
 - [X] First Item      
 - [ ] Second Item
 - [X] Third Item
 
 You can check/uncheck an item running *C-c C-x C-b*
 You can hit *Shift+Alt+Enter* to add more checkboxes
+
 *** How to add a code block?
 
 #+begin_src emacs-lisp
@@ -236,20 +259,23 @@ You can hit *Shift+Alt+Enter* to add more checkboxes
     (message "Hello, world!"))
 #+end_src
 
-*** How to add a TODO?
+*** How to set an org file initial visibility
 
-OrgMode comes with two states: TODO and DONE
-You can add more states.
 
-**** WAIT Do something great!
+To set initial visibility you can add to the top of the file one of the following lines:
 
-:LOGBOOK:
-- State "DONE"       from "NEXT"       [2022-05-12 Thu 23:04]
-- State "HOLD"       from "WAIT"       [2022-05-12 Thu 23:04]
-- State "DONE"       from "NEXT"       [2022-05-12 Thu 23:04]
-:END:
+#+begin_src
 
-You can toggle a todo with *C-c C-t* or with *Shift+Right* while in the TODO line.
+#+STARTUP: overview
+#+STARTUP: content
+#+STARTUP: showall
+#+STARTUP: show2levels
+#+STARTUP: show3levels
+#+STARTUP: show4levels
+#+STARTUP: show5levels
+#+STARTUP: showeverything
+
+#+end_src
 
 ** ORG ROAM
 
@@ -298,7 +324,6 @@ There are two main commands here:
 *org-roam-buffer-display-dedicated*, which launches an org-roam buffer for a specific node without visiting its file.
 
 *** Node Properties
-
 **** Standard Org properties
 
 Org-roam caches most of the standard Org properties. The full list now includes:
@@ -308,7 +333,6 @@ Org-roam caches most of the standard Org properties. The full list now includes:
 - scheduled
 - deadline
 - tags
-
 
 **** Titles and Aliases
 
@@ -468,17 +492,31 @@ Here is a snippet that will find all the notes with a specific tag and then set 
 *** Selecting from a list of notes with a specific tag
 
 
-
 ** ORGANIZING YOUR LIFE WITH ORGMODE
 [[https://orgmode.org/manual/Agenda-Commands.html][Commands in the Agenda Buffer]]
 *** How to Open the Agenda?
 
 *M-x org-agenda*
 
-
 *** How to quit Agenda?
 
 Just press *q*
+
+*** How to add a Task/TODO?
+
+OrgMode comes with two states: TODO and DONE
+You can add more states.
+
+**** TODO Do something great!
+
+:LOGBOOK:
+- State "TODO"       from "WAIT"       [2022-06-01 Wed 16:23]
+- State "DONE"       from "NEXT"       [2022-05-12 Thu 23:04]
+- State "HOLD"       from "WAIT"       [2022-05-12 Thu 23:04]
+- State "DONE"       from "NEXT"       [2022-05-12 Thu 23:04]
+:END:
+
+You can toggle a todo with *C-c C-t* or with *Shift+Right* while in the TODO line.
 
 *** How to schedule a Task?
 
@@ -509,8 +547,21 @@ SCHEDULED <2021-05-07 Mon 18:00 +1m>
 
 Advanced usage:
 
-DEADLINE: <2017-12-10 Sun ++1W> - will push the date to the first Sunday in the future.
-DEADLINE: <2017-12-10 Sun .+1W> - will push the date to the same day in the next week.
+**** TODO Call Father
+DEADLINE: <2017-12-10 Sun ++1w>
+Marking this DONE shifts the date by at least one week, but also by as many weeks as it takes to get this date into the future. However, it stays on a Sunday, even if you called and marked it done on a Saturday.
+
+**** TODO Empty Kitchen Trash
+DEADLINE: <2017-12-10 Sun 20:00 ++1d>
+Marking this DONE shifts the date by at least one day, and also by as many days as it takes to get the timestamp into the future. Since there is a time in the timestamp, the next deadline in the future will be on today's date if you complete the task before 20:00
+
+**** TODO Check the batteries in the smoke detectors
+DEADLINE: <2005-11-01 Tue .+1m>
+Marking this DONE shifts the date to one month after today.
+
+**** TODO Wash my hands
+DEADLINE: <2019-04-05 08:00 Fri .+1h>
+Marking this DONE shifts the date to exactly one hour from now.
 
 *** Mark a task as Done
 
@@ -812,10 +863,8 @@ Very useful [[https://www.youtube.com/watch?v=XZjyJG-sFZI][video]]!
 
 *** Declutter Your Buffer Lists in Emacs with Perspective.el
 **** TODO TO WATCH
-
 *** Advanced Emacs Package Management: straight.el 
 Here's the [[https://www.youtube.com/watch?v=UmbVeqphGlc&t=8s][video]].
-
 
 *** 5 Org Roam Hacks for Better Productivity in Emacs
 **** TODO TO WATCH
@@ -823,7 +872,6 @@ Here's the [[https://www.youtube.com/watch?v=CUkuyW6hr18][link]] of this video.
 Here's the link to the system crafters [[https://systemcrafters.net/build-a-second-brain-in-emacs/5-org-roam-hacks/][article]].
 
 ** REASONS TO LEARN EMACS IN 2022
- 
  - If you want to go *really* far, install EXWM on Linux!
  - It creates a complete desktop environment using EXWM on Linux.
  - With org-mode you can do spreadsheets, or configure your entire system.
