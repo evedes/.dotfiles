@@ -255,7 +255,12 @@ To open a link you can hit *C-c C-o* while cursor is hover the link.
 
 *** Images
 
-[[~/Downloads/sky.jpg]]
+To add ./img/cat.jpg, just wrap it around double square brackets.
+
+You can toggle display of inline-images with *C-c C-x C-v* or *M-x org-toggle-inline-images*
+
+i.e.:
+[[https://osr.org/wp-content/themes/osr/static/images/stars-left-bg.jpg]]
 
 
 *** How to add a literal Example?
