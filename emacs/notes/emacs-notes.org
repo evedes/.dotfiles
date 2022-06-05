@@ -259,30 +259,63 @@ To add ./img/cat.jpg, just wrap it around double square brackets.
 
 You can toggle display of inline-images with *C-c C-x C-v* or *M-x org-toggle-inline-images*
 
-i.e.:
+You can also add image links from HTTP URLs:
+i.e.: https://osr.org/wp-content/themes/osr/static/images/stars-left-bg.jpg
+
 [[https://osr.org/wp-content/themes/osr/static/images/stars-left-bg.jpg]]
 
+*** Blocks
 
-*** How to add a literal Example?
+Org mode uses #+BEGIN ... #+END blocks for many purposes. Some of the basic blocks types quote, example, and src.
 
-Make sure what you want to write is wrapped in
+If all you need is monospace text, you can use an example block.
 
-#+BEGIN_EXAMPLE
-  something something
-#+END_EXAMPLE
+#+begin_example
+monospace
+#+end_example
 
-*** How to create a table?
+However, example blocks do not give you the power of Org babel. For that you need a source block. Source blocks provide syntax highlighting, code execution, literate programming, and more.
 
-| Name      | Age | Use Emacs |
-| -         |   - | -         |
-| David     |  37 | Yes       |
-| Edo       |  42 | Yes       |
-| John      |  21 | No        |
-| Alexander |  52 | No        |
+#+begin_src emacs-lisp
 
+  (message "Hello World")
+
+#+end_src
+
+#+RESULTS:
+: Hello World
+
+An hello world example cannot even begin to scratch the surface Org mode's support for working with source code.
+
+*** Tables
+
+| Tool         | Literate Programming? | Reproducible Research? | Languages |
+|--------------+-----------------------+------------------------+-----------|
+| Javadoc      | partial               | no                     | Java      |
+| Haskell .lhs | partial               | no                     | Haskell   |
+| noweb        | yes                   | no                     | any       |
+| Sweave       | partial               | yes                    | R         |
+| Org-mode     | yes                   | yes                    | any       |
+
+Hit *C-c -* to add a dividing line.
 Tables ajust automatically, when you press *TAB*
 
-*** How to create a spreasheet?
+*** Comments
+
+Org mode has a variety of ways to add comments.
+
+Line comments start with #.
+Inline comments wrap @@comment:like so@@
+Block comments are wrapped with #+BEGIN_COMMENT and #+END_COMMENT.
+Section comments can be created by adding the COMMENT keyword to a heading
+
+**** COMMENT like so
+
+*** Macros
+
+Org has many more advanced features built into its syntax. To give only a single example, let's take a look at [[https://orgmode.org/manual/Macro-Replacement.html][macros]].
+
+*** How to create a spreadsheet?
 
 | Student  | Maths | Physics |   Average |
 |----------+-------+---------+-----------|
@@ -385,12 +418,13 @@ There are two main commands here:
 **** Standard Org properties
 
 Org-roam caches most of the standard Org properties. The full list now includes:
-- outline level
-- todo state
-- priority
-- scheduled
-- deadline
-- tags
+
+  - outline level
+  - todo state
+  - priority
+  - scheduled
+  - deadline
+  - tags
 
 **** Titles and Aliases
 
@@ -940,9 +974,9 @@ Here's the link to the system crafters [[https://systemcrafters.net/build-a-seco
 - the ultimate hacker language!!!
 
 ** THINGS TO INVESTIGATE
-*** TODO Learn how to use straight.el
 *** TODO Learn how to open PDF files on Emacs
 *** TODO Learn how to evaluate js/node.js code on org
 *** TODO Configure LSP + JS/Typescript major mode
-*** TODO Adding images to an org.file.
- 
+*** TODO Org macros
+*** TODO Investigate how to manage and sync dictionaries in Org-mode
+
