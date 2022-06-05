@@ -191,8 +191,7 @@ The de facto mimetype for Org files is text/org. Org files use the *.org* extens
 
 At the start of a file (before the first heading), it is common to set the title, author and other export options.
 
-#+title: The glories of org
-#+author: A. Org Writer
+Please, check the top of the current file.
 
 *** Heading
 
