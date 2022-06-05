@@ -4,6 +4,9 @@
 #+OPTIONS: toc:2 num:nil
 #+STARTUP: content
 
+Where I take notes about my Emacs learning.
+This file can be seen [[https://github.com/evedes/.dotfiles/blob/master/emacs/notes/emacs-notes.org][here]], on my GitHub .dotfiles repo.
+
 * EMACS
 
 "My adventure Learning Emacs and Everything Lispian"
@@ -198,6 +201,64 @@ Lines that start with an asterisk * are HEADINGS.
 A single * denotes a 1st-level heading, ** denotes a 2nd-level heading, etc.
 
 
+A single * denotes a 1st-level heading, a ** denotes a 2nd-level heading, etc.
+
+In their simplest form, headings are just the start of a section.
+Any heading can also become a TODO.
+
+TODO items are the basic building block that Org uses to track and organize all kinds of tasks.
+
+To add a TODO item to a heading, start the heading with a TODO keyword, such as TODO or HOLD.
+
+To toggle all Headings, You just need to press *Shift+Tab*
+To toggle just one Heading, press *Tab* on top of that heading
+
+To create an heading of the same type you're hovering, just put the cursor on top or below of the heading you want to replicate, /i.e: a 3 start heading/, and press *C+RETURN*.
+
+*** Markup
+
+To mark up text in Org, simply surround it with one or more marker characters.
+*Bold*, /italic/ and _underline_ are fairly intuitive, and the ability to use +strikethrough+ is a plus.
+
+You can _/*combine*/_ the basic markup in any order however ~code~  and =verbatim= need to be the *_~inner-most~_* markers if they are present since their contents are interpreted =_literally_=.
+
+You can read more about [[https://orgmode.org/worg/dev/org-syntax.html#Emphasis_Markers][emphasis markers]] here.
+
+*** Lists
+
+Unordered lists start with +, - or *. Ordered lists start with 1., 1), A. or A). Ordered and unordered bullets can be nested in any order.
+
+To buy:
+1. Milk
+2. Eggs
+   - Organic
+3. Cheese
+   + Parmesan
+   + Mozzarella
+
+Lists can contain checkboxes [ ], [-], [X].
+
+- [ ] not started
+- [-] in progress
+- [X] complete
+
+Lists can contain tags (and checkboxes at the same time).
+
+- [ ] fruits :: get apples
+- [ ] veggies :: get carrots
+
+*** Links
+
+To create a link put the target between two square brackets, like so: [[target]]. You can include a description in square brackets after the target [[target][desc]].
+
+To write a link you can hit *C-c C-l*
+To open a link you can hit *C-c C-o* while cursor is hover the link.
+
+*** Images
+
+[[~/Downloads/sky.jpg]]
+
+
 *** How to add a literal Example?
 
 Make sure what you want to write is wrapped in
@@ -205,31 +266,6 @@ Make sure what you want to write is wrapped in
 #+BEGIN_EXAMPLE
   something something
 #+END_EXAMPLE
-
-*** How to write a link?
-
-#+BEGIN_EXAMPLE
- [[LINK][DESCRIPTION]]
-#+END_EXAMPLE
-
-You can also do *C-c C-l*
-
-# SYSTEM CRAFTERS
-*** How to open a link?
-
-Put your cursor on top of the link and hit *C-c C-o*
-
-*** How to toggle all Headings?
-
-You just need to press *Shift+Tab*
-
-*** How to toggle just one Heading?
-
-Just press *Tab* on top of that heading
-
-*** How to create a new Heading of a type?
-
-Put the cursor on top or below of the heading you want to replicate, i.e: a 3 start heading, and press *C+RET*.
 
 *** How to create a table?
 
