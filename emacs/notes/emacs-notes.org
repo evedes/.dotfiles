@@ -180,6 +180,24 @@ Even if you don't want to use it, the settings it applies are very useful to lea
 
 *M-x org-version*
 
+*** Mimetype
+
+The de facto mimetype for Org files is text/org. Org files use the *.org* extension
+
+*** Preamble
+
+At the start of a file (before the first heading), it is common to set the title, author and other export options.
+
+#+title: The glories of org
+#+author: A. Org Writer
+
+*** Heading
+
+Lines that start with an asterisk * are HEADINGS.
+
+A single * denotes a 1st-level heading, ** denotes a 2nd-level heading, etc.
+
+
 *** How to add a literal Example?
 
 Make sure what you want to write is wrapped in
@@ -224,7 +242,7 @@ Put the cursor on top or below of the heading you want to replicate, i.e: a 3 st
 
 Tables ajust automatically, when you press *TAB*
 
-*** Org as a spreadsheet system
+*** How to create a spreasheet?
 
 | Student  | Maths | Physics |   Average |
 |----------+-------+---------+-----------|
