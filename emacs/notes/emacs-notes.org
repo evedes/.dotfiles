@@ -79,6 +79,8 @@ n** SHORTCUTS
 | C-x r b            | Jump to a bookmark                              |
 | M-g M-g            | Go to line                                      |
 | C-c n a            | Add org-roam alias to an org file               |
+| C-c C-x C-a        | Archive a task                                  |
+|                    |                                                 |
 
 ** GENERAL NOTES
 
@@ -608,6 +610,11 @@ You can add more states.
 :END:
 
 You can toggle a todo with *C-c C-t* or with *Shift+Right* while in the TODO line.
+
+*** How to archive a Task
+
+Simply hit *C-c C-x C-a* and task will be moved to an archive file.
+If the original file is called tasks.org, it will be moved to a tasks_archive.org file.
 
 *** How to schedule a Task?
 
