@@ -986,4 +986,5 @@ Here's the link to the system crafters [[https://systemcrafters.net/build-a-seco
 *** TODO Configure LSP + JS/Typescript major mode
 *** TODO Org macros
 *** TODO Investigate how to manage and sync dictionaries in Org-mode
-
+*** TODO Learn how to resize windows
+*** TODO Learn how to better manage habit tracker and org mode files

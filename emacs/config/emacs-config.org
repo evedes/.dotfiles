@@ -263,8 +263,8 @@ NOTE: Darwin is OSX
 
   (if (eq system-type 'darwin)
       (progn
-        (defvar default-font-size 160)
-        (defvar default-variable-font-size 160))
+        (defvar default-font-size 120)
+        (defvar default-variable-font-size 120))
     (progn
       (defvar default-font-size 140)
       (defvar default-variable-font-size 140)))
@@ -358,7 +358,7 @@ NOTE: Darwin is OSX
 #+begin_src emacs-lisp :results silent
 
   (use-package doom-themes
-    :init (load-theme 'doom-moonlight t))
+    :init (load-theme 'doom-tokyo-night t))
 
   (use-package all-the-icons
     :straight t)

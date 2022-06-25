@@ -4,6 +4,7 @@
 
 1. Open a terminal Window and update the system
 
+
    - `sudo apt update`
    - `sudo apt upgrade`
 
