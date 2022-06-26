@@ -3,9 +3,7 @@
 #+startup: content
 
 * Core Installation /System
-
-
-- **Open a terminal Window and update the system**
+** Open a terminal Window and update the system
 
 #+begin_src shell
 
@@ -145,7 +143,6 @@ gsettings set org.gnome.desktop.peripherals.keyboard delay 250
 
 #+end_src
 
-
 *** Set Vs Code as your main editor 
 
 #+begin_src shell
@@ -175,7 +172,6 @@ sudo gpasswd -a $USER docker
 newgrp docker
 
 #+end_src
-
 
 ** Install and config ZSH
 

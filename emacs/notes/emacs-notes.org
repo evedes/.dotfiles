@@ -80,7 +80,7 @@ n** SHORTCUTS
 | M-g M-g            | Go to line                                      |
 | C-c n a            | Add org-roam alias to an org file               |
 | C-c C-x C-a        | Archive a task                                  |
-|                    |                                                 |
+| C-c C-x p          | Set org property (style habit)                  |
 
 ** GENERAL NOTES
 
