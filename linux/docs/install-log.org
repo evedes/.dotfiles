@@ -4,7 +4,6 @@
 
 1. Open a terminal Window and update the system
 
-
    - `sudo apt update`
    - `sudo apt upgrade`
 
@@ -78,12 +77,19 @@ Disable Super+Q to activate dock hot-keys
 
     - run: `bash -c "$(wget -qO- https://git.io/vQgMr)"`
 
-21. Config keyboard settings
+* Config keyboard settings
 
-    1. `gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30`
-    2. `gsettings set org.gnome.desktop.peripherals.keyboard delay 250`
+** Repeat Interval
+#+begin_src shell
 
-22. GIT
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 25
+gsettings set org.gnome.desktop.peripherals.keyboard delay 250
+
+#+end_src
+
+#+RESULTS:
+
+* GIT
 
     To set your global username/email configuration:
 
@@ -153,7 +159,7 @@ Disable Super+Q to activate dock hot-keys
 
 install yarn using npm: `sudo npm install --global yarn`
 
-1.  Tweak keyboard shortcuts
+* Tweak keyboard shortcuts
 
     Add:
 
@@ -172,12 +178,12 @@ install yarn using npm: `sudo npm install --global yarn`
 
     - Make Capslock an HyperKey
 
-2.  Install Gnome Extensions:
+* Install Gnome Extensions:
 
-    - openweather
-    - sound input device chooser
+    openweather
+    sound input device chooser
 
-3.  Themes
+* Themes
 
     WhiteSur GTK Theme: https://github.com/vinceliuice/WhiteSur-gtk-theme
 
@@ -185,11 +191,11 @@ install yarn using npm: `sudo npm install --global yarn`
 
     WhiteSur Cursors: https://www.gnome-look.org/p/1411743/
 
-4.  Disable Super+p
+* Disable <Super>-p
 
-    https://askubuntu.com/questions/68463/how-to-disable-global-super-p-shortcut
+    [[https://askubuntu.com/questions/68463/how-to-disable-global-super-p-shortcut][How to Disable Global <Super>-p Shortcut]]
 
-5.  Configure GTile
+* Configure GTile
 
     Basics: Disable Global resize presets
     Grid Sizes: 8x8,4x4,3x2
