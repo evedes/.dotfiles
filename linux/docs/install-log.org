@@ -4,7 +4,8 @@
 
 * Core Installation /System
 
-** Open a terminal Window and update the system
+
+- **Open a terminal Window and update the system**
 
 #+begin_src shell
 
