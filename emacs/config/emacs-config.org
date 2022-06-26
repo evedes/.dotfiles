@@ -17,8 +17,6 @@
 - Type 'M-x org-babel-tangle' to create *init.el*
 - Restart Emacs or type *M-x load-file* and reload ~/.emacs.d/init.el
 
-
-
 * USER
 
 #+begin_src emacs-lisp :results silent
@@ -1210,7 +1208,6 @@ Bring garbage collector down:
 
 #+end_src
 
-
 * AUTO TANGLE
 
 Automatically tangle emacs-config.org file we saved.
@@ -1227,3 +1224,9 @@ Automatically tangle emacs-config.org file we saved.
   (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'org-babel-tangle-config)))
 
 #+end_src
+
+
+
+
+
+

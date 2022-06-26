@@ -1,6 +1,6 @@
-#+author: Eduardo Vedes
-#+title: INSTALL LOG
-#+startup: content
+#+TITLE: INSTALL LOG
+#+AUTHOR: Eduardo Vedes
+#+STARTUP: content
 
 * Core Installation /System
 ** Open a terminal Window and update the system
@@ -231,13 +231,9 @@ sudo npm install --global yarn
 **** disable lock screen
 **** disable log out
 **** disable Switch to next/previous input source
-
 *** Go to Gnome Tweaks -> Shortcuts:
-
 **** Make Capslock an HypeKey
-
 ** Install Gnome Extensions:
-
 *** openweather
 *** sound input device chooser
 

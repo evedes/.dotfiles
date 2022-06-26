@@ -699,7 +699,9 @@ You can also use it for journaling. Instead of *tt* press *jj* and it will be ad
 
 You can also capture metrics. Check how it's configured on the *orgmode.el* file and you can improve it from there.
 
-*** How to add an Habit?
+*** Tracking your habits
+
+**** How to add an Habit?
 
 Create a todo in the habits.org file and schedule it.
 Set style with *M-x org-set-property*, or *C-c C-x p*
