@@ -21,9 +21,13 @@ sudo apt upgrade
 ** Get 1 Password config from Google Drive and Config Chrome
 ** Get ssh folder from Google Drive and Config it
 
+#+begin_src shell
+
 .ssh dir permissions 700
 files permissions 644
-private key permission 600
+private key permission 
+
+#+end_src
 
 ** Install VIM
 
@@ -54,7 +58,7 @@ sudo apt install traceroute
 
 ** Install software from PopShop
 
-*** Dropbox
+**** Dropbox
 *** Google Drive
 *** Discord
 *** Slack
@@ -253,29 +257,53 @@ sudo npm install --global yarn
 ** Configure GTILE
 
     Basics: Disable Global resize presets
+
     Grid Sizes: 8x8,4x4,3x2
 
     j 4x4 1:1 2:4
+
     ; 4x4 3:1 4:4
+
     k 3x2 1:1 2:2
+
     l 3x2 2:1 3:2
+
     h 3x2 1:1 1:2
+
     ´ 3x2 3:1 3:2
+
     r 4x4 1:1 4:2
+
     v 4x4 1:3 4:4
+
     ] 4x4 1:1 4:4
+
     [ 3x2 2:1 2:4
+
     q 3x2 1:1 1:1
+
     w 3x2 2:1 2:1
+
     e 3x2 3:1 3:1
+
     z 3x2 1:2 1:2
+
     x 3x2 2:2 2:2
+
     c 3x2 3:2 3:2
+
     u 4x4 1:1 2:2
+
     p 4x4 3:1 4:2
+
     m 4x4 1:3 2:4
+
     / 4x4 3:3 4:4
+
     i 3x2 1:1 2:1
+
     o 3x2 2:1 3:1
+
     , 3x2 1:2 2:2
+
     . 3x2 2:2 3:2
