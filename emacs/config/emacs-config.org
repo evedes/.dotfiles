@@ -356,7 +356,7 @@ NOTE: Darwin is OSX
 #+begin_src emacs-lisp :results silent
 
   (use-package doom-themes
-    :init (load-theme 'doom-tokyo-night t))
+    :init (load-theme 'doom-outrun-electric t))
 
   (use-package all-the-icons
     :straight t)
