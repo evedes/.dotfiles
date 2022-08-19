@@ -261,11 +261,11 @@ NOTE: Darwin is OSX
 
   (if (eq system-type 'darwin)
       (progn
-        (defvar default-font-size 120)
-        (defvar default-variable-font-size 120))
+        (defvar default-font-size 140)
+        (defvar default-variable-font-size 140))
     (progn
-      (defvar default-font-size 140)
-      (defvar default-variable-font-size 140)))
+      (defvar default-font-size 150)
+      (defvar default-variable-font-size 150)))
 
 #+end_src
 
@@ -863,6 +863,14 @@ Personally, I use it in Dropbox. It's fast and I get sync out-of-the-box with my
           org-roam-ui-update-on-save t
           org-roam-ui-open-on-start t))
 
+
+#+end_src
+
+* BOOKMARKS
+
+#+begin_src emacs-lisp :results silent
+
+(set-register ?a '(file . (concat (getenv "HOME") "/Dropbox/Multiverse")))
 
 #+end_src
 
