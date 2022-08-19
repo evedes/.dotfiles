@@ -10,7 +10,7 @@ The purpose of this repo is to gather in one place all my config files, install 
 
 ### 02. PopOS
 
-[INSTALL LOG](/linux/docs/install-log.md): where I've registered every tweak I've made while installing *PopOS*
+[INSTALL LOG](/linux/docs/install-log.org): where I've registered every tweak I've made while installing *PopOS*
 
 [COMMAND LINE ALIAS](/linux/alias/.alias): helpers I want to have at my fingertips
 
