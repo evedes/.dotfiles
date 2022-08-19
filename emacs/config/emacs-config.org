@@ -870,7 +870,7 @@ Personally, I use it in Dropbox. It's fast and I get sync out-of-the-box with my
 
 #+begin_src emacs-lisp :results silent
 
-(setq bookmark-default-file (concat (getenv "HOME") "/Dropbox/Multiverse"))
+(setq bookmark-default-file (concat (getenv "HOME") "/Dropbox/Multiverse/bookmarks"))
 
 #+end_src
 
