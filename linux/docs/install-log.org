@@ -14,7 +14,9 @@ Check how to do it [[https://support.system76.com/articles/live-disk][here]].
 ** Create 3 partitions:
 
 EFI with 500MB (fat32)
+
 Linux Swap with 8192MB (swap)
+
 / with remaining space (ext4 or btrfs)
 
 ** Set keyboard to US International (Intl with Dead Keys)
