@@ -2,7 +2,6 @@
 
 alias cl='clear'
 alias reload='source ~/.zshrc'
-alias re='source ~/.zshrc'
 alias theme='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 alias x='exit'
 
@@ -24,9 +23,6 @@ alias gsl="git stash list"
 
 # NPM 
 alias npmg='npm list -g --depth 0'
-
-# YARN
-alias do='yarn dev'
 
 # FAMILYTHINGS
 alias ft='code ~/SideProjects/familythings/frontend && code ~/SideProjects/familythings/backend'
