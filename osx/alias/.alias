@@ -3,8 +3,8 @@ source $HOME/.dotfiles/osx/alias/.bash_functions
 # SYSTEM
 alias cl='clear'
 alias reload="exec ${SHELL} -l"
-alias r="exec ${SHELL} -l"
 alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
+alias r='ssh rubik'
 alias x='exit'
 
 # NETWORK PRIORITY
@@ -47,9 +47,3 @@ alias dt='cd ~/Work/deployer'
 alias pv='cd ~/Work/package-viewer'
 alias she='cd ~/Work/shearer'
 alias ss='cd ~/Work/store-screen'
-
-## PERSONAL
-alias ts='cd ~/SideProjects/twitter-scheduler'
-alias wcc='cd ~/SideProjects/we-craft-code'
-alias fp='cd ~/SideProjects/famlypad'
-
