@@ -38,9 +38,17 @@ alias ss='cd ~/Work/shearer-services'
 alias sh='cd ~/Work/shearer'
 
 # DOCKER
-alias dps='docker ps'
-alias dpa='docker ps -a'
+alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.Status}}"'
+alias dpa='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.Status}}"'
 alias dcd='docker-compose down'
+alias di='docker images'
+
+export VFORMAT="ID\t{{.ID}}\nNAME\t{{.Names}}\nIMAGE\t{{.Image}}\nPORTS\t{{.Ports}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.CreatedAt}}\nSTATUS\t{{.Status}}\n"
+alias dpsv='docker ps --format="$VFORMAT"'
+alias dpav='docker ps -a --format="$VFORMAT"'
+
+# SPEED TEST
+alias sp='speedtest'
 
 # K8S
 alias k=kubectl

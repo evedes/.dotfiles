@@ -89,7 +89,7 @@ plugins=(
     zsh-syntax-highlighting
  )
 
-# source <(kubectl completion zsh)
+source <(kubectl completion zsh)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/linux/alias/.alias
@@ -128,3 +128,9 @@ export LANG=en_US.UTF-8
 # eval "$(direnv hook zsh)"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/edo/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/edo/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/edo/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/edo/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
