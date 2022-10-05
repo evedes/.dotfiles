@@ -38,6 +38,10 @@ alias mk='minikube'
 alias dpa='docker ps -a'
 alias dps='docker ps'
 alias dcd='docker-compose down'
+alias di='docker images'
+
+# SPEEDTEST
+alias sp='speedtest'
 
 ## WORK
 alias idm='cd ~/Work/idm'
