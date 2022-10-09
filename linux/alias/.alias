@@ -48,7 +48,7 @@ alias dpsv='docker ps --format="$VFORMAT"'
 alias dpav='docker ps -a --format="$VFORMAT"'
 
 # SPEED TEST
-alias sp='speedtest'
+alias sp='speedtest --secure'
 
 # K8S
 alias k=kubectl

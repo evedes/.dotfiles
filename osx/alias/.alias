@@ -35,13 +35,20 @@ alias k='kubectl'
 alias mk='minikube'
 
 # DOCKER
-alias dpa='docker ps -a'
-alias dps='docker ps'
-alias dcd='docker-compose down'
+alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.Status}}"'
+alias dpa='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.Status}}"'
+alias dcd='docker-compose down --remove-orphans'
 alias di='docker images'
 
+export VFORMAT="ID\t{{.ID}}\nNAME\t{{.Names}}\nIMAGE\t{{.Image}}\nPORTS\t{{.Ports}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.CreatedAt}}\nSTATUS\t{{.Status}}\n"
+alias dpsv='docker ps --format="$VFORMAT"'
+alias dpav='docker ps -a --format="$VFORMAT"'
+
+alias costart='colima start --cpu 5 --memory 8'
+alias costop='colima stop'
+
 # SPEEDTEST
-alias sp='speedtest'
+alias sp='speedtest --secure'
 
 ## WORK
 alias idm='cd ~/Work/idm'
@@ -51,3 +58,5 @@ alias dt='cd ~/Work/deployer'
 alias pv='cd ~/Work/package-viewer'
 alias she='cd ~/Work/shearer'
 alias ss='cd ~/Work/store-screen'
+alias fs='cd ~/Work/flashshare'
+alias ss='cd ~/Work/shearer-services'

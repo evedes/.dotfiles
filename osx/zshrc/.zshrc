@@ -133,3 +133,6 @@ source <(kubectl completion zsh)
 
 #DIRENV
 eval "$(direnv hook zsh)"
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/edo/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
