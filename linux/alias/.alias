@@ -53,3 +53,7 @@ alias sp='speedtest --secure'
 # K8S
 alias k=kubectl
 alias mk=minikube
+
+# VPN
+alias vpup='sudo nmcli connection up Livesport'
+alias vpdown='sudo nmcli connection down Livesport'
