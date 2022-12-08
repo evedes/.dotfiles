@@ -57,3 +57,6 @@ alias mk=minikube
 # VPN
 alias vpup='sudo nmcli connection up Livesport'
 alias vpdown='sudo nmcli connection down Livesport'
+
+#UTILS
+alias rebuild='sudo rm -rf dits && yarn build'
