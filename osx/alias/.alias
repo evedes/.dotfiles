@@ -61,6 +61,12 @@ alias ss='cd ~/Work/store-screen'
 alias fs='cd ~/Work/flashshare'
 alias ss='cd ~/Work/shearer-services'
 
+<<<<<<< Updated upstream
 ## UTILS
 alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 
+=======
+#MACHINES
+alias rubik='ssh rubik'
+alias prometheus='ssh prometheus'
+>>>>>>> Stashed changes
