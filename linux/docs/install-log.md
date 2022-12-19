@@ -169,11 +169,17 @@ reboot so that everything works.
 
 ## APPS
 
+- Install GParted from the PopShop
+
 - Install VLC
   `sudo apt install vlc`
   `sudo apt install vlc-plugin-access-extra libbluray-bdj`
 
 - Install Spotify from the PopShop
+- Install Discord from the PopShop
+- Install Slack from the PopShop
+- Install Franz from the PopShop
+  
 
 ## GNOME EXTENSIONS
 
