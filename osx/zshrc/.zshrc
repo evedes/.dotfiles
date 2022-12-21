@@ -136,3 +136,5 @@ eval "$(direnv hook zsh)"
 
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 export PUPPETEER_EXECUTABLE_PATH=`which chromium`
+
+source /Users/edo/.docker/init-zsh.sh || true # Added by Docker Desktop

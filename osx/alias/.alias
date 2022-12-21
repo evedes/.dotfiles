@@ -26,7 +26,6 @@ alias dotfiles='code ~/.dotfiles'
 alias dl='youtube-dl'
 
 # MAC M1
-
 alias arm64='arch -arm64 zsh'
 alias x86='arch -x86_64 zsh'
 
@@ -60,9 +59,6 @@ alias she='cd ~/Work/shearer'
 alias ss='cd ~/Work/store-screen'
 alias fs='cd ~/Work/flashshare'
 alias ss='cd ~/Work/shearer-services'
-
-## UTILS
-alias uuid="python -c 'import sys,uuid; sys.stdout.write(uuid.uuid4().hex)' | pbcopy && pbpaste && echo"
 
 #MACHINES
 alias rubik='ssh rubik'
