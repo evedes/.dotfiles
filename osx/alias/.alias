@@ -63,3 +63,8 @@ alias ss='cd ~/Work/shearer-services'
 #MACHINES
 alias rubik='ssh rubik'
 alias prometheus='ssh prometheus'
+alias kmaster='ssh kmaster'
+alias kworker1='ssh kworker1'
+alias kworker2='ssh kworker2'
+alias retropie='ssh pi@retropie'
+alias alien='ssh alien'

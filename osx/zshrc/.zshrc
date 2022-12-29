@@ -138,3 +138,6 @@ export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 export PUPPETEER_EXECUTABLE_PATH=`which chromium`
 
 source /Users/edo/.docker/init-zsh.sh || true # Added by Docker Desktop
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
