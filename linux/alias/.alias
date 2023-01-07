@@ -58,3 +58,4 @@ alias vpdown='sudo nmcli connection down Livesport'
 
 #UTILS
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias iplocation='curl https://ipinfo.io/$1'
