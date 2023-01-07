@@ -34,13 +34,11 @@ alias pv='cd ~/Work/package-viewer'
 alias dt='cd ~/Work/deployer'
 alias she='cd ~/Work/shearer'
 alias fs='cd ~/Work/flashshare'
-alias ss='cd ~/Work/shearer-services'
-alias sh='cd ~/Work/shearer'
 
 # DOCKER
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.Status}}"'
 alias dpa='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.Status}}"'
-alias dcd='docker-compose down --remove-orphans'
+alias dcd='docker compose down --remove-orphans'
 alias di='docker images'
 
 export VFORMAT="ID\t{{.ID}}\nNAME\t{{.Names}}\nIMAGE\t{{.Image}}\nPORTS\t{{.Ports}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.CreatedAt}}\nSTATUS\t{{.Status}}\n"
@@ -59,4 +57,4 @@ alias vpup='sudo nmcli connection up Livesport'
 alias vpdown='sudo nmcli connection down Livesport'
 
 #UTILS
-alias rebuild='sudo rm -rf dits && yarn build'
+alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
