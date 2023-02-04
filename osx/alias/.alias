@@ -50,25 +50,21 @@ alias costop='colima stop'
 alias sp='speedtest --secure'
 
 ## WORK
-alias idm='cd ~/Work/idm'
-alias dms='cd ~/Work/dms'
-alias frankie='cd ~/OpenSource/Frankie'
-alias dt='cd ~/Work/deployer'
-alias pv='cd ~/Work/package-viewer'
-alias she='cd ~/Work/shearer'
-alias ss='cd ~/Work/store-screen'
-alias fs='cd ~/Work/flashshare'
-alias ss='cd ~/Work/shearer-services'
 
 #MACHINES
 alias rubik='ssh rubik'
 alias prometheus='ssh prometheus'
+alias retropie='ssh pi@retropie'
+alias alien='ssh alien'
+
+#VMS
 alias kmaster='ssh kmaster'
 alias kworker1='ssh kworker1'
 alias kworker2='ssh kworker2'
 alias kworker3='ssh kworker3'
-alias retropie='ssh pi@retropie'
-alias alien='ssh alien'
+alias pihole='ssh pihole'
+alias gitlab='ssh gitlab'
+
 
 #SYSTEM
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
