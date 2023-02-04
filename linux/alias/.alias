@@ -49,8 +49,10 @@ alias dpav='docker ps -a --format="$VFORMAT"'
 alias sp='speedtest --secure'
 
 # K8S
-alias k=kubectl
-alias mk=minikube
+alias k='kubectl'
+alias mk='minikube'
+alias dockerenv='mk docker-env'
+alias mkdd='eval $(mk -p minikube docker-env)'
 
 # VPN
 alias vpup='sudo nmcli connection up Livesport'
