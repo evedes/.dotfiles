@@ -84,6 +84,7 @@
   - Appearence -> Options -> Hide hat on Alfred Window
   - Appearence -> Options -> Hide result shortcuts
   - Appearence -> Options -> Hide menu bar icon
+  - Appearence -> Options -> Show Alfred on Active Screen
   - Features -> Default Results -> Search Scope -> Remove everything except /Applications
 - Install Google Drive (For Desktop)
   - I hope to deprecate this soon as my HomeLab grows
