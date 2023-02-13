@@ -93,7 +93,6 @@ source <(kubectl completion zsh)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/linux/alias/.alias
-source $HOME/.dotfiles/linux/alias/.bash_functions
 
 # User configuration
 
