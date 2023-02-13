@@ -211,3 +211,10 @@ Also can be done on a repo basis removing the `--global` param
 -  Install Yarn
 
    - `sudo npm install --global yarn`
+
+- Install Virt Manager (Virsh)
+
+```
+brew tap homebrew/cask
+brew install virt-manager
+```
