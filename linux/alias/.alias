@@ -1,5 +1,4 @@
 # SYSTEM 
-
 alias cl='clear'
 alias reload='source ~/.zshrc'
 alias theme='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
@@ -12,8 +11,6 @@ alias pbpaste='xclip -selection clipboard -o'
 
 # NETWORK PRIORITY
 
-alias meo='sudo ifmetric enp8s0 10; sudo ifmetric enp9s0 10; sudo ifmetric wlp6s0 100 & isp; sudo ifmetric br-b24bb6ddc4c0 100'
-alias vodafone='sudo ifmetric wlp6s0 10; sudo ifmetric br-b24bb6ddc4c0 10; sudo ifmetric enp8s0 100 & isp; sudo ifmetric enp9s0 100'
 alias isp='curl ipinfo.io | grep org'
 
 # GIT
@@ -23,17 +20,6 @@ alias gsl="git stash list"
 
 # NPM 
 alias npmg='npm list -g --depth 0'
-
-# FAMILYTHINGS
-alias ft='code ~/SideProjects/familythings/frontend && code ~/SideProjects/familythings/backend'
-
-# WORK
-alias idm='cd ~/Work/idm'
-alias dms='cd ~/Work/dms'
-alias pv='cd ~/Work/package-viewer'
-alias dt='cd ~/Work/deployer'
-alias she='cd ~/Work/shearer'
-alias fs='cd ~/Work/flashshare'
 
 # DOCKER
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.Status}}"'
@@ -52,12 +38,7 @@ alias sp='speedtest --secure'
 alias k='kubectl'
 alias mk='minikube'
 alias dockerenv='mk docker-env'
-alias mkdd='eval $(mk -p minikube docker-env)'
-
-# VPN
-alias vpup='sudo nmcli connection up Livesport'
-alias vpdown='sudo nmcli connection down Livesport'
 
 #UTILS
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
-alias iplocation='curl https://ipinfo.io'
+alias myiplocation='curl https://ipinfo.io'

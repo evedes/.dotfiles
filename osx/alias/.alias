@@ -1,11 +1,12 @@
-source $HOME/.dotfiles/osx/alias/.bash_functions
-
 # SYSTEM
 alias cl='clear'
 alias reload="exec ${SHELL} -l"
 alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
-alias r='ssh rubik'
 alias x='exit'
+
+# PBCOPY / PBPASTE
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
 
 # NETWORK PRIORITY
 alias isp='curl ipinfo.io | grep org'
@@ -23,7 +24,6 @@ alias npmg='npm list -g --depth 0'
 
 # UTILS
 alias dotfiles='code ~/.dotfiles'
-alias dl='youtube-dl'
 
 # MAC M1
 alias arm64='arch -arm64 zsh'
@@ -49,23 +49,16 @@ alias costop='colima stop'
 # SPEEDTEST
 alias sp='speedtest --secure'
 
-## WORK
-
 #MACHINES
 alias rubik='ssh rubik'
 alias prometheus='ssh prometheus'
 alias retropie='ssh pi@retropie'
 alias alien='ssh alien'
 
-#VMS
-alias kmaster='ssh kmaster'
-alias kworker1='ssh kworker1'
-alias kworker2='ssh kworker2'
-alias kworker3='ssh kworker3'
-alias pihole='ssh pihole'
-alias gitlab='ssh gitlab'
-
-
-#SYSTEM
+#IP STUFF
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
-alias iplocation='curl https://ipinfo.io'
+alias myiplocation='curl https://ipinfo.io'
+
+# LIST
+alias ls='ls --color=auto'
+alias ll='ls -alF'

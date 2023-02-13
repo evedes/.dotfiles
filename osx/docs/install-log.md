@@ -1,190 +1,207 @@
-# MACBOOK PRO - BACH
+# MACBOOK PRO - DUNE
 
-## 1. OSX General Setup
+### 1. OSX General Setup
 
-- Add 192.168.1.200 rubik to /etc/hosts
-- System Prefs -> General -> Default browser: Chrome (after Chrome installation)
-- System Prefs -> General -> Sidebar Icon Size: Small
-- Display Arrangement and Wallpapers
-- Side Bar -> Remove Stocks
-- Set Timezone to Lisbon
-- Disable Siri -> System Prefs -> Siri -> Uncheck Enable Ask Siri, Uncheck Show Siri in menu bar
-- Keyboard -> Key Repeat to Max, Delay Until Repeat to Max
-- Keyboard -> Enable Use F1, F2, etc keys
-- Mouse -> Tracking Speed to 7/10 -> Double-Click Speed to 8 / 10 -> Uncheck Scroll direction: Natural
-- Trackpad -> Check Tap to click
-- Download Folder -> Display As Folder -> View Content As List
-- Applications Folder to Dock
-- Applications Folder -> Display as Folder -> View Content as Automatic
-- Configure Time Machine to use Standard Backup Disk
-- Dock Preferences -> Small -> Autohide Enabled
-- System Prefs -> Printers -> Add -> Officejet 7200 (Turn printer on first)
-- Battery Icon -> Show percentage
-- Finder Preferences -> Show these items on the desktop -> Connected Servers
-- Finder Preferences -> New Finder windows show: ~
-- Finder Preferences -> Uncheck Open folders in tabs instead of new windows
-- System Prefs -> Keyboard -> Shortcuts -> Spotlight -> Turn Do Not Disturb On/Off -> CTRL+CMD+P
-- System Prefs -> Keyboard -> Shortcuts -> Disable Spotlight shortcuts
-- System Prefs -> Sharing -> Computer Name -> RUBIK
-- System Prefs -> Users & Groups -> Login Options -> Enable Show fast user switching menu as -> Account Name
+- Configure Mouse and Trackpad to scroll in the right direction
+  - Trackpad to click with one tap click
+  
+- Change Keyboard to User F1, F12 keys (it helps in VSCode)
+- Remove all icons from Dock (throw them in the Bin)
+- Keep the Finder, the Applications folder, and the Downloads Folder
+  
+  - Application Folder configured as Folder / Grid
+  - Downloads's Folder configured as Folder / List
+
+- Configure Displays (in my case I have +2 so I arrange the order and define the scale)
+
+- Sidebar
+  - Make Weather a Large widget
+  - Make Calendar a Large widget
+  - Make usage a Large widget
+  - Remove stocks (I don't care about stocks there)
+  - Configure the clocks widget (Luanda, New York, San Francisco, Helsinki) 
+
+- Configure Finder
+  - Pick the following things:
+    - Uncheck the open folders as tabs instead of windows
+    - Show only network drives / connected servers
+    - New finder window shows edo (home folder)
+
+-  Configure the network interfaces
+   -  The ethernet one with static IP
+   -  The wireless with DHCP
+   -  Add local DNS authoratative service IP in case it exists
+  
+- Configure /etc/hosts folder with all the machines you need in the local network
+- Change Computer Name in Settings -> Sharing
+
+- Configure Time Machine to use Standard Backup Disk (in my case the TrueNAS backup drive)
+
+- Install Homebrew
+  
+  ```
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  ```
+
+- Turn on Printers
+  - In my case they're configured to be wireless and have their static IPs.
+  - So I just add them smoothly, they're recognized in seconds
+
+- Set a nice wallpaper
+
+- Install your personal .ssh folder in case you have one
+- Folder permissions should be right:
+    - 700 .ssh folder
+    - 600 private key
+    - 644 remaining files
+
+- Make sure git is installed
+   - Clone the .dotfiles repo
+
+- Install font files
+   - Hack Nerd Font
+  - Fira Code Nerd Font
+  - JetBrains Mono Nerd Font
+
+### 02. Keyboard + Shortcuts
+
+- Install Karabiner Elements
+  - Add a complex action that transforms Caps Lock into an Hyper key: Command+Control+Option+Shift
+  - Before doing it go to Keyboard Shortcuts -> Keyboard Modifiers and assign No Action to Caps Lock
+- Install VIA + Keychron Q4 json file
+- Install Better Touch Tool
+  - Configure two actions
+    - Move app to Left Space: Hyper + J
+    - Move app to Right Space: Hyper + ;
+- Install Moom
+  - Configure all the window tiling you like (to update here later)
+  - Configure Hyper+k to move window to left monitor
+  - Configure Hyper+l to move window to right monitor
+- Install Alfred 5 (disable spotlight shortcut and assign CMD+Space to Alfred)
+  - Enable shortcut CMD + Space
+  - Default Results -> Enable Folders
+  - Appearence -> Options -> Show result subtext -> Never
+  - Appearence -> Options -> Hide hat on Alfred Window
+  - Appearence -> Options -> Hide result shortcuts
+  - Appearence -> Options -> Hide menu bar icon
+  - Features -> Default Results -> Search Scope -> Remove everything except /Applications
+- Install Google Drive (For Desktop)
+  - I hope to deprecate this soon as my HomeLab grows
+
 
 ## 02. Software
 
-1. Visual Studio Code
-
+- Install Chrome
+  - Sign-in to 1 Password and Sign-in to sync
+- Install Firefox
+  - Sign-in to 1 Password and Sign-in to sync
+- Install Brave
+  - Sign-in to 1 Password and Sign-in to sync
+- Install 1Password App for OSX
+- Install Spotify
+- Install Discord
+- Install Slack
+- Install Franz
+- Install Visual Studio Code
+- Install Notion
+- Install Stats (brew install stats)
    - Shell Command -> Install Code in the PATH
    - Turn Sync On
+- Install Cleanshot
+- Install Screenflow
+- Install Postman
+- Install MySQL Workbench
+- Install PgAdmin
+- Install MongoDB Compass
 
-2. Karabiner-Elements
 
-   - Configure Complex Modifications (Caps Lock -> Hyper Key)
-
-3. iTerm 2
-
+- Install iTerm 2 
    - Preferences - General -> Closing -> Uncheck Confirm closing multiple sessions
    - Preferences - General -> Closing -> Uncheck Confirm "Quit iTerm2"
-   - Preferences -> Keys -> Hotkey to ALT + <
-   - Preferences -> Appearance -> Tab bar location: Top / Dark
-   - Preferences -> Appearance -> -> Window -> Hide scrollbars
-   - Preferences -> Appearance -> Uncheck Show per-pane title bar with split panes
+   - Preferences -> Appearance -> Theme Minimal
+   - Preferences -> Appearance -> Window -> Hide scrollbars
+   - Preferences -> Appearance -> Window -> Uncheck Show border around windows
+   - Preferences -> Appearance -> Tabs -> Uncheck Show Tab Numbers
+   - Preferences -> Appearance -> Tabs -> Uncheck Tabs have close buttons
+   - Preferences -> Appearance -> Panes -> Uncheck Show per-pane title bar with split panes
    - Preferences -> Appearance -> Dimming -> Uncheck Dim inactive split panes
 
-4. Chrome
 
-   - Sign-in
-   - Turn on sync
-   - 1Pass
-
-5. Discord
-6. Slack
-7. Franz
-8. Telegram
-9. Kelir
-10. Spotify
-11. Backup & Sync (Google)
-12. Dropbox
-13. Moom
-14. iStat Menus
-
-15. Alfred 4
-
-- Enable shortcut CMD + Space
-- Default Results -> Disable Contacts
-- Default Results -> Enable Folders
-- Appearence -> Alfred macOS Dark
-- Appearence -> Options -> Show result subtext -> Never
-- Appearence -> Options -> Hide hat on Alfred Window
-- Appearence -> Options -> Hide result shortcuts
-- Appearence -> Options -> Hide menu bar icon
-- Features -> Default Results -> Search Scope -> Remove everything except /Applications
-
-16. Cleanshot
-17. Postman
-18. Docker
-19. HP Smart
-20. Plex
-21. VLC
-22. Screenflow
-
-## 03. Fonts
-
-Install font files:
-
-- Hack Nerd Font
-- Sauce Code Pro Nerd Font
-- JetBrains Mono Nerd Font
 
 ### 03. DEV STUFF
 
-1. Colored Vim:
+- Configure Git:
 
-   Create .vimrc file in ~: `touch ~/.vimrc`
-   Edit .vimrc and add `syntax on`
-
-2. Configure Git:
-
+```
    git config --global user.name "Your Name Here"
    git config --global user.email "<your-email-address>"
    git config --global core.editor "code --wait"
-   git config pull.rebase true
+```
 
-If needed: `git config --global url."git@github.com:".insteadOf "https://github.com/"`
+Also can be done on a repo basis removing the `--global` param
 
-3. Configure .ssh folder
+- Colored Vim
+   - Create .vimrc file in ~: `touch ~/.vimrc`
+   - Edit .vimrc and add `syntax on`
 
-   get folder from google drive
+- Install SpeedTest
+  - `brew install speedtest-cli`
 
-   permissions:
+- Install Docker for Desktop 😅
+- Install Minikube
+  - `curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-arm64`
+  - `sudo install minikube-darwin-arm64 /usr/local/bin/minikube`
 
-   - 700 .ssh folder
-   - 600 private key
-   - 644 remaining files
+- Install Kubectl
+  - `curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/darwin/arm64/kubectl"`
+  - `chmod +x ./kubectl`
+  - `sudo mv ./kubectl /usr/local/bin/kubectl`
+  - `sudo chown root: /usr/local/bin/kubectl`
 
-4. Install Homebrew
 
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+- Install Glances
+  - `brew install glances`
 
-5. Glances: `brew install glances`
-6. youtube-dl: ` brew install youtube-dl`
-7. hub: `brew install hub`
-8. telnet: `brew install telnet`
+- Install NVM [Link to GitHub Repo](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-9. Install NVM
+   `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash`
+   
+   - Close and open terminal
 
-   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
+   - `nvm install --lts`
+   - `nvm install v16`
+   - `nvm alias default 18`
+   - `nvm use default`
 
-   Node 14 requires to be installed with x86_64
+- Configure ZSH + Starship
+  - `brew install zsh` in case your system doesn't have it. Test it with `zsh --version`
+  - `curl -sS https://starship.rs/install.sh | sh`
 
-10. Configure ZSH
+  - 
 
-- Install oh-my-zsh doing:
+- Configure ZSH + Oh-My-Zsh + Powerlevel 10k (🔥 I'm leaving this conf soon for zsh + starship)
 
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  - Install oh-my-zsh doing:
 
-- Install powerlevel 10k:
+    - `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 
-  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+  - Install powerlevel 10k:
 
-  Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in ~/.zshrc.
+    - `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
 
-- Install plugins:
+    - Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in ~/.zshrc.
 
-  - zsh-autosuggestions
+  - Install plugins:
 
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    - zsh-autosuggestions
+      - Note: _Add both plugins to .zshrc._
 
-  - zsh-syntax-highlighting
+      - `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
 
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    - zsh-syntax-highlighting
 
-  Note: _Add both plugins to .zshrc._
+      - `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
 
-11. Install Gogh
+-  Install Yarn
 
-Link to [Mayccoll/Gogh GitHub Repo](https://github.com/Mayccoll/Gogh)
-
-Run:
-bash -c "$(curl -sLo- https://git.io/vQgMr)"
-
-12. Install Yarn
-
-`sudo npm install --global yarn`
-
-13. Install Java
-
-Download dmg with Azul OpenJDK 11 for Mac M1
-
-14. Install Leiningen (using Brew)
-
-brew install leiningen
-
-15. Install Clojure
-
-brew install clojure/tools/clojure
-
-16. Install Docker and Docker Compose
-
-17. Install Kubectl and Minikube
-
-brew install kubectl
-brew install minikube
+   - `sudo npm install --global yarn`
