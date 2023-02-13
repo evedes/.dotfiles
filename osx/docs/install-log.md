@@ -115,6 +115,8 @@
 - Install MongoDB Compass
 
 
+- Install Warp (🌈 if you wanna play with something new)
+  
 - Install iTerm 2 
    - Preferences - General -> Closing -> Uncheck Confirm closing multiple sessions
    - Preferences - General -> Closing -> Uncheck Confirm "Quit iTerm2"
@@ -126,17 +128,15 @@
    - Preferences -> Appearance -> Panes -> Uncheck Show per-pane title bar with split panes
    - Preferences -> Appearance -> Dimming -> Uncheck Dim inactive split panes
 
-
-
 ### 03. DEV STUFF
 
 - Configure Git:
 
-```
+   ```
    git config --global user.name "Your Name Here"
    git config --global user.email "<your-email-address>"
    git config --global core.editor "code --wait"
-```
+   ```
 
 Also can be done on a repo basis removing the `--global` param
 
@@ -145,18 +145,25 @@ Also can be done on a repo basis removing the `--global` param
    - Edit .vimrc and add `syntax on`
 
 - Install SpeedTest
-  - `brew install speedtest-cli`
+  ```
+  brew install speedtest-cli
+  ```
 
 - Install Docker for Desktop 😅
 - Install Minikube
-  - `curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-arm64`
-  - `sudo install minikube-darwin-arm64 /usr/local/bin/minikube`
+   ```
+   curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-arm64
+   sudo install minikube-darwin-arm64 /usr/local/bin/minikube
+   ```
 
 - Install Kubectl
-  - `curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/darwin/arm64/kubectl"`
-  - `chmod +x ./kubectl`
-  - `sudo mv ./kubectl /usr/local/bin/kubectl`
-  - `sudo chown root: /usr/local/bin/kubectl`
+  
+  ```
+  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/darwin/arm64/kubectl"
+  chmod +x ./kubectl
+  sudo mv ./kubectl /usr/local/bin/kubectl
+  sudo chown root: /usr/local/bin/kubectl
+  ```
 
 
 - Install Glances
@@ -167,17 +174,16 @@ Also can be done on a repo basis removing the `--global` param
    `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash`
    
    - Close and open terminal
-
-   - `nvm install --lts`
-   - `nvm install v16`
-   - `nvm alias default 18`
-   - `nvm use default`
+   ```
+   nvm install --lts
+   nvm install v16
+   nvm alias default 18
+   nvm use default
+   ```
 
 - Configure ZSH + Starship
   - `brew install zsh` in case your system doesn't have it. Test it with `zsh --version`
   - `curl -sS https://starship.rs/install.sh | sh`
-
-  - 
 
 - Configure ZSH + Oh-My-Zsh + Powerlevel 10k (🔥 I'm leaving this conf soon for zsh + starship)
 
