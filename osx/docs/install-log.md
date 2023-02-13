@@ -92,6 +92,8 @@
 
 ## 02. Software
 
+- Configure Mail to use your Google Account
+
 - Install Chrome
   - Sign-in to 1 Password and Sign-in to sync
 - Install Firefox
