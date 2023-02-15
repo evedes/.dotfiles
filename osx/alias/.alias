@@ -54,6 +54,7 @@ alias rubik='ssh rubik'
 alias prometheus='ssh prometheus'
 alias retropie='ssh pi@retropie'
 alias alien='ssh alien'
+alias rancher='ssh rancher'
 
 #IP STUFF
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
