@@ -187,6 +187,9 @@ Also can be done on a repo basis removing the `--global` param
 - Configure ZSH + Starship
   - `brew install zsh` in case your system doesn't have it. Test it with `zsh --version`
   - `curl -sS https://starship.rs/install.sh | sh`
+  - `git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions`
+  - `git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting`
+
 
 - Configure ZSH + Oh-My-Zsh + Powerlevel 10k (🔥 I'm leaving this conf soon for zsh + starship)
 
