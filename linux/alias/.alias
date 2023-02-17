@@ -54,7 +54,11 @@ alias kworker1='ssh kworker1'
 alias kworker2='ssh kworker2'
 alias kworker3='ssh kworker3'
 
-
-#UTILS
+#UTILS IP STUFF
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias myiplocation='curl https://ipinfo.io'
+
+# LIST
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias l='ll'
