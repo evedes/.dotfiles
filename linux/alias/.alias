@@ -8,18 +8,27 @@ alias x='exit'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
-
 # NETWORK PRIORITY
-
 alias isp='curl ipinfo.io | grep org'
 
-# GIT
+# NODE_MODULES
+alias lsnodemodules='sudo find . -name 'node_modules' -type d -prune'
+alias rmnodemodules='find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +'
 
+# GIT
 alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gsl="git stash list"
 
 # NPM 
 alias npmg='npm list -g --depth 0'
+
+# UTILS
+alias dotfiles='code ~/.dotfiles'
+
+# K8S
+alias k='kubectl'
+alias mk='minikube'
+alias dockerenv='mk docker-env'
 
 # DOCKER
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.Status}}"'
@@ -34,10 +43,17 @@ alias dpav='docker ps -a --format="$VFORMAT"'
 # SPEED TEST
 alias sp='speedtest --secure'
 
-# K8S
-alias k='kubectl'
-alias mk='minikube'
-alias dockerenv='mk docker-env'
+#MACHINES
+alias rubik='ssh rubik'
+alias prometheus='ssh prometheus'
+alias retropie='ssh pi@retropie'
+alias alien='ssh alien'
+alias rancher='ssh rancher'
+alias kmaster='ssh kmaster'
+alias kworker1='ssh kworker1'
+alias kworker2='ssh kworker2'
+alias kworker3='ssh kworker3'
+
 
 #UTILS
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'

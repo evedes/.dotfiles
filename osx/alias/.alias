@@ -25,13 +25,10 @@ alias npmg='npm list -g --depth 0'
 # UTILS
 alias dotfiles='code ~/.dotfiles'
 
-# MAC M1
-alias arm64='arch -arm64 zsh'
-alias x86='arch -x86_64 zsh'
-
 # K8s
 alias k='kubectl'
 alias mk='minikube'
+alias dockerenv='mk docker-env'
 
 # DOCKER
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.Status}}"'
@@ -43,9 +40,6 @@ export VFORMAT="ID\t{{.ID}}\nNAME\t{{.Names}}\nIMAGE\t{{.Image}}\nPORTS\t{{.Port
 alias dpsv='docker ps --format="$VFORMAT"'
 alias dpav='docker ps -a --format="$VFORMAT"'
 
-alias costart='colima start --cpu 5 --memory 8'
-alias costop='colima stop'
-
 # SPEEDTEST
 alias sp='speedtest --secure'
 
@@ -55,11 +49,20 @@ alias prometheus='ssh prometheus'
 alias retropie='ssh pi@retropie'
 alias alien='ssh alien'
 alias rancher='ssh rancher'
+alias kmaster='ssh kmaster'
+alias kworker1='ssh kworker1'
+alias kworker2='ssh kworker2'
+alias kworker3='ssh kworker3'
 
-#IP STUFF
+#UTILS IP STUFF
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias myiplocation='curl https://ipinfo.io'
 
 # LIST
 alias ls='ls --color=auto'
 alias ll='ls -alF'
+alias l='ll'
+
+# MAC M1
+alias arm64='arch -arm64 zsh'
+alias x86='arch -x86_64 zsh'
