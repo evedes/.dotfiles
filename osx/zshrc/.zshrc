@@ -20,4 +20,6 @@ plugins=(
 
 #STARSHIP
 eval "$(starship init zsh)"
+
+#OPENJDK
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"

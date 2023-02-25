@@ -60,7 +60,7 @@ alias myiplocation='curl https://ipinfo.io'
 
 # LIST
 alias ls='ls --color=auto'
-alias ll='ls -alF'
+alias ll='ls -l'
 alias l='ll'
 
 # MAC M1
