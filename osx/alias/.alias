@@ -1,5 +1,6 @@
 # SYSTEM
 alias cl='clear'
+alias clrhist='history -p'
 alias reload="exec ${SHELL} -l"
 alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
 alias x='exit'
