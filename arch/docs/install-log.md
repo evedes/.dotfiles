@@ -1,2 +1,6 @@
 ## ARCH LINUX
-Install Log
+
+Boot arch from a pendrive
+
+Type `archinstall`, follow the steps and install arch linux.
+Don't forget to configure the network manually.
