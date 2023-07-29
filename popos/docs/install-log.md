@@ -62,9 +62,15 @@
 - Open Network config and setup static network 
   - Realtek -> ETHERNET1 using 192.168.2.200 to rubik
   - Intel -> ETHERNET2 using 192.168.2.201 to rubik
+- Install GParted from the PopShop
+- Install VLC
+  ```
+  sudo apt install vlc
+  sudo apt install vlc-plugin-access-extra libbluray-bdj
+  ```
 
 
-### GNOME TERMINAL
+#### GNOME TERMINAL
 - Go to Preferences and create a profile called 'Edo'
 - Install Gogh by doing: `bash -c  "$(wget -qO- https://git.io/vQgMr)"`, I use to pick 223"Tokyo Night Storm"
 - Go to terminal preferences and see if the profile was created. If not just create another random profile, and repeat the process until a profile is created with the theme you picked. Set this one as the default and pick the right fonts and preferences.
@@ -75,13 +81,16 @@
     gsettings set org.gnome.desktop.peripherals.keyboard delay 250
   ```
 
-
-### KEYBOARD
+#### KEYBOARD
 - Disable Super+P by doing: 
   ```
   gsettings set org.gnome.mutter.keybindings switch-monitor "[]"
   ```
-- Install gnome tweaks and set CapsLock as an additional Hyper. To do that issue `sudo apt install gnome-tweaks`
+- Install gnome tweaks and set CapsLock as an additional Hyper. 
+- To do that issue 
+  ```
+  sudo apt install gnome-tweaks
+  ```
   - Go to Tweaks -> Top Bar -> Show Weekday
   - Go to Tweaks -> Windows titlebars -> Window Maximize/Minimize OFF
 - To to Settings -> Desktop -> Make Super Key show all Workspaces
@@ -121,19 +130,21 @@
 
 ### SHELL
 
-## STARSHIP + ZSH + AUTOSUGGESTIONS + SYNTAX HIGHLIGHTING
+#### STARSHIP + ZSH + AUTOSUGGESTIONS + SYNTAX HIGHLIGHTING
 
 - Configure ZSH + Starship
-  - `brew install zsh` in case your system doesn't have it. Test it with `zsh --version`
-  - `chsh -s /bin/zsh`
-  - `curl -sS https://starship.rs/install.sh | sh`
-  - `git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions`
-  - `git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting`
+  ```
+  brew install zsh` in case your system doesn't have it. Test it with `zsh --version
+  chsh -s /bin/zsh
+  curl -sS https://starship.rs/install.sh | sh
+  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
+  ```
 
 Create a symlink to ~/.dotfiles/popos/zshrc/.zshrc
 You'll possibly need to close/open the terminal or even to restart PopOS
 
-## GNOME EXTENSIONS
+#### GNOME EXTENSIONS
 
 
 - Configure GTILE
@@ -172,7 +183,7 @@ You'll possibly need to close/open the terminal or even to restart PopOS
 
 ### CODING TOOLS
 
-## NODE
+#### NODE
 
 Install fnm: 
 
@@ -191,7 +202,7 @@ echo 'fs.inotify.max_user_watches=524288' | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
 ```
 
-## DOCKER
+#### DOCKER
 
 ```
 sudo apt update && sudo apt upgrade
@@ -204,7 +215,7 @@ newgrp docker
 reboot so that everything works
 ```
 
-## DOCKER COMPOSE
+#### DOCKER COMPOSE
 
 ```
 mkdir -p ~/.docker/cli-plugins/
@@ -216,7 +227,7 @@ chmod +x ~/.docker/cli-plugins/docker-compose
 docker compose version
 ```
 
-## KUBECTL
+#### KUBECTL
 
 ```
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -224,7 +235,7 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 ```
 
-## MINIKUBE
+#### MINIKUBE
 
 ```
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
@@ -234,7 +245,7 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube
 
 Type `mk status` and `mk start` and all should be working.
 
- ## SKAFFOLD
+ #### SKAFFOLD
 
 ```
 curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
@@ -242,25 +253,21 @@ curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffo
 sudo install skaffold /usr/local/bin/
 ```
 
-## CLOJURE
+#### CLOJURE
 
 ```
 sudo apt install clojure leiningen
 ```
 
-## OPENSSH
+#### OPENSSH
 ```
 sudo apt install openssh-server
 sudo systemctl enable --now ssh
 ```
 
-## APPS
+### VIRTUALIZATION KVM/QEMU
 
-- Install GParted from the PopShop
-
-- Install VLC
-  `sudo apt install vlc`
-  `sudo apt install vlc-plugin-access-extra libbluray-bdj`
+TODO
 
 ### FAQ / SUGGESTIONS
 
