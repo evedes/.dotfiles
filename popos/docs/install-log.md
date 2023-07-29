@@ -265,9 +265,61 @@ sudo apt install openssh-server
 sudo systemctl enable --now ssh
 ```
 
-### VIRTUALIZATION KVM/QEMU
+### VIRTUALIZATION 
 
-TODO
+#### KVM/QEMU
+
+Based on this [YouTube Video](https://www.youtube.com/watch?v=vyLNpPY-Je0)
+
+See if your processor has virtualization capability:
+
+```
+lscpu | grep Virtualization
+```
+
+If yes, an Intel processor will show VT-x and an AMD processor will show AMD-V.
+
+Let's install qemu-kvm
+
+```
+sudo apt install qemu-kvm
+```
+
+Let's install libvirt
+
+```
+sudo apt install libvirt-daemon-system libvirt-clients
+```
+
+Add user to the kvm group
+
+```
+sudo adduser $USER kvm
+```
+
+Restart the system so that changes can take effect.
+
+Run `groups` and check the user belongs to kvm and libvirt groups.
+
+Install virt-manager
+
+```
+sudo apt install virt-manager
+```
+
+#### CREATE A SOFTWARE BRIDGE
+
+Base on this [YouTube Video](https://www.youtube.com/watch?v=DYpaX4BnNlg)
+
+Use `sudo nmtui`
+
+Add a bridge, configure the ethernet card as slave.
+Remove the ethernet card from the ethernet device lists.
+
+Run `nmcli` and check the bridge exists with the correct IP, and the network card doesn't have an ip and says that the master is the bridge.
+
+
+
 
 ### FAQ / SUGGESTIONS
 

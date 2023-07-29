@@ -3,6 +3,7 @@ alias cl='clear'
 alias reload='source ~/.zshrc'
 alias theme='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 alias x='exit'
+alias sapt='sudo apt update & sudo apt upgrade'
 
 # PBCOPY / PBPASTE
 alias pbcopy='xclip -selection clipboard'
