@@ -63,6 +63,7 @@
   - Realtek -> ETHERNET1 using 192.168.2.200 to rubik
   - Intel -> ETHERNET2 using 192.168.2.201 to rubik
 
+
 ### GNOME TERMINAL
 - Go to Preferences and create a profile called 'Edo'
 - Install Gogh by doing: `bash -c  "$(wget -qO- https://git.io/vQgMr)"`, I use to pick 223"Tokyo Night Storm"
@@ -112,6 +113,7 @@
   - Tweak shortcut to ['<Super>space']
   - Go to Settings > Desktop and assign Super action to Workspaces
   - Go to Settings > Workspaces > Set Workspaces on Primary Display Only
+  - Go to Settings > Dock > Intelligently hide > ON
 - Install Gnome Shell Extensions + Gnome Shell
   `sudo apt install gnome-shell-extensions`
   `sudo apt install chrome-gnome-shell`
