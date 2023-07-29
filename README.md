@@ -1,4 +1,4 @@
-#EDO'S DOTFILES 🌈
+# EDO'S DOTFILES 🌈
 
 The purpose of this repo is to gather in one place all my config files, install notes and concerns about my machines config.
 
@@ -12,11 +12,11 @@ The eternal work in progress 🔥
 
 # 02. PopOS
 
-[INSTALL LOG](/linux/docs/install-log.md): where I've registered every tweak I've made while installing *PopOS*
+[INSTALL LOG](/popos/docs/install-log.md): where I've registered every tweak I've made while installing *PopOS*
 
-[COMMAND LINE ALIAS](/linux/alias/.alias): helpers I want to have at my fingertips
+[COMMAND LINE ALIAS](/popos/alias/.alias): helpers I want to have at my fingertips
 
-[VSCODE SHORTCUTS](/linux/docs/vscode-notes.md): where I keep my most used shortcuts registry
+[VSCODE SHORTCUTS](/popos/docs/vscode-notes.md): where I keep my most used shortcuts registry
 
 # 03. Arch Linux (I love to procrastinate 🦄)
 
