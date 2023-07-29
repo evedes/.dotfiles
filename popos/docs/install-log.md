@@ -134,7 +134,7 @@
 
 - Configure ZSH + Starship
   ```
-  brew install zsh` in case your system doesn't have it. Test it with `zsh --version
+  sudo apt-get install zsh` in case your system doesn't have it. Test it with `zsh --version
   chsh -s /bin/zsh
   curl -sS https://starship.rs/install.sh | sh
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
@@ -194,7 +194,7 @@ fnm install v18
 ```
 
 
-Install yarn `nvm install -g yarn`.
+Install yarn `npm install -g yarn`.
 
 Increase number of file watchers:
 ```
@@ -318,7 +318,15 @@ Remove the ethernet card from the ethernet device lists.
 
 Run `nmcli` and check the bridge exists with the correct IP, and the network card doesn't have an ip and says that the master is the bridge.
 
+#### TRUENAS
 
+To proper shutdown VMs on host reboot:
+
+```
+vim /etc/default/libvirt-guests
+```
+
+Uncomment the line which says ON_SHUTDOWN=shutdown
 
 
 ### FAQ / SUGGESTIONS
