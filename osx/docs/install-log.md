@@ -224,3 +224,22 @@ Also can be done on a repo basis removing the `--global` param
 brew tap homebrew/cask
 brew install virt-manager
 ```
+
+- Configure TMUX
+
+  - `brew install tmux`
+
+  - Create a .tmux.conf file and add:
+
+  ```
+  set -g default-terminal "screen-256color"
+  set -g prefix C-a
+  unbind C-b
+  bind-key C-a send-prefix
+  ```
+
+  - Install tpm plugin
+
+  ```
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  ```
