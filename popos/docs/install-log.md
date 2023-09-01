@@ -85,6 +85,7 @@
 - Disable Super+P by doing: 
   ```
   gsettings set org.gnome.mutter.keybindings switch-monitor "[]"
+  gsettings set desktop.ibus.panel.emoji.hotkey "[]"
   ```
 - Install gnome tweaks and set CapsLock as an additional Hyper. 
 - To do that issue 
