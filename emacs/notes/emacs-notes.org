@@ -1,4 +1,4 @@
-#+TITLE: EMACS NOTES
+ #+TITLE: EMACS NOTES
 #+AUTHOR: Eduardo Vedes
 #+DATE: 2022-05-04
 #+OPTIONS: toc:2 num:nil
@@ -200,7 +200,6 @@ Please, check the top of the current file.
 Lines that start with an asterisk * are HEADINGS.
 
 A single * denotes a 1st-level heading, ** denotes a 2nd-level heading, etc.
-
 
 A single * denotes a 1st-level heading, a ** denotes a 2nd-level heading, etc.
 
