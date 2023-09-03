@@ -19,6 +19,7 @@ alias rmnodemodules='find . -name 'node_modules' -type d -prune -exec rm -rf '{}
 # GIT
 alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gsl="git stash list"
+alias gs="git status"
 
 # NPM 
 alias npmg='npm list -g --depth 0'
@@ -35,6 +36,7 @@ alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.St
 alias dpa='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.Status}}"'
 alias dcd='docker compose down --remove-orphans'
 alias di='docker images'
+alias ddf='docker system df'
 
 export VFORMAT="ID\t{{.ID}}\nNAME\t{{.Names}}\nIMAGE\t{{.Image}}\nPORTS\t{{.Ports}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.CreatedAt}}\nSTATUS\t{{.Status}}\n"
 alias dpsv='docker ps --format="$VFORMAT"'
