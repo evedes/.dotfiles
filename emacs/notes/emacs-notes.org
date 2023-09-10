@@ -58,6 +58,7 @@ n** SHORTCUTS
 | M-d                | Kill forward till the end of the next word      |
 | M-DEL              | Kill back to the beginning of the previous word |
 | M-BACKSPACE        | Kill back to the beginning of the previous word |
+| C-x b RET          | Returns to previous buffer                      |
 | C-x 0              | Delete window                                   |
 | C-x 1              | Delete other windows                            |
 | C-x 2              | Split window below                              |
@@ -119,7 +120,7 @@ More about Major Modes [[https://www.gnu.org/software/emacs/manual/html_node/ema
 
 ** BACKUP FILES
 
-Emacs doesn't create backup files on version controlled folders.
+
 Emacs backup files usually end with a tilde *~*.
 
 In my literate config, backups are set to be stored on *~/.emacs.d/backups/*.
@@ -271,7 +272,7 @@ Org mode uses #+BEGIN ... #+END blocks for many purposes. Some of the basic bloc
 
 If all you need is monospace text, you can use an example block.
 
-#+begin_example
+
 monospace
 #+end_example
 
@@ -350,6 +351,8 @@ You can hit *Shift+Alt+Enter* to add more checkboxes
   (defun my-elisp-func ()
     (message "Hello, world!"))
 #+end_src
+
+How to quickly add the block: type *<s* and press TAB
 
 *** How to set an org file initial visibility
 

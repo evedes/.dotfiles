@@ -34,6 +34,7 @@ alias mk='minikube'
 # DOCKER
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.Status}}"'
 alias dpa='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.Status}}"'
+alias dcu='docker compose up'
 alias dcd='docker compose down --remove-orphans'
 alias di='docker images'
 alias ddf='docker system df'

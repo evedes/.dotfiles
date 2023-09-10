@@ -1,4 +1,4 @@
-#+TITLE: Emacs Configuration
+>#+TITLE: Emacs Configuration
 #+AUTHOR: Eduardo Vedes
 #+DATE: 2022-05-06
 #+PROPERTY: header-args:emacs-lisp :tangle ~/.emacs.d/init.el :mkdirp yes
@@ -106,16 +106,6 @@ Set garbage-collector threshold high, during loading:
   (use-package clojure-mode-extra-font-locking)
   (use-package cider)
   (use-package tagedit)
-
-#+end_src
-
-** KILL ALL BUFFER
-
-#+begin_src emacs-lisp :results silent
-
-  (defun kill-all-buffers ()
-  (interactive)
-    (mapc 'kill-buffer (buffer-list)))
 
 #+end_src
 
@@ -1250,6 +1240,19 @@ Bring garbage collector down:
 
 #+end_src
 
+
+* MY OWN CODE
+
+#+begin_src  emacs-lisp :results silent
+
+  (defun kill-all-buffers ()
+    "Kill all buffers"
+    (interactive)
+    (mapc 'kill-buffer (buffer-list)))
+
+#+end_src
+
+
 * AUTO TANGLE
 
 Automatically tangle emacs-config.org file we saved.
@@ -1260,6 +1263,7 @@ Automatically tangle emacs-config.org file we saved.
     (when (string-equal (buffer-file-name)
                         (expand-file-name "~/.dotfiles/emacs/config/emacs-config.org"))
       ;; Dynamic scoping to the rescue
+
       (let ((org-confirm-babel-evaluate nil))
         (org-babel-tangle))))
 
