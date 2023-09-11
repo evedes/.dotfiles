@@ -57,6 +57,7 @@ alias myiplocation='curl https://ipinfo.io'
 alias ls='ls --color=auto'
 alias ll='ls -l'
 alias l='ll'
+alias lsahl='ls -ahl'
 
 # UTILS
 alias flame="flameshot gui"
