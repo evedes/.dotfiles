@@ -41,7 +41,7 @@ Do *M-x window-swap-states*
 
 Hit 'M-x emacs-uptime'
 
-n** SHORTCUTS
+*** SHORTCUTS
 
 | Command            | Description                                     |
 | -                  | -                                               |
