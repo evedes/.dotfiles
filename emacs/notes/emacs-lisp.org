@@ -1,4 +1,4 @@
-1#+TITLE: EMACS LISP
+#+TITLE: EMACS LISP
 #+AUTHOR: Eduardo Vedes
 #+DATE: 2023-09-03
 #+OPTIONS toc:2 num:nil

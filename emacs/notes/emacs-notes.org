@@ -88,7 +88,6 @@ Hit 'M-x emacs-uptime'
 Emacs is for unicorns, which means "Unique Organizers". That's the why of the unicorn symbol
 
 ** EMACS MANUAL NOTES
-
 *** MAJOR MODES
 
 Every buffer processes a major mode.
@@ -186,7 +185,7 @@ Even if you don't want to use it, the settings it applies are very useful to lea
 
 *M-x org-version*
 
-*** Mimetype
+*** Mime-type
 
 The de facto mimetype for Org files is text/org. Org files use the *.org* extension
 
