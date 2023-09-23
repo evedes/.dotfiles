@@ -147,7 +147,7 @@ Set garbage-collector threshold high, during loading:
     :init
     ;; NOTE: Set this to the folder where you keep your Git repos!
     (when (file-directory-p "~/")
-      (setq projectile-project-search-path '("~/.dotfiles" "~/Dropbox/Multiverse" "~/Work" "~/SideProjects" "~/Study" "~/OpenSource")))
+      (setq projectile-project-search-path '("~/.dotfiles" "~/Dropbox/Multiverse" "~/Work" "~/Learning" "~/SideProjects")))
     (setq projectile-switch-project-action #'projectile-dired))
 
 #+end_src
@@ -267,8 +267,8 @@ NOTE: Darwin is OSX
         (defvar default-font-size 140)
         (defvar default-variable-font-size 140))
     (progn
-      (defvar default-font-size 135)
-      (defvar default-variable-font-size 135)))
+      (defvar default-font-size 120)
+      (defvar default-variable-font-size 120)))
 
 #+end_src
 
@@ -338,7 +338,7 @@ NOTE: Darwin is OSX
 
 #+begin_src emacs-lisp :results silent
 
-  (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+;(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 #+end_src
 
@@ -350,8 +350,9 @@ NOTE: Darwin is OSX
 
 #+end_src
 
-** THEMES
-
+** THEME
+S
+y
    SUGGESTED THEMES: doom-one, doom-dracula, doom-moonlight, doom-spacegrey, doom-outrun-electric, doom-palenight, doom-shades-of-purple, doom-tokyo-night
    doom-monokai-ristretto, doom-monokai-pro, doom-monokai-octagon, doom-monokai-spectrum
    doom-sourcerer, doom-nord, doom-spacegrey
@@ -359,7 +360,7 @@ NOTE: Darwin is OSX
 #+begin_src emacs-lisp :results silent
 
   (use-package doom-themes
-    :init (load-theme 'doom-tokyo-night t))
+    :init (load-theme 'doom-moonlight t))
 
   (use-package all-the-icons
     :straight t)
@@ -567,43 +568,42 @@ NOTE: Darwin is OSX
 
 #+begin_src emacs-lisp :results silent
 
-  (use-package org
-    :hook (org-mode . org-mode-setup)
-    :config
-    (setq org-ellipsis " ▾")
-    (setq org-src-tab-acts-natively t) ;; preserve code blocks identation
-    (setq org-agenda-start-with-log-mode t)
-    (setq org-agenda-span 15)
-    (setq org-agenda-start-on-weekday nil)
-    (setq org-agenda-start-day "-3d")
-    (setq org-log-done 'time)
-    (setq org-log-into-drawer t)
-    (setq org-agenda-window-setup 'current-window) ;; avoids agenda to destroy window splits
+    (use-package org
+      :hook (org-mode . org-mode-setup)
+      :config
+      (setq org-ellipsis " ▾")
+      (setq org-src-tab-acts-natively t) ;; preserve code blocks identation
+      (setq org-agenda-start-with-log-mode t)
+      (setq org-agenda-span 30)
+      (setq org-agenda-start-on-weekday nil)
+      (setq org-agenda-start-day "-3d")
+      (setq org-log-done 'time)
+      (setq org-log-into-drawer t)
+      (setq org-agenda-window-setup 'current-window) ;; avoids agenda to destroy window splits
 
-    (setq org-agenda-files '("tasks.org" "birthdays.org" "archive.org" "habits.org"))
+      (setq org-agenda-files '("tasks.org" "birthdays.org" "archive.org" "habits.org"))
 
-    (require 'org-habit)
-    (add-to-list 'org-modules 'org-habit)
-    (setq org-habit-graph-column 60)
+      (require 'org-habit)
+      (add-to-list 'org-modules 'org-habit)
+      (setq org-habit-graph-column 60)
 
-    (setq org-todo-keywords
-          '((sequence "TODO(t)" "|" "DONE(d!)")
-            (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
+      (setq org-todo-keywords
+            '((sequence "TODO(t)" "|" "DONE(d!)")
+              (sequence "BACKLOG(b)" "PLAN(p)" "READY(r)" "ACTIVE(a)" "REVIEW(v)" "WAIT(w@/!)" "HOLD(h)" "|" "COMPLETED(c)" "CANC(k@)")))
 
-    (setq org-tag-alist
-          '((:startgroup)  ; Put mutually exclusive tags here
-            (:endgroup)
-            ("home" . ?h)
-            ("work" . ?w)
-            ("company" . ?c)
-            ("personal" . ?p)
-            ("longterm" . ?l)
-            ("study" . ?s)
-            ("agenda" . ?a)
-            ("note" . ?n)
-            ("idea" . ?i)))
+      (setq org-tag-alist
+            '((:startgroup)  ; Put mutually exclusive tags here
+              (:endgroup)
+              ("health" . ?h)
+              ("work" . ?w)
+              ("company" . ?c)
+              ("personal" . ?p)
+              ("study" . ?s)
+              ("agenda" . ?a)
+              ("note" . ?n)
+              ("idea" . ?i)))
 
-    (org-font-setup))
+      (org-font-setup))
 
 #+end_src
 

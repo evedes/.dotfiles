@@ -1,4 +1,4 @@
- #+TITLE: EMACS NOTES
+#+TITLE: EMACS NOTES
 #+AUTHOR: Eduardo Vedes
 #+DATE: 2022-05-04
 #+OPTIONS: toc:2 num:nil
@@ -446,7 +446,7 @@ Org-roam provides some functions to add or remove aliases
 
 **** Tags
 
-Tags for top-level (file) nodes are pulled from the variable *org-file-tags*, which is set by the #+filetags keyword, as well as other tags the file may have inherited.
+Tags for top-level (file) nodes are pulled from the variable *org-file-tags*, which is set by the #+filetags keyword, as well as other tagx3s the file may have inherited.
 
 Tags are inherited by headers within the file.
 This makes it impossible for selective tag inheritance: i.e. either tag inheritance is turned off, or all headline nodes will inherit the tags from the file node. This is a design compromise of Org-roam.
