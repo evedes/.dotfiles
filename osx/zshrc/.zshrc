@@ -8,6 +8,10 @@ fi
 # OH-MY-ZSH PATH
 export ZSH="$HOME/.oh-my-zsh"
 
+# KUBECTL AUTOCOMPLETION
+# source <(kubectl completion zsh)
+
+
 # ZSH THEME
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -19,14 +23,12 @@ plugins=(
 	zsh-syntax-highlighting
 	git
 	docker
-	web-search
+        kubectl
 )
-
-# KUBECTL AUTOCOMPLETION
-source <(kubectl completion zsh)
 
 # RUN OH-MY-ZSH
 source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
