@@ -1,0 +1,25 @@
+#    -*- mode: org -*-
+
+
+Archived entries from file /Users/edo/.dotfiles/emacs/config/emacs-config.org
+
+
+* MY OWN CODE
+:PROPERTIES:
+:ARCHIVE_TIME: 2023-09-24 Sun 02:33
+:ARCHIVE_FILE: ~/.dotfiles/emacs/config/emacs-config.org
+:ARCHIVE_CATEGORY: emacs-config
+:END:
+
+#+begin_src  emacs-lisp :results silent
+
+(global-set-key (kbd "C-c b") #'kill-all-buffers-)
+
+  (defun kill-all-buffers ()
+    "Kill all buffers"
+    (interactive)
+    (mapc 'kill-buffer (buffer-list)))
+
+#+end_src
+
+

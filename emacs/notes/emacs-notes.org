@@ -521,6 +521,8 @@ To enable org-roam-protocol, simply add the following to your init file:
 
 Org-roam provides basic graphing capabilities to explore interconnections between notes, in *org-roam-graph* This is done by performing SQL queries and generating images using Graphviz.
 
+To see the org-roam graph type *M-x org-roam-ui-mode*
+
 **** org-roam-dailies
 
 Org-roam provides journaling capabilities akin to org-journal with *org-roam-dailies*

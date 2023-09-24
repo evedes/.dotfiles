@@ -28,6 +28,7 @@
 
 * GENERAL
 
+
 Set garbage-collector threshold high, during loading:
 
 #+begin_src emacs-lisp :results silent
@@ -351,8 +352,7 @@ NOTE: Darwin is OSX
 #+end_src
 
 ** THEME
-S
-y
+
    SUGGESTED THEMES: doom-one, doom-dracula, doom-moonlight, doom-spacegrey, doom-outrun-electric, doom-palenight, doom-shades-of-purple, doom-tokyo-night
    doom-monokai-ristretto, doom-monokai-pro, doom-monokai-octagon, doom-monokai-spectrum
    doom-sourcerer, doom-nord, doom-spacegrey
@@ -360,7 +360,7 @@ y
 #+begin_src emacs-lisp :results silent
 
   (use-package doom-themes
-    :init (load-theme 'doom-moonlight t))
+    :init (load-theme 'doom-tokyo-night t))
 
   (use-package all-the-icons
     :straight t)
@@ -852,6 +852,8 @@ Personally, I use it in Dropbox. It's fast and I get sync out-of-the-box with my
 
 #+begin_src emacs-lisp :results silent
 
+(keymap-global-set "C-c n g" #'org-roam-ui-open)
+
 (use-package org-roam-ui
   :straight
     (:host github :repo "org-roam/org-roam-ui" :branch "main" :files ("*.el" "out"))
@@ -1245,6 +1247,9 @@ Bring garbage collector down:
 
 #+begin_src  emacs-lisp :results silent
 
+
+(keymap-global-set "C-c k b" #'kill-all-buffers)
+
   (defun kill-all-buffers ()
     "Kill all buffers"
     (interactive)
@@ -1270,9 +1275,3 @@ Automatically tangle emacs-config.org file we saved.
   (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'org-babel-tangle-config)))
 
 #+end_src
-
-
-
-
-
-
