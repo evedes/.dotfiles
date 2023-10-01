@@ -1,4 +1,4 @@
->#+TITLE: Emacs Configuration
+#+TITLE: Emacs Configuration
 #+AUTHOR: Eduardo Vedes
 #+DATE: 2022-05-06
 #+PROPERTY: header-args:emacs-lisp :tangle ~/.emacs.d/init.el :mkdirp yes
@@ -329,10 +329,19 @@ NOTE: Darwin is OSX
 
 #+begin_src emacs-lisp :results silent
 
-  (set-face-attribute 'default nil :font "JetBrainsMonoMedium Nerd Font" :height default-font-size)
-  (set-face-attribute 'fixed-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height default-font-size)
-  (set-face-attribute 'variable-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height default-variable-font-size :weight 'regular)
+    (defun set-font-faces ()
+      (message "Setting Font Faces!")
+      (set-face-attribute 'default nil :font "JetBrainsMonoMedium Nerd Font" :height default-font-size)
+      (set-face-attribute 'fixed-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height default-font-size)
+      (set-face-attribute 'variable-pitch nil :font "JetBrainsMonoMedium Nerd Font" :height default-variable-font-size :weight 'regular))
 
+      (if (daemonp)
+          (add-hook 'after-make-frame-functions
+                    (lambda (frame)
+                      (setq doom-modeline-icon t)
+                      (with-selected-frame frame
+                        (set-font-faces))))
+        (set-font-faces))
 #+end_src
 
 ** ESC QUIT PROMPTS
@@ -1241,6 +1250,8 @@ Bring garbage collector down:
         (message "Not a file visiting buffer!"))))
 
 #+end_src
+* DAEMON
+
 
 
 * MY OWN CODE
@@ -1256,7 +1267,6 @@ Bring garbage collector down:
     (mapc 'kill-buffer (buffer-list)))
 
 #+end_src
-
 
 * AUTO TANGLE
 
@@ -1275,3 +1285,6 @@ Automatically tangle emacs-config.org file we saved.
   (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'org-babel-tangle-config)))
 
 #+end_src
+
+
+

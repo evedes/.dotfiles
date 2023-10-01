@@ -5,7 +5,7 @@
 #+STARTUP: content
 
 Where I take notes about my Emacs learning.
-This file can be seen [[https://github.com/evedes/.dotfiles/blob/master/emacs/notes/emacs-notes.org][here]], on my GitHub .dotfiles repo.
+This file can be seen [[https://github.com/evedes/.dotfiles/blob/master/emacs/notes/emacs-notes.org][here]], on my GitHub .dotfiles repository.
 
 * EMACS
 
@@ -944,6 +944,12 @@ How to migrate to straight.el:
 [[https://www.youtube.com/watch?v=uyMdDzjQFMU&list=PLEoMzSkcN8oOP5WgckTbERn10CXxIFneB][Check David Wilson Video Here!]]
 [[https://github.com/nex3/perspective-el][Check GitHub Docs Here!]]
 
+** EMACS DAEMON
+
+The most simple way to launch the daemon is to run *emacs --daemon* or *emacs --fg-daemon* in case you want to see the logs of running it.
+
+You can also set it as a system daemon. Check Emacs Wiki.
+
 ** WATCHED VIDEOS
 *** Emacs from Scratch #1 - Getting Started with a Basic Configuration
 *** Emacs from Scratch #2 - Helpful UI Tweaks
@@ -954,41 +960,44 @@ How to migrate to straight.el:
 ***** NOTE(SOLVED): I want org files to open expanded
 *** Emacs from Scratch #6 - Organize Your Life with Org Mode
 **** PROBLEMS:
-***** NOTE: Not able to display birtdhays with +1y on the agenda
+***** NOTE(SOLVED): Not able to display birtdhays with +1y on the agenda
 ***** NOTE: Adding Habits is not working properly.
 *** Emacs from Scratch #7 - Configure Everything with Org Babel
 **** PROBLEMS:
 ***** NOTE: Add ability to evaluate javascript blocks.
 *** Emacs from Scratch #8 - Build your Own IDE with lsp-mode
-**** TODO TO WATCH
+**** TODO WATCH
 *** Emacs from Scratch #9 - Learn to Love the Terminal Modes
 
 This is not a good video.
 David Wilson fails configuring VTERM
 
 *** Emacs from Scratch #10 - Effortless File Management with Dired
-**** TODO TO WATCH
+**** TODO WATCH
 *** Keeping your Emacs Packages Up to Date
 **** TODO TO WATCH
 *** How to Cut Emacs Start Up Time in Half!
-**** TODO TO WATCH
+**** TODO WATCH
 *** EFFICIENT MOVEMENT
-**** TODO TO WATCH
+**** TODO WATCH
 *** EFFICIENT SELECTION
-**** TODO TO WATCH
+**** TODO WATCH
 *** TEACH EMACS TO KEEP YOUR FOLDERS CLEAN
 
 Very useful [[https://www.youtube.com/watch?v=XZjyJG-sFZI][video]]!
 
 *** Declutter Your Buffer Lists in Emacs with Perspective.el
-**** TODO TO WATCH
+**** TODO WATCH
 *** Advanced Emacs Package Management: straight.el 
 Here's the [[https://www.youtube.com/watch?v=UmbVeqphGlc&t=8s][video]].
 
 *** 5 Org Roam Hacks for Better Productivity in Emacs
-**** TODO TO WATCH
+**** TODO WATCH
 Here's the [[https://www.youtube.com/watch?v=CUkuyW6hr18][link]] of this video.
 Here's the link to the system crafters [[https://systemcrafters.net/build-a-second-brain-in-emacs/5-org-roam-hacks/][article]].
+*** Unlock the Power of the Daemon with emacsclient
+**** TODO WATCH
+Here's the [[https://www.youtube.com/watch?v=ZjCRxAMPdNc][link]] of this video.
 
 ** REASONS TO LEARN EMACS IN 2022
  - If you want to go *really* far, install EXWM on Linux!
