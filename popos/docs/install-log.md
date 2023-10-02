@@ -1,4 +1,3 @@
-
 # INSTALL POPOS
 
 ## INSTALLATION
@@ -342,6 +341,10 @@ Add a bridge, configure the ethernet card as slave.
 Remove the ethernet card from the ethernet device lists.
 
 Run `nmcli` and check the bridge exists with the correct IP, and the network card doesn't have an ip and says that the master is the bridge.
+
+#### CONFIGURE XRDP
+
+[How to Config XRDP](https://c-nergy.be/blog/?p=16637)
 
 #### TRUENAS
 

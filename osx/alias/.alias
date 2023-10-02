@@ -5,6 +5,9 @@ alias reload="exec ${SHELL} -l"
 alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
 alias x='exit'
 
+# EMACS
+alias ec='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c -n'
+
 # PBCOPY / PBPASTE
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'

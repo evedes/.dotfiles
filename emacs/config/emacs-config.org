@@ -786,23 +786,24 @@ NOTE: Darwin is OSX
 
 #+begin_src emacs-lisp :results silent
 
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((emacs-lisp . t)
-     (clojure . t)
-     (shell . t)))
+    (org-babel-do-load-languages
+     'org-babel-load-languages
+     '((emacs-lisp . t)
+       (clojure . t)
+       (shell . t)))
 
   (setq org-confirm-babel-evaluate nil)
+  (setq org-babel-clojure-backend 'cider)  
   (require 'cider)
-  (setq org-babel-clojure-backend 'cider)
+    
 
-  ;; This is needed as of Org 9.2
-  (require 'org-tempo)
+    ;; This is needed as of Org 9.2
+    (require 'org-tempo)
 
-  (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
-  (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
-  (add-to-list 'org-structure-template-alist '("cl" . "src clojure"))
-  
+    (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+    (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+    (add-to-list 'org-structure-template-alist '("cl" . "src clojure"))
+    
 #+end_src
 
 * ORG ROAM
