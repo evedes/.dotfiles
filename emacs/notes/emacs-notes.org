@@ -79,7 +79,7 @@ Hit 'M-x emacs-uptime'
 | C-x r l            | List bookmarks                                  |
 | C-x r b            | Jump to a bookmark                              |
 | M-g M-g            | Go to line                                      |
-| C-c n a            | Add org-roam alias to an org file               |
+| C-c n i            | Add org-roam alias to an org file               |
 | C-c C-x C-a        | Archive a task                                  |
 | C-c C-x p          | Set org property (style habit)                  |
 
@@ -949,6 +949,9 @@ How to migrate to straight.el:
 The most simple way to launch the daemon is to run *emacs --daemon* or *emacs --fg-daemon* in case you want to see the logs of running it.
 
 You can also set it as a system daemon. Check Emacs Wiki.
+
+Emacs daemon is running on the user account.
+To restart it just do **systemctl restart --user emacs**
 
 ** WATCHED VIDEOS
 *** Emacs from Scratch #1 - Getting Started with a Basic Configuration

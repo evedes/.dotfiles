@@ -364,7 +364,7 @@ NOTE: Darwin is OSX
 
    SUGGESTED THEMES: doom-one, doom-dracula, doom-moonlight, doom-spacegrey, doom-outrun-electric, doom-palenight, doom-shades-of-purple, doom-tokyo-night
    doom-monokai-ristretto, doom-monokai-pro, doom-monokai-octagon, doom-monokai-spectrum
-   doom-sourcerer, doom-nord, doom-spacegrey
+   doom-sourcerer, doom-nord, doom-spacegrey, doom-feather-dark
 
 #+begin_src emacs-lisp :results silent
 
@@ -590,7 +590,7 @@ NOTE: Darwin is OSX
       (setq org-log-into-drawer t)
       (setq org-agenda-window-setup 'current-window) ;; avoids agenda to destroy window splits
 
-      (setq org-agenda-files '("tasks.org" "birthdays.org" "archive.org" "habits.org" "bookmarks.org"))
+      (setq org-agenda-files '("flexiana.org" "tasks.org" "birthdays.org" "archive.org" "habits.org" "bookmarks.org"))
 
       (require 'org-habit)
       (add-to-list 'org-modules 'org-habit)
