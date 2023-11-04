@@ -1254,7 +1254,6 @@ Bring garbage collector down:
 * DAEMON
 
 
-
 * MY OWN CODE
 
 #+begin_src  emacs-lisp :results silent
