@@ -4,6 +4,13 @@ alias clrhist='history -p'
 alias reload="exec ${SHELL} -l"
 alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
 alias x='exit'
+alias b='bat'
+
+# P10K
+alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done'
+
+#NVIM
+alias n='nvim'
 
 # EMACS
 alias ec='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c -n'
@@ -59,9 +66,9 @@ alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias myiplocation='curl https://ipinfo.io'
 
 # LIST
-alias ls='ls --color=auto'
+# alias ls='ls --color=auto'
+alias ls='exa'
 alias ll='ls -l'
-alias l='ll'
 
 # MAC M1
 alias arm64='arch -arm64 zsh'
