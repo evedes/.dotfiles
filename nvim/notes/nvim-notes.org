@@ -1,0 +1,74 @@
+NVIM NOTES
+
+MOVING THE CURSOR
+h left
+j down
+k up
+l right
+
+EXITING VIM
+:q! Trash all changes
+:wq Save the changes
+
+TEXT EDITING - DELETION
+x Delete the character under the cursor
+
+TEXT EDITING - INSERTION
+i Insert before the cursor
+
+TEXT EDITING - APPENDING
+A Append after the line
+
+EDITING A FILE
+:w Save the file
+:wq Save the file and exist vim
+
+DELETION COMMANDS
+
+:dw delete a word (position the cursor under the first char of the word)
+:d$ delete to the end of the line
+
+ON OPERATORS AND MOTIONS
+
+Many commands that change text are made from an operator and a motion.
+d motion
+
+d is the delete operator
+motion is what the operator will operate on
+
+w - until the start of the next word
+e - until the end of the current word
+$ - to the end of the line, INCLUDING the last character
+
+USING A COUNT FOR A MOTION
+Typing a number before a motion repeats it that many times.
+
+2w move the cursor two words forward
+3e move the cursos to the end of the third word forward
+0 move the cursor to the start of the line
+g_ move the cursor to the end of the line
+
+USING A COUNT TO DELETE MORE
+d number motion
+Position yourself in the beginning of a word (under first char)
+Type d2w to delete the first two words
+
+OPERATING ON LINES
+Due to the frequency of whole line deletion, the designers of Vi decided it would be easier 
+to simply type two d's to delete a line.
+
+dd deletes the current line
+2dd deletes 2 lines
+
+THE UNDO COMMAND
+u undo the last commands
+U to fix a whole line.
+C-R Redo
+
+THE PUT COMMAN
+put, same as paste
+
+THE REPLACE COMMAND
+
+rx replaces the character at the cursor with x.
+
