@@ -22,7 +22,7 @@ local opts = {
 		lazy = true,
 	},
 	install = {
-		colorscheme = { "nightfox" },
+		colorscheme = { "catppusccin" },
 	},
 	rtp = {
 		disabled_plugins = {
@@ -41,4 +41,3 @@ local opts = {
 }
 
 require("lazy").setup("plugins", opts)
-

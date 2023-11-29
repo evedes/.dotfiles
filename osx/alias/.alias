@@ -1,7 +1,9 @@
 # SYSTEM
 alias cl='clear'
+alias c='cl'
 alias clrhist='history -p'
-alias reload="exec ${SHELL} -l"
+alias reload='exec ${SHELL} -l'
+alias r="reload"
 alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
 alias x='exit'
 alias b='bat'
@@ -9,8 +11,11 @@ alias b='bat'
 # P10K
 alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done'
 
-#NVIM
+# NVIM
 alias n='nvim'
+
+# TMUX
+alias t='tmux'
 
 # EMACS
 alias ec='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c -n'
