@@ -1,24 +1,19 @@
 local config = function()
-	local theme = require("lualine.themes.catppuccin")
-	theme.normal.c.bg = nil
-
 	require("lualine").setup({
 		options = {
-			theme = theme,
+			theme = "auto",
 			globalstatus = true,
+			component_separators = { left = "|", right = "|" },
+			section_separators = { left = "", right = "" },
 		},
-		tabline = {
+		sections = {
 			lualine_a = { "mode" },
 			lualine_b = { "buffers" },
 			lualine_x = { "encoding", "fileformat", "filetype" },
 			lualine_y = { "progress" },
 			lualine_z = { "location" },
 		},
-		sections = {
-			lualine_a = {
-				"buffers",
-			},
-		},
+		tabline = {},
 	})
 end
 

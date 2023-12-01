@@ -13,7 +13,6 @@ local config = function()
 		},
 		ensure_installed = {
 			"markdown",
-      "clojure",
 			"json",
 			"javascript",
 			"typescript",
@@ -51,5 +50,3 @@ return {
 	lazy = false,
 	config = config,
 }
-
-

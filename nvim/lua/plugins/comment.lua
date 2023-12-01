@@ -1,7 +1,14 @@
 return {
-  'numToStr/Comment.nvim',
-  opts = {
-    -- add any options here
-  },
-  lazy = false,
+	"numToStr/Comment.nvim",
+	opts = {
+		toggler = {
+			line = "gtc",
+			block = "gtb",
+		},
+		opleader = {
+			line = "goc",
+			block = "gob",
+		},
+	},
+	lazy = false,
 }

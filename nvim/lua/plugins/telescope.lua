@@ -14,16 +14,16 @@ local config = function()
 		pickers = {
 			find_files = {
 				theme = "dropdown",
-				previewer = false,
+				previewer = true,
 				hidden = true,
 			},
 			live_grep = {
 				theme = "dropdown",
-				previewer = false,
+				previewer = true,
 			},
 			buffers = {
 				theme = "dropdown",
-				previewer = false,
+				previewer = true,
 			},
 		},
 	})
@@ -31,7 +31,7 @@ end
 
 return {
 	"nvim-telescope/telescope.nvim",
-	tag = '0.1.4',
+	tag = "0.1.3",
 	lazy = false,
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = config,
