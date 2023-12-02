@@ -43,6 +43,8 @@ alias npmg='npm list -g --depth 0'
 
 # UTILS
 alias dotfiles='code ~/.dotfiles'
+alias mb='cmatrix -C blue'
+alias m='cmatrix'
 
 # K8s
 alias k='kubectl'
