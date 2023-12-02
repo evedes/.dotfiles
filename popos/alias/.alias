@@ -1,7 +1,6 @@
 # SYSTEM 
-alias cl='clear'
-alias reload='source ~/.zshrc'
-alias theme='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
+alias c='clear'
+alias r='source ~/.zshrc'
 alias x='exit'
 alias sapt='sudo apt update & sudo apt upgrade'
 

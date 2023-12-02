@@ -1,9 +1,7 @@
 # SYSTEM
-alias cl='clear'
 alias c='cl'
-alias clrhist='history -p'
-alias reload='exec ${SHELL} -l'
-alias r="reload"
+alias chist='history -p'
+alias r='exec ${SHELL} -l'
 alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
 alias x='exit'
 alias b='bat'
@@ -42,7 +40,7 @@ alias gd="git diff"
 alias npmg='npm list -g --depth 0'
 
 # UTILS
-alias dotfiles='code ~/.dotfiles'
+alias dotfiles='n ~/.dotfiles'
 alias mb='cmatrix -C blue'
 alias m='cmatrix'
 
