@@ -23,10 +23,10 @@ local config = function()
 			"bash",
 			"lua",
 			"dockerfile",
-			"solidity",
 			"gitignore",
 			"python",
-			"vue",
+      "clojure",
+      "fennel"
 		},
 		auto_install = true,
 		highlight = {
