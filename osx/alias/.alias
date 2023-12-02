@@ -1,5 +1,5 @@
 # SYSTEM
-alias c='cl'
+alias c='clear'
 alias chist='history -p'
 alias r='exec ${SHELL} -l'
 alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
@@ -75,7 +75,7 @@ alias myiplocation='curl https://ipinfo.io'
 
 # LIST
 # alias ls='ls --color=auto'
-alias ls='exa'
+# alias ls='exa'
 alias ll='ls -l'
 
 # MAC M1

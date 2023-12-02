@@ -1,0 +1,26 @@
+#+title: Conjure Notes
+#+author: Eduardo Vedes
+
+HUD: Heads Up Display
+
+| Description                                                                               | Shortcut         |
+| -                                                                                         |                  |
+| Evaluate the whole buffer                                                                 | <localleader>eb  |
+| OPEN THE LOG BUFFER                                                                       |                  |
+| - Horizontally                                                                            | <localleader>ls  |
+| - Vertically                                                                              | <localleader>lv  |
+| - New tab                                                                                 | <localleader>lt  |
+| Close the log buffer                                                                      | <localleader>lq  |
+| Clear log (soft, leaves windows open)                                                     | <localleader>lr  |
+| Clear log (hard, closes windows, deletes the buffer)                                      | <localleader>LR  |
+| Evaluate a form (inner)                                                                   | <localleader>ee  |
+| Evaluate the outer form under cursor                                                      | <localleader>er  |
+| Evaluate a form and replace it with the result of evaluation                              | <localleader>e!  |
+| Set the f mark at current location                                                        | mf               |
+| Evaluate the mark elsewhere (useful to eval a form while editing code on a diff location) | <localleader>emf |
+| Inspect/Evaluate the content of a variable                                                | <localleader>ew  |
+| Evaluate a visual selection                                                               | <localleader>E   |
+| Evaluate a given motion                                                                   | <localleader>Eiw |
+| Evaluate a form                                                                           | <localleader>Ea( |
+
+

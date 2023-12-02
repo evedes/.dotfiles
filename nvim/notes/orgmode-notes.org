@@ -1,0 +1,13 @@
+#+title: OrgMode Notes
+#+author: Eduardo Vedes
+
+* LINKS
+
+[[https://github.com/nvim-orgmode/orgmode/wiki/Getting-Started][Wiki Getting Started]]
+
+          
+Open agenda prompt: `<Leader>oa`
+Open capture prompt: `<Leader>oc`
+In any orgmode buffer press g? for help
+
+
