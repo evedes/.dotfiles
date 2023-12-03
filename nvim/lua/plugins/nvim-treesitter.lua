@@ -26,7 +26,12 @@ local config = function()
 			"gitignore",
 			"python",
       "clojure",
-      "fennel"
+      "fennel",
+      "vim",
+      "c",
+      "cpp",
+      "rust",
+      "tsx"
 		},
 		auto_install = true,
 		highlight = {
