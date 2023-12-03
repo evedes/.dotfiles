@@ -12,7 +12,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 
 #ALIAS
-source $HOME/.dotfiles/osx/alias/.alias
+source $HOME/.dotfiles/popos/alias/.alias
 
 #PLUGINS
 plugins=(
