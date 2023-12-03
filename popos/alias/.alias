@@ -21,11 +21,15 @@ alias gsl="git stash list"
 alias gs="git status"
 alias gd="git diff"
 
+# NVIM
+alias n='nvim'
+
 # NPM 
 alias npmg='npm list -g --depth 0'
 
 # UTILS
-alias dotfiles='code ~/.dotfiles'
+alias dotfiles='n ~/.dotfiles'
+alias t='tmux'
 
 # K8S
 alias k='kubectl'
