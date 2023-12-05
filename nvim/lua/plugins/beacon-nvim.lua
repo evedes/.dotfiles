@@ -7,7 +7,7 @@ local config = function()
     show_jumps = true,
     focus_gained = false,
     shrink = true,
-    timeout = 500,
+    timeout = 300,
     ignore_buffers = {},
     ignore_filetypes = {},
   })

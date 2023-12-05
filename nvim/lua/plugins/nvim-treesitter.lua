@@ -31,7 +31,6 @@ local config = function()
 			"vim",
 			"c",
 			"cpp",
-			"rust",
 			"tsx",
 		},
 		auto_install = true,
