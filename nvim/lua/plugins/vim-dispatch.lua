@@ -1,4 +1,4 @@
 return {
-	"BlackLight/nvim-http",
+	"tpope/vim-dispatch",
 	lazy = false,
 }

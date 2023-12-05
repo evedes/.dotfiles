@@ -14,6 +14,7 @@ local config = function()
 		ensure_installed = {
 			"markdown",
 			"json",
+			"http",
 			"javascript",
 			"typescript",
 			"yaml",
@@ -25,13 +26,13 @@ local config = function()
 			"dockerfile",
 			"gitignore",
 			"python",
-      "clojure",
-      "fennel",
-      "vim",
-      "c",
-      "cpp",
-      "rust",
-      "tsx"
+			"clojure",
+			"fennel",
+			"vim",
+			"c",
+			"cpp",
+			"rust",
+			"tsx",
 		},
 		auto_install = true,
 		highlight = {

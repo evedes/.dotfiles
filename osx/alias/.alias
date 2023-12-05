@@ -1,5 +1,5 @@
 # SYSTEM
-alias c='clear'
+alias c='c'
 alias chist='history -p'
 alias r='exec ${SHELL} -l'
 alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
@@ -11,7 +11,7 @@ alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " $
 
 # NVIM
 alias n='nvim'
-# alias vim='nvim'
+alias vim='nvim'
 
 # TMUX
 alias t='tmux'
@@ -35,6 +35,8 @@ alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset 
 alias gsl="git stash list"
 alias gs="git status"
 alias gd="git diff"
+alias gfo="git fetch origin"
+alias gpom="git pull origin main"
 
 # NPM
 alias npmg='npm list -g --depth 0'
@@ -75,7 +77,7 @@ alias myiplocation='curl https://ipinfo.io'
 
 # LIST
 # alias ls='ls --color=auto'
-# alias ls='exa'
+alias ls='exa'
 alias ll='ls -l'
 
 # MAC M1

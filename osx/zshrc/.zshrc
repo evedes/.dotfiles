@@ -20,7 +20,7 @@ plugins=(
 	zsh-syntax-highlighting
 	git
 	docker
-        kubectl
+  kubectl
 )
 
 # RUN OH-MY-ZSH
