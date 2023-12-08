@@ -1,5 +1,5 @@
 # SYSTEM
-alias c='c'
+alias c='clear'
 alias chist='history -p'
 alias r='exec ${SHELL} -l'
 alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
@@ -15,6 +15,10 @@ alias vim='nvim'
 
 # TMUX
 alias t='tmux'
+alias tat='t attach -t'
+alias td='t detach'
+alias tl='t ls'
+alias tn='t new -s'
 
 # EMACS
 alias ec='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c -n'
@@ -36,6 +40,7 @@ alias gsl="git stash list"
 alias gs="git status"
 alias gd="git diff"
 alias gfo="git fetch origin"
+alias gpo="git pull origin"
 alias gpom="git pull origin main"
 
 # NPM
