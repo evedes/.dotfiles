@@ -22,7 +22,8 @@ alias gs="git status"
 alias gd="git diff"
 
 # NVIM
-alias n='nvim'
+alias n='nvim.appimage'
+alias vim='nvim.appimage'
 
 # NPM 
 alias npmg='npm list -g --depth 0'
