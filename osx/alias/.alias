@@ -19,7 +19,7 @@ alias tat='t attach -t'
 alias td='t detach'
 alias tl='t ls'
 alias tn='t new -s'
-
+alias tks='t kill-session -t'
 # EMACS
 alias ec='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c -n'
 
