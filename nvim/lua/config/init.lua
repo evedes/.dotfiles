@@ -21,6 +21,13 @@ local opts = {
 	install = {
 		colorscheme = { "kanagawa" },
 	},
+	checker = {
+		enabled = true,
+		notify = false
+	},
+	change_detection = {
+		notify = false
+	},
 	rtp= {
 		disabled_plugins = {
 			"netrw",
