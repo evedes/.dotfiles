@@ -20,6 +20,9 @@ alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset 
 alias gsl="git stash list"
 alias gs="git status"
 alias gd="git diff"
+alias gfo="git fetch origin"
+alias gpom="git pull origin main"
+alias gpo="git pull origin"
 
 # NVIM
 alias n='nvim.appimage'
