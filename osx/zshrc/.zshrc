@@ -8,6 +8,8 @@ fi
 # OH-MY-ZSH PATH
 export ZSH="$HOME/.oh-my-zsh"
 
+# FNM
+eval "$(fnm env --use-on-cd)"
 
 # ZSH THEME
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -20,7 +22,7 @@ plugins=(
 	zsh-syntax-highlighting
 	git
 	docker
-  kubectl
+	kubectl
 )
 
 # RUN OH-MY-ZSH
@@ -28,4 +30,3 @@ source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
