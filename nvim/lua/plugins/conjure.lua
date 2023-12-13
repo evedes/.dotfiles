@@ -1,3 +1,3 @@
 return {
-	"Olical/conjure"
+  "Olical/conjure"
 }

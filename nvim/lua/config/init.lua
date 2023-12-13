@@ -5,7 +5,7 @@ if not vim.loop.fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable",
+		"--branch=stable", -- latest stable release
 		lazypath,
 	})
 end
@@ -13,27 +13,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("config.globals")
 require("config.options")
-require("config.keymaps")
 
 local plugins = "plugins"
 
 local opts = {
-	install = {
-		colorscheme = { "kanagawa" },
-	},
-	checker = {
-		enabled = true,
-		notify = false
-	},
-	change_detection = {
-		notify = false
-	},
-	rtp= {
-		disabled_plugins = {
-			"netrw",
-			"netrwPlugin"
-		},
-	},
+	install = { colorscheme = { "kanagawa" } }
 }
 
 require("lazy").setup(plugins, opts)
