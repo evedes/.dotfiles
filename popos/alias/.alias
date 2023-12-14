@@ -33,6 +33,14 @@ alias npmg='npm list -g --depth 0'
 
 # UTILS
 alias dotfiles='n ~/.dotfiles'
+
+# TMUX
+alias t='tmux'
+alias tat='t attach -t'
+alias td='t detach'
+alias tl='t ls'
+alias tn='t new -s'
+alias tks='t kill-session -t'
 alias t='tmux'
 
 # K8S
