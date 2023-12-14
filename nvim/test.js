@@ -1,6 +1,5 @@
-const a = "John Doe"
+const name = "Eduardo Vedes"
 
-console.log('a: ', a)
+const firstName = name.split(" ")[0];
 
-
-john
+console.log("firstName: ", firstName)
