@@ -13,6 +13,12 @@ alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " $
 alias n='nvim'
 alias vim='nvim'
 
+# CHROME
+alias ci='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default" https://google.com'
+alias co='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1" https://calendar.google.com/calendar/u/0/r'
+alias cp='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 4" https://calendar.google.com/calendar/u/0/r'
+
+
 # TMUX
 alias t='tmux'
 alias tat='t attach -t'
@@ -42,6 +48,7 @@ alias gd="git diff"
 alias gfo="git fetch origin"
 alias gpo="git pull origin"
 alias gpom="git pull origin main"
+alias lg="lazygit"
 
 # NPM
 alias npmg='npm list -g --depth 0'
