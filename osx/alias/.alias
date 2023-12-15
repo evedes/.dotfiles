@@ -14,9 +14,9 @@ alias n='nvim'
 alias vim='nvim'
 
 # CHROME
-alias ci='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default" https://google.com'
-alias co='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1" https://calendar.google.com/calendar/u/0/r'
-alias cp='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 4" https://calendar.google.com/calendar/u/0/r'
+alias ci='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default" https://google.com &'
+alias co='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1" https://calendar.google.com/calendar/u/0/r &'
+alias cp='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 4" https://calendar.google.com/calendar/u/0/r &'
 
 
 # TMUX
