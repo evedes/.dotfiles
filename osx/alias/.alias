@@ -15,19 +15,21 @@ alias n='nvim'
 # CHROME
 
 # -----  PERSONAL
-alias cp='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default" https://google.com & disown'
-alias cpm='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default" https://mail.google.com/mail/u/0/#inbox nohup'
-alias cpc='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default"  https://calendar.google.com/calendar/u/0/r nohup'
+alias cp='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default" https://google.com &'
+alias cpm='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default" https://mail.google.com/mail/u/0/#inbox &'
+alias cpc='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default"  https://calendar.google.com/calendar/u/0/r &'
+alias cpy='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default"  https://youtube.com &'
+
 
 # ----- FLEXIANA
-alias cf='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1" https://google.com nohup'
-alias cfm='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1"  https://mail.google.com/mail/u/0/#inbox nohup'
-alias cfc='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1"  https://calendar.google.com/calendar/u/0/r nohup'
+alias cf='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1" https://google.com &'
+alias cfm='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1"  https://mail.google.com/mail/u/0/#inbox &'
+alias cfc='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1"  https://calendar.google.com/calendar/u/0/r &'
 
 # ----- IRDETO (CCC)
-alias ci='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 4" https://google.com nohup'
-alias cim='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 4" https://mail.google.com/mail/u/0/#inbox nohup'
-alias cic='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 4"  https://calendar.google.com/calendar/u/0/r nohup'
+alias ci='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 4" https://google.com &'
+alias cim='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 4" https://mail.google.com/mail/u/0/#inbox &'
+alias cic='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 4"  https://calendar.google.com/calendar/u/0/r &'
 
 alias t='tmux'
 alias ta='t attach -t'
