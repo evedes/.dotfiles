@@ -4,3 +4,12 @@
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
+
+-- behavior
+
+local opt = vim.opt
+
+opt.hidden = true
+opt.errorbells = false
+opt.iskeyword:append("-")
+opt.encoding = "UTF-8"
