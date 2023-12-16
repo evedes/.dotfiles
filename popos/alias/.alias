@@ -26,7 +26,6 @@ alias gpo="git pull origin"
 
 # NVIM
 alias n='nvim.appimage'
-alias vim='nvim.appimage'
 
 # NPM 
 alias npmg='npm list -g --depth 0'

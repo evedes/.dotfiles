@@ -11,21 +11,30 @@ alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " $
 
 # NVIM
 alias n='nvim'
-alias vim='nvim'
 
 # CHROME
-alias ci='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default" https://google.com &'
-alias co='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1" https://calendar.google.com/calendar/u/0/r &'
-alias cp='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 4" https://calendar.google.com/calendar/u/0/r &'
 
+# -----  PERSONAL
+alias cp='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default" https://google.com & disown'
+alias cpm='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default" https://mail.google.com/mail/u/0/#inbox nohup'
+alias cpc='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default"  https://calendar.google.com/calendar/u/0/r nohup'
 
-# TMUX
+# ----- FLEXIANA
+alias cf='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1" https://google.com nohup'
+alias cfm='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1"  https://mail.google.com/mail/u/0/#inbox nohup'
+alias cfc='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1"  https://calendar.google.com/calendar/u/0/r nohup'
+
+# ----- IRDETO (CCC)
+alias ci='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 4" https://google.com nohup'
+alias cim='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 4" https://mail.google.com/mail/u/0/#inbox nohup'
+alias cic='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 4"  https://calendar.google.com/calendar/u/0/r nohup'
+
 alias t='tmux'
-alias tat='t attach -t'
+alias ta='t attach -t'
 alias td='t detach'
 alias tl='t ls'
 alias tn='t new -s'
-alias tks='t kill-session -t'
+alias tk='t kill-session -t'
 # EMACS
 alias ec='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c -n'
 
