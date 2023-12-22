@@ -5,21 +5,23 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
+-- Tmux Navigator
+keymap.set("n", "<C-j>", "<Cmd>TmuxNavigateDown<CR>", opts)
+keymap.set("n", "<C-h>", "<Cmd>TmuxNavigateLeft<CR>", opts)
+keymap.set("n", "<C-k>", "<Cmd>TmuxNavigateUp<CR>", opts)
+keymap.set("n", "<C-l>", "<Cmd>TmuxNavigateRight<CR>", opts)
+keymap.set("n", "<C-\\>", "<Cmd>TmuxNavigateLastActive<CR>", opts)
+keymap.set("n", "<C-Space>", "<Cmd>TmuxNavigateNavigateNext<CR>", opts)
+
 -- Increment/decrement
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
 -- Delete a word backwards
-keymap.set("n", "dw", "vb_d")
-
--- Select all
-keymap.set("n", "<C-a>", "gg<S-v>G")
-
--- Jumplist
-keymap.set("n", "<C-m>", "<C-i>", opts)
+keymap.set("n", "dw", 'vb"_d')
 
 -- New tab
-keymap.set("n", "te", ":tabedit", opts)
+keymap.set("n", "te", ":tabedit")
 keymap.set("n", "<tab>", ":tabnext<Return>", opts)
 keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
 
@@ -36,10 +38,5 @@ keymap.set("n", "sl", "<C-w>l")
 -- Resize window
 keymap.set("n", "<C-w><left>", "<C-w><")
 keymap.set("n", "<C-w><right>", "<C-w>>")
-keymap.set("n", "C-w><up>", "<C-w>+")
+keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
-
--- Diagnostics
-keymap.set("n", "<C-j>", function()
-  vim.diagnostic.goto_next()
-end, opts)

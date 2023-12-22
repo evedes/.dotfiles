@@ -1,19 +1,5 @@
 return {
   {
-    enabled = false,
-    "folke/flash.nvim",
-    ---@type Flash.Config
-    opts = {
-      search = {
-        forward = true,
-        multi_window = false,
-        wrap = false,
-        incremental = true,
-      },
-    },
-  },
-
-  {
     "echasnovski/mini.hipatterns",
     event = "BufReadPre",
     opts = {
@@ -31,7 +17,6 @@ return {
       },
     },
   },
-
   {
     "dinhhuy258/git.nvim",
     event = "BufReadPre",
@@ -44,7 +29,6 @@ return {
       },
     },
   },
-
   {
     "telescope.nvim",
     dependencies = {
