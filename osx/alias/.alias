@@ -13,28 +13,6 @@ alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " $
 alias v="nvim"
 alias n='nvim'
 
-# CHROME
-
-# -----  PERSONAL
-#
-# nohup /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome https://example.com > /dev/null 2>&1 &
-
-alias cp='nohup /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default" https://google.com > /dev/null 2>&1 &'
-alias cpm='nohup /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default" https://mail.google.com/mail/u/0/#inbox > /dev/null 2>&1 &'
-alias cpc='nohup /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default"  https://calendar.google.com/calendar/u/0/r > /dev/null 2>&1 &'
-alias cpy='nohup /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Default"  https://youtube.com > /dev/null 2>&1 &'
-
-
-# ----- FLEXIANA
-alias cf='nohup /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1" https://google.com > /dev/null 2>&1 &'
-alias cfm='nohup /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1"  https://mail.google.com/mail/u/0/#inbox > /dev/null 2>&1 &'
-alias cfc='nohup /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 1"  https://calendar.google.com/calendar/u/0/r > /dev/null 2>&1 &'
-
-# ----- IRDETO (CCC)
-alias ci='nohup /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 4" https://google.com > /dev/null 2>&1 &'
-alias cim='nohup /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 4" https://mail.google.com/mail/u/0/#inbox > /dev/null 2>&1 &'
-alias cic='nohup /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --profile-directory="Profile 4"  https://calendar.google.com/calendar/u/0/r > /dev/null 2>&1 &'
-
 alias t='tmux'
 alias ta='t attach -t'
 alias td='t detach'
