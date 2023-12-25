@@ -19,8 +19,7 @@ alias td='t detach'
 alias tl='t ls'
 alias tn='t new -s'
 alias tk='t kill-session -t'
-# EMACS
-alias ec='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c -n'
+
 
 # PBCOPY / PBPASTE
 alias pbcopy='xclip -selection clipboard'
@@ -47,14 +46,13 @@ alias lg="lazygit"
 alias npmg='npm list -g --depth 0'
 
 # UTILS
-alias dotfiles='cd ~/.dotfiles && n .'
+alias dotfiles='n ~/.dotfiles'
 alias mb='cmatrix -C blue'
 alias m='cmatrix'
 
 # K8s
 alias k='kubectl'
 alias mk='minikube'
-alias dockerenv='mk docker-env'
 
 # DOCKER
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.Status}}"'
@@ -62,7 +60,7 @@ alias dpa='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{
 alias dcd='docker-compose down --remove-orphans'
 alias dcu='docker compose up'
 alias di='docker images'
-
+alias ddf='docker system df'
 
 export VFORMAT="ID\t{{.ID}}\nNAME\t{{.Names}}\nIMAGE\t{{.Image}}\nPORTS\t{{.Ports}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.CreatedAt}}\nSTATUS\t{{.Status}}\n"
 alias dpsv='docker ps --format="$VFORMAT"'

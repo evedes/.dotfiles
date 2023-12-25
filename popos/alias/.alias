@@ -1,8 +1,16 @@
 # SYSTEM 
 alias c='clear'
-alias r='source ~/.zshrc'
+alias chist='history -p'
+alias r='exec ${SHELL} -l'
 alias x='exit'
 alias sapt='sudo apt update & sudo apt upgrade'
+
+# P10K
+alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done'
+
+# NVIM
+alias v='nvim.appimage'
+alias n='nvim.appimage'
 
 # PBCOPY / PBPASTE
 alias pbcopy='xclip -selection clipboard'
@@ -23,24 +31,23 @@ alias gd="git diff"
 alias gfo="git fetch origin"
 alias gpom="git pull origin main"
 alias gpo="git pull origin"
-
-# NVIM
-alias n='nvim.appimage'
+alias lg="lazygit"
 
 # NPM 
 alias npmg='npm list -g --depth 0'
 
 # UTILS
 alias dotfiles='n ~/.dotfiles'
+alias mb="cmatrix -C blue"
+alias m="cmatrix"
 
 # TMUX
 alias t='tmux'
-alias tat='t attach -t'
+alias ta='t attach -t'
 alias td='t detach'
 alias tl='t ls'
 alias tn='t new -s'
-alias tks='t kill-session -t'
-alias t='tmux'
+alias tk='t kill-session -t'
 
 # K8S
 alias k='kubectl'
@@ -71,9 +78,8 @@ alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias myiplocation='curl https://ipinfo.io'
 
 # LIST
-alias ls='ls --color=auto'
-alias ll='ls -l'
-alias l='ll'
+alias l='exa -ahl'
+alias ll='exa -l'
 
 # UTILS
 alias flame="flameshot gui"
