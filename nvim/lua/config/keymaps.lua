@@ -5,13 +5,7 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
--- Tmux Navigator
-keymap.set("n", "<C-j>", "<Cmd>TmuxNavigateDown<CR>", opts)
-keymap.set("n", "<C-h>", "<Cmd>TmuxNavigateLeft<CR>", opts)
-keymap.set("n", "<C-k>", "<Cmd>TmuxNavigateUp<CR>", opts)
-keymap.set("n", "<C-l>", "<Cmd>TmuxNavigateRight<CR>", opts)
-keymap.set("n", "<C-\\>", "<Cmd>TmuxNavigateLastActive<CR>", opts)
-keymap.set("n", "<C-Space>", "<Cmd>TmuxNavigateNavigateNext<CR>", opts)
+-- keymap.set("n", "x", '"_x')
 
 -- Increment/decrement
 keymap.set("n", "+", "<C-a>")
@@ -20,10 +14,24 @@ keymap.set("n", "-", "<C-x>")
 -- Delete a word backwards
 keymap.set("n", "dw", 'vb"_d')
 
+-- Tmux Navigator
+
+keymap.set("n", "<C-h>", ":TmuxNavigateLeft<Return>", opts)
+keymap.set("n", "<C-j>", ":TmuxNavigateDown<Return>", opts)
+keymap.set("n", "<C-k>", ":TmuxNavigateUp<Return>", opts)
+keymap.set("n", "<C-l>", ":TmuxNavigateRight<Return>", opts)
+
+-- Disable continuations
+-- keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
+-- keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
+
+-- Jumplist
+-- keymap.set("n", "<C-m>", "<C-i>", opts)
+
 -- New tab
-keymap.set("n", "te", ":tabedit")
-keymap.set("n", "<tab>", ":tabnext<Return>", opts)
-keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
+-- keymap.set("n", "te", ":tabedit")
+-- keymap.set("n", "<tab>", ":tabnext<Return>", opts)
+-- keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
 
 -- Split window
 keymap.set("n", "ss", ":split<Return>", opts)
