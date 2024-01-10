@@ -1,6 +1,6 @@
 # MACBOOK PRO - DUNE
 
-### 1. OSX General Setup
+## 1. OSX General Setup
 
 - Configure Mouse and Trackpad to scroll in the right direction
 - Trackpad to click with one tap click
@@ -11,7 +11,8 @@
   - Application Folder configured as Folder / Grid
   - Downloads's Folder configured as Folder / List
 
-- Configure Displays (in my case I have +2 so I arrange the order and define the scale)
+- Configure Displays (in my case I have +2 so
+  I arrange the order and define the scale)
 
 - Sidebar
 
@@ -37,11 +38,12 @@
 - Configure /etc/hosts folder with all the machines you need in the local network
 - Change Computer Name in Settings -> Sharing
 
-- Configure Time Machine to use Standard Backup Disk (in my case the TrueNAS backup drive)
+- Configure Time Machine to use Standard Backup Disk
+  (in my case the TrueNAS backup drive)
 
 - Install Homebrew
 
-  ```
+  ```zsh
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   ```
 
@@ -72,7 +74,8 @@
 
 - Install Karabiner Elements
   - Add a complex action that transforms Caps Lock into an Hyper key: Command+Control+Option+Shift
-  - Before doing it go to Keyboard Shortcuts -> Keyboard Modifiers and assign No Action to Caps Lock
+  - Before doing it go to Keyboard Shortcuts -> Keyboard Modifiers
+    and assign No Action to Caps Lock
 - Install VIA + Keychron Q4 json file
 - Install Better Touch Tool
   - Configure two actions
@@ -130,14 +133,15 @@
   - Preferences -> Appearance -> Window -> Uncheck Show border around windows
   - Preferences -> Appearance -> Tabs -> Uncheck Show Tab Numbers
   - Preferences -> Appearance -> Tabs -> Uncheck Tabs have close buttons
-  - Preferences -> Appearance -> Panes -> Uncheck Show per-pane title bar with split panes
+  - Preferences -> Appearance -> Panes -> Uncheck Show per-pane
+    title bar with split panes
   - Preferences -> Appearance -> Dimming -> Uncheck Dim inactive split panes
 
 ### 03. DEV STUFF
 
 - Configure Git:
 
-  ```
+  ```zsh
   git config --global user.name "Your Name Here"
   git config --global user.email "<your-email-address>"
   git config --global core.editor "code --wait"
@@ -152,21 +156,21 @@ Also can be done on a repo basis removing the `--global` param
 
 - Install SpeedTest
 
-  ```
+  ```zsh
   brew install speedtest-cli
   ```
 
 - Install Docker for Desktop 😅
 - Install Minikube
 
-  ```
+  ```zsh
   curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-arm64
   sudo install minikube-darwin-arm64 /usr/local/bin/minikube
   ```
 
 - Install Kubectl
 
-  ```
+  ```zsh
   curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/darwin/arm64/kubectl"
   chmod +x ./kubectl
   sudo mv ./kubectl /usr/local/bin/kubectl
@@ -183,7 +187,7 @@ Also can be done on a repo basis removing the `--global` param
 
   - Close and open terminal
 
-  ```
+  ```zsh
   nvm install --lts
   nvm install v16
   nvm alias default 18
@@ -197,7 +201,8 @@ Also can be done on a repo basis removing the `--global` param
   - `git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions`
   - `git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting`
 
-- Configure ZSH + Oh-My-Zsh + Powerlevel 10k (🔥 I'm leaving this conf soon for zsh + starship)
+- Configure ZSH + Oh-My-Zsh + Powerlevel 10k
+  (🔥 I'm leaving this conf soon for zsh + starship)
 
   - Install oh-my-zsh doing:
 
@@ -239,8 +244,13 @@ Also can be done on a repo basis removing the `--global` param
 
 - Install Virt Manager (Virsh)
 
-```
+```zsh
 brew tap homebrew/cask
 brew install virt-manager
 ```
 
+- VSCode Vim Keybindings
+
+Note: to allow moving in VScode, i.e.: pressing j and navigating through the lines, one needs to disable the apple press and hold:
+
+`defaults write -g ApplePressAndHoldEnabled -bool false`

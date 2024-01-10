@@ -49,6 +49,7 @@ alias npmg='npm list -g --depth 0'
 alias dotfiles='n ~/.dotfiles'
 alias mb='cmatrix -C blue'
 alias m='cmatrix'
+alias y='youtube-dl'
 
 # K8s
 alias k='kubectl'

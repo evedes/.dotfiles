@@ -1,6 +1,6 @@
 return {
   {
-    enabled = true,
+    enabled = disabled,
     "folke/flash.nvim",
     ---@type Flash.Config
     opts = {
