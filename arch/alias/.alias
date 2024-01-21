@@ -1,8 +1,16 @@
 # SYSTEM 
-alias cl='clear'
-alias reload='source ~/.zshrc'
-alias theme='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
+alias c='clear'
+alias chist='history -p'
+alias r='exec ${SHELL} -l'
 alias x='exit'
+alias sapt='sudo apt update & sudo apt upgrade'
+
+# P10K
+alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done'
+
+# NVIM
+alias v='nvim'
+alias n='nvim'
 
 # PBCOPY / PBPASTE
 alias pbcopy='xclip -selection clipboard'
@@ -18,23 +26,40 @@ alias rmnodemodules='find . -name 'node_modules' -type d -prune -exec rm -rf '{}
 # GIT
 alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gsl="git stash list"
+alias gs="git status"
+alias gd="git diff"
+alias gfo="git fetch origin"
+alias gpom="git pull origin main"
+alias gpo="git pull origin"
+alias lg="lazygit"
 
 # NPM 
 alias npmg='npm list -g --depth 0'
 
 # UTILS
-alias dotfiles='code ~/.dotfiles'
+alias dotfiles='n ~/.dotfiles'
+alias mb="cmatrix -C blue"
+alias m="cmatrix"
+
+# TMUX
+alias t='tmux'
+alias ta='t attach -t'
+alias td='t detach'
+alias tl='t ls'
+alias tn='t new -s'
+alias tk='t kill-session -t'
 
 # K8S
 alias k='kubectl'
 alias mk='minikube'
-alias dockerenv='mk docker-env'
 
 # DOCKER
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.Status}}"'
 alias dpa='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.Status}}"'
+alias dcu='docker compose up'
 alias dcd='docker compose down --remove-orphans'
 alias di='docker images'
+alias ddf='docker system df'
 
 export VFORMAT="ID\t{{.ID}}\nNAME\t{{.Names}}\nIMAGE\t{{.Image}}\nPORTS\t{{.Ports}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.CreatedAt}}\nSTATUS\t{{.Status}}\n"
 alias dpsv='docker ps --format="$VFORMAT"'
@@ -46,12 +71,15 @@ alias sp='speedtest --secure'
 #MACHINES
 alias rubik='ssh rubik'
 alias prometheus='ssh prometheus'
+alias alien='ssh alien'
 
 #UTILS IP STUFF
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias myiplocation='curl https://ipinfo.io'
 
 # LIST
-alias ls='ls --color=auto'
-alias ll='ls -ahl'
-alias l='ls'
+alias l='exa -ahl'
+alias ll='exa -l'
+
+# UTILS
+alias flame="flameshot gui"
