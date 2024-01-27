@@ -12,7 +12,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 
 #ALIAS
-source $HOME/.dotfiles/popos/alias/.alias
+source $HOME/.dotfiles/arch/alias/.alias
 
 #PLUGINS
 plugins=(
@@ -34,3 +34,7 @@ eval "$(fnm env --use-on-cd)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+
+# fnm
+export PATH="/home/edo/.local/share/fnm:$PATH"
+eval "`fnm env`"
