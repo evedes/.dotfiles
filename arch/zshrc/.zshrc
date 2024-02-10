@@ -38,3 +38,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # fnm
 export PATH="/home/edo/.local/share/fnm:$PATH"
 eval "`fnm env`"
+
+# nvim
+export PATH="$PATH:/opt/nvim/"
