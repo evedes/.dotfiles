@@ -1,6 +1,7 @@
 # INSTALL POPOS
 
 ## INSTALLATION
+
 - Download latest PopOS version
 - Make a bootable PenDrive with PopOS
 - Boot from the pen drive
@@ -58,7 +59,7 @@
     fc-cache -f -v
     ```
 - Open Sharing and set hostname to `rubik`
-- Open Network config and setup static network 
+- Open Network config and setup static network
   - Realtek -> ETHERNET1 using 192.168.2.200 to rubik
   - Intel -> ETHERNET2 using 192.168.2.201 to rubik
 - Install GParted from the PopShop
@@ -68,8 +69,8 @@
   sudo apt install vlc-plugin-access-extra libbluray-bdj
   ```
 
-
 #### GNOME TERMINAL
+
 - Go to Preferences and create a profile called 'Edo'
 - Install Gogh by doing: `bash -c  "$(wget -qO- https://git.io/vQgMr)"`, I use to pick 223"Tokyo Night Storm"
 - Go to terminal preferences and see if the profile was created. If not just create another random profile, and repeat the process until a profile is created with the theme you picked. Set this one as the default and pick the right fonts and preferences.
@@ -81,13 +82,14 @@
   ```
 
 #### KEYBOARD
-- Disable Super+P by doing: 
+
+- Disable Super+P by doing:
   ```
   gsettings set org.gnome.mutter.keybindings switch-monitor "[]"
   gsettings set desktop.ibus.panel.emoji.hotkey "[]"
   ```
-- Install gnome tweaks and set CapsLock as an additional Hyper. 
-- To do that issue 
+- Install gnome tweaks and set CapsLock as an additional Hyper.
+- To do that issue
   ```
   sudo apt install gnome-tweaks
   ```
@@ -95,8 +97,8 @@
   - Go to Tweaks -> Windows titlebars -> Window Maximize/Minimize OFF
 - To to Settings -> Desktop -> Make Super Key show all Workspaces
 - Remove all set keyboard shortcuts 😅
-  
 - Leave:
+
   - Launchers
     - Launch Terminal: CapsLock + \
     - Leave Lock screen as Super+Escape
@@ -106,6 +108,7 @@
     - Leave Close Window as Super+Q and Alt+Q
 
 - Add the following:
+
   - Navigation:
     - Leave Switch applications as Super+Tab or Alt+Tab
     - Move to the workspace above: Ctrl+Alt+Up
@@ -127,7 +130,6 @@
   `sudo apt install gnome-shell-extensions`
   `sudo apt install chrome-gnome-shell`
 
-
 ### SHELL
 
 #### STARSHIP + ZSH + AUTOSUGGESTIONS + SYNTAX HIGHLIGHTING
@@ -147,7 +149,7 @@ You'll possibly need to close/open the terminal or even to restart PopOS
 ####
 
 - Configure ZSH + OhMyZsh + Powerlevel10k
-  
+
   - Install oh-my-zsh doing:
 
     - `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
@@ -156,20 +158,19 @@ You'll possibly need to close/open the terminal or even to restart PopOS
 
     - `git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
 
-
 - Install plugins:
 
   - zsh-autosuggestions
-      - Note: _Add both plugins to .zshrc._
 
-      - `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+    - Note: _Add both plugins to .zshrc._
+
+    - `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
 
     - zsh-syntax-highlighting
 
       - `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
 
 #### GNOME EXTENSIONS
-
 
 - Configure GTILE
 
@@ -178,38 +179,37 @@ You'll possibly need to close/open the terminal or even to restart PopOS
 - Grid Sizes: 8x8,4x4,3x2
 
 | key | dimensions | origin cell | destination cell |
-|-----|------------|-------------|------------------|
-| j   |        4x4 |         1:1 |              2:4 |
-| ;   |        4x4 |         3:1 |              4:4 |
-| k   |        3x2 |         1:1 |              2:2 |
-| l   |        3x2 |         2:1 |              3:2 |
-| h   |        3x2 |         1:1 |              1:2 |
-| ´   |        3x2 |         3:1 |              3:2 |
-| r   |        4x4 |         1:1 |              4:2 |
-| v   |        4x4 |         1:3 |              4:4 |
-| ]   |        4x4 |         1:1 |              4:4 |
-| [   |        3x2 |         2:1 |              2:4 |
-| q   |        3x2 |         1:1 |              1:1 |
-| w   |        3x2 |         2:1 |              2:1 |
-| e   |        3x2 |         3:1 |              3:1 |
-| z   |        3x2 |         1:2 |              1:2 |
-| x   |        3x2 |         2:2 |              2:2 |
-| c   |        3x2 |         3:2 |              3:2 |
-| u   |        4x4 |         1:1 |              2:2 |
-| p   |        4x4 |         3:1 |              4:2 |
-| m   |        4x4 |         1:3 |              2:4 |
-| /   |        4x4 |         3:3 |              4:4 |
-| i   |        3x2 |         1:1 |              2:1 |
-| o   |        3x2 |         2:1 |              3:1 |
-| ,   |        3x2 |         1:2 |              2:2 |
-| .   |        3x2 |         2:2 |              3:2 |
-
+| --- | ---------- | ----------- | ---------------- |
+| j   | 4x4        | 1:1         | 2:4              |
+| ;   | 4x4        | 3:1         | 4:4              |
+| k   | 3x2        | 1:1         | 2:2              |
+| l   | 3x2        | 2:1         | 3:2              |
+| h   | 3x2        | 1:1         | 1:2              |
+| ´   | 3x2        | 3:1         | 3:2              |
+| r   | 4x4        | 1:1         | 4:2              |
+| v   | 4x4        | 1:3         | 4:4              |
+| ]   | 4x4        | 1:1         | 4:4              |
+| [   | 3x2        | 2:1         | 2:4              |
+| q   | 3x2        | 1:1         | 1:1              |
+| w   | 3x2        | 2:1         | 2:1              |
+| e   | 3x2        | 3:1         | 3:1              |
+| z   | 3x2        | 1:2         | 1:2              |
+| x   | 3x2        | 2:2         | 2:2              |
+| c   | 3x2        | 3:2         | 3:2              |
+| u   | 4x4        | 1:1         | 2:2              |
+| p   | 4x4        | 3:1         | 4:2              |
+| m   | 4x4        | 1:3         | 2:4              |
+| /   | 4x4        | 3:3         | 4:4              |
+| i   | 3x2        | 1:1         | 2:1              |
+| o   | 3x2        | 2:1         | 3:1              |
+| ,   | 3x2        | 1:2         | 2:2              |
+| .   | 3x2        | 2:2         | 3:2              |
 
 ### CODING TOOLS
 
 #### NODE
 
-Install fnm: 
+Install fnm:
 
 ```
 curl -fsSL https://fnm.vercel.app/install | bash
@@ -217,10 +217,10 @@ fnm install v16
 fnm install v18
 ```
 
-
 Install yarn `npm install -g yarn`.
 
 Increase number of file watchers:
+
 ```
 echo 'fs.inotify.max_user_watches=524288' | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
@@ -269,7 +269,7 @@ sudo install minikube-linux-amd64 /usr/local/bin/minikube
 
 Type `mk status` and `mk start` and all should be working.
 
- #### SKAFFOLD
+#### SKAFFOLD
 
 ```
 curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/latest/skaffold-linux-amd64
@@ -284,12 +284,13 @@ sudo apt install clojure leiningen
 ```
 
 #### OPENSSH
+
 ```
 sudo apt install openssh-server
 sudo systemctl enable --now ssh
 ```
 
-### VIRTUALIZATION 
+### VIRTUALIZATION
 
 #### KVM/QEMU
 
@@ -356,10 +357,9 @@ vim /etc/default/libvirt-guests
 
 Uncomment the line which says ON_SHUTDOWN=shutdown
 
-
 ### FAQ / SUGGESTIONS
 
-In case you see an error “manpath: can’t set the locale; make sure $LC_* and $LANG are correct”, one way to solve it is:
+In case you see an error “manpath: can’t set the locale; make sure $LC\_\* and $LANG are correct”, one way to solve it is:
 
 sudo locale-gene “en_US.UTF-8”
 
@@ -370,6 +370,3 @@ LANG=en_US.UTF-8
 LC_ALL=en_US.UTF-8
 
 Do `source /etc/default/locale`
-
-
-      
