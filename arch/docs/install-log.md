@@ -195,3 +195,26 @@ Install java by running:
 Install leiningen by running:
 
 `sudo pacman -Sy leiningen`
+
+### Docker
+
+Install Docker:
+
+```zsh
+sudo pacman -Syu Docker
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
+sudo usermod -aG docker $USER
+```
+
+Install Docker Compose:
+
+```zsh
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+mkdir -p $DOCKER_CONFIG/cli-plugins
+curl -SL https://github.com/docker/compose/releases/download/v2.24.5/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+
+chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+
+docker compose version
+```
