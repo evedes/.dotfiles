@@ -1,18 +1,40 @@
 # ARCH LINUX
 
-## INSTALL
+## INSTALL ARCH
 
-Use archinstall installer.
+Boot the system.
 
-Choose hyprland as the Desktop compositor/window manager.
+Type `archinstall` and follow installer instructions.
 
-Add the packages: vim and firefox
+- Choose hyprland as the Desktop compositor/window manager.
+- Add the packages: vim and firefox
 
-## CONFIG
+## CONFIGURE THE SYSTEM
 
-Update system with
+### UPDATE SYSTEM
+
+Update the mirror lists for fastest servers available:
+
+`sudo pacman -S reflector`
+
+Create a backup of the default mirror list:
+
+`sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak`
+
+Fetch the top 10 fastest servers, and add them to the mirror list:
+
+`sudo reflector --verbose --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist`
+
+Update Arch Linux to its latest:
 
 `sudo pacman -Syu`
+
+Edit `/etc/pacman.conf`:
+
+- Uncomment `ParallelDownloads = 5`
+- Add `ILoveCandy` to transform progress bar into pacman eating the dots!
+
+### GIT + SSH
 
 Install git and configure it:
 
@@ -23,8 +45,6 @@ git config --global user.name "FIRST_NAME LAST_NAME"
 git config --global user.email "your.email@gmail.com"
 ```
 
-SSH to Prometheus and grab SSH folder + 1PASSWORD file.
-
 Configure `.ssh` folder for rubik:
 
 - chmod .ssh folder permissions to 700
@@ -34,6 +54,18 @@ Configure `.ssh` folder for rubik:
 Clone `.dotfiles` repo.
 
 Remove `~/.config/hypr` and create a symbolic link to `~/.dotfiles/arch/hypr`
+
+### Shell Tools
+
+Install lazy git: `sudo pacman -Sy lazygit`
+
+Install lf: `sudo pacman -Sy lf`
+
+Install fzf: `sudo pacman -Sy fzf`
+
+Install fd: `sudo pacman -Sy fd`
+
+Install ripgrep: `sudo pacman -Sy ripgrep`
 
 ### ZSH + OH-MY-ZSH + POWERLEVEL10K
 
@@ -59,17 +91,20 @@ Create a symbolic link for .zshrc and for .p10k.zsh
 
 Create a symbolic link for kitty in `~/.config/kitty`
 
-### FNM
+### FNM (NODE)
 
 Install fnm so that .zshrc runs without errors
 
 ```zsh
 curl -fsSL https://fnm.vercel.app/install | bash
-fnm install v16
-fnm install v18
+fnm install --lts
 ```
 
-## Grub
+You can also install yarn globally by running `npm i -g yarn`
+
+Probably you'll have a suggestion to update nvm to its latest version.
+
+### Grub
 
 Edit /etc/default/grub
 
@@ -82,7 +117,7 @@ GRUB_HIDDEN_TIMEOUT_QUIET=true
 Save the file, quit, and update grub with
 `sudo grub-mkconfig -o /boot/grub/grub.cfg`
 
-## Neovim
+### Neovim
 
 Install fuse
 
@@ -138,3 +173,25 @@ git clone https://aur.archlinux.org/yay.git
 ### Zulip
 
 `git clone https://aur.archlinux.org/zulip-desktop-electron.git`
+
+## Programming Languages
+
+### Clojure
+
+Install clojure by running:
+
+```zsh
+curl -L -O https://github.com/clojure/brew-install/releases/latest/download/linux-install.sh
+chmod +x linux-install.sh
+sudo ./linux-install.sh
+sudo pacman -Sy rlwrap
+rm -rf linux-install.sh
+```
+
+Install java by running:
+
+`sudo pacman -Sy java-openjdk`
+
+Install leiningen by running:
+
+`sudo pacman -Sy leiningen`
