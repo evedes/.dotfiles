@@ -1,10 +1,10 @@
 {
     "layer": "top", 
     "position": "top",
-    "height": 30, 
-    "spacing": 15,
-    "modules-left": [],
-    "modules-center": ["hyprland/workspaces"],
+    "height": 35, 
+    "spacing": 10,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": [],
     "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "clock", "tray"],
     "hyprland/workspaces": {
         "all-outputs": true,

@@ -1,7 +1,7 @@
 * {
   font-family: "JetBrainsMono NF", FontAwesome, Roboto, Helvetica, Arial,
     sans-serif;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 window#waybar {
@@ -31,7 +31,7 @@ button:hover {
 }
 
 #workspaces button:hover {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(1, 0, 0, 0.2);
 }
 
 #workspaces button.focused {
