@@ -3,7 +3,6 @@ alias c='clear'
 alias chist='history -p'
 alias r='exec ${SHELL} -l'
 alias x='exit'
-alias sapt='sudo apt update & sudo apt upgrade'
 alias rb='sudo reboot now'
 
 # P10K
@@ -73,6 +72,7 @@ alias sp='speedtest --secure'
 alias rubik='ssh rubik'
 alias prometheus='ssh prometheus'
 alias alien='ssh alien'
+alias truenas='ssh truenas'
 
 #UTILS IP STUFF
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
