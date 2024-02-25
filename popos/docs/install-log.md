@@ -170,40 +170,9 @@ You'll possibly need to close/open the terminal or even to restart PopOS
 
       - `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
 
-#### GNOME EXTENSIONS
+### TOPHAT
 
-- Configure GTILE
-
-- Basics: Disable Global resize presets
-
-- Grid Sizes: 8x8,4x4,3x2
-
-| key | dimensions | origin cell | destination cell |
-| --- | ---------- | ----------- | ---------------- |
-| j   | 4x4        | 1:1         | 2:4              |
-| ;   | 4x4        | 3:1         | 4:4              |
-| k   | 3x2        | 1:1         | 2:2              |
-| l   | 3x2        | 2:1         | 3:2              |
-| h   | 3x2        | 1:1         | 1:2              |
-| ´   | 3x2        | 3:1         | 3:2              |
-| r   | 4x4        | 1:1         | 4:2              |
-| v   | 4x4        | 1:3         | 4:4              |
-| ]   | 4x4        | 1:1         | 4:4              |
-| [   | 3x2        | 2:1         | 2:4              |
-| q   | 3x2        | 1:1         | 1:1              |
-| w   | 3x2        | 2:1         | 2:1              |
-| e   | 3x2        | 3:1         | 3:1              |
-| z   | 3x2        | 1:2         | 1:2              |
-| x   | 3x2        | 2:2         | 2:2              |
-| c   | 3x2        | 3:2         | 3:2              |
-| u   | 4x4        | 1:1         | 2:2              |
-| p   | 4x4        | 3:1         | 4:2              |
-| m   | 4x4        | 1:3         | 2:4              |
-| /   | 4x4        | 3:3         | 4:4              |
-| i   | 3x2        | 1:1         | 2:1              |
-| o   | 3x2        | 2:1         | 3:1              |
-| ,   | 3x2        | 1:2         | 2:2              |
-| .   | 3x2        | 2:2         | 3:2              |
+Run `sudo apt install gir1.2-gtop-2.0` after installing tophat extension
 
 ### CODING TOOLS
 

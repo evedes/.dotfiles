@@ -34,3 +34,6 @@ eval "$(fnm env --use-on-cd)"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# Neovim
+export PATH="$PATH:/opt/nvim-linux64/bin"
+
