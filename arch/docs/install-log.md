@@ -36,6 +36,14 @@ Edit `/etc/pacman.conf`:
 
 ### GIT + SSH
 
+Install nautilus:
+
+`sudo pacman -S nautilus`
+
+Enable nautilus connection to smb:
+
+`sudo pacman -S gvfs gvfs-smb`
+
 Install git and configure it:
 
 `sudo pacman -S git`
@@ -43,6 +51,7 @@ Install git and configure it:
 ```zsh
 git config --global user.name "FIRST_NAME LAST_NAME"
 git config --global user.email "your.email@gmail.com"
+git config --global core.editor vim
 ```
 
 Configure `.ssh` folder for rubik:
@@ -128,18 +137,16 @@ sudo pacman -S fuse3
 Install Neovim from AppImage ("universal" Linux package)
 
 ```zsh
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-chmod u+x nvim.appimage
-./nvim.AppImage
-
-mkdir -p /opt/nvim
-mv nvim.appimage /opt/nvim/nvim
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf nvim-linux64.tar.gz
 ```
 
-Add the following line to ~/.bashrc:
+Add the following line to ~/.zshrc:
 
 ```zsh
-export PATH="$PATH:/opt/nvim/"
+export PATH="$PATH:/opt/nvim-linux64/bin"
+
 ```
 
 ### Yay
@@ -201,7 +208,7 @@ Install leiningen by running:
 Install Docker:
 
 ```zsh
-sudo pacman -Syu Docker
+sudo pacman -Syu docker
 sudo systemctl enable docker.service
 sudo systemctl start docker.service
 sudo usermod -aG docker $USER
@@ -219,6 +226,16 @@ chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 docker compose version
 ```
 
+Install (using pacman):
+
+- waybar
+
+- hyprpaper
+
+- hyprshot
+
+- rofi
+
 ## KVM / QEMU / VIRT Manager
 
 `sudo pacman -S qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat`
@@ -228,9 +245,11 @@ docker compose version
 `sudo pacman -S libguestfs`
 
 `sudo systemctl enable libvirtd.service`
+
 `sudo systemctl start libvirtd.service`
 
 `sudo usermod -a -G libvirt $(whoami)`
+
 `sudo systemctl restart libvirtd.service`
 
 ## Emoji

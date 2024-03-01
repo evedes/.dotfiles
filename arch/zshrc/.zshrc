@@ -40,4 +40,5 @@ export PATH="/home/edo/.local/share/fnm:$PATH"
 eval "`fnm env`"
 
 # nvim
-export PATH="$PATH:/opt/nvim/"
+export PATH="$PATH:/opt/nvim-linux64/bin"
+

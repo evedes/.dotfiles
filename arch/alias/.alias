@@ -5,11 +5,9 @@ alias r='exec ${SHELL} -l'
 alias x='exit'
 alias rb='sudo reboot now'
 
-# P10K
-alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done'
-
 # NVIM
 alias v='nvim'
+alias vim='nvim'
 alias n='nvim'
 
 # PBCOPY / PBPASTE
@@ -79,8 +77,6 @@ alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias myiplocation='curl https://ipinfo.io'
 
 # LIST
-alias l='exa -ahl'
-alias ll='exa -l'
+alias ll='eza -ahl'
+alias l='eza -l'
 
-# UTILS
-alias flame="flameshot gui"
