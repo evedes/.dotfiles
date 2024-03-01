@@ -11,6 +11,7 @@ return {
         "gitignore",
         "graphql",
         "http",
+        "json",
         "scss",
         "sql",
       },
