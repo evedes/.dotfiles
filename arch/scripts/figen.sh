@@ -20,4 +20,7 @@ echo "-------------------------------------------------------" >>~/figlet.txt
 echo "" >>~/figlet.txt
 echo "-------------------------------------------------------" >>~/figlet.txt
 sed -i 's/^/# /; s/$/ /' ~/figlet.txt
+
+xclip -selection clipboard ~/figlet.txt
+
 echo "Done!"

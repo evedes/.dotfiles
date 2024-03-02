@@ -252,6 +252,9 @@ Install (using pacman):
 
 `sudo systemctl restart libvirtd.service`
 
+How to configure network bridge and slave device in NetworkManager:
+[https://wiki.archlinux.org/title/network_bridge]
+
 ## Emoji
 
 `sudo pacman -S noto-fonts-emoji`
@@ -294,3 +297,20 @@ Paste this into the file:
  </alias>
 </fontconfig>
 ```
+
+### Cava
+
+Probably you'll need to configure your sound correctly.
+Here's an article to help with:
+[https://linuxgenie.net/install-pipewire-on-arch-linux/]
+
+`yay -S cava`
+
+Run cava and test it with spotify
+
+## Open SSH
+
+`sudo pacman -S openssh`
+
+`sudo systemctl start sshd`
+`sudo systemctl enable sshd`

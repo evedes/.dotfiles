@@ -25,6 +25,9 @@ alias tk='t kill-session -t'
 alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 
+# SCRIPTS
+alias figen='~/.dotfiles/arch/scripts/figen.sh'
+
 # NETWORK PRIORITY
 alias isp='curl ipinfo.io | grep org'
 
