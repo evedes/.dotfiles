@@ -181,6 +181,10 @@ git clone https://aur.archlinux.org/yay.git
 
 `git clone https://aur.archlinux.org/zulip-desktop-electron.git`
 
+### Whatsapp
+
+yay -S whatsapp-electron-bin
+
 ## Programming Languages
 
 ### Clojure
@@ -354,3 +358,13 @@ Make sure you get the right ids from running `iommu` script.
 Reboot your system.
 
 Test the configuration with: `sudo dmesg | grep -i vfio`
+
+Okay, at this point, we're set in terms of hardware requirements.
+
+Go to VirtManager and install Windows 11.
+
+After installing make sure system is updated.
+Go to System > Remote Desktop and activate Remote Desktop
+Also disable the need for a certificate.
+
+Back to Arch, install freerdp: `sudo pacman -S freerdp`

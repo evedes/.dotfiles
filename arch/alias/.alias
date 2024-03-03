@@ -16,6 +16,7 @@ alias pbpaste='xclip -selection clipboard -o'
 # SCRIPTS
 alias figen='~/.dotfiles/arch/scripts/figen.sh'
 alias iommu='~/.dotfiles/arch/scripts/iommu.sh'
+alias eleven='~/.dotfiles/arch/scripts/eleven.sh'
 
 # NETWORK PRIORITY
 alias isp='curl ipinfo.io | grep org'
