@@ -1,7 +1,12 @@
+/* Colors */
+
+@define-color aqua  #B3E0DB;
+@define-color passion  #EF3E4E;
+
 * {
   font-family: "JetBrainsMono NF", FontAwesome, Roboto, Helvetica, Arial,
     sans-serif;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 window#waybar {
@@ -24,8 +29,16 @@ button:hover {
 
 #workspaces button {
   padding: 0 5px;
-  background-color: transparent;
   color: #ffffff;
+}
+
+#workspaces button.visible {
+  margin: 4;
+  border-radius: 20%;
+  background-color: @passion;
+  color: white;
+  font-weight: 700;
+  padding: 0 10;
 }
 
 #workspaces button:hover {
@@ -33,6 +46,7 @@ button:hover {
 }
 
 #workspaces button.focused {
+  color: #eb4d4b;
   box-shadow: inset 0 -3px #ffffff;
 }
 
@@ -45,7 +59,6 @@ button:hover {
   border-bottom: 3px solid #ffffff;
 }
 
-#cava,
 #clock,
 #cpu,
 #memory,
@@ -59,10 +72,16 @@ button:hover {
 #mode,
 #mpd {
   padding: 0 10px;
-  color: #ffffff;
+  color: @aqua;
 }
 
 #window,
 #workspaces {
   margin: 0 4px;
+}
+
+#custom-launcher {
+  margin-left: 14px;
+  font-size: 24px;
+  color: @aqua;
 }

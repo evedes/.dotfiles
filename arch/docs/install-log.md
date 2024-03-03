@@ -255,6 +255,8 @@ Install (using pacman):
 How to configure network bridge and slave device in NetworkManager:
 [https://wiki.archlinux.org/title/network_bridge]
 
+VirtManager as a Conection Setting. Make sure NAT is enabled there, otherwise bridge won't work correctly.
+
 ## Emoji
 
 `sudo pacman -S noto-fonts-emoji`
@@ -314,3 +316,41 @@ Run cava and test it with spotify
 
 `sudo systemctl start sshd`
 `sudo systemctl enable sshd`
+
+## GPU Passthrough
+
+Here's the tutorial I used as a source of inspiration:
+
+[Install GPU Passthrough on Arch Linux](https://www.youtube.com/watch?v=uOuzFd8Gd2o) from MyLinuxForWork YouTube Channel.
+
+You need the following installed:
+`sudo pacman -S virt-manager virt-viewer qemu vde2 ebtables iptables-nft nftables dnsmasq bridge-utils ovmf swtpm`
+
+Update grub bootloader:
+`sudo vim /etc/default/grub`
+
+You'll need to update GRUB_CMDLINE_LINUX_DEFAULT to look like this:
+`GRUB_CMDLINE_LINUX_DEFAULT="rd.driver.pref=vfio-pci amd_iommu=on iommu=pt video-=efifb:off lovelvel=3 quiet"`
+
+After that run `sudo grub-mkconfig` to update grub config.
+
+Run `iommu.sh` script to make sure your Graphics Card has an IOMMU group.
+
+Now do `sudo vim /etc/mkinitcpio.conf`
+
+Make sure this line is update there:
+`MODULES=(vfio_pci vfio vfio_iommu_type1)`
+
+Also make sure `modconf` is in to your HOOKS line
+
+Regenerate conf by typing: `sudo mkinitcpio -P`
+
+Now edit /etc/modprobe.d/vfio.conf and add:
+
+`options vfio-pci ids=10de:1187,10de:0e0a`,
+
+Make sure you get the right ids from running `iommu` script.
+
+Reboot your system.
+
+Test the configuration with: `sudo dmesg | grep -i vfio`

@@ -14,13 +14,15 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 #ALIAS
 source $HOME/.dotfiles/arch/alias/.alias
 
+# NVIM
+export PATH="$PATH:/opt/nvim-linux64/bin"
+
 #PLUGINS
 plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   git
   docker
-  kubectl
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -31,14 +33,3 @@ eval "$(fnm env --use-on-cd)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-
-# fnm
-export PATH="/home/edo/.local/share/fnm:$PATH"
-eval "`fnm env`"
-
-# nvim
-export PATH="$PATH:/opt/nvim-linux64/bin"
-

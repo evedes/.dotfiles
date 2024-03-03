@@ -1,15 +1,30 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 40,
-    "spacing": 20,
-    "modules-left": ["hyprland/workspaces", "tray"],
+    "height": 35,
+    "spacing": 4,
+    "modules-left": ["custom/launcher", "hyprland/workspaces", "tray", "cava"],
     "modules-center": [],
-    "modules-right": ["cava","pulseaudio", "network", "cpu", "memory", "temperature", "clock"],
+    "modules-right": ["network", "cpu", "memory", "clock"],
     "hyprland/workspaces": {
-        "all-outputs": true,
-        "on-click": "activate",
+        "all-outputs": false,
+        "persistent-workspaces": {
+            "1": ["DP-1"],
+            "2": ["DP-1"],
+            "3": ["DP-1"],
+            "4": ["DP-1"],
+            "5": ["DP-1"],
+            "6": ["DP-1"],
+            "7": ["DP-1"],
+            "8": ["DP-2"],
+            "9": ["DP-3"],
+            "10": ["HDMI-A-1"],
+          },
+        "active-only": false,
         "sort-by-number": true
+    },
+    "tray": {
+        "spacing": 16
     },
     "cava": {
         "framerate": 30,
@@ -29,34 +44,21 @@
         "input_delay": 2,
         "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
         "actions": {
-                   "on-click-right": "mode"
-                   }
-    },
-    "tray": {
-        "spacing": 10
+          "on-click-right": "mode"
+        }
     },
     "clock": {
         "timezone": "Europe/Lisbon",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "{:%F %H:%M}",
     },
     "cpu": {
-        "format": "{usage}% CPU",
-        "tooltip": false
+      "format": "{usage}% CPU",
+      "tooltip": false
     },
     "memory": {
         "format": "{}% RAM"
     },
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
-    },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) WIFI",
         "format-ethernet": "{ipaddr}/{cidr} ETH",
         "tooltip-format": "{ifname} via {gwaddr} ",
@@ -64,23 +66,11 @@
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
-    "pulseaudio": {
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon}BT {format_source}",
-        "format-bluetooth-muted": " {icon}BT/M {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% MIC",
-        "format-source-muted": "MIC/M",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["LN.OUT"]
-        },
-        "on-click": "pavucontrol"
-    },
+    "custom/launcher": {
+        "format": "",
+        "on-click": "rofi -show drun",
+        "on-click-right": "killall rofi",
+        "tooltip": false
+    }
 }
 
