@@ -7,7 +7,6 @@ alias x='exit'
 # NVIM
 alias v='nvim'
 alias vim='nvim'
-alias n='nvim'
 
 # PBCOPY / PBPASTE
 alias pbcopy='xclip -selection clipboard'
