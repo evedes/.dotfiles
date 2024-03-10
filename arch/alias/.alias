@@ -5,7 +5,7 @@ alias r='exec ${SHELL} -l'
 alias x='exit'
 
 # NVIM
-alias v='nvim'
+alias v='nvim .'
 
 # PBCOPY / PBPASTE
 alias pbcopy='xclip -selection clipboard'
@@ -38,7 +38,7 @@ alias lg="lazygit"
 alias npmg='npm list -g --depth 0'
 
 # UTILS
-alias dotfiles='n ~/.dotfiles'
+alias dotfiles='nvim ~/.dotfiles/arch'
 alias mb="cmatrix -C blue"
 alias m="cmatrix"
 
