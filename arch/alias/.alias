@@ -6,7 +6,6 @@ alias x='exit'
 
 # NVIM
 alias v='nvim'
-alias vim='nvim'
 
 # PBCOPY / PBPASTE
 alias pbcopy='xclip -selection clipboard'
@@ -16,6 +15,7 @@ alias pbpaste='xclip -selection clipboard -o'
 alias figen='~/.dotfiles/arch/scripts/figen.sh'
 alias iommu='~/.dotfiles/arch/scripts/iommu.sh'
 alias eleven='~/.dotfiles/arch/scripts/eleven.sh'
+alias looking-glass='~/.dotfiles/arch/scripts/looking-glass.sh'
 
 # NETWORK PRIORITY
 alias isp='curl ipinfo.io | grep org'

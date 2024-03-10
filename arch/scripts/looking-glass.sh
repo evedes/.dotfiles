@@ -1,0 +1,2 @@
+looking-glass-client &
+exit

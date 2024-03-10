@@ -1,12 +1,13 @@
 /* Colors */
 
-@define-color aqua  #B3E0DB;
-@define-color passion  #EF3E4E;
+@define-color purple  #242A4F;
+@define-color pink #DEA3F7;
+@define-color arch #168ECA;
 
 * {
   font-family: "JetBrainsMono NF", FontAwesome, Roboto, Helvetica, Arial,
     sans-serif;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 window#waybar {
@@ -24,19 +25,20 @@ button {
 
 button:hover {
   background: inherit;
-  box-shadow: inset 0 -3px #ffffff;
+  box-shadow: inset 0 -1px @pink;
 }
 
 #workspaces button {
-  padding: 0 5px;
+  margin: 2px;
+  padding: 0 4px;
   color: #ffffff;
 }
 
 #workspaces button.visible {
   margin: 4;
   border-radius: 20%;
-  background-color: @passion;
-  color: white;
+  background-color: @pink;
+  color: @purple;
   font-weight: 700;
   padding: 0 10;
 }
@@ -46,12 +48,12 @@ button:hover {
 }
 
 #workspaces button.focused {
-  color: #eb4d4b;
-  box-shadow: inset 0 -3px #ffffff;
+  color: @pink;
+  box-shadow: inset 0 -3px @purple;
 }
 
 #workspaces button.urgent {
-  background-color: #eb4d4b;
+  background-color: @pink;
 }
 
 #mode {
@@ -72,7 +74,7 @@ button:hover {
 #mode,
 #mpd {
   padding: 0 10px;
-  color: @aqua;
+  color: @purple;
 }
 
 #window,
@@ -83,5 +85,5 @@ button:hover {
 #custom-launcher {
   margin-left: 14px;
   font-size: 24px;
-  color: @aqua;
+  color: @arch;
 }
