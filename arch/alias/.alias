@@ -16,6 +16,7 @@ alias figen='~/.dotfiles/arch/scripts/figen.sh'
 alias iommu='~/.dotfiles/arch/scripts/iommu.sh'
 alias eleven='~/.dotfiles/arch/scripts/eleven.sh'
 alias looking-glass='~/.dotfiles/arch/scripts/looking-glass.sh'
+alias xdg-restart='~/.dotfiles/arch/scripts/xdg-restart.sh'
 
 # NETWORK PRIORITY
 alias isp='curl ipinfo.io | grep org'
