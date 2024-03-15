@@ -5,7 +5,7 @@
     "spacing": 4,
     "modules-left": ["custom/launcher", "hyprland/workspaces", "tray"],
     "modules-center": [],
-    "modules-right": ["network", "cpu", "memory", "clock"],
+    "modules-right": ["network", "cpu", "memory", "clock", "custom/power"],
     "hyprland/workspaces": {
         "all-outputs": false,
         "persistent-workspaces": {
@@ -30,6 +30,14 @@
         "timezone": "Europe/Lisbon",
         "format": "{:%F %H:%M}",
     },
+    "custom/power": {
+        "format": "{}",
+        "rotate": 0,
+        "exec": "echo ; echo  logout",
+        "on-click": "~/.dotfiles/arch/scripts/wl.sh",
+        "interval" : 86400, // once every day
+        "tooltip": true
+    },
     "cpu": {
       "format": "{usage}% CPU",
       "tooltip": false
@@ -50,6 +58,6 @@
         "on-click": "rofi -show drun",
         "on-click-right": "killall rofi",
         "tooltip": false
-    }
+    },
 }
 
