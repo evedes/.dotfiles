@@ -12,7 +12,7 @@ require("lazy").setup({
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
-      opts = { colorscheme = "catppuccin", news = { lazyvim = true, neovim = true } },
+      opts = { colorscheme = "kanagawa", news = { lazyvim = true, neovim = true } },
     },
     { import = "lazyvim.plugins.extras.linting.eslint" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
