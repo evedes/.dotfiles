@@ -1,6 +1,5 @@
 /* Colors */
 
-@define-color aqua #CCABE2;
 @define-color nordic-blue #101622;
 @define-color arch #8bacfd;
 
@@ -37,7 +36,7 @@ button:hover {
   margin: 4;
   border-radius: 20%;
   background-color: @nordic-blue;
-  color: @aqua;
+  color: white;
   font-weight: 700;
   padding: 0 10;
 }
@@ -48,7 +47,7 @@ button:hover {
 
 #workspaces button.focused {
   color: @nordic-blue;
-  box-shadow: inset 0 -3px @aqua;
+  box-shadow: inset 0 -3px white;
 }
 
 #workspaces button.urgent {
@@ -73,7 +72,7 @@ button:hover {
 #mode,
 #mpd {
   padding: 0 10px;
-  color: @aqua;
+  color: white;
 }
 
 #window,
@@ -85,4 +84,9 @@ button:hover {
   margin-left: 14px;
   font-size: 24px;
   color: @arch;
+}
+
+#custom-power {
+  color: @arch;
+  margin-right: 8;
 }

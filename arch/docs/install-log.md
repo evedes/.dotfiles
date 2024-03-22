@@ -7,7 +7,7 @@ Boot the system.
 Type `archinstall` and follow installer instructions.
 
 - Choose hyprland as the Desktop compositor/window manager.
-- Add the packages: vim and firefox
+- Add the packages: vim, firefox, unzip and google-chrome
 
 ## CONFIGURE THE SYSTEM
 
@@ -64,91 +64,6 @@ Clone `.dotfiles` repo.
 
 Remove `~/.config/hypr` and create a symbolic link to `~/.dotfiles/arch/hypr`
 
-### Shell Tools
-
-Install lazy git: `sudo pacman -Sy lazygit`
-
-Install lf: `sudo pacman -Sy lf`
-
-Install fzf: `sudo pacman -Sy fzf`
-
-Install fd: `sudo pacman -Sy fd`
-
-Install ripgrep: `sudo pacman -Sy ripgrep`
-
-### ZSH + OH-MY-ZSH + POWERLEVEL10K
-
-Install oh-my-zsh doing:
-
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
-
-Install Powerlevel 10k:
-
-`git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
-
-Install plugins:
-
-- zsh-autosuggestions
-
-  `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
-
-- zsh-syntax-highlighting
-
-  `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
-
-Create a symbolic link for .zshrc and for .p10k.zsh
-
-Create a symbolic link for kitty in `~/.config/kitty`
-
-### FNM (NODE)
-
-Install fnm so that .zshrc runs without errors
-
-```zsh
-curl -fsSL https://fnm.vercel.app/install | bash
-fnm install --lts
-```
-
-You can also install yarn globally by running `npm i -g yarn`
-
-Probably you'll have a suggestion to update nvm to its latest version.
-
-### Grub
-
-Edit /etc/default/grub
-
-```zsh
-GRUB_TIMEOUT=0
-GRUB_HIDDEN_TIMEOUT=0
-GRUB_HIDDEN_TIMEOUT_QUIET=true
-```
-
-Save the file, quit, and update grub with
-`sudo grub-mkconfig -o /boot/grub/grub.cfg`
-
-### Neovim
-
-Install fuse
-
-```zsh
-sudo pacman -S fuse3
-```
-
-Install Neovim from AppImage ("universal" Linux package)
-
-```zsh
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-sudo rm -rf /opt/nvim
-sudo tar -C /opt -xzf nvim-linux64.tar.gz
-```
-
-Add the following line to ~/.zshrc:
-
-```zsh
-export PATH="$PATH:/opt/nvim-linux64/bin"
-
-```
-
 ### Yay
 
 Install Yay
@@ -159,109 +74,27 @@ git clone https://aur.archlinux.org/yay.git
 
 ### Google Chrome
 
+Install Google Chrome in case it wasn't installed during archinstall
+
 `yay -S google-chrome`
 
-### Spotify
+### Browsers
 
-`sudo pacman -Syu spotify-launcher`
+Sign in and sync browsers: Chrome + Firefox
 
-### Discord
+### Shell Tools
 
-`yay -S discord`
+Use pacman to install a few shell tools
 
-### Slack
-
-`git clone https://aur.archlinux.org/slack-desktop.git`
-
-### Notion
-
-`git clone https://aur.archlinux.org/packages/notion-app-electron`
-
-### Zulip
-
-`git clone https://aur.archlinux.org/zulip-desktop-electron.git`
-
-### Whatsapp
-
-yay -S whatsapp-electron-bin
-
-## Programming Languages
-
-### Clojure
-
-Install clojure by running:
-
-```zsh
-curl -L -O https://github.com/clojure/brew-install/releases/latest/download/linux-install.sh
-chmod +x linux-install.sh
-sudo ./linux-install.sh
-sudo pacman -Sy rlwrap
-rm -rf linux-install.sh
+```
+sudo pacman -Sy lazygit lf fzf fd ripgrep speedtest-cli btop cmatrix zsh tmux
 ```
 
-Install java by running:
+### FONTS
 
-`sudo pacman -Sy java-openjdk`
+Cp ~/.dotfiles/fonts to ~/.fonts
 
-Install leiningen by running:
-
-`sudo pacman -Sy leiningen`
-
-### Docker
-
-Install Docker:
-
-```zsh
-sudo pacman -Syu docker
-sudo systemctl enable docker.service
-sudo systemctl start docker.service
-sudo usermod -aG docker $USER
-```
-
-Install Docker Compose:
-
-```zsh
-DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
-mkdir -p $DOCKER_CONFIG/cli-plugins
-curl -SL https://github.com/docker/compose/releases/download/v2.24.5/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
-
-chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
-
-docker compose version
-```
-
-Install (using pacman):
-
-- waybar
-
-- hyprpaper
-
-- hyprshot
-
-- rofi
-
-## KVM / QEMU / VIRT Manager
-
-`sudo pacman -S qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat`
-
-`sudo pacman -S ebtables iptables`
-
-`sudo pacman -S libguestfs`
-
-`sudo systemctl enable libvirtd.service`
-
-`sudo systemctl start libvirtd.service`
-
-`sudo usermod -a -G libvirt $(whoami)`
-
-`sudo systemctl restart libvirtd.service`
-
-How to configure network bridge and slave device in NetworkManager:
-[https://wiki.archlinux.org/title/network_bridge]
-
-VirtManager as a Conection Setting. Make sure NAT is enabled there, otherwise bridge won't work correctly.
-
-## Emoji
+Inside .fonts run `fc-cache -f -v`
 
 `sudo pacman -S noto-fonts-emoji`
 
@@ -304,21 +137,214 @@ Paste this into the file:
 </fontconfig>
 ```
 
-### Cava
+### ZSH + OH-MY-ZSH + POWERLEVEL10K
 
-Probably you'll need to configure your sound correctly.
-Here's an article to help with:
+Install oh-my-zsh doing:
+
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+
+Install Powerlevel 10k:
+
+`git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k`
+
+Install plugins:
+
+- zsh-autosuggestions
+
+  `git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+
+- zsh-syntax-highlighting
+
+  `git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
+
+Create a symbolic link for .zshrc and for .p10k.zsh
+
+Create a symbolic link for kitty in `~/.config/kitty`
+
+### FNM (NODE)
+
+Install fnm so that .zshrc runs without errors
+
+```zsh
+curl -fsSL https://fnm.vercel.app/install | bash
+fnm install --lts
+```
+
+You can also install yarn globally by running `npm i -g yarn`
+
+Probably you'll have a suggestion to update nvm to its latest version.
+
+### GRUB
+
+Edit /etc/default/grub
+
+```zsh
+GRUB_TIMEOUT=0
+GRUB_HIDDEN_TIMEOUT=0
+GRUB_HIDDEN_TIMEOUT_QUIET=true
+```
+
+Save the file, quit, and update grub with
+`sudo grub-mkconfig -o /boot/grub/grub.cfg`
+
+### NEOVIM
+
+Install:
+
+```
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf nvim-linux64.tar.gz
+```
+
+Add this to your ~/.zshrc:
+
+`export PATH="$PATH:/opt/nvim-linux64/bin"`
+
+### PIPEWIRE
+
+Instructions got from this article:
 [https://linuxgenie.net/install-pipewire-on-arch-linux/]
+
+```zsh
+sudo pacman -S pipewire pipewire-alsa
+sudo pacman -S wireplumber
+sudo pacman -S pipewire-pulse
+systemctl --user --now disable pulseaudio.service pulseaudio.socket
+systemctl --user mask pulseaudio
+systemctl --user --now enable pipewire pipewire-pulse wireplumber
+systemctl --user --now enable pipewire pipewire-pulse pipewire-media-session
+
+```
+
+### CAVA
+
+`yay -S cava`
+
+If it doesn't work, install this:
+
+`pacman -S base-devel fftw ncurses alsa-lib iniparser autoconf-archive pkgconf`
 
 `yay -S cava`
 
 Run cava and test it with spotify
+
+### PAVUCONTROL
+
+`yay -S pavucontrol-git`
+
+### Spotify
+
+`sudo pacman -Syu spotify-launcher`
+
+### Discord
+
+Here we're going to install an alternative to discord
+
+`yay -S webcord`
+
+### Slack
+
+`git clone https://aur.archlinux.org/slack-desktop.git`
+
+### Notion
+
+`git clone https://aur.archlinux.org/notion-app-electron.git`
+
+### Zulip
+
+`git clone https://aur.archlinux.org/zulip-desktop-electron.git`
+
+### Whatsapp
+
+yay -S whatsapp-electron-bin
+
+## Programming Languages
+
+### Clojure
+
+Install clojure by running:
+
+```zsh
+curl -L -O https://github.com/clojure/brew-install/releases/latest/download/linux-install.sh
+chmod +x linux-install.sh
+sudo ./linux-install.sh
+sudo pacman -Sy rlwrap
+rm -rf linux-install.sh
+```
+
+Install leiningen by running:
+
+`sudo pacman -Sy leiningen`
+
+Maybe you don't need to install openjdk, because leinngen does it for you, but in any case:
+
+`sudo pacman -Sy java-openjdk`
+
+### Docker
+
+Install Docker:
+
+```zsh
+sudo pacman -Syu docker
+sudo systemctl enable docker.service
+sudo systemctl start docker.service
+sudo usermod -aG docker $USER
+```
+
+Install Docker Compose:
+
+```zsh
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+mkdir -p $DOCKER_CONFIG/cli-plugins
+curl -SL https://github.com/docker/compose/releases/download/v2.24.5/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+
+chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+
+docker compose version
+```
+
+Install (using pacman):
+
+- waybar
+
+- hyprpaper
+
+- rofi
+
+Install (using yay):
+
+- hyprshot
+
+- wlogout
+
+## KVM / QEMU / VIRT Manager
+
+`sudo pacman -S qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils openbsd-netcat`
+
+`sudo pacman -S ebtables iptables`
+
+`sudo pacman -S libguestfs`
+
+`sudo systemctl enable libvirtd.service`
+
+`sudo systemctl start libvirtd.service`
+
+`sudo usermod -a -G libvirt $(whoami)`
+
+`sudo systemctl restart libvirtd.service`
+
+How to configure network bridge and slave device in NetworkManager:
+[https://wiki.archlinux.org/title/network_bridge]
+
+VirtManager as a Conection Setting. Make sure NAT is enabled there, otherwise bridge won't work correctly.
 
 ## Open SSH
 
 `sudo pacman -S openssh`
 
 `sudo systemctl start sshd`
+
 `sudo systemctl enable sshd`
 
 ## GPU Passthrough
