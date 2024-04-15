@@ -1,11 +1,12 @@
 local config = function()
   require("catppuccin").setup({
     flavour = "mocha", -- latte, frappe, macchiato, mocha
+    -- flavour = "auto" -- will respect terminal's background
     background = { -- :h background
       light = "latte",
       dark = "mocha",
     },
-    transparent_background = false, -- disables setting the backgaground color.
+    transparent_background = true, -- disables setting the background color.
     show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
     term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
     dim_inactive = {
@@ -33,6 +34,7 @@ local config = function()
     },
     color_overrides = {},
     custom_highlights = {},
+    default_integrations = true,
     integrations = {
       cmp = true,
       gitsigns = true,
