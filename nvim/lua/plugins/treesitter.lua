@@ -22,6 +22,8 @@ return {
         "graphql",
         "http",
         "json",
+        "jsonc",
+        "regex",
         "scss",
         "sql",
         "vim",

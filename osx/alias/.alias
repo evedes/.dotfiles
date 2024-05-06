@@ -83,8 +83,8 @@ alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias myiplocation='curl https://ipinfo.io'
 
 # LIST
-alias l='exa -ahl'
-alias ll='exa -l'
+alias l='ls -ahl'
+alias ll='ls -l'
 
 # MAC M1
 alias arm64='arch -arm64 zsh'
