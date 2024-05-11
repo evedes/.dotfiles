@@ -83,6 +83,7 @@ alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias myiplocation='curl https://ipinfo.io'
 
 # LIST
+alias ls="eza --icons=always"
 alias l='ls -ahl'
 alias ll='ls -l'
 
