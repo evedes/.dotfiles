@@ -15,8 +15,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      inlay_hints = { enabled = true },
-      ---@type lspconfig.options
+      inlay_hints = { enabled = true, auto = true },
       servers = {
         cssls = {},
         tailwindcss = {
@@ -63,7 +62,6 @@ return {
           },
         },
         lua_ls = {
-          -- enabled = false,
           single_file_support = true,
           settings = {
             Lua = {
@@ -75,9 +73,7 @@ return {
                 callSnippet = "Both",
               },
               misc = {
-                parameters = {
-                  -- "--log-level=trace",
-                },
+                parameters = {},
               },
               hint = {
                 enable = true,
@@ -95,7 +91,6 @@ return {
               },
               diagnostics = {
                 disable = { "incomplete-signature-doc", "trailing-space" },
-                -- enable = false,
                 groupSeverity = {
                   strong = "Warning",
                   strict = "Warning",
