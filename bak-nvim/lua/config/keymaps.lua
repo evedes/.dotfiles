@@ -2,7 +2,6 @@ local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
 keymap.set("i", "jk", "<Esc>", opts)
-keymap.set("n", "x", '"_x"')
 keymap.set("n", "<leader>nh", ":nohl<CR>", opts)
 
 -- Save file and quit
