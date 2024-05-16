@@ -18,7 +18,6 @@ return {
         "dockerfile",
         "query",
         "vimdoc",
-        "c",
         "graphql",
         "http",
         "json",

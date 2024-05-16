@@ -2,12 +2,7 @@ vim.cmd("let g:netrw_liststyle = 3")
 
 -- leader keys
 vim.g.mapleader = " "
-vim.g.maplocalleader = ","
-
--- set encoding
-vim.scriptencoding = "utf-8"
-vim.opt.encoding = "utf-8"
-vim.opt.fileencoding = "utf-8"
+vim.g.maplocalleader = ""
 
 -- line numbering
 vim.opt.relativenumber = true
