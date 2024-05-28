@@ -2,7 +2,7 @@ vim.cmd("let g:netrw_liststyle = 3")
 
 -- leader keys
 vim.g.mapleader = " "
-vim.g.maplocalleader = ""
+vim.g.maplocalleader = ","
 
 -- line numbering
 vim.opt.relativenumber = true

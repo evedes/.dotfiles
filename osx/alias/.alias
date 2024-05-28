@@ -84,8 +84,8 @@ alias myiplocation='curl https://ipinfo.io'
 
 # LIST
 alias ls="eza --icons=always"
-alias l='ls -ahl'
-alias ll='ls -l'
+alias l='eza --icons=always -ahl'
+alias ll='eza --icons=always -l'
 
 # MAC M1
 alias arm64='arch -arm64 zsh'
