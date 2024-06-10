@@ -7,10 +7,16 @@ return {
     "nvim-lua/plenary.nvim",
   },
   opts = {
+    -- workspaces = {
+    --   {
+    --     name = "Multiverse",
+    --     path = "/Users/edo/Dropbox/Multiverse",
+    --   },
+    -- },
     workspaces = {
       {
         name = "Multiverse",
-        path = "/Users/edo/Dropbox/Multiverse",
+        path = "/home/edo/Dropbox/Multiverse",
       },
     },
     daily_notes = {

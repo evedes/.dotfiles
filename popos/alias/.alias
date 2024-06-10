@@ -72,6 +72,7 @@ alias sp='speedtest --secure'
 alias rubik='ssh rubik'
 alias prometheus='ssh prometheus'
 alias alien='ssh alien'
+alias creatorsguild='ssh creatorsguild'
 
 #UTILS IP STUFF
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
