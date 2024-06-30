@@ -337,7 +337,33 @@ Install (using yay):
 How to configure network bridge and slave device in NetworkManager:
 [https://wiki.archlinux.org/title/network_bridge]
 
-VirtManager as a Conection Setting. Make sure NAT is enabled there, otherwise bridge won't work correctly.
+Go to Virtual Networks on the Connection Details of Virt Manager and delete any present network.
+
+Install TrueNAS and assign it your bridge interface: rubikbr0, in my case.
+
+Boot TrueNas and get into the linux shell.
+
+Go to /etc/network/interfaces and add the following:
+
+```zsh
+
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+auto enp1s0
+iface enp1s0 inet static
+    address 192.168.2.203
+    netmask 255.255.255.0
+    gateway 192.168.2.1
+    dns-nameservers 1.1.1.1 8.8.8.8
+```
+
+Restart TrueNAS and it should work.
 
 ## Open SSH
 
