@@ -7,6 +7,7 @@ return {
         "javascript",
         "typescript",
         "tsx",
+        "vue",
         "yaml",
         "html",
         "css",

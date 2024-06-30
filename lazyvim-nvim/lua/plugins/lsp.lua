@@ -18,6 +18,13 @@ return {
     opts = {
       inlay_hints = { enabled = true },
       servers = {
+        volar = {
+          filetypes = {
+            "typescript",
+            "vue",
+          },
+          root_dir = require("lspconfig.util").root_pattern("src/App.vue"),
+        },
         cssls = {},
         tailwindcss = {
           root_dir = function(...)
