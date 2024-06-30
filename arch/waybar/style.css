@@ -88,5 +88,5 @@ button:hover {
 
 #custom-power {
   color: @arch;
-  margin-right: 8;
+  margin-right: 16;
 }
