@@ -25,3 +25,7 @@ keymap.set("n", "<C-A-h>", "<C-w><")
 keymap.set("n", "<C-A-l>", "<C-w>>")
 keymap.set("n", "<C-A-k>", "<C-w>+")
 keymap.set("n", "<C-A-j>", "<C-w>-")
+
+-- Git
+vim.api.nvim_del_keymap("n", "<leader>gg")
+keymap.set("n", "<leader>gg", ":Neogit<CR>", opts)
