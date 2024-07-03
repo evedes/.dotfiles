@@ -10,7 +10,7 @@ return {
     workspaces = {
       {
         name = "Multiverse",
-        path = "/Users/edo/Dropbox/Multiverse",
+        path = "/home/edo/Dropbox/Multiverse",
       },
     },
     templates = {
