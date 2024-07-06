@@ -36,4 +36,3 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # Neovim
 export PATH="$PATH:/opt/nvim-linux64/bin"
-
