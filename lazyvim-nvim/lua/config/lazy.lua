@@ -16,7 +16,7 @@ require("lazy").setup({
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
-      opts = { news = { lazyvim = true, neovim = true } },
+      opts = { colorscheme = "catppuccin", news = { lazyvim = true, neovim = true } },
     },
     { import = "lazyvim.plugins.extras.util.rest" },
     { import = "lazyvim.plugins.extras.lang.ruby" },
