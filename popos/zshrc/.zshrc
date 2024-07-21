@@ -37,3 +37,10 @@ export PATH="$PATH:/usr/local/go/bin"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH=$PATH:/home/edo/.spicetify
+
+# fnm
+FNM_PATH="/home/edo/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/edo/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
