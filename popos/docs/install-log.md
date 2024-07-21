@@ -155,17 +155,6 @@ Install yarn `npm install -g yarn`.
 #### DOCKER
 
 ```
-sudo apt update && sudo apt upgrade
-sudo apt install docker.io
-sudo systemctl start docker.service
-sudo systemctl enable docker.service
-sudo docker version
-sudo usermod -aG docker $USER
-newgrp docker
-reboot so that everything works
-```
-
-```
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
