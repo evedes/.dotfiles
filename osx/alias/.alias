@@ -5,6 +5,7 @@ alias r='exec ${SHELL} -l'
 alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
 alias x='exit'
 alias b='bat'
+alias bsl='brew services list'
 
 # P10K
 alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done'
@@ -61,7 +62,7 @@ alias mk='minikube'
 # DOCKER
 alias dps='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.Status}}"'
 alias dpa='docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.RunningFor}}\t{{.Status}}"'
-alias dcd='docker-compose down --remove-orphans'
+alias dcd='docker compose down --remove-orphans'
 alias dcu='docker compose up'
 alias di='docker images'
 alias ddf='docker system df'

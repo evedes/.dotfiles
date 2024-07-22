@@ -19,7 +19,9 @@ plugins=(
 	zsh-syntax-highlighting
 	git
 	docker
-	kubectl
+  ruby
+  rails
+  bundler
 )
 
 # RUN OH-MY-ZSH
@@ -31,10 +33,20 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/p10k/.p10k.zsh.
 [[ ! -f ~/.dotfiles/p10k/.p10k.zsh ]] || source ~/.dotfiles/p10k/.p10k.zsh
 
-# pnpm
+# PNPM
 export PNPM_HOME="/Users/edo/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
+
+# PNPM END
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
+# RUBY
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - zsh)"
+
+# PSQL
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"

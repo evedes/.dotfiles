@@ -50,4 +50,5 @@ vim.opt.splitright = true
 vim.opt.splitkeep = "cursor"
 vim.opt.mouse = ""
 
+vim.opt.conceallevel = 2
 vim.opt.formatoptions:append({ "r" })
