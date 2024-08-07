@@ -7,6 +7,9 @@ alias x='exit'
 alias b='bat'
 alias bsl='brew services list'
 
+# SHORTCUTS
+alias editalias='vim ~/.dotfiles/osx/alias/.alias'
+
 # P10K
 alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done'
 
@@ -93,3 +96,11 @@ alias ll='eza --icons=always -l'
 # MAC M1
 alias arm64='arch -arm64 zsh'
 alias x86='arch -x86_64 zsh'
+
+#PUMA
+alias puma-down="killall puma-dev && puma-dev -stop && puma-dev -uninstall"
+alias puma-restart="killall puma-dev && puma-dev -stop"
+
+#POSTGRESQL
+alias psql-stop="brew services stop postgresql@15"
+alias psql-start="brew services start postgresql@15"

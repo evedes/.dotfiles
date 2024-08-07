@@ -19,9 +19,9 @@ plugins=(
 	zsh-syntax-highlighting
 	git
 	docker
-  ruby
-  rails
-  bundler
+  	ruby
+  	rails
+  	bundler
 )
 
 # RUN OH-MY-ZSH
@@ -40,11 +40,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 
-# PNPM END
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
-
 # RUBY
-
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
