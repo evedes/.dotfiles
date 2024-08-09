@@ -18,7 +18,7 @@ keymap.set("n", "tw", ":tabclose<Return>", opts)
 
 -- Window management
 keymap.set("n", "<leader>sv", "<C-w>v", opts)
-keymap.set("n", "<leader>sh", "<C-w>s", opts)
+keymap.set("n", "<leader>ss", "<C-w>s", opts)
 
 -- Resize window
 keymap.set("n", "<C-A-h>", "<C-w><")
