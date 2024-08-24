@@ -201,22 +201,6 @@ Add this to your ~/.zshrc:
 
 `export PATH="$PATH:/opt/nvim-linux64/bin"`
 
-### PIPEWIRE
-
-Instructions got from this article:
-[https://linuxgenie.net/install-pipewire-on-arch-linux/]
-
-```zsh
-sudo pacman -S pipewire pipewire-alsa
-sudo pacman -S wireplumber
-sudo pacman -S pipewire-pulse
-systemctl --user --now disable pulseaudio.service pulseaudio.socket
-systemctl --user mask pulseaudio
-systemctl --user --now enable pipewire pipewire-pulse wireplumber
-systemctl --user --now enable pipewire pipewire-pulse pipewire-media-session
-
-```
-
 ### CAVA
 
 `yay -S cava`
@@ -229,9 +213,13 @@ If it doesn't work, install this:
 
 Run cava and test it with spotify
 
-### PAVUCONTROL
+### Dropbox
 
-`yay -S pavucontrol-git`
+`yay -S dropbox`
+
+### Obsidian
+
+`sudo pacman -Sy obsidian`
 
 ### Spotify
 
@@ -250,14 +238,6 @@ Here we're going to install an alternative to discord
 ### Notion
 
 `git clone https://aur.archlinux.org/notion-app-electron.git`
-
-### Zulip
-
-`git clone https://aur.archlinux.org/zulip-desktop-electron.git`
-
-### Whatsapp
-
-yay -S whatsapp-electron-bin
 
 ## Programming Languages
 
@@ -307,16 +287,7 @@ docker compose version
 Install (using pacman):
 
 - waybar
-
 - hyprpaper
-
-- rofi
-
-Install (using yay):
-
-- hyprshot
-
-- wlogout
 
 ## KVM / QEMU / VIRT Manager
 
