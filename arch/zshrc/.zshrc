@@ -5,23 +5,41 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# FZF
-export FZF_DEFAULT_OPTS=" \
-	--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-	--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-	--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# PATH CONFIGURATION
+
+setopt extended_glob null_glob
+
+path=(
+  $path
+  $HOME/.config/scripts
+  /opt/nvim-linux64/bin
+)
+
+typeset -U path
+path=($^path(N-/))
+export PATH
+
+# HISTORY
+
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+
+setopt HIST_IGNORE_SPACE # Don't save when prefixed with space
+setopt HIST_IGNORE_DUPS  # Don't save duplicate lines
+setopt SHARE_HISTORY   # Share history between sessions
 
 #OH-MY-ZSH
 export ZSH="$HOME/.oh-my-zsh"
-
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 
-#ALIAS
+#SOURCES
+source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/arch/alias/.alias
 
-# NVIM
-export PATH="$PATH:/opt/nvim-linux64/bin"
 
 #PLUGINS
 plugins=(
@@ -31,14 +49,18 @@ plugins=(
   docker
 )
 
-source $ZSH/oh-my-zsh.sh
-
-# P10K CONFIG 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# fnm
+# FNM
 FNM_PATH="/home/edo/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="/home/edo/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
+
+# VIM
+
+set -o vi
+
+export VISUAL=nvim
+export EDITOR=nvim
+export TERM="tmux-256color"
+

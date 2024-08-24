@@ -6,11 +6,11 @@
 * {
   font-family: "JetBrainsMono NF", FontAwesome, Roboto, Helvetica, Arial,
     sans-serif;
-  font-size: 16px;
+  font-size: 13px;
 }
 
 window#waybar {
-  background-color: rgba(43, 48, 59, 0.8);
+  background-color: rgba(112, 165, 83, 0.5);
   color: #dcd7ba;
 }
 

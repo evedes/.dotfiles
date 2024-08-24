@@ -217,6 +217,34 @@ Run cava and test it with spotify
 
 `yay -S dropbox`
 
+Create a ~/.config/systemd/user/dropbox.service
+
+```zsh
+[Unit]
+   Description=Dropbox
+   After=network.target
+
+   [Service]
+   ExecStart=/usr/bin/dropbox
+   ExecReload=/bin/kill -HUP $MAINPID
+   KillMode=process
+   Restart=on-failure
+
+   [Install]
+   WantedBy=default.target
+```
+
+````
+
+Make Dropbox start on boot:
+
+```zsh
+systemctl --user enable dropbox.service
+systemctl --user start dropbox.service
+````
+
+````
+
 ### Obsidian
 
 `sudo pacman -Sy obsidian`
@@ -251,7 +279,7 @@ chmod +x linux-install.sh
 sudo ./linux-install.sh
 sudo pacman -Sy rlwrap
 rm -rf linux-install.sh
-```
+````
 
 Install leiningen by running:
 

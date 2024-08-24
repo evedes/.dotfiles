@@ -3,11 +3,10 @@ alias c='clear'
 alias chist='history -p'
 alias r='exec ${SHELL} -l'
 alias x='exit'
+alias e='exit'
 
 # NVIM
 alias v='nvim'
-alias vim='nvim'
-alias n='nvim'
 
 # PBCOPY / PBPASTE
 alias pbcopy='xclip -selection clipboard'
@@ -32,6 +31,7 @@ alias rmnodemodules='find . -name 'node_modules' -type d -prune -exec rm -rf '{}
 alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gsl="git stash list"
 alias gs="git status"
+alias gc="git commit"
 alias gd="git diff"
 alias gfo="git fetch origin"
 alias gpom="git pull origin main"
@@ -43,6 +43,7 @@ alias npmg='npm list -g --depth 0'
 
 # UTILS
 alias dotfiles='nvim ~/.dotfiles/arch'
+alias syu='sudo pacman -Syu'
 alias mb="cmatrix -C blue"
 alias m="cmatrix"
 
@@ -82,8 +83,4 @@ alias truenas='ssh truenas'
 #UTILS IP STUFF
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias myiplocation='curl https://ipinfo.io'
-
-# LIST
-alias ll='eza -ahl'
-alias l='eza -l'
 
