@@ -33,9 +33,12 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# FNM
-export PATH="/home/edo/.local/share/fnm:$PATH"
-eval "$(fnm env --use-on-cd)"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# P10K CONFIG 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# fnm
+FNM_PATH="/home/edo/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/edo/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi

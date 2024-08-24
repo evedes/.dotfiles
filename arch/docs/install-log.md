@@ -7,7 +7,7 @@ Boot the system.
 Type `archinstall` and follow installer instructions.
 
 - Choose hyprland as the Desktop compositor/window manager.
-- Add the packages: vim, firefox, unzip and google-chrome
+- Add the packages: vim, firefox
 
 ## CONFIGURE THE SYSTEM
 
@@ -36,13 +36,11 @@ Edit `/etc/pacman.conf`:
 
 ### GIT + SSH
 
-Install nautilus:
+Install unzip:
 
-`sudo pacman -S nautilus`
+`sudo pacman -S unzip`
 
 Enable nautilus connection to smb:
-
-`sudo pacman -S gvfs gvfs-smb`
 
 Install git and configure it:
 
@@ -52,6 +50,8 @@ Install git and configure it:
 git config --global user.name "FIRST_NAME LAST_NAME"
 git config --global user.email "your.email@gmail.com"
 git config --global core.editor vim
+git config --global pull.rebase true
+git config --global init.defaultBranch main
 ```
 
 Configure `.ssh` folder for rubik:
