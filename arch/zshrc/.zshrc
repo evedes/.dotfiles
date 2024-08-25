@@ -15,6 +15,7 @@ path=(
   $path
   $HOME/.config/scripts
   /opt/nvim-linux64/bin
+  $HOME/.cargo/env
 )
 
 typeset -U path
