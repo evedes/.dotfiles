@@ -37,7 +37,9 @@ return {
         use_virtual_text = true,
         lint_events = { "BufWrite", "CursorHold" },
       },
-      highlight = { enable = true },
+      highlight = {
+        enable = true,
+      },
       indent = {
         enable = true,
       },
