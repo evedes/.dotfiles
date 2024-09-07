@@ -75,7 +75,7 @@ alias dpsv='docker ps --format="$VFORMAT"'
 alias dpav='docker ps -a --format="$VFORMAT"'
 
 # SPEEDTEST
-alias sp='speedtest --secure'
+alias speed='speedtest --secure'
 
 #MACHINES
 alias rubik='ssh rubik'
