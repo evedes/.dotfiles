@@ -46,3 +46,23 @@ eval "$(rbenv init - zsh)"
 
 # PSQL
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
+# HISTORY SETUP
+HISTFILE=$HOME/.zsh_history
+SAVEHIST=1000
+HISTSIZE=999
+setopt share_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_verify
+
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+
+## ZOXIDE
+eval "$(zoxide init zsh)"
+
+
+## ZELLIJ
+export PATH="$PATH:$HOME/.cargo/bin"
+
