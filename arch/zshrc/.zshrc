@@ -37,3 +37,6 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 
 # ZOXIDE
 eval "$(zoxide init zsh)"
+
+# To customize prompt, run `p10k configure` or edit ~/.dotfiles/arch/p10k/.p10k.zsh.
+[[ ! -f ~/.dotfiles/arch/p10k/.p10k.zsh ]] || source ~/.dotfiles/arch/p10k/.p10k.zsh

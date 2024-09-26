@@ -4,12 +4,12 @@ local wezterm = require("wezterm")
 -- This will hold the configuration
 local config = wezterm.config_builder()
 
-config.font = wezterm.font("JetBrainsMono Nerd Font")
+config.font = wezterm.font("JetBrainsMonoNerdFont")
 config.font_size = 15
 config.line_height = 1.30
 
 config.enable_tab_bar = false
-config.window_decorations = "RESIZE"
+config.window_decorations = "NONE"
 
 config.color_scheme = "Catppuccin Macchiato" -- or Mocha, Macchiato, Frappe, Latte
 

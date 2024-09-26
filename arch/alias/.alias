@@ -20,6 +20,7 @@ alias looking-glass='~/.dotfiles/arch/scripts/looking-glass.sh'
 alias xdg-restart='~/.dotfiles/arch/scripts/xdg-restart.sh'
 alias wl='~/.dotfiles/arch/scripts/wl.sh'
 alias rhyprpaper='~/.dotfiles/arch/scripts/restart-hyprpaper.sh'
+alias rwaybar='~/.dotfiles/arch/scripts/restart-waybar.sh'
 
 # NETWORK PRIORITY
 alias isp='curl ipinfo.io | grep org'
