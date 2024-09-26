@@ -19,9 +19,9 @@ plugins=(
 	zsh-syntax-highlighting
 	git
 	docker
-  	ruby
-  	rails
-  	bundler
+  ruby
+  rails
+  bundler
 )
 
 # RUN OH-MY-ZSH
@@ -62,7 +62,8 @@ bindkey '^[[B' history-search-forward
 ## ZOXIDE
 eval "$(zoxide init zsh)"
 
-
 ## ZELLIJ
 export PATH="$PATH:$HOME/.cargo/bin"
 
+## FZF
+source <(fzf --zsh)

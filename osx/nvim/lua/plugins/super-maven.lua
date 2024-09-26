@@ -21,5 +21,6 @@ end
 
 return {
   "supermaven-inc/supermaven-nvim",
+  event = "VeryLazy",
   config = config,
 }

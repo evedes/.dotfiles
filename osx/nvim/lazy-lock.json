@@ -65,5 +65,6 @@
   "vim-dadbod-ui": { "branch": "master", "commit": "aa003f514ba0b1250ba0f284f031d011bb9e83e8" },
   "vim-slim": { "branch": "master", "commit": "a0a57f75f20a03d5fa798484743e98f4af623926" },
   "vim-tmux-navigator": { "branch": "master", "commit": "5b3c701686fb4e6629c100ed32e827edf8dad01e" },
-  "which-key.nvim": { "branch": "main", "commit": "bfec3d6bc0a9b0b2cb11644642f78c2c3915eef0" }
+  "which-key.nvim": { "branch": "main", "commit": "bfec3d6bc0a9b0b2cb11644642f78c2c3915eef0" },
+  "zellij-nav.nvim": { "branch": "main", "commit": "511e9b7bb7165ef817dbfb40169cea9b4d3c3d44" }
 }
