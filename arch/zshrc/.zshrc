@@ -34,3 +34,6 @@ fi
 
 # NEOVIM
 export PATH="$PATH:/opt/nvim-linux64/bin"
+
+# ZOXIDE
+eval "$(zoxide init zsh)"

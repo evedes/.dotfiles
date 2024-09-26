@@ -19,6 +19,7 @@ alias eleven='~/.dotfiles/arch/scripts/eleven.sh'
 alias looking-glass='~/.dotfiles/arch/scripts/looking-glass.sh'
 alias xdg-restart='~/.dotfiles/arch/scripts/xdg-restart.sh'
 alias wl='~/.dotfiles/arch/scripts/wl.sh'
+alias rhyprpaper='~/.dotfiles/arch/scripts/restart-hyprpaper.sh'
 
 # NETWORK PRIORITY
 alias isp='curl ipinfo.io | grep org'
@@ -84,3 +85,5 @@ alias truenas='ssh truenas'
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias myiplocation='curl https://ipinfo.io'
 
+# ZOXIDE
+alias cd='z'
