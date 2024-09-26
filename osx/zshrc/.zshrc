@@ -49,15 +49,15 @@ export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 
 # HISTORY SETUP
 HISTFILE=$HOME/.zsh_history
-SAVEHIST=1000
-HISTSIZE=999
-setopt share_history
+HISTSIZE=5000
+SAVEHIST=$HISTSIZE
+setopt appendhistory
 setopt hist_expire_dups_first
+setopt hist_ignore_space
 setopt hist_ignore_dups
 setopt hist_verify
 
-bindkey '^[[A' history-search-backward
-bindkey '^[[B' history-search-forward
+bindkey -e
 
 ## ZOXIDE
 eval "$(zoxide init zsh)"

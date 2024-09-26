@@ -4,7 +4,7 @@ local config = function()
       anthropic = function()
         return require("codecompanion.adapters").extend("anthropic", {
           env = {
-            api_key = "",
+            api_key = "cmd:op read op://Private/Claude/credential --no-newline",
           },
         })
       end,
