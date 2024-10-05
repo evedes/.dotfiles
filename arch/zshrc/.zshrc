@@ -40,3 +40,18 @@ eval "$(zoxide init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/arch/p10k/.p10k.zsh.
 [[ ! -f ~/.dotfiles/arch/p10k/.p10k.zsh ]] || source ~/.dotfiles/arch/p10k/.p10k.zsh
+
+# HISTORY SETUP
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=5000
+SAVEHIST=$HISTSIZE
+setopt appendhistory
+setopt hist_expire_dups_first
+setopt hist_ignore_space
+setopt hist_ignore_dups
+setopt hist_verify
+
+bindkey -e
+
+## FZF
+source <(fzf --zsh)
