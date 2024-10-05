@@ -24,7 +24,6 @@ return {
         "json",
         "jsonc",
         "regex",
-        "ruby",
         "scss",
         "sql",
         "vim",

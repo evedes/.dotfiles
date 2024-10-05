@@ -19,7 +19,6 @@ require("lazy").setup({
       opts = { colorscheme = "catppuccin", news = { lazyvim = true, neovim = true } },
     },
     { import = "lazyvim.plugins.extras.util.rest" },
-    { import = "lazyvim.plugins.extras.lang.ruby" },
     { import = "lazyvim.plugins.extras.ui.alpha" },
     { import = "lazyvim.plugins.extras.lang.clangd" },
     { import = "lazyvim.plugins.extras.linting.eslint" },
