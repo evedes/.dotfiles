@@ -7,6 +7,7 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
+require("polybar_tags")
 
 if awesome.startup_errors then
 	naughty.notify({
@@ -437,14 +438,15 @@ awful.screen.connect_for_each_screen(function(s)
 	-- }}}
 
 	-- Personal Config
+	awful.spawn.with_shell("xset r rate 200 30")
+	awful.spawn.with_shell("setxkbmap -option ctrl:nocaps")
 	awful.spawn.with_shell(
-		"xset r rate 200 30 && "
-			.. "setxkbmap -option ctrl:nocaps && "
-			.. "xrandr --output DisplayPort-0 --primary --mode 3840x2160 --rate 60 --pos 0x0 --output DisplayPort-1 --mode 2560x1440 --rate 60 --pos -2560x360 --output HDMI-A-0 --mode 3840x2160 --rate 60 --pos -6400x0 && "
-			.. "feh --bg-scale ~/Wallpapers/112.jpg && "
-			.. "~/.config/polybar/launch.sh"
+		"xrandr --output DisplayPort-0 --primary --mode 3840x2160 --rate 60 --pos 0x0 --output DisplayPort-1 --mode 2560x1440 --rate 60 --pos -2560x360 --output HDMI-A-0 --mode 3840x2160 --rate 60 --pos -6400x0"
 	)
-end)
+	awful.spawn.with_shell("feh --bg-scale ~/Wallpapers/130.png")
+	awful.spawn.with_shell("~/.config/polybar/launch.sh &&")
+	awful.spawn.with_shell("picom")
 
-beautiful.init("~/.config/awesome/theme.lua")
-beautiful.useless_gap = 12
+	beautiful.init("~/.config/awesome/theme.lua")
+	beautiful.useless_gap = 12
+end)
