@@ -6,7 +6,7 @@ local act = wezterm.action
 local config = wezterm.config_builder()
 
 config.font = wezterm.font("JetBrainsMonoNerdFont")
-config.font_size = 15
+config.font_size = 14
 config.line_height = 1.30
 
 config.enable_tab_bar = false
