@@ -49,6 +49,12 @@
   git config --global core.editor vim
   ```
 
+  To change CapsLock to Ctrl, edit the file in .config/cosmic/com.system76.CosmicComp/v1
+
+```zsh
+options: Some("ctrl:nocaps")
+```
+
 - Install SHELL tools:
   `sudo apt install ripgrep speedtest-cli btop cmatrix tmux cava`
 

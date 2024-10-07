@@ -44,3 +44,10 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="/home/edo/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
+
+# fnm
+FNM_PATH="/home/edo/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/edo/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi

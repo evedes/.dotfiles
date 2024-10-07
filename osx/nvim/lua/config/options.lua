@@ -51,3 +51,4 @@ vim.opt.splitkeep = "cursor"
 vim.opt.mouse = ""
 
 vim.opt.formatoptions:append({ "r" })
+vim.opt.clipboard:append("unnamedplus")
