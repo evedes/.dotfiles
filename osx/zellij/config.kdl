@@ -8,3 +8,10 @@ ui {
     hide_session_name true
   }
 }
+
+layout {
+    pane_split_direction "horizontal" {
+        pane
+        pane
+      }
+  }
