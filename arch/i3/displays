@@ -36,4 +36,4 @@ for_window [class="^.*"] border pixel 3
 
 # Set colors for window borders
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #eea94e
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #ffa066

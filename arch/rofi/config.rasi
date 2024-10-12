@@ -1,0 +1,53 @@
+/* ==========================================================================
+   Rofi color theme
+   Kanagawa
+   by Eduardo "Edo" Vedes, a.k.a KratzEdo
+   ========================================================================== */
+
+* {
+    highlight: bold italic;
+    scrollbar: true;
+    font: "JetBrainsMono Nerd Font 14";
+    width: 800px;
+
+    gruvbox-light-bg0-soft:     #1a1a22;
+    gruvbox-light-bg1:          #1a1a22;
+    gruvbox-light-bg2:          #2d4f67;
+    gruvbox-light-fg0:          #fff;
+    gruvbox-light-fg1:          #7fb4ca;
+    gruvbox-light-red-dark:     #9d0006;
+    gruvbox-light-red-light:    #cc241d;
+    gruvbox-light-yellow-dark:  #b57614;
+    gruvbox-light-yellow-light: #d79921;
+    gruvbox-light-gray:         #ffa066;
+
+    /* Theme colors */
+    background:                  @gruvbox-light-bg0-soft;
+    background-color:            @background;
+    foreground:                  @gruvbox-light-fg1;
+    border-color:                @gruvbox-light-gray;
+    separatorcolor:              @border-color;
+    scrollbar-handle:            @border-color;
+
+    normal-background:           @background;
+    normal-foreground:           @foreground;
+    alternate-normal-background: @gruvbox-light-bg1;
+    alternate-normal-foreground: @foreground;
+    selected-normal-background:  @gruvbox-light-bg2;
+    selected-normal-foreground:  @gruvbox-light-fg0;
+
+    active-background:           @gruvbox-light-yellow-dark;
+    active-foreground:           @background;
+    alternate-active-background: @active-background;
+    alternate-active-foreground: @active-foreground;
+    selected-active-background:  @gruvbox-light-yellow-light;
+    selected-active-foreground:  @active-foreground;
+
+    urgent-background:           @gruvbox-light-red-dark;
+    urgent-foreground:           @background;
+    alternate-urgent-background: @urgent-background;
+    alternate-urgent-foreground: @urgent-foreground;
+    selected-urgent-background:  @gruvbox-light-red-light;
+    selected-urgent-foreground:  @urgent-foreground;
+}
+
