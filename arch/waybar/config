@@ -1,36 +1,65 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 35,
-    "spacing": 16,
-    "modules-left": ["custom/launcher", "hyprland/workspaces", "tray"],
-    "modules-center": [],
-    "modules-right": ["network", "cpu", "memory", "clock"],
+    "height": 25,
+    "spacing": 12,
+    "modules-left": ["hyprland/workspaces", "tray"],
+    "modules-center": ["custom/launcher"],
+    "modules-right": ["network", "cpu", "memory", "pulseaudio", "clock", "custom/power" ],
     "hyprland/workspaces": {
-        "all-outputs": true,
-        "persistent-workspaces": {
-            "1": ["DP-1"],
-            "2": ["DP-1"],
-            "3": ["DP-2"],
-            "4": ["DP-2"],
-            "5": ["HDMI-A-1"],
-          },
+        "all-outputs": false,
         "active-only": false,
+        "on-click": "activate",
+        "disable-scroll": false,
+        "on-scroll-up": "hyprctl dispatch workspace -1",
+        "on-scroll-down": "hyprctl dispatch workspace +1",
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        },
         "sort-by-number": true
     },
     "tray": {
-        "spacing": 16
+        "spacing": 4
     },
     "clock": {
         "timezone": "Europe/Lisbon",
         "format": "{:%F %H:%M}",
     },
-    "cpu": {
-      "format": "{usage}% CPU",
-      "tooltip": false
+    "cpu": {    // TODO: Custom tooltip (?)
+        "format": "󰻠 {usage}%",
+        "tooltip": false,
+        "interval": 5,
+        "min-length": 6,
+        "max-length": 6
     },
-    "memory": {
-        "format": "{}% RAM"
+"memory": {
+        "states": {"c": 90},
+	    "format": "󰘚 {percentage}%",
+	    "format-c": "󰀪 {percentage}%",
+        "tooltip": true,
+        "tooltip-format": "{used:0.1f} GB / {total:0.1f} GB",
+        "interval": 20,
+        "min-length": 7,
+        "max-length": 7
+    },
+  "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "婢 {volume}%",
+        "format-icons": {
+            "headphone": "󰋋",
+            "default": ["󰖀", "󰕾"]
+        },
+        "on-click": "~/.config/waybar/scripts/volumecontrol.sh -o m",
+        "on-click-right": "pavucontrol -t 3",
+        "on-scroll-up": "~/.config/waybar/scripts/volumecontrol.sh -o i",
+        "on-scroll-down": "~/.config/waybar/scripts/volumecontrol.sh -o d",
+        "scroll-step": 10,
+        "min-length": 6,
+        "max-length": 6
     },
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) WIFI",
@@ -42,8 +71,11 @@
     },
     "custom/launcher": {
         "format": "",
-        "on-click": "rofi -show drun",
-        "on-click-right": "killall rofi",
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip-format": "Powermenu",
+        "on-click": "wlogout -b 4 -T 1000 -B 1000 -L 1200 -R 1200 -c 50",
         "tooltip": false
     },
 }
