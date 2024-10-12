@@ -86,7 +86,7 @@ Sign in and sync browsers: Chrome + Firefox
 
 Use pacman to install a few shell tools
 
-```
+```zsh
 sudo pacman -Sy lazygit lf fzf fd ripgrep speedtest-cli btop cmatrix zsh tmux
 ```
 
@@ -234,15 +234,13 @@ Create a ~/.config/systemd/user/dropbox.service
    WantedBy=default.target
 ```
 
-````
+````zsh
 
 Make Dropbox start on boot:
 
 ```zsh
 systemctl --user enable dropbox.service
 systemctl --user start dropbox.service
-````
-
 ````
 
 ### Obsidian
@@ -269,6 +267,24 @@ Here we're going to install an alternative to discord
 
 ## Programming Languages
 
+### Ruby
+
+Installing Rbenv
+
+```zsh
+sudo pacman -S base-devel libffi libyaml openssl zlib
+
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(rbenv init -)"' >> ~/.zshrc
+```
+
+Installing Rails
+
+`gem install rails`
+
 ### Clojure
 
 Install clojure by running:
@@ -279,7 +295,7 @@ chmod +x linux-install.sh
 sudo ./linux-install.sh
 sudo pacman -Sy rlwrap
 rm -rf linux-install.sh
-````
+```
 
 Install leiningen by running:
 
@@ -419,3 +435,11 @@ Go to System > Remote Desktop and activate Remote Desktop
 Also disable the need for a certificate.
 
 Back to Arch, install freerdp: `sudo pacman -S freerdp`
+
+```
+
+```
+
+```
+
+```

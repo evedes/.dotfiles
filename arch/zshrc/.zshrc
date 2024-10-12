@@ -55,3 +55,5 @@ bindkey -e
 
 ## FZF
 source <(fzf --zsh)
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
