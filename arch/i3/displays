@@ -1,0 +1,39 @@
+#      _ _           _
+#   __| (_)___ _ __ | | __ _ _   _ ___
+#  / _` | / __| '_ \| |/ _` | | | / __|
+# | (_| | \__ \ |_) | | (_| | |_| \__ \
+#  \__,_|_|___/ .__/|_|\__,_|\__, |___/
+#             |_|            |___/
+#
+# by Eduardo Edo Vedes, a.k.a CraftzEdo
+# ------------------------------------------------------- 
+# i3 displays config file
+# ------------------------------------------------------- 
+
+
+# set monitors' resolutions and positions
+exec_always --no-startup-id xrandr --output DisplayPort-0 --primary --mode 3840x2160 --rate 60 --pos 0x0 --output DisplayPort-1 --mode 2560x1440 --rate 60 --pos -2560x360 --output HDMI-A-0 --mode 3840x2160 --rate 60 --pos -6400x0
+
+# set wallpaper
+exec_always --no-startup-id feh --bg-fill ~/Wallpapers/86.jpg
+
+# set gaps
+gaps inner 24
+gaps outer 9
+
+# picom
+exec --no-startup-id picom
+
+# set default border style for all windows
+default_border pixel 1
+
+# Remove title bar for all windows except the ones with title "floatingwin"
+for_window [class="^.*"] border pixel 1
+for_window [title="floatingwin"] border normal
+
+# Set border style for the focused window
+for_window [class="^.*"] border pixel 3
+
+# Set colors for window borders
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #2e9ef4   #eea94e

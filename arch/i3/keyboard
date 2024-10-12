@@ -1,0 +1,17 @@
+#  _              _                         _
+# | | _____ _   _| |__   ___   __ _ _ __ __| |
+# | |/ / _ \ | | | '_ \ / _ \ / _` | '__/ _` |
+# |   <  __/ |_| | |_) | (_) | (_| | | | (_| |
+# |_|\_\___|\__, |_.__/ \___/ \__,_|_|  \__,_|
+#           |___/
+# 
+# by Eduardo Edo Vedes, a.k.a CraftzEdo 
+# ------------------------------------------------------- 
+# i3 keyboard config file
+# ------------------------------------------------------- 
+
+# map caps lock to ctrl
+exec_always --no-startup-id setxkbmap -option ctrl:nocaps
+
+# set keyboard repeat rate and delay
+exec_always --no-startup-id xset r rate 200 50
