@@ -8,14 +8,14 @@
 #
 # by Eduardo "Edo" Vedes, a.k.a KratzKat
 # --------------------------------------------------------------------------
-# Script to create ascii fonrt based header on user input
+# Script to create ascii font based header on user input
 # and copy the result to the clipboard
 # --------------------------------------------------------------------------
 
 read -p "Enter text for ascii encoding: " text
 figlet "$text" >~/figlet.txt
 echo "" >>~/figlet.txt
-echo "by Eduardo "Edo" Vedes, a.k.a CraftzCat" >>~/figlet.txt
+echo "by Eduardo "Edo" Vedes, a.k.a CraftzEdo" >>~/figlet.txt
 echo "-------------------------------------------------------" >>~/figlet.txt
 echo "" >>~/figlet.txt
 echo "-------------------------------------------------------" >>~/figlet.txt
