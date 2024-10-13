@@ -14,7 +14,7 @@ config.window_decorations = "RESIZE"
 
 config.color_scheme = "kanagawabones"
 
-config.window_background_opacity = 0.98
+config.window_background_opacity = 1
 config.macos_window_background_blur = 10
 
 config.window_close_confirmation = "NeverPrompt"

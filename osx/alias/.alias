@@ -48,6 +48,7 @@ alias gd="git diff"
 alias gfo="git fetch origin"
 alias gco="git checkout"
 alias lg="lazygit"
+alias gwl="git worktree list"
 
 # NPM
 alias npmg='npm list -g --depth 0'

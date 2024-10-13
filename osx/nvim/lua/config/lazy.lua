@@ -19,7 +19,6 @@ require("lazy").setup({
       opts = { colorscheme = "kanagawa", news = { lazyvim = true, neovim = true } },
     },
     { import = "lazyvim.plugins.extras.util.rest" },
-    { import = "lazyvim.plugins.extras.lang.ruby" },
     { import = "lazyvim.plugins.extras.ui.alpha" },
     { import = "lazyvim.plugins.extras.lang.clangd" },
     { import = "lazyvim.plugins.extras.linting.eslint" },
@@ -32,6 +31,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.tailwind" },
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
+    { import = "lazyvim.plugins.extras.editor.mini-files" },
     { import = "plugins" },
   },
   defaults = {
