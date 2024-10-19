@@ -21,6 +21,7 @@ alias xdg-restart='~/.dotfiles/arch/scripts/xdg-restart.sh'
 alias wl='~/.dotfiles/arch/scripts/wl.sh'
 alias rhyprpaper='~/.dotfiles/arch/scripts/restart-hyprpaper.sh'
 alias rwaybar='~/.dotfiles/arch/scripts/restart-waybar.sh'
+alias rpolybar='~/.dotfiles/arch/scripts/restart-polybar.sh'
 alias rdunst='~/.dotfiles/arch/scripts/restart-dunst.sh'
 
 # NETWORK PRIORITY
@@ -74,8 +75,8 @@ export VFORMAT="ID\t{{.ID}}\nNAME\t{{.Names}}\nIMAGE\t{{.Image}}\nPORTS\t{{.Port
 alias dpsv='docker ps --format="$VFORMAT"'
 alias dpav='docker ps -a --format="$VFORMAT"'
 
-# SPEED TEST
-alias sp='speedtest --secure'
+# SPEEDTEST
+alias speed='speedtest --secure'
 
 #MACHINES
 alias rubik='ssh rubik'

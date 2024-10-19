@@ -15,14 +15,14 @@
 exec_always --no-startup-id xrandr --output DisplayPort-0 --primary --mode 3840x2160 --rate 60 --pos 0x0 --output DisplayPort-1 --mode 2560x1440 --rate 60 --pos -2560x360 --output HDMI-A-0 --mode 3840x2160 --rate 60 --pos -6400x0
 
 # set wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Wallpapers/86.jpg
+exec_always --no-startup-id feh --bg-fill ~/Wallpapers/131.jpg
 
 # set gaps
 gaps inner 24
 gaps outer 9
 
-# picom
-exec --no-startup-id picom
+# polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # set default border style for all windows
 default_border pixel 1

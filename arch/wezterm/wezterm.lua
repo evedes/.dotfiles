@@ -14,10 +14,17 @@ config.window_decorations = "NONE"
 
 config.color_scheme = "Catppuccin Macchiato" -- or Mocha, Macchiato, Frappe, Latte
 
-config.window_background_opacity = 0.96
+config.window_background_opacity = 1
 
 config.window_close_confirmation = "NeverPrompt"
 config.adjust_window_size_when_changing_font_size = false
+
+config.window_padding = {
+	left = 0,
+	right = 0,
+	top = 0,
+	bottom = 0,
+}
 
 config.keys = {
 	-- Scroll Up/Down with keyboard
