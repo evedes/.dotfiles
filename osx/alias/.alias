@@ -82,7 +82,7 @@ alias speed='speedtest --secure'
 alias rubik='ssh rubik'
 alias prometheus='ssh prometheus'
 alias alien='ssh alien'
-alias creatorsguild='ssh creatorsguild'
+alias vedesvps='ssh vedesvps'
 alias thestarter='ssh thestarter'
 
 # UTILS IP STUFF
