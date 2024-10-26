@@ -5,6 +5,7 @@
   font-family: "JetBrainsMono Nerd Font";
   font-weight: bold;
   font-size: 14px;
+  color: @foreground;
 }
 
 @import "theme.css";
@@ -80,8 +81,7 @@ tooltip {
 #custom-wifi,
 #pulseaudio,
 #backlight,
-#battery,
-#custom-power {
+#battery {
   opacity: 1;
   margin-bottom: 0px;
   padding-right: 4px;
@@ -108,9 +108,4 @@ tooltip {
   margin: 10px;
   font-size: 18px;
   color: #ff5d62;
-}
-
-#custom-power {
-  color: #ff5d62;
-  margin-right: 16px;
 }

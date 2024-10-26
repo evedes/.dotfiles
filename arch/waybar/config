@@ -5,7 +5,7 @@
     "spacing": 12,
     "modules-left": ["hyprland/workspaces", "tray"],
     "modules-center": ["custom/launcher"],
-    "modules-right": ["network", "cpu", "memory", "pulseaudio", "clock", "custom/power" ],
+    "modules-right": ["network", "cpu", "memory", "pulseaudio", "clock"],
     "hyprland/workspaces": {
         "all-outputs": false,
         "active-only": false,
@@ -71,12 +71,6 @@
     },
     "custom/launcher": {
         "format": "",
-    },
-    "custom/power": {
-        "format": "",
-        "tooltip-format": "Powermenu",
-        "on-click": "wlogout -b 4 -T 1000 -B 1000 -L 1200 -R 1200 -c 50",
-        "tooltip": false
     },
 }
 

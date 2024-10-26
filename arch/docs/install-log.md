@@ -9,6 +9,66 @@ Type `archinstall` and follow installer instructions.
 - Choose hyprland as the Desktop compositor/window manager.
 - Add the packages: vim, firefox
 
+## Install Hyprland
+
+```zsh
+# Install essential packages
+
+sudo pacman -S \
+    hyprland \
+    kitty \
+    waybar \
+    xdg-desktop-portal-hyprland \
+    qt5-wayland \
+    qt6-wayland
+
+# For better Wayland compatibility
+
+sudo pacman -S \
+    polkit-kde-agent \
+    xorg-xwayland \
+    pipewire \
+    pipewire-pulse \
+    wireplumber
+
+# Optional but recommended utilities:
+
+sudo pacman -S \
+    brightnessctl \
+    pamixer \
+    mako \
+    wofi \
+    grim \
+    slurp
+
+# To manually start Hyprland:
+
+nano ~/.start-hypr
+
+# Add this content:
+
+#!/bin/bash
+
+# Export environment variables
+export _JAVA_AWT_WM_NONREPARENTING=1
+export XCURSOR_SIZE=24
+export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORMTHEME=qt5ct
+export SDL_VIDEODRIVER=wayland
+export XDG_CURRENT_DESKTOP=Hyprland
+export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=Hyprland
+
+# Start Hyprland
+exec Hyprland
+
+# Make it executable
+
+chmod +x ~/.start-hypr
+
+
+```
+
 ## CONFIGURE THE SYSTEM
 
 ### UPDATE SYSTEM
@@ -212,6 +272,60 @@ If it doesn't work, install this:
 `yay -S cava`
 
 Run cava and test it with spotify
+
+### GTK
+
+Install ngw-look:
+
+`yay -S ngw-look`
+
+Install a theme:
+
+`yay -S kanagawa-gtk-theme-git`
+
+Create .config/gtk-3.0 and gtk-4.0 folders
+
+```zsh
+mkdir -p ~/.config/gtk-3.0
+mkdir -p ~/.config/gtk-4.0
+```
+
+Set the theme in the GTK Settings files:
+
+```zsh
+# For GTK-3
+echo '
+[Settings]
+gtk-theme-name=Kanagawa
+gtk-icon-theme-name=Adwaita
+gtk-font-name=Sans 10
+gtk-cursor-theme-name=Adwaita
+gtk-cursor-theme-size=0
+gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
+gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+gtk-button-images=0
+gtk-menu-images=0
+gtk-enable-event-sounds=1
+gtk-enable-input-feedback-sounds=1
+gtk-xft-antialias=1
+gtk-xft-hinting=1
+gtk-xft-hintstyle=hintslight
+gtk-xft-rgba=rgb' > ~/.config/gtk-3.0/settings.ini
+
+# For GTK-4
+cp ~/.config/gtk-3.0/settings.ini ~/.config/gtk-4.0/settings.ini
+```
+
+Edit ~/.profile
+
+```zsh
+export GTK_THEME=Kanagawa-Border
+export XDG_CURRENT_DESKTOP=Unity
+```
+
+Restart the compositor:
+
+`hyprctl reload`
 
 ### Dropbox
 
