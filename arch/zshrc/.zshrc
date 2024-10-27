@@ -65,3 +65,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

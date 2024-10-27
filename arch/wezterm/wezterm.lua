@@ -12,7 +12,7 @@ config.line_height = 1.30
 config.enable_tab_bar = false
 config.window_decorations = "NONE"
 
-config.color_scheme = "Catppuccin Macchiato" -- or Mocha, Macchiato, Frappe, Latte
+config.color_scheme = "kanagawabones"
 
 config.window_background_opacity = 1
 
