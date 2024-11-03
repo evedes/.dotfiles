@@ -82,8 +82,8 @@ alias speed='speedtest --secure'
 alias rubik='ssh rubik'
 alias prometheus='ssh prometheus'
 alias alien='ssh alien'
-alias vedesvps='ssh vedesvps'
-alias thestarter='ssh thestarter'
+alias vedesvps='ssh -i ~/.ssh/id_ed25519_vedesvps edo@vedesvps'
+alias thestarter='ssh -i ~/.ssh/id_ed25519_thestarter thestarter@thestarter'
 
 # UTILS IP STUFF
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
