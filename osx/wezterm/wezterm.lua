@@ -6,7 +6,7 @@ local act = wezterm.action
 local config = wezterm.config_builder()
 
 -- Font configuration
-config.font = wezterm.font("JetBrainsMono Nerd Font")
+config.font = wezterm.font("Berkeley Mono")
 config.font_size = 15
 config.line_height = 1.30
 

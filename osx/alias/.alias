@@ -6,6 +6,7 @@ alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
 alias x='exit'
 alias b='bat'
 alias bsl='brew services list'
+alias aa='v ~/.dotfiles/osx/alias/.alias'
 
 # SHORTCUTS
 alias editalias='vim ~/.dotfiles/osx/alias/.alias'
@@ -84,6 +85,14 @@ alias prometheus='ssh prometheus'
 alias alien='ssh alien'
 alias vedesvps='ssh -i ~/.ssh/id_ed25519_vedesvps edo@vedesvps'
 alias thestarter='ssh -i ~/.ssh/id_ed25519_thestarter thestarter@thestarter'
+alias k21='ssh edo@k21'
+alias k22='ssh edo@k22'
+alias k23='ssh edo@k23'
+alias k24='ssh edo@k24'
+alias k25='ssh edo@k25'
+alias k26='ssh edo@k26'
+alias k27='ssh edo@k27'
+alias k28='ssh edo@k28'
 
 # UTILS IP STUFF
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
