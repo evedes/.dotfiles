@@ -2,15 +2,11 @@
 alias c='clear'
 alias chist='history -p'
 alias r='exec ${SHELL} -l'
-alias theme='bash -c  "$(curl -sLo- https://git.io/vQgMr)"'
 alias x='exit'
 alias b='bat'
 alias bsl='brew services list'
 alias aa='v ~/.dotfiles/osx/alias/.alias'
-alias aero='v ~/.aerospace.toml'
-
-# SHORTCUTS
-alias editalias='vim ~/.dotfiles/osx/alias/.alias'
+alias aero='v ~/config/aerospace/aerospace.toml'
 
 # P10K
 alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done'
@@ -18,7 +14,6 @@ alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " $
 # NVIM
 alias v='nvim'
 alias n='nvim'
-alias vim='nvim'
 
 alias t='tmux'
 alias ta='t attach -t'
@@ -58,7 +53,6 @@ alias npmg='npm list -g --depth 0'
 alias dotfiles='n ~/.dotfiles'
 alias mb='cmatrix -C blue'
 alias m='cmatrix'
-alias y='youtube-dl'
 
 # K8s
 alias k='kubectl'
