@@ -7,6 +7,7 @@ alias x='exit'
 alias b='bat'
 alias bsl='brew services list'
 alias aa='v ~/.dotfiles/osx/alias/.alias'
+alias aero='v ~/.aerospace.toml'
 
 # SHORTCUTS
 alias editalias='vim ~/.dotfiles/osx/alias/.alias'
@@ -25,7 +26,6 @@ alias td='t detach'
 alias tl='t ls'
 alias tn='t new -s'
 alias tk='t kill-session -t'
-
 
 # PBCOPY / PBPASTE
 alias pbcopy='xsel --clipboard --input'
