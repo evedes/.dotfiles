@@ -6,7 +6,7 @@ alias x='exit'
 alias b='bat'
 alias bsl='brew services list'
 alias aa='v ~/.dotfiles/osx/alias/.alias'
-alias aero='v ~/config/aerospace/aerospace.toml'
+alias aero='v ~/.config/aerospace/aerospace.toml'
 
 # P10K
 alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done'
@@ -75,6 +75,7 @@ alias speed='speedtest --secure'
 
 # MACHINES
 alias rubik='ssh rubik'
+alias wrubik='wakeonlan b4:2e:99:3d:2f:40'
 alias prometheus='ssh prometheus'
 alias alien='ssh alien'
 alias vedesvps='ssh -i ~/.ssh/id_ed25519_vedesvps edo@vedesvps'
