@@ -42,12 +42,12 @@ run = 'move-node-to-workspace s'
 preset = 'qwerty'
 
 [gaps]
-inner.horizontal = 24
-inner.vertical = 24
-outer.left = 24
-outer.bottom = 24
-outer.top = 24
-outer.right = 24
+inner.horizontal = 25
+inner.vertical = 25
+outer.left = 25
+outer.bottom = 25
+outer.top = 25
+outer.right = 25
 
 [mode.main.binding]
 
@@ -70,26 +70,10 @@ alt-shift-equal = 'resize smart +50'
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
-alt-5 = 'workspace 5'
-alt-6 = 'workspace 6'
-alt-7 = 'workspace 7'
-alt-8 = 'workspace 8'
-alt-9 = 'workspace 9'
-alt-0 = 'workspace 0'
-alt-s = 'workspace s'
 
 alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
 alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
 alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
-alt-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
-alt-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
-alt-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
-alt-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
-alt-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
-alt-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
-alt-shift-0 = ['move-node-to-workspace 0', 'workspace 0']
-alt-shift-s = ['move-node-to-workspace s', 'workspace s']
 
 alt-shift-f = 'fullscreen'
 
@@ -99,12 +83,9 @@ ctrl-cmd-k = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-semicolon = 'mode service'
 
 [workspace-to-monitor-force-assignment]
-1 = 2
+1 = 1
 2 = 2
-3 = 2
-9 = 1
-0 = 3
-s = 2
+3 = 3
 
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
