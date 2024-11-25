@@ -42,12 +42,12 @@ run = 'move-node-to-workspace s'
 preset = 'qwerty'
 
 [gaps]
-inner.horizontal = 25
-inner.vertical = 25
-outer.left = 25
-outer.bottom = 25
-outer.top = 25
-outer.right = 25
+inner.horizontal = 30
+inner.vertical = 30
+outer.left = 30
+outer.bottom = 30
+outer.top = 30
+outer.right = 30
 
 [mode.main.binding]
 
@@ -81,11 +81,6 @@ alt-tab = 'workspace-back-and-forth'
 ctrl-cmd-j = 'move-workspace-to-monitor --wrap-around prev'
 ctrl-cmd-k = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-semicolon = 'mode service'
-
-[workspace-to-monitor-force-assignment]
-1 = 1
-2 = 2
-3 = 3
 
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
