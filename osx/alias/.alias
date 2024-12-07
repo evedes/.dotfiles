@@ -75,7 +75,7 @@ alias speed='speedtest --secure'
 
 # MACHINES
 alias rubik='ssh rubik'
-alias wrubik='wakeonlan b4:2e:99:3d:2f:40'
+alias wr='wakeonlan b4:2e:99:3d:2f:40'
 alias prometheus='ssh prometheus'
 alias alien='ssh alien'
 alias vedesvps='ssh -i ~/.ssh/id_ed25519_vedesvps edo@vedesvps'
