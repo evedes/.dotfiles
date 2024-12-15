@@ -22,7 +22,7 @@ config.window_padding = {
 
 -- Color and appearance
 config.color_scheme = "kanagawabones"
-config.window_background_opacity = 0.95
+config.window_background_opacity = 1
 config.macos_window_background_blur = 10
 
 -- Window behavior
