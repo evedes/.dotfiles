@@ -76,8 +76,6 @@ alias speed='speedtest --secure'
 
 # MACHINES
 alias rubik='ssh rubik'
-alias wr='wakeonlan b4:2e:99:3d:2f:40'
-alias wp='wakeonlan 14:cc:20:00:3c:87'
 alias prometheus='ssh prometheus'
 alias alien='ssh alien'
 alias vedesvps='ssh -i ~/.ssh/id_ed25519_vedesvps edo@vedesvps'
@@ -90,6 +88,9 @@ alias k25='ssh edo@k25'
 alias k26='ssh edo@k26'
 alias k27='ssh edo@k27'
 alias k28='ssh edo@k28'
+
+alias wr='wakeonlan b4:2e:99:3d:2f:40'
+alias wp='wakeonlan 14:cc:20:00:3c:87'
 
 # UTILS IP STUFF
 alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
