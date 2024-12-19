@@ -16,10 +16,6 @@ keymap.set("n", "<tab>", ":tabnext<Return>", opts)
 keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
 keymap.set("n", "tw", ":tabclose<Return>", opts)
 
--- Window management
-keymap.set("n", "<leader>sv", "<C-w>v", opts)
-keymap.set("n", "<leader>ss", "<C-w>s", opts)
-
 -- Resize window
 keymap.set("n", "<C-A-h>", "<C-w><")
 keymap.set("n", "<C-A-l>", "<C-w>>")
