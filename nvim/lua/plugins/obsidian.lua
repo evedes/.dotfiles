@@ -4,11 +4,8 @@ return {
   lazy = true,
   ft = "markdown",
   event = {
-    -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-    -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
-    -- refer to `:h file-pattern` for more examples
-    "BufReadPre /Users/edo/Dropbox/Multiverse/*.md",
-    "BufNewFile /Users/edo/Dropbox/Multiverse/*.md",
+    "BufReadPre " .. vim.fn.expand("~") .. "/Nextcloud/Multiverse/*.md",
+    "BufNewFile " .. vim.fn.expand("~") .. "/Nextcloud/Multiverse/*.md",
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -17,8 +14,18 @@ return {
     workspaces = {
       {
         name = "personal",
-        path = "~/Dropbox/Multiverse",
+        path = "~/Nextcloud/Multiverse",
       },
     },
+  },
+  keys = {
+    { "<leader>of", "<cmd>ObsidianFollowLink<CR>", desc = "Follow Link" },
+    { "<leader>on", "<cmd>ObsidianNew<CR>", desc = "New Note" },
+    { "<leader>ob", "<cmd>ObsidianBacklinks<CR>", desc = "Show Backlinks" },
+    { "<leader>os", "<cmd>ObsidianSearch<CR>", desc = "Search" },
+    { "<leader>ot", "<cmd>ObsidianTags<CR>", desc = "Add Tags" },
+    { "<leader>oo", "<cmd>ObsidianQuickSwitch<CR>", desc = "Quick Switch" },
+    { "<leader>ol", "<cmd>ObsidianLink<CR>", desc = "Create Link" },
+    { "<leader>od", "<cmd>ObsidianToday<CR>", desc = "Daily Note" },
   },
 }
