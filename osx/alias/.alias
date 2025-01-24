@@ -6,7 +6,7 @@ alias x='exit'
 alias b='bat'
 alias bsl='brew services list'
 alias aa='v ~/.dotfiles/osx/alias/.alias'
-alias aero='v ~/.config/aerospace/aerospace.toml'
+alias zz='v ~/.dotfiles/osx/zshrc/.zshrc'
 
 # P10K
 alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done'
@@ -79,7 +79,7 @@ alias rubik='ssh rubik'
 alias prometheus='ssh prometheus'
 alias alien='ssh alien'
 alias vedesvps='ssh -i ~/.ssh/id_ed25519_vedesvps edo@vedesvps'
-alias thestarter='ssh -i ~/.ssh/id_ed25519_thestarter thestarter@thestarter'
+alias thestartervps='ssh -i ~/.ssh/id_ed25519_thestartervps thestarter@thestartervps'
 alias k21='ssh edo@k21'
 alias k22='ssh edo@k22'
 alias k23='ssh edo@k23'
@@ -98,6 +98,7 @@ alias myiplocation='curl https://ipinfo.io'
 
 # LIST
 alias ls="eza --icons=always"
+alias lc="ls -CF"
 alias l='eza --icons=always -ahl'
 alias ll='eza --icons=always -l'
 

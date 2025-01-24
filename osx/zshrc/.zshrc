@@ -67,3 +67,18 @@ export PATH="$PATH:$HOME/.cargo/bin"
 
 ## FZF
 source <(fzf --zsh)
+
+## GO
+export GOPATH="$HOME/.local/share/go"
+export GOROOT=$(brew --prefix go)/libexec
+export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH
+
+## VIRT MANAGER
+export XDG_DATA_DIRS=/opt/homebrew/share:$XDG_DATA_DIRS
+
+## FABRIC
+
+yt() {
+    local video_link="$1"
+    fabric -y "$video_link" --transcript
+}
