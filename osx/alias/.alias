@@ -7,7 +7,7 @@ alias b='bat'
 alias bsl='brew services list'
 alias aa='v ~/.dotfiles/osx/alias/.alias'
 alias zz='v ~/.dotfiles/osx/zshrc/.zshrc'
-alias mm='cd ~/Nextcloud/Multiverse/ && v .'
+alias mm='cd ~/Nextcloud/Multiverse && v EVERYTHING\ PLAN.md'
 alias img='kitten icat'
 
 # P10K

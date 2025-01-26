@@ -1,4 +1,12 @@
 local config = function()
+  vim.keymap.set("n", "<leader>ic", function()
+    -- This is the command that clears the images
+    require("image").clear()
+    -- I'm using [[ ]] to escape the special characters in a command
+    -- vim.cmd([[lua require("image").clear()]])
+    print("Images cleared")
+  end, { desc = "[P]Clear images" })
+
   require("image").setup({
     backend = "kitty",
     kitty_method = "normal", -- can be "normal" or "progressive"

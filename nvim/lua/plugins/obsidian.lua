@@ -17,7 +17,6 @@ return {
         path = "~/Nextcloud/Multiverse",
       },
     },
-
     open_app_foreground = true,
     obsidian_app_path = vim.fn.has("mac") == 1 and "/Applications/Obsidian.app" or "obsidian",
   },
@@ -52,7 +51,6 @@ return {
     { "<leader>oS", "<cmd>ObsidianSearch<CR>", mode = "v", desc = "Search Selection" },
     { "<leader>or", "<cmd>ObsidianRename<CR>", desc = "Rename Note" },
     { "<leader>oc", "<cmd>ObsidianCheck<CR>", desc = "Check Links" },
-    { "<leader>oP", "<cmd>ObsidianPasteImg<CR>", desc = "Paste Image from Clipboard" },
     { "<leader>oO", "<cmd>ObsidianOpen vsplit<CR>", desc = "Open in Vertical Split" },
     { "<leader>oh", "<cmd>ObsidianOpen split<CR>", desc = "Open in Horizontal Split" },
   },
