@@ -3,7 +3,11 @@ return {
   event = "VeryLazy",
   lazy = false,
   version = "*", -- set this to "*" if you want to always pull the latest change, false to update on release
-  opts = {},
+  opts = {
+    anthropic = {
+      api_key = vim.env.ANTHROPIC_API_KEY,
+    },
+  },
   build = "make",
   dependencies = {
     "stevearc/dressing.nvim",
