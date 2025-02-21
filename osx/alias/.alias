@@ -74,6 +74,9 @@ export VFORMAT="ID\t{{.ID}}\nNAME\t{{.Names}}\nIMAGE\t{{.Image}}\nPORTS\t{{.Port
 alias dpsv='docker ps --format="$VFORMAT"'
 alias dpav='docker ps -a --format="$VFORMAT"'
 
+# VIRT MANAGER
+alias vm='virt-manager & disown'
+
 # SPEEDTEST
 alias speed='speedtest --secure'
 

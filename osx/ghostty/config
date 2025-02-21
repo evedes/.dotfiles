@@ -1,6 +1,8 @@
 font-family = "Berkeley Mono"
 font-size = 16
 adjust-cell-height = 30%
-theme = "Kanagawa Dragon"
+theme = "kanagawabones"
 background-opacity = 0.98
 font-thicken = 0
+window-save-state = always
+

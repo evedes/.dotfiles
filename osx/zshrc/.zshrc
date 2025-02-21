@@ -14,6 +14,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # ALIAS
 source $HOME/.dotfiles/osx/alias/.alias
 
+# SECRETS
+source $HOME/.ssh/load_secrets.sh
+
 plugins=(
 	zsh-autosuggestions
 	zsh-syntax-highlighting
