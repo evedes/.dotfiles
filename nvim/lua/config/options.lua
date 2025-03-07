@@ -45,6 +45,9 @@ vim.opt.breakindent = true
 vim.opt.wrap = false
 vim.opt.path:append({ "**" })
 vim.opt.wildignore:append({ "*/node_modules/*" })
+vim.opt.wildignore:append({ "*/.pnpm-store/*" })
+vim.opt.wildignore:append({ "*/.next/*" })
+vim.opt.wildignore:append({ "*/.git*" })
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.splitkeep = "cursor"

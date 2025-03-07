@@ -6,6 +6,7 @@ return {
   opts = {
     anthropic = {
       api_key = vim.env.ANTHROPIC_API_KEY,
+      model = "claude-3.7-sonnet",
     },
   },
   build = "make",

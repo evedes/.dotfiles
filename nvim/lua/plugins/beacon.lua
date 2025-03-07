@@ -1,13 +1,13 @@
 local config = function()
   require("beacon").setup({
     enable = true,
-    size = 20,
+    size = 50,
     fade = true,
     minimal_jump = 10,
     show_jumps = true,
     focus_gained = false,
     shrink = true,
-    timeout = 300,
+    timeout = 500,
     ignore_buffers = {},
     ignore_filetypes = {},
   })

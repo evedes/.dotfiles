@@ -1,7 +1,7 @@
-font-family = "Berkeley Mono"
+font-family = "JetBrainsMono"
 font-size = 16
 adjust-cell-height = 30%
-theme = "kanagawabones"
+theme = "nord-wave"
 background-opacity = 0.98
 font-thicken = 0
 window-save-state = always
