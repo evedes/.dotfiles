@@ -6,7 +6,7 @@ return {
   opts = {
     anthropic = {
       api_key = vim.env.ANTHROPIC_API_KEY,
-      model = "claude-3.7-sonnet",
+      model = "claude-3-5-sonnet-20241022",
     },
   },
   build = "make",
@@ -26,6 +26,7 @@ return {
           drag_and_drop = {
             insert_mode = true,
           },
+          use_absolute_path = true,
         },
       },
     },
