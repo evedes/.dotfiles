@@ -1,21 +1,20 @@
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
-  lazy = false,
-  version = "*", -- set this to "*" if you want to always pull the latest change, false to update on release
+  version = "*",
   opts = {
     anthropic = {
       api_key = vim.env.ANTHROPIC_API_KEY,
       model = "claude-3-5-sonnet-20241022",
     },
   },
-  build = "make",
   dependencies = {
+    "nvim-treesitter/nvim-treesitter",
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
-    "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
-    "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+    "ibhagwan/fzf-lua",
+    "nvim-tree/nvim-web-devicons",
     {
       "HakonHarnes/img-clip.nvim",
       event = "VeryLazy",
@@ -26,7 +25,6 @@ return {
           drag_and_drop = {
             insert_mode = true,
           },
-          use_absolute_path = true,
         },
       },
     },
