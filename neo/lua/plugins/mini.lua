@@ -17,8 +17,8 @@ local config = function()
 
   miniclue.setup({
     triggers = {
-      { mode = 'n', keys = '<>' },
-      { mode = 'x', keys = '<>' },
+      { mode = 'n', keys = '<Leader>' },
+      { mode = 'x', keys = '<Leader>' },
     },
     clues = {
       miniclue.gen_clues.builtin_completion(),
@@ -27,10 +27,10 @@ local config = function()
       miniclue.gen_clues.registers(),
       miniclue.gen_clues.windows(),
       miniclue.gen_clues.z(),
-      { mode = 'n', keys = '<>a', desc = 'Avante' },
-      { mode = 'n', keys = '<>b', desc = 'Buffer' },
-      { mode = 'n', keys = '<>f', desc = 'Picker' },
-      { mode = 'n', keys = '<>g', desc = 'Git' },
+      { mode = 'n', keys = '<Leader>a', desc = 'Avante' },
+      { mode = 'n', keys = '<Leader>b', desc = 'Buffer' },
+      { mode = 'n', keys = '<Leader>f', desc = 'Picker' },
+      { mode = 'n', keys = '<Leader>g', desc = 'Git' },
     },
   })
 

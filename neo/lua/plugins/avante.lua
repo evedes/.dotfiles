@@ -11,7 +11,6 @@ return {
       timeout = 30e3,
       temperature = 0,
       max_tokens = 8192,
-      disable_tools = true,
     },
   },
   build = "make",
