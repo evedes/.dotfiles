@@ -23,9 +23,15 @@ keymap.set("n", "<C-A-j>", "<C-w>-")
 keymap.set("n", "<leader>gg", ":Neogit<CR>", with_desc("NeoGit Status"))
 keymap.set("n", "<leader>go", "<cmd>lua MiniDiff.toggle_overlay()<cr>" , with_desc("MiniDiff Toggle Overlay"))
 
--- Mini
+-- Mini Picker
 keymap.set("n", "<leader>fe", "<cmd>lua MiniFiles.open()<cr>", with_desc("Explorer"))
 keymap.set("n", "<leader>ff", "<cmd>Pick files<cr>" , with_desc("Finder"))
 keymap.set("n", "<leader>fg", "<cmd>Pick grep_live<cr>" , with_desc("Live Grep"))
 keymap.set("n", "<leader>fb", "<cmd>Pick buffers<cr>" , with_desc("Buffers"))
 keymap.set("n", "<leader>fh", "<cmd>Pick help<cr>" , with_desc("Help"))
+
+-- Mini Buffer
+keymap.set("n", "<leader>br", "<cmd>lua MiniBufremove.unshow()<cr>" , with_desc("Remove"))
+keymap.set("n", "<leader>bd", "<cmd>lua MiniBufremove.delete()<cr>" , with_desc("Delete"))
+keymap.set("n", "<leader>bw", "<cmd>lua MiniBufremove.wipeout()<cr>" , with_desc("Wipeout"))
+

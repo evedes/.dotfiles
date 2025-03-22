@@ -17,7 +17,7 @@ alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " $
 alias v='nvim'
 alias n='nvim'
 alias nconf='cd ~/.config/nvim && v .'
-alias neo='NVIM_APPNAME=neo nvim'
+alias neo='NVIM_APPNAME=neo nvim .'
 
 alias t='tmux'
 alias ta='t attach -t'

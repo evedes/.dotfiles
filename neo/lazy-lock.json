@@ -1,6 +1,7 @@
 {
   "avante.nvim": { "branch": "main", "commit": "b837274e0fa0fdf13885f533883edeeeb929daee" },
   "beacon.nvim": { "branch": "main", "commit": "d02ee7dfcc999537c2f09abdf667aab52f8648f3" },
+  "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
   "colorful-winsep.nvim": { "branch": "alpha", "commit": "0070484536ea55ec64a8453d41e3badace04a61a" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "dressing.nvim": { "branch": "master", "commit": "2d7c2db2507fa3c4956142ee607431ddb2828639" },
