@@ -35,3 +35,5 @@ keymap.set("n", "<leader>br", "<cmd>lua MiniBufremove.unshow()<cr>" , with_desc(
 keymap.set("n", "<leader>bd", "<cmd>lua MiniBufremove.delete()<cr>" , with_desc("Delete"))
 keymap.set("n", "<leader>bw", "<cmd>lua MiniBufremove.wipeout()<cr>" , with_desc("Wipeout"))
 
+-- Img Clip
+keymap.set("n", "<leader>ip", "<cmd>PasteImage<cr>" , with_desc("Paste Image"))

@@ -8,6 +8,7 @@ local config = function()
   require('mini.files').setup()
   require('mini.pick').setup()
   require('mini.icons').setup()
+  require('mini.git').setup()
   require('mini.diff').setup()
   require('mini.notify').setup()
   require('mini.cursorword').setup()
@@ -31,6 +32,7 @@ local config = function()
       { mode = 'n', keys = '<Leader>b', desc = 'Buffer' },
       { mode = 'n', keys = '<Leader>f', desc = 'Picker' },
       { mode = 'n', keys = '<Leader>g', desc = 'Git' },
+      { mode = 'n', keys = '<Leader>i', desc = 'Image' },
     },
   })
 
