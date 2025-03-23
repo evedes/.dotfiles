@@ -6,11 +6,12 @@ return {
     provider = "claude",
     claude = {
       endpoint = "https://api.anthropic.com",
-      model = "claude-3-5-sonnet-20241022",
-      -- model = "claude-3-7-sonnet-20250219",
+      -- model = "claude-3-5-sonnet-20241022",
+      model = "claude-3-7-sonnet-20250219",
       timeout = 30e3,
       temperature = 0,
-      max_tokens = 8192,
+      -- max_tokens = 8192,
+      -- disable_tools = true
     },
   },
   build = "make",
@@ -20,7 +21,7 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
     "echasnovski/mini.pick", -- for file_selector provider mini.pick
-    "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+    "hrsh7th/nvim-cmp",      -- autocompletion for avante commands and mentions
     "echasnovski/mini.icons",
     {
       "HakonHarnes/img-clip.nvim",

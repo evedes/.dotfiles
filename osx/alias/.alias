@@ -14,7 +14,7 @@ alias img='kitten icat'
 alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done'
 
 # NVIM
-alias v='nvim'
+alias v='nvim .'
 alias n='nvim'
 alias nconf='cd ~/.config/nvim && v .'
 alias neo='NVIM_APPNAME=neo nvim .'
