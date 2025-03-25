@@ -14,3 +14,4 @@ return {
     { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
   },
 }
+

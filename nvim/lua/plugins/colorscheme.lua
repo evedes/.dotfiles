@@ -20,9 +20,9 @@ local config = function()
         LineNr = { bg = "#1a1a22" },
       }
     end,
-    theme = "dragon",
+    theme = "wave",
     background = {
-      dark = "dragon", -- wave, dragon
+      dark = "wave", -- wave, dragon
       light = "lotus",
     },
   })
