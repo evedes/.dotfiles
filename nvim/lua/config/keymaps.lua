@@ -21,4 +21,4 @@ keymap.set("n", "<C-A-k>", "<C-w>+")
 keymap.set("n", "<C-A-j>", "<C-w>-")
 
 -- Git
--- keymap.set("n", "<leader>gg", ":Neogit<CR>", opts)
+keymap.set("n", "<leader>gg", ":Neogit<CR>", opts)
