@@ -5,8 +5,8 @@ alias r='exec ${SHELL} -l'
 alias x='exit'
 alias b='bat'
 alias bsl='brew services list'
-alias aa='v ~/.dotfiles/osx/alias/.alias'
-alias zz='v ~/.dotfiles/osx/zshrc/.zshrc'
+alias aa='nvim ~/.dotfiles/osx/alias/.alias'
+alias zz='nvim ~/.dotfiles/osx/zshrc/.zshrc'
 alias mm='cd ~/Nextcloud/Multiverse && v EVERYTHING\ PLAN.md'
 alias img='kitten icat'
 
@@ -14,10 +14,9 @@ alias img='kitten icat'
 alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done'
 
 # NVIM
-alias v='nvim .'
-alias n='nvim'
+alias v='nvim'
 alias nconf='cd ~/.config/nvim && nvim .'
-alias neo='NVIM_APPNAME=neo nvim .'
+alias neo='NVIM_APPNAME=neo nvim'
 
 # CURSOR
 alias cu='cursor .'
