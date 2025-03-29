@@ -15,6 +15,8 @@ return {
   },
   config = function()
     -- Lua LSP setup
-    require("lspconfig").lua_ls.setup({})
+    lspconfig = require("lspconfig")
+    lspconfig.lua_ls.setup()
+    lspconfig.ts_ls.setup()
   end
 }
