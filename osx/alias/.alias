@@ -19,6 +19,9 @@ alias n='nvim'
 alias nconf='cd ~/.config/nvim && nvim .'
 alias neo='NVIM_APPNAME=neo nvim .'
 
+# CURSOR
+alias cu='cursor .'
+
 alias t='tmux'
 alias ta='t attach -t'
 alias td='t detach'
