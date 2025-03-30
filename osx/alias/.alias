@@ -8,15 +8,13 @@ alias bsl='brew services list'
 alias aa='nvim ~/.dotfiles/osx/alias/.alias'
 alias zz='nvim ~/.dotfiles/osx/zshrc/.zshrc'
 alias mm='cd ~/Nextcloud/Multiverse && v EVERYTHING\ PLAN.md'
-alias img='kitten icat'
 
 # P10K
 alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done'
 
-# NVIM
+# NEOVIM
 alias v='nvim'
 alias nconf='cd ~/.config/nvim && nvim .'
-alias neo='NVIM_APPNAME=neo nvim'
 
 # CURSOR
 alias cu='cursor .'
@@ -45,6 +43,7 @@ alias rmnodemodules='find . -name 'node_modules' -type d -prune -exec rm -rf '{}
 # GIT
 alias gll="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gsl="git stash list"
+alias gsc="git stash clear"
 alias gs="git status"
 alias gd="git diff"
 alias gfo="git fetch origin"
