@@ -1,46 +1,195 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    {
-      "williamboman/mason-lspconfig.nvim",
-      "folke/lazydev.nvim",
-      library = {
-        -- See the configuration section for more details
-        -- Load luvit types when the `vim.uv` word is found
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-      },
-    },
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "folke/lazydev.nvim",
+    "hrsh7th/cmp-nvim-lsp",   -- LSP source for nvim-cmp
+    "nvimtools/none-ls.nvim", -- For formatters and linters
   },
   config = function()
-    require("lspconfig").lua_ls.setup({})
-    require("lspconfig").ts_ls.setup({})
-
-    vim.api.nvim_create_autocmd('LspAttach', {
-      group = vim.api.nvim_create_augroup('lsp', {}),
-      callback = function(args)
-        local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-        if client:supports_method('textDocument/implementation') then
-          -- Create a keymap for vim.lsp.buf.implementation ...
-        end
-
-        -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
-        if client:supports_method('textDocument/completion') then
-          vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-        end
-
-        -- Auto-format ("lint") on save.
-        -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
-        if not client:supports_method('textDocument/willSaveWaitUntil')
-            and client:supports_method('textDocument/formatting') then
-          vim.api.nvim_create_autocmd('BufWritePre', {
-            group = vim.api.nvim_create_augroup('lsp', { clear = false }),
-            buffer = args.buf,
-            callback = function()
-              vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
-            end,
-          })
-        end
-      end,
+    -- Setup Mason first to ensure LSP servers are installed
+    require("mason").setup()
+    require("mason-lspconfig").setup({
+      ensure_installed = {
+        "lua_ls",        -- Lua
+        "ts_ls",         -- TypeScript/JavaScript
+        "eslint",        -- ESLint
+        "prettierd",     -- Prettier (as a formatter)
+        "pyright",       -- Python
+        "rust_analyzer", -- Rust
+        -- Add other servers you need
+      },
+      automatic_installation = true,
     })
+
+    -- LSP keybindings
+    local on_attach = function(client, bufnr)
+      local opts = { noremap = true, silent = true, buffer = bufnr }
+
+      -- LSP navigation
+      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+      vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+      vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+
+      -- LSP actions
+      vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+      vim.keymap.set('n', '<leader>cd', vim.lsp.buf.hover, opts)
+      vim.keymap.set('n', '<leader>cf', function() vim.lsp.buf.format({ async = true }) end, opts)
+
+      -- Diagnostics
+      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+      vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+      vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
+      vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
+
+      -- Auto-format on save
+      if client.supports_method("textDocument/formatting") then
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = bufnr,
+          callback = function()
+            vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 3000 })
+          end,
+        })
+      end
+    end
+
+    -- nvim-cmp supports additional LSP capabilities
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+    -- Configure Lua LSP for Neovim
+    require("lspconfig").lua_ls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {
+        Lua = {
+          diagnostics = {
+            globals = { "vim" }, -- Recognize vim global
+          },
+          workspace = {
+            library = vim.api.nvim_get_runtime_file("", true),
+            checkThirdParty = false,
+          },
+          telemetry = {
+            enable = false,
+          },
+        },
+      },
+    })
+
+    -- TypeScript/JavaScript
+    require("lspconfig").ts_ls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+    })
+
+    -- Python
+    require("lspconfig").pyright.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
+
+    -- ESLint
+    require("lspconfig").eslint.setup({
+      on_attach = function(client, bufnr)
+        on_attach(client, bufnr)
+        -- Run ESLint autofix on save
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = bufnr,
+          command = "EslintFixAll",
+        })
+      end,
+      capabilities = capabilities,
+      settings = {
+        packageManager = "npm",
+      },
+      filetypes = {
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "svelte",
+      },
+    })
+
+    -- Note: Prettier isn't actually an LSP server
+    -- It should be set up as a formatter instead
+    -- Let's add null-ls or conform.nvim for formatting
+
+    -- Rust
+    require("lspconfig").rust_analyzer.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      settings = {
+        ["rust-analyzer"] = {
+          checkOnSave = {
+            command = "clippy",
+          },
+        },
+      },
+    })
+
+    -- Set up none-ls for Prettier and other formatters
+    local null_ls = require("null-ls")
+    null_ls.setup({
+      sources = {
+        null_ls.builtins.formatting.prettierd.with({
+          filetypes = {
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "vue",
+            "css",
+            "scss",
+            "less",
+            "html",
+            "json",
+            "yaml",
+            "markdown",
+            "graphql",
+          },
+        }),
+      },
+      on_attach = on_attach,
+    })
+
+    -- Set up diagnostic signs
+    local signs = { Error = "󰅙 ", Warn = "󰀦 ", Hint = "󰌵 ", Info = " " }
+    for type, icon in pairs(signs) do
+      local hl = "DiagnosticSign" .. type
+      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+    end
+
+    -- Configure diagnostics display
+    vim.diagnostic.config({
+      virtual_text = true,
+      signs = true,
+      underline = true,
+      update_in_insert = false,
+      severity_sort = true,
+      float = {
+        border = "rounded",
+        source = "always",
+        header = "",
+        prefix = "",
+      },
+    })
+
+    -- Better hover UI
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+      vim.lsp.handlers.hover,
+      { border = "rounded" }
+    )
+
+    -- Better signatureHelp UI
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+      vim.lsp.handlers.signature_help,
+      { border = "rounded" }
+    )
   end
 }

@@ -10,8 +10,8 @@ return {
       -- model = "claude-3-7-sonnet-20250219",
       timeout = 30000,
       temperature = 0,
-      -- max_tokens = 8192,
-      -- disable_tools = true
+      max_tokens = 8192,
+      disable_tools = true
     },
   },
   build = "make",
