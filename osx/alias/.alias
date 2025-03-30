@@ -107,7 +107,7 @@ alias myip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias myiplocation='curl https://ipinfo.io'
 
 # LIST
-alias ls="eza --icons=always"
+alias ls="eza -ahl --icons=always"
 alias lc="ls -CF"
 alias l='eza --icons=always -ahl'
 alias ll='eza --icons=always -l'
@@ -126,3 +126,6 @@ alias psql-start="brew services start postgresql@15"
 
 # ZOXIDE
 alias cd='z'
+
+# FABRIC
+alias p2t='pdftotext'
