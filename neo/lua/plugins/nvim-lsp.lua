@@ -152,6 +152,7 @@ return {
             "yaml",
             "markdown",
             "graphql",
+            "vue"
           },
         }),
       },
@@ -177,7 +178,7 @@ return {
         source = "always",
         header = "",
         prefix = "",
-      },
+      }
     })
 
     -- Better hover UI
