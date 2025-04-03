@@ -15,10 +15,8 @@ return {
         "lua_ls",        -- Lua
         "ts_ls",         -- TypeScript/JavaScript
         "eslint",        -- ESLint
-        "prettierd",     -- Prettier (as a formatter)
         "pyright",       -- Python
         "rust_analyzer", -- Rust
-        -- Add other servers you need
       },
       automatic_installation = true,
     })

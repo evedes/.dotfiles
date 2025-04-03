@@ -47,10 +47,12 @@ alias gsl="git stash list"
 alias gsc="git stash clear"
 alias gs="git status"
 alias gd="git diff"
+alias gb="git branch"
 alias gfo="git fetch origin"
 alias gco="git checkout"
 alias lg="lazygit"
 alias gwl="git worktree list"
+alias dlb="git branch | grep -v \* | xargs git branch -D"
 
 # NPM
 alias npmg='npm list -g --depth 0'
@@ -129,3 +131,6 @@ alias cd='z'
 
 # FABRIC
 alias p2t='pdftotext'
+
+## ZONE
+alias rez='cd docs && bundle && cd .. && bundle && pnpm i && echo "Reinstall DONE ✅"'
