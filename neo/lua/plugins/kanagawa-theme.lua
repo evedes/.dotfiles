@@ -30,9 +30,8 @@ return {
         dark = "wave",
         light = "lotus"
       },
-      vim.cmd("colorscheme kanagawa")
     })
-
+    vim.cmd("colorscheme kanagawa")
     build = function()
       vim.cmd("KanagawaCompile")
     end

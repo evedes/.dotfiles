@@ -18,21 +18,28 @@ keymap.set("n", "<leader>q", "<cmd>quit<cr>", with_desc("Quit"))
 keymap.set("n", "<leader>Q", "<cmd>qa<cr>", with_desc("Quit all"))
 
 -- Resize window
-keymap.set("n", "<C-A-h>", "<C-w><")
-keymap.set("n", "<C-A-l>", "<C-w>>")
-keymap.set("n", "<C-A-k>", "<C-w>+")
-keymap.set("n", "<C-A-j>", "<C-w>-")
+keymap.set("n", "<C-A-h>", "<C-w><", with_desc("Resize left"))
+keymap.set("n", "<C-A-l>", "<C-w>>", with_desc("Resize right"))
+keymap.set("n", "<C-A-k>", "<C-w>+", with_desc("Resize up"))
+keymap.set("n", "<C-A-j>", "<C-w>-", with_desc("Resize down"))
 
 -- Git
-keymap.set("n", "<leader>gg", ":Neogit<CR>", with_desc("NeoGit Status"))
-keymap.set("n", "<leader>go", "<cmd>lua MiniDiff.toggle_overlay()<cr>", with_desc("MiniDiff Toggle Overlay"))
+keymap.set("n", "<leader>gg", ":Neogit<CR>", with_desc("NeoGit"))
+keymap.set("n", "<leader>gl", function() vim.cmd("terminal lazygit") end, with_desc("LazyGit"))
+keymap.set("n", "<leader>go", "<cmd>lua MiniDiff.toggle_overlay()<cr>", with_desc("MiniDiff"))
 
 -- Mini Picker
 keymap.set("n", "<leader>fe", "<cmd>lua MiniFiles.open()<cr>", with_desc("Explorer"))
 keymap.set("n", "<leader>ff", "<cmd>Pick files<cr>", with_desc("Finder"))
 keymap.set("n", "<leader>fg", "<cmd>Pick grep_live<cr>", with_desc("Live Grep"))
+keymap.set("n", "<leader>/", "<cmd>Pick grep_live<cr>", with_desc("Live Grep"))
 keymap.set("n", "<leader>fb", "<cmd>Pick buffers<cr>", with_desc("Buffers"))
 keymap.set("n", "<leader>fh", "<cmd>Pick help<cr>", with_desc("Help"))
+keymap.set("n", "<leader>fc",
+  function()
+    local config_dir = vim.fn.stdpath("config")
+    require('mini.pick').builtin.files({ cwd = config_dir })
+  end, with_desc("Config"))
 
 -- Mini Buffer
 keymap.set("n", "<leader>br", "<cmd>lua MiniBufremove.unshow()<cr>", with_desc("Remove"))
