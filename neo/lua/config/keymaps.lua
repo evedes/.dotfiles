@@ -8,6 +8,10 @@ end
 keymap.set("i", "jk", "<Esc>", with_desc("Escape"))
 keymap.set("n", "x", '"_x') -- Sends the deleted char to the black hole register
 
+-- Utils
+keymap.set("n", "<leader>ul", "<cmd>Lazy<cr>", with_desc("Lazy"))   -- Lazy
+keymap.set("n", "<leader>um", "<cmd>Mason<cr>", with_desc("Mason")) -- Mason
+
 -- Increment / Decrement numbers
 keymap.set("n", "+", "<C-a>", with_desc("Increment number"))
 keymap.set("n", "-", "<C-x>", with_desc("Decrement number"))

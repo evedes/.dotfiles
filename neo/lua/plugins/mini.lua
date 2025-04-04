@@ -20,14 +20,15 @@ return {
     require('mini.icons').setup()
     require('mini.cursorword').setup()
     require('mini.notify').setup()
-    require('mini.hipatterns').setup({
+    local hipatterns = require('mini.hipatterns')
+    hipatterns.setup({
       highlighters = {
         -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
         fixme     = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
         hack      = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
         todo      = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
         note      = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
-        hex_color = require('mini.hipatterns').gen_highlighter.hex_color(),
+        hex_color = hipatterns.gen_highlighter.hex_color(),
       },
     })
     require('mini.statusline').setup({
@@ -55,7 +56,8 @@ return {
         end,
       },
     })
-    require('mini.clue').setup({
+    local miniclue = require('mini.clue')
+    miniclue.setup({
       triggers = {
         { mode = 'n', keys = '<Leader>' },
         { mode = 'x', keys = '<Leader>' },
@@ -75,6 +77,7 @@ return {
         { mode = 'n', keys = '<Leader>g',      desc = 'Git' },
         { mode = 'n', keys = '<Leader>i',      desc = 'Image' },
         { mode = 'n', keys = '<Leader>o',      desc = 'Obsidian' },
+        { mode = 'n', keys = '<Leader>u',      desc = 'Utils' },
         { mode = 'n', keys = '<LocalLeader>e', desc = 'Conjure' },
       },
     })
