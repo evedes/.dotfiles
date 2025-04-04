@@ -1,8 +1,8 @@
 font-family = "ZedMono Nerd Font Mono"
-font-size = 16
-adjust-cell-height = 20%
+font-size = 14
+adjust-cell-height = 25%
 theme = "kanagawabones"
-background-opacity = 0.98
+background-opacity = 0.92
 font-thicken = 0
 window-save-state = always
 
