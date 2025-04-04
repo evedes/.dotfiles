@@ -4,7 +4,7 @@ return {
   priority = 1000,
   config = function()
     require('kanagawa').setup({
-      compile = false,
+      compile = true,
       undercurl = true,
       commentStyle = { italic = true },
       functionStyle = {},
@@ -16,19 +16,25 @@ return {
       terminalColors = true,
       colors = {
         palette = {},
-        theme = { wave = {}, lotus = {}, dragon = {}, all = {
-          ui = { bg_gutter = "none"}
-        } },
+        theme = {
+          wave = {},
+          lotus = {},
+          dragon = {},
+          all = {
+            ui = { bg_gutter = "none" }
+          }
+        },
       },
-      overrides = function(colors)
-        return {}
-      end,
-      theme = "dragon",
+      theme = "wave",
       background = {
-        dark = "dragon",
+        dark = "wave",
         light = "lotus"
       },
+      vim.cmd("colorscheme kanagawa")
     })
-    vim.cmd("colorscheme kanagawa")
+
+    build = function()
+      vim.cmd("KanagawaCompile")
+    end
   end
 }

@@ -17,6 +17,7 @@ return {
         "eslint",        -- ESLint
         "pyright",       -- Python
         "rust_analyzer", -- Rust
+        "clojure_lsp",   -- Clojure
       },
       automatic_installation = true,
     })
@@ -38,8 +39,6 @@ return {
       vim.keymap.set('n', '<leader>cf', function() vim.lsp.buf.format({ async = true }) end, opts)
 
       -- Diagnostics
-      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-      vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
       vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
       vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 
@@ -114,9 +113,21 @@ return {
       },
     })
 
-    -- Note: Prettier isn't actually an LSP server
-    -- It should be set up as a formatter instead
-    -- Let's add null-ls or conform.nvim for formatting
+    -- Clojure
+    require("lspconfig").clojure_lsp.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      -- Optional settings for clojure-lsp
+      settings = {
+        -- You can add Clojure-specific settings here if needed
+        ["clojure-lsp"] = {
+          -- Example settings (uncomment as needed):
+          -- signatureHelp = true,
+          -- codeLens = { refreshOnSave = true },
+          -- completion = { autocompleteOnEnter = false },
+        }
+      }
+    })
 
     -- Rust
     require("lspconfig").rust_analyzer.setup({
@@ -153,6 +164,10 @@ return {
             "vue"
           },
         }),
+        -- Add clj-kondo for additional Clojure linting if desired
+        null_ls.builtins.diagnostics.clj_kondo,
+        -- Add cljfmt for optional formatting control
+        null_ls.builtins.formatting.cljfmt,
       },
       on_attach = on_attach,
     })

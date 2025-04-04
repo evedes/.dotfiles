@@ -5,9 +5,14 @@ return {
   config = function()
     require('mini.basics').setup()
 
-    -- Selection and Movements
     require('mini.move').setup()
-    require('mini.pairs').setup()
+    require('mini.pairs').setup({
+      -- Highlight matching pair
+      highlight = {
+        enable = true,
+        style = 'highlight', -- 'highlight', 'underline', 'none'
+      }
+    })
 
     -- Buffers
     require('mini.bufremove').setup()
