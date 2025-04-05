@@ -13,5 +13,6 @@ return {
       ignore_buffers = {},
       ignore_filetypes = {},
     })
-  end,
+  end
+
 }

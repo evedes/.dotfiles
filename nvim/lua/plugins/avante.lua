@@ -11,17 +11,18 @@ return {
       timeout = 30000,
       temperature = 0,
       max_tokens = 8192,
-      disable_tools = true,
+      disable_tools = true
     },
   },
   build = "make",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
+    "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
-    "hrsh7th/nvim-cmp",
-    "ibhagwan/fzf-lua",
-    "nvim-tree/nvim-web-devicons",
+    "echasnovski/mini.pick", -- for file_selector provider mini.pick
+    "hrsh7th/nvim-cmp",      -- autocompletion for avante commands and mentions
+    "echasnovski/mini.icons",
     {
       "HakonHarnes/img-clip.nvim",
       event = "VeryLazy",
@@ -37,7 +38,7 @@ return {
       },
     },
     {
-      "MeanderingProgrammer/render-markdown.nvim",
+      'MeanderingProgrammer/render-markdown.nvim',
       opts = {
         file_types = { "markdown", "Avante" },
       },

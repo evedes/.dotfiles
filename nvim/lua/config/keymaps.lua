@@ -1,6 +1,3 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap
 
@@ -12,7 +9,8 @@ keymap.set("i", "jk", "<Esc>", with_desc("Escape"))
 keymap.set("n", "x", '"_x') -- Sends the deleted char to the black hole register
 
 -- Utils
-keymap.set("n", "<leader>um", "<cmd>Mason<cr>", with_desc("Mason"))
+keymap.set("n", "<leader>ul", "<cmd>Lazy<cr>", with_desc("Lazy"))   -- Lazy
+keymap.set("n", "<leader>um", "<cmd>Mason<cr>", with_desc("Mason")) -- Mason
 
 -- Increment / Decrement numbers
 keymap.set("n", "+", "<C-a>", with_desc("Increment number"))
@@ -24,14 +22,34 @@ keymap.set("n", "<leader>q", "<cmd>quit<cr>", with_desc("Quit"))
 keymap.set("n", "<leader>Q", "<cmd>qa<cr>", with_desc("Quit all"))
 
 -- Resize window
-keymap.set("n", "<C-A-h>", "<C-w><")
-keymap.set("n", "<C-A-l>", "<C-w>>")
-keymap.set("n", "<C-A-k>", "<C-w>+")
-keymap.set("n", "<C-A-j>", "<C-w>-")
+keymap.set("n", "<C-A-h>", "<C-w><", with_desc("Resize left"))
+keymap.set("n", "<C-A-l>", "<C-w>>", with_desc("Resize right"))
+keymap.set("n", "<C-A-k>", "<C-w>+", with_desc("Resize up"))
+keymap.set("n", "<C-A-j>", "<C-w>-", with_desc("Resize down"))
 
 -- Git
-keymap.set("n", "<leader>gg", ":Neogit<CR>", with_desc("NeoGit Status"))
-keymap.set("n", "<leader>go", "<cmd>lua MiniDiff.toggle_overlay()<cr>", with_desc("MiniDiff Toggle Overlay"))
+keymap.set("n", "<leader>gg", ":Neogit<CR>", with_desc("NeoGit"))
+keymap.set("n", "<leader>gl", function() vim.cmd("terminal lazygit") end, with_desc("LazyGit"))
+keymap.set("n", "<leader>go", "<cmd>lua MiniDiff.toggle_overlay()<cr>", with_desc("MiniDiff"))
+
+-- Mini Picker
+keymap.set("n", "<leader>fe", "<cmd>lua MiniFiles.open()<cr>", with_desc("Explorer"))
+keymap.set("n", "<leader>ff", "<cmd>Pick files<cr>", with_desc("Finder"))
+keymap.set("n", "<leader>fg", "<cmd>Pick grep_live<cr>", with_desc("Live Grep"))
+keymap.set("n", "<leader>/", "<cmd>Pick grep_live<cr>", with_desc("Live Grep"))
+keymap.set("n", "<leader>fb", "<cmd>Pick buffers<cr>", with_desc("Buffers"))
+keymap.set("n", "<leader>fh", "<cmd>Pick help<cr>", with_desc("Help"))
+keymap.set("n", "<leader>fc",
+  function()
+    local config_dir = vim.fn.stdpath("config")
+    require('mini.pick').builtin.files({ cwd = config_dir })
+  end, with_desc("Config"))
+
+-- Mini Buffer
+keymap.set("n", "<leader>br", "<cmd>lua MiniBufremove.unshow()<cr>", with_desc("Remove"))
+keymap.set("n", "<leader>bd", "<cmd>lua MiniBufremove.delete()<cr>", with_desc("Delete"))
+keymap.set("n", "<leader>bw", "<cmd>lua MiniBufremove.wipeout()<cr>", with_desc("Wipeout"))
+keymap.set("n", "<leader>ba", "<cmd>%bd|e#|bd#<cr>", with_desc("Delete All Except Current"))
 
 -- Img Clip
 keymap.set("n", "<leader>ip", "<cmd>PasteImage<cr>", with_desc("Paste Image"))
@@ -59,13 +77,17 @@ keymap.set("n", "<leader>or", "<cmd>ObsidianRename<CR>", with_desc("Rename Note"
 keymap.set("n", "<leader>oc", "<cmd>ObsidianCheck<CR>", with_desc("Check Links"))
 keymap.set("n", "<leader>oO", "<cmd>ObsidianOpen vsplit<CR>", with_desc("Open in Vertical Split"))
 keymap.set("n", "<leader>oh", "<cmd>ObsidianOpen split<CR>", with_desc("Open in Horizontal Split"))
-keymap.set("n", "<leader>og", function()
-  vim.cmd("ObsidianOpen")
-  vim.defer_fn(function()
-    if vim.fn.has("mac") == 1 then
-      vim.fn.system('osascript -e \'tell application "System Events" to keystroke "g" using command down\'')
-    elseif vim.fn.has("unix") == 1 then
-      vim.fn.system("xdotool key ctrl+g")
-    end
-  end, 1000)
-end, with_desc("Open in Obsidian Graph View"))
+keymap.set(
+  "n",
+  "<leader>og",
+  function()
+    vim.cmd("ObsidianOpen")
+    vim.defer_fn(function()
+      if vim.fn.has("mac") == 1 then
+        vim.fn.system('osascript -e \'tell application "System Events" to keystroke "g" using command down\'')
+      elseif vim.fn.has("unix") == 1 then
+        vim.fn.system("xdotool key ctrl+g")
+      end
+    end, 1000)
+  end,
+  with_desc("Open in Obsidian Graph View"))

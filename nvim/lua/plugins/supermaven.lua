@@ -1,4 +1,5 @@
-return {
+
+return    {
   "supermaven-inc/supermaven-nvim",
   event = "VeryLazy",
   config = function()
@@ -18,7 +19,9 @@ return {
       disable_keymaps = false,
       condition = function()
         return false
-      end,
+      end
     })
-  end,
+
+  end
+
 }

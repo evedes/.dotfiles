@@ -13,8 +13,7 @@ alias mm='cd ~/Nextcloud/Multiverse && v EVERYTHING\ PLAN.md'
 alias p10kc='for i in {0..255}; do print -Pn "%K{$i} %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done'
 
 # NEOVIM
-alias v='nvim .'
-alias n='NVIM_APPNAME=neo nvim .'
+alias v='nvim'
 alias nconf='cd ~/.config/nvim && nvim .'
 
 # CURSOR
