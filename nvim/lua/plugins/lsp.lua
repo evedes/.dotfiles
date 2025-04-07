@@ -10,9 +10,14 @@ return {
     require('mini.bufremove').setup()
     -- Comments
     require('mini.comment').setup()
-    -- Files and Pickers
+    -- Files
     require('mini.files').setup()
-    require('mini.pick').setup()
+    -- Pickers
+    require('mini.pick').setup({
+      mappings = {
+        send_to_qlist = '<C-q>',
+      }
+    })
     -- Git
     require('mini.git').setup()
     require('mini.diff').setup()

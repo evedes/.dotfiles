@@ -14,14 +14,22 @@ return {
       disable_tools = true
     },
   },
+  keys = {
+    { "<leader>ab", mode = { "n" }, "<cmd>AvanteAddBuffer<cr>", desc = "Add Current Buffer to Chat" },
+    { "<leader>aB", mode = { "n" }, "<cmd>AvanteAddBuffer<cr>", desc = "Add All Open Buffers to Chat" },
+    { "<leader>am", mode = { "n" }, "<cmd>AvanteModel<cr>", desc = "Select AI Model" },
+    { "<leader>ar", mode = { "n" }, "<cmd>AvanteRefresh<cr>", desc = "Refresh" },
+    { "<leader>at", mode = { "n" }, "<cmd>AvanteToggle<cr>", desc = "Toggle AI Sidebar" },
+    { "<leader>ac", mode = { "n" }, "<cmd>AvanteClear<cr>", desc = "Clear Chat" },
+  },
   build = "make",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
-    "echasnovski/mini.pick", -- for file_selector provider mini.pick
-    "hrsh7th/nvim-cmp",      -- autocompletion for avante commands and mentions
+    "echasnovski/mini.pick",
+    "hrsh7th/nvim-cmp",
     "echasnovski/mini.icons",
     {
       "HakonHarnes/img-clip.nvim",

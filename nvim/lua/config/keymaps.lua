@@ -10,7 +10,6 @@ keymap.set("n", "x", '"_x') -- Sends the deleted char to the black hole register
 
 -- Utils
 keymap.set("n", "<leader>ul", "<cmd>Lazy<cr>", with_desc("Lazy"))   -- Lazy
-keymap.set("n", "<leader>um", "<cmd>Mason<cr>", with_desc("Mason")) -- Mason
 
 -- Increment / Decrement numbers
 keymap.set("n", "+", "<C-a>", with_desc("Increment number"))
@@ -53,9 +52,6 @@ keymap.set("n", "<leader>ba", "<cmd>%bd|e#|bd#<cr>", with_desc("Delete All Excep
 
 -- Img Clip
 keymap.set("n", "<leader>ip", "<cmd>PasteImage<cr>", with_desc("Paste Image"))
-
--- Avante
-keymap.set("n", "<leader>aC", "<cmd>AvanteClear<CR>", with_desc("Clear Chat"))
 
 -- Obsidian
 

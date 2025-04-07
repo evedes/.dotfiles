@@ -79,5 +79,3 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH
 ## VIRT MANAGER
 export XDG_DATA_DIRS=/opt/homebrew/share:$XDG_DATA_DIRS
 
-## NEOVIM
-export NVIM_APPNAME="neo"
