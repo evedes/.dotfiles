@@ -18,25 +18,23 @@ return {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if not client then return end
           if client.server_capabilities.inlayHintProvider then
-            vim.lsp.inlay_hint.enable(true, nil)
+            vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
           end
         end,
       })
 
-      -- Configure inlay hints
-      vim.lsp.handlers["textDocument/inlayHint"] = vim.lsp.with(
-        vim.lsp.handlers["textDocument/inlayHint"],
-        {
-          -- Customize inlay hints here
-          only_current_line = false,
-          highlight = "Comment",
-        }
-      )
-
       local capabilities = require('blink.cmp').get_lsp_capabilities()
       require("lspconfig").lua_ls.setup {
         capabilities = capabilities,
+        settings = {
+          inlayHints = {
+            -- Customize inlay hints here
+            onlyCurrentLine = false,
+            highlight = "Comment",
+          }
+        }
       }
 
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -56,16 +54,18 @@ return {
           vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
           vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
           vim.keymap.set('n', 'cd', vim.diagnostic.open_float, opts)
-          vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-          vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+          vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
+          vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
           vim.keymap.set('n', '<leader>xl', vim.diagnostic.setloclist, opts)
           vim.keymap.set('n', '<leader>xq', vim.diagnostic.setqflist, opts)
+          vim.keymap.set('n', 'cf', function() vim.lsp.buf.format({ async = true }) end,
+            { buffer = bufnr, desc = "Format Code" })
 
           -- Toggle inlay hints
           vim.keymap.set('n', '<leader>ih', function()
             local curr_buf = vim.api.nvim_get_current_buf()
-            local inlay_hints_active = vim.lsp.inlay_hint.is_enabled(curr_buf)
-            vim.lsp.inlay_hint.enable(curr_buf, not inlay_hints_active)
+            local inlay_hints_active = vim.lsp.inlay_hint.is_enabled({ bufnr = curr_buf })
+            vim.lsp.inlay_hint.enable(not inlay_hints_active, { bufnr = curr_buf })
           end, { buffer = bufnr, desc = "Toggle Inlay Hints" })
 
 
