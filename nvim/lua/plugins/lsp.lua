@@ -1,96 +1,84 @@
 return {
-  'echasnovski/mini.nvim',
-  enabled = true,
-  version = false,
-  config = function()
-    require('mini.basics').setup()
-    require('mini.move').setup()
-    require('mini.pairs').setup()
-    -- Buffers
-    require('mini.bufremove').setup()
-    -- Comments
-    require('mini.comment').setup()
-    -- Files
-    require('mini.files').setup()
-    -- Pickers
-    require('mini.pick').setup({
-      mappings = {
-        send_to_qlist = '<C-q>',
-      }
-    })
-    -- Git
-    require('mini.git').setup()
-    require('mini.diff').setup()
-    -- Appearance
-    require('mini.icons').setup()
-    require('mini.cursorword').setup()
-    require('mini.notify').setup()
-    local hipatterns = require('mini.hipatterns')
-    hipatterns.setup({
-      highlighters = {
-        -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
-        fixme     = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
-        hack      = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
-        todo      = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
-        note      = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
-        hex_color = hipatterns.gen_highlighter.hex_color(),
-      },
-    })
-    require('mini.statusline').setup({
-      use_icons = true,
-      content = {
-        active = function()
-          local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
-          local git           = MiniStatusline.section_git({ trunc_width = 75 })
-          local diagnostics   = MiniStatusline.section_diagnostics({ trunc_width = 75 })
-          local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
-          local fileinfo      = MiniStatusline.section_fileinfo({ trunc_width = 120 })
-          local location      = MiniStatusline.section_location({ trunc_width = 75 })
-          local recording     = vim.fn.reg_recording() ~= "" and "Recording @" .. vim.fn.reg_recording() or ""
-
-          return MiniStatusline.combine_groups({
-            { hl = mode_hl,                 strings = { mode } },
-            { hl = 'MiniStatuslineDevinfo', strings = { git, diagnostics } },
-            '%<',                                                       -- Mark general truncate point
-            { hl = 'MiniStatuslineFilename', strings = { filename } },
-            '%=',                                                       -- End left alignment
-            { hl = 'WarningMsg',             strings = { recording } }, -- Show recording status
-            { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
-            { hl = mode_hl,                  strings = { location } },
-          })
-        end,
-      },
-    })
-    local miniclue = require('mini.clue')
-    miniclue.setup({
-      window = {
-        delay = 100,
-        config = {
-          width = 'auto',
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      'saghen/blink.cmp',
+      {
+        "folke/lazydev.nvim",
+        opts = {
+          library = {
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          },
         },
       },
-      triggers = {
-        { mode = 'n', keys = '<Leader>' },
-        { mode = 'x', keys = '<Leader>' },
-        { mode = 'n', keys = '<LocalLeader>' },
-        { mode = 'x', keys = '<LocalLeader>' },
-      },
-      clues = {
-        miniclue.gen_clues.builtin_completion(),
-        miniclue.gen_clues.g(),
-        miniclue.gen_clues.marks(),
-        miniclue.gen_clues.registers(),
-        miniclue.gen_clues.windows(),
-        miniclue.gen_clues.z(),
-        { mode = 'n', keys = '<LocalLeader>e', desc = 'Conjure' },
-        { mode = 'n', keys = '<Leader>a',      desc = 'Avante' },
-        { mode = 'n', keys = '<Leader>b',      desc = 'Buffer' },
-        { mode = 'n', keys = '<Leader>f',      desc = 'Picker' },
-        { mode = 'n', keys = '<Leader>g',      desc = 'Git' },
-        { mode = 'n', keys = '<Leader>i',      desc = 'Image' },
-        { mode = 'n', keys = '<Leader>o',      desc = 'Obsidian' },
-        { mode = 'n', keys = '<Leader>u',      desc = 'Utils' },
-      },
-    })
-  end
+    },
+    config = function()
+      -- Enable inlay hints by default
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client.server_capabilities.inlayHintProvider then
+            vim.lsp.inlay_hint.enable(true, nil)
+          end
+        end,
+      })
+
+      -- Configure inlay hints
+      vim.lsp.handlers["textDocument/inlayHint"] = vim.lsp.with(
+        vim.lsp.handlers["textDocument/inlayHint"],
+        {
+          -- Customize inlay hints here
+          only_current_line = false,
+          highlight = "Comment",
+        }
+      )
+
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      require("lspconfig").lua_ls.setup {
+        capabilities = capabilities,
+      }
+
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if not client then return end
+
+          local bufnr = args.buf
+          local opts = { buffer = bufnr }
+
+          vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+          vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+          vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+          vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+          vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+          vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+          vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+          vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
+          vim.keymap.set('n', 'cd', vim.diagnostic.open_float, opts)
+          vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+          vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+          vim.keymap.set('n', '<leader>xl', vim.diagnostic.setloclist, opts)
+          vim.keymap.set('n', '<leader>xq', vim.diagnostic.setqflist, opts)
+
+          -- Toggle inlay hints
+          vim.keymap.set('n', '<leader>ih', function()
+            local curr_buf = vim.api.nvim_get_current_buf()
+            local inlay_hints_active = vim.lsp.inlay_hint.is_enabled(curr_buf)
+            vim.lsp.inlay_hint.enable(curr_buf, not inlay_hints_active)
+          end, { buffer = bufnr, desc = "Toggle Inlay Hints" })
+
+
+          if vim.bo.filetype == "lua" then
+            -- Format the current buffer on save
+            vim.api.nvim_create_autocmd('BufWritePre', {
+              callback = function()
+                vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+              end,
+            })
+          end
+        end,
+      })
+    end,
+  }
 }
