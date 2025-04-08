@@ -9,7 +9,7 @@ keymap.set("i", "jk", "<Esc>", with_desc("Escape"))
 keymap.set("n", "x", '"_x') -- Sends the deleted char to the black hole register
 
 -- Utils
-keymap.set("n", "<leader>ul", "<cmd>Lazy<cr>", with_desc("Lazy"))   -- Lazy
+keymap.set("n", "<leader>ul", "<cmd>Lazy<cr>", with_desc("Lazy")) -- Lazy
 
 -- Increment / Decrement numbers
 keymap.set("n", "+", "<C-a>", with_desc("Increment number"))
@@ -17,8 +17,8 @@ keymap.set("n", "-", "<C-x>", with_desc("Decrement number"))
 
 -- Save file and quit
 keymap.set("n", "<leader>w", "<cmd>update<cr>", with_desc("Write"))
-keymap.set("n", "<leader>q", "<cmd>quit<cr>", with_desc("Quit"))
-keymap.set("n", "<leader>Q", "<cmd>qa<cr>", with_desc("Quit all"))
+keymap.set("n", "<leader>q", "<cmd>wq<cr>", with_desc("Quit (save)"))
+keymap.set("n", "<leader>Q", "<cmd>wqa<cr>", with_desc("Quit all (save all)"))
 
 -- Resize window
 keymap.set("n", "<C-A-h>", "<C-w><", with_desc("Resize left"))
