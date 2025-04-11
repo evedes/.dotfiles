@@ -27,3 +27,4 @@ keymap.set("n", "<leader>fb", "<cmd>Pick buffers<cr>", with_desc("Buffers"))
 keymap.set("n", "<leader>fh", "<cmd>Pick help<cr>", with_desc("Help"))
 -- Git
 keymap.set("n", "<leader>gg", ":Neogit<CR>", with_desc("NeoGit"))
+keymap.set("n", "<leader>go", "<cmd>lua MiniDiff.toggle_overlay()<cr>", with_desc("MiniDiff"))
