@@ -196,12 +196,6 @@ return {
           vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, opts)
           vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
 
-          -- Formatting - Note: We'll use conform.nvim for this generally
-          -- but keeping this as a fallback
-          vim.keymap.set("n", "<leader>f", function()
-            vim.lsp.buf.format({ async = true })
-          end, opts)
-
           -- Set some format options for specific servers
           if client.name == "ts_ls" then
             -- Disable ts_ls formatting in favor of prettier via conform.nvim
