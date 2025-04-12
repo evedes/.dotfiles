@@ -11,7 +11,7 @@ return {
       timeout = 30000,
       temperature = 0,
       max_tokens = 8192,
-      disable_tools = true
+      disable_tools = true,
     },
   },
   keys = {
@@ -30,7 +30,7 @@ return {
     "MunifTanjim/nui.nvim",
     "echasnovski/mini.pick",
     "hrsh7th/nvim-cmp",
-    "echasnovski/mini.icons",
+    "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
     {
       "HakonHarnes/img-clip.nvim",
       event = "VeryLazy",
@@ -46,7 +46,7 @@ return {
       },
     },
     {
-      'MeanderingProgrammer/render-markdown.nvim',
+      "MeanderingProgrammer/render-markdown.nvim",
       opts = {
         file_types = { "markdown", "Avante" },
       },

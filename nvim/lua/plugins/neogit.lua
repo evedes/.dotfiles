@@ -5,5 +5,4 @@ return {
     "sindrets/diffview.nvim",
     "echasnovski/mini.pick",
   },
-  config = true
 }

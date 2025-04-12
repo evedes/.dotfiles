@@ -5,14 +5,14 @@ return {
       enable = true,
       size = 20,
       fade = true,
-      minimal_jump = 10,
+      minimal_jump = 5,
       show_jumps = true,
-      focus_gained = false,
+      focus_gained = true,
       shrink = true,
-      timeout = 300,
+      timeout = 500,
       ignore_buffers = {},
       ignore_filetypes = {},
     })
   end
-
 }
+

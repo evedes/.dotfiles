@@ -1,8 +1,9 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  enable = true,
   build = ":TSUpdate",
   config = function()
-    require 'nvim-treesitter.configs'.setup({
+    require("nvim-treesitter.configs").setup({
       ensure_installed = {
         "bash",
         "c",
@@ -53,5 +54,5 @@ return {
         additional_vim_regex_highlighting = true,
       },
     })
-  end
+  end,
 }
