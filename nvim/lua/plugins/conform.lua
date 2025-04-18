@@ -9,7 +9,7 @@ return {
       javascriptreact = { "prettier" },
     },
     format_on_save = {
-      timeout_ms = 250,
+      timeout_ms = 2000,
       lsp_fallback = true, -- if conform doesn't find the external formatter it will try to use lsp formatter
     },
   },

@@ -1,4 +1,3 @@
--- Complete lspconfig.lua
 return {
   {
     "neovim/nvim-lspconfig",
@@ -13,9 +12,9 @@ return {
           },
         },
       },
-      -- We reference mason but don't configure it here since you have a separate mason.lua
+      "saghen/blink.cmp",
       "williamboman/mason.nvim",
-      -- We don't need to add conform.nvim as a dependency here since you have it in a separate file
+      "stevearc/conform.nvim",
     },
     config = function()
       -- Configure basic LSP functionality
@@ -194,7 +193,7 @@ return {
           vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
           vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
           vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, opts)
-          vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
+          -- vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
 
           -- Set some format options for specific servers
           if client.name == "ts_ls" then
@@ -247,7 +246,7 @@ return {
                 -- Use LSP formatting as fallback
                 vim.lsp.buf.format({
                   buffer = bufnr,
-                  timeout_ms = 500,
+                  timeout_ms = 2000,
                 })
               end,
             })

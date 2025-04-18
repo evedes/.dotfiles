@@ -5,6 +5,10 @@ return {
   config = function()
     require("mini.files").setup()
     require("mini.diff").setup()
-    require("mini.pick").setup()
+    require("mini.pick").setup({
+      options = {
+        ignorecase = true,
+      },
+    })
   end,
 }
