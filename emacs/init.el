@@ -1,3 +1,44 @@
+;  (require 'package)
+
+;  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+;                           ("org" . "https://orgmode.org/elpa/")
+;                          ("elpa" . "https://elpa.gnu.org/packages/")))
+
+; (package-initialize)
+
+; (unless package-archive-contents
+;   (package-refresh-contents))
+
+
+
+; (unless (package-installed-p 'use-package)                                                                  ; Initialize use-package on non-Linux platforms
+;   (package-install 'use-package))
+
+; (require 'use-package)
+
+; (setq use-package-always-ensure t)
+
+(defvar bootstrap-version)
+
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'use-package)
+
+(setq straight-use-package-by-default t)
+
 (add-to-list 'default-frame-alist '(fullscreen . maximized))        ; Open window maximized
 
 (setq inhibit-startup-message t)                                    ; Disable startup message
@@ -11,40 +52,18 @@
 (setq visible-bell t)                                               ; Set up the visible bell
 
 (column-number-mode)                                                ; Toggle column number display
+(setq display-line-numbers-type 'relative)                          ; Set relative line numbers
 (global-display-line-numbers-mode t)                                ; Toggle display line numbers in all buffers
 
 (dolist (mode '(org-mode-hook                                       ; Disable line numbers for some modes
                 term-mode-hook
                 shell-mode-hook
-		treemacs-mode-hook
                 eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-(set-face-attribute 'default nil :font "ZedMono Nerd Font Mono" :height 180)                                ; Set the default face
+(set-face-attribute 'default nil :font "ZedMono Nerd Font Mono"  :height 180)                               ; Set the default face
 (set-face-attribute 'fixed-pitch nil :font "ZedMono Nerd Font Mono" :height 180)                            ; Set the fixed pitch face
 (set-face-attribute 'variable-pitch nil :font "ZedMono Nerd Font Mono" :height 180 :weight 'regular)        ; Set the variable pitch face
-
-(require 'package)
-
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/")
-                         ("elpa" . "https://elpa.gnu.org/packages/")))
-
-(package-initialize)
-
-(unless package-archive-contents
-  (package-refresh-contents))
-
-
-
-(unless (package-installed-p 'use-package)                                    ; Initialize use-package on non-Linux platforms
-  (package-install 'use-package))
-
-(require 'use-package)
-
-(setq use-package-always-ensure t)
-
-(use-package command-log-mode)
 
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
@@ -82,10 +101,16 @@
   (enlarge-window-horizontally 5))
 
 (use-package swiper
-  :ensure t)
+  :straight t)
+
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+         ("C-x b" . counsel-ibuffer)
+         ("C-x C-f" . counsel-find-file)
+         :map minibuffer-local-map
+         ("C-r" . 'counsel-minibuffer-history)))
 
 (use-package ivy
-  :diminish
   :bind (("C-s" . swiper)
          :map ivy-minibuffer-map
          ("TAB" . ivy-alt-done)	
@@ -103,15 +128,9 @@
   (ivy-mode 1))
 
 (use-package ivy-rich
+  :after (ivy counsel)
   :init
   (ivy-rich-mode 1))
-
-(use-package counsel
-  :bind (("M-x" . counsel-M-x)
-         ("C-x b" . counsel-ibuffer)
-         ("C-x C-f" . counsel-find-file)
-         :map minibuffer-local-map
-         ("C-r" . 'counsel-minibuffer-history)))
 
 (use-package helpful
   :custom
@@ -122,17 +141,6 @@
   ([remap describe-command] . helpful-command)
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
-
-(use-package general
-  :config
-  (general-create-definer rune/leader-keys
-    :keymaps '(normal insert visual emacs)
-    :prefix "SPC"
-    :global-prefix "C-SPC")
-
-  (rune/leader-keys
-    "t"  '(:ignore t :which-key "toggles")
-    "td" '(counsel-load-theme :which-key "choose theme")))
 
 (use-package evil
   :init
@@ -160,21 +168,35 @@
   (evil-collection-init))
 
 (use-package key-chord
-  :ensure t
+  :straight t
   :config
   (key-chord-mode 1)
   (key-chord-define evil-insert-state-map "jk" 'evil-normal-state))
 
-(use-package hydra)
+(use-package general
+  :config
+  (general-create-definer rune/leader-keys
+    :keymaps '(normal insert visual emacs)
+    :prefix "SPC"
+    :global-prefix "C-SPC")
 
-(defhydra hydra-text-scale (:timeout 4)
-  "scale text"
-  ("j" text-scale-increase "in")
-  ("k" text-scale-decrease "out")
-  ("f" nil "finished" :exit t))
+  (rune/leader-keys
+    "t"  '(:ignore t :which-key "toggles")
+    "td" '(counsel-load-theme :which-key "choose theme")))
 
-(rune/leader-keys
-  "ts" '(hydra-text-scale/body :which-key "scale text"))
+(use-package hydra
+  :straight t  ;; Explicitly tell straight.el to install hydra
+  :after general  ;; Load after general to ensure rune/leader-keys is defined
+  :config  ;; Put the hydra definition in the :config section
+  (defhydra hydra-text-scale (:timeout 4)
+    "scale text"
+    ("j" text-scale-increase "in")
+    ("k" text-scale-decrease "out")
+    ("f" nil "finished" :exit t))
+
+  ;; Add the leader key binding after the hydra is defined
+  (rune/leader-keys
+    "ts" '(hydra-text-scale/body :which-key "scale text")))
 
 (use-package projectile
   :diminish projectile-mode
@@ -194,40 +216,6 @@
 
 (use-package counsel-projectile
   :config (counsel-projectile-mode))
-
-(use-package treemacs
-  :ensure t
-  :defer t
-  :config
-  (progn
-    (setq treemacs-follow-after-init t
-	  treemacs-width 50
-          treemacs-position 'left)
-    (treemacs-follow-mode t)
-    (treemacs-filewatch-mode t)))
-
-;; Hide modeline in Treemacs buffers
-(add-hook 'treemacs-mode-hook
-          (lambda () (setq mode-line-format nil)))
-
-;; Add this after your existing rune/leader-keys configuration
-
-(rune/leader-keys
-  "f"  '(:ignore t :which-key "files")
-  "fe" '(treemacs :which-key "toggle file explorer"))
-
-;; Optional but recommended: Treemacs with projectile integration
-
-(use-package treemacs-projectile
-  :after (treemacs projectile)
-  :ensure t)
-
-;; If you want nice icons in treemacs
-
-(use-package treemacs-nerd-icons
-  :ensure t
-  :config 
-  (treemacs-load-theme "nerd-icons"))
 
 (use-package nerd-icons)                                                      ; Install and configure nerd icons
 (setq inhibit-compacting-font-caches t)                                       ; Ensure font caching doesn't interfere with icon display

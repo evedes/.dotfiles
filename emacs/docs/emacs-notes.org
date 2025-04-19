@@ -148,6 +148,75 @@ Add =:noweb yes=!
 
 #+end_src
 
+* Straight.el
+
+To use *straight.el* you need to place the [[https://github.com/radian-software/straight.el][bootstrap code]] in your init-file:
+
+#+begin_src emacs-lisp
+
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+         (expand-file-name
+          "straight/repos/straight.el/bootstrap.el"
+          (or (bound-and-true-p straight-base-dir)
+              user-emacs-directory)))
+        (bootstrap-version 7))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+          (url-retrieve-synchronously
+           "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+           'silent 'inhibit-cookies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
+
+#+end_src
+
+*Understanding package recipes*
+
+*straight.el* installs all packages from their associated git reopsitories. It uses another type of package called a "recipe repository"which contains the details on where the sources for many packages can be found.
+
+Repository packages: melpa, gnu-elpa-mirror, emacsmirror-mirror, etc.
+
+To get the recipe for any package inside of *straight.el* do `M-x straight-get-recipe`
+
+- *Upgrading packages*
+
+  - `M-x straight-pull-package` will pull a single package to upgrade it to the latest version
+  - `M-x straight-pull-package-and-deps` will pull a package and all of its dependencies
+  - `M-x straight-pull-all` will upgrade all of your active packages
+
+  Note that pulling/upgrading doesn't take effect immediately. You need to restart Emacs, *straight.el* will rebuild and load the latest versions of the packages you installed.
+
+  You can activate the upgraded version of a package by running `M-x straight-check-package` or `M-x straight-check-all`.
+
+- *Integratin with use-package*
+
+  #+begin_src emacs-lisp
+
+    ;; use straight.el for use-package expressions
+    (straight-use-package 'use-package)
+
+  #+end_src
+
+- *Locking package versions*
+
+  To have a more consistenht and repeatable configuration across multiple machines, you can create a "lockfile" which ensures that all of the packages you install are locked to specific commits of the associated repositories.
+
+  To generate such a lockfile, you can run `M-x straight-freeze-versions` command. This will generate a file in your Emnacs configuration folder called `straight/versions/default.el` which contains the lock files content.
+
+** Converting a configuration from package.el to straight.el
+
+1. delete (or move) your old elpa folder where package.el packages are installedn
+2. add the bootstrap script to your config (and comment the package.el previous config)
+3. Add (straight-use-package 'use-package) and comment
+3. replace =:ensure= with =:straight=
+4. if you use `use-package-always-ensure`, replace it with `straight-use-package-by-default` 
+5. close emacs and delete your ~/.emcas.d/elpa
+6.startup emacs, everything should be installed and run fine
+
+
+
 * Keyboard Shortcuts
 
 ** Emacs 

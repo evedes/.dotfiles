@@ -1,6 +1,64 @@
 #+title Emacs Configuration
 #+PROPERTY: header-args:emacs-lisp :tangle ~/.emacs.d/init.el :mkdirp yes
 
+* Package Manager Configuration
+
+** package.el (disabled)
+
+#+begin_src emacs-lisp
+
+;  (require 'package)
+
+;  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+;                           ("org" . "https://orgmode.org/elpa/")
+;                          ("elpa" . "https://elpa.gnu.org/packages/")))
+
+; (package-initialize)
+
+; (unless package-archive-contents
+;   (package-refresh-contents))
+
+
+
+; (unless (package-installed-p 'use-package)                                                                  ; Initialize use-package on non-Linux platforms
+;   (package-install 'use-package))
+
+; (require 'use-package)
+
+; (setq use-package-always-ensure t)
+
+#+end_src
+
+** straight.el
+
+#+begin_src emacs-lisp
+
+  (defvar bootstrap-version)
+
+  (let ((bootstrap-file
+         (expand-file-name
+          "straight/repos/straight.el/bootstrap.el"
+          (or (bound-and-true-p straight-base-dir)
+              user-emacs-directory)))
+        (bootstrap-version 7))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+          (url-retrieve-synchronously
+           "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+           'silent 'inhibit-cookies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
+
+  (straight-use-package 'use-package)
+
+  (setq straight-use-package-by-default t)
+
+#+end_src
+
+#+RESULTS:
+: t
+
 * Basic UI Configuration
 
 #+begin_src emacs-lisp
@@ -18,12 +76,12 @@
   (setq visible-bell t)                                               ; Set up the visible bell
 
   (column-number-mode)                                                ; Toggle column number display
+  (setq display-line-numbers-type 'relative)                          ; Set relative line numbers
   (global-display-line-numbers-mode t)                                ; Toggle display line numbers in all buffers
 
   (dolist (mode '(org-mode-hook                                       ; Disable line numbers for some modes
                   term-mode-hook
                   shell-mode-hook
-  		treemacs-mode-hook
                   eshell-mode-hook))
     (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
@@ -35,42 +93,13 @@
 
 #+begin_src emacs-lisp
 
-
-  (set-face-attribute 'default nil :font "ZedMono Nerd Font Mono" :height 180)                                ; Set the default face
+  (set-face-attribute 'default nil :font "ZedMono Nerd Font Mono"  :height 180)                               ; Set the default face
   (set-face-attribute 'fixed-pitch nil :font "ZedMono Nerd Font Mono" :height 180)                            ; Set the fixed pitch face
   (set-face-attribute 'variable-pitch nil :font "ZedMono Nerd Font Mono" :height 180 :weight 'regular)        ; Set the variable pitch face
 
 #+end_src
 
 #+RESULTS:
-
-* Package Manager Configuration
-
-#+begin_src emacs-lisp
-
-  (require 'package)
-
-  (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                           ("org" . "https://orgmode.org/elpa/")
-                           ("elpa" . "https://elpa.gnu.org/packages/")))
-
-  (package-initialize)
-
-  (unless package-archive-contents
-    (package-refresh-contents))
-
-
-
-  (unless (package-installed-p 'use-package)                                    ; Initialize use-package on non-Linux platforms
-    (package-install 'use-package))
-
-  (require 'use-package)
-
-  (setq use-package-always-ensure t)
-
-  (use-package command-log-mode)
-
-#+end_src
 
 * Keys
 
@@ -118,36 +147,7 @@
 #+begin_src emacs-lisp
 
   (use-package swiper
-    :ensure t)
-
-#+end_src
-
-
-* Ivy
-
-#+begin_src emacs-lisp
-
-  (use-package ivy
-    :diminish
-    :bind (("C-s" . swiper)
-           :map ivy-minibuffer-map
-           ("TAB" . ivy-alt-done)	
-           ("C-l" . ivy-alt-done)
-           ("C-j" . ivy-next-line)
-           ("C-k" . ivy-previous-line)
-           :map ivy-switch-buffer-map
-           ("C-k" . ivy-previous-line)
-           ("C-l" . ivy-done)
-           ("C-d" . ivy-switch-buffer-kill)
-           :map ivy-reverse-i-search-map
-           ("C-k" . ivy-previous-line)
-           ("C-d" . ivy-reverse-i-search-kill))
-    :config
-    (ivy-mode 1))
-
-  (use-package ivy-rich
-    :init
-    (ivy-rich-mode 1))
+    :straight t)
 
 #+end_src
 
@@ -164,6 +164,40 @@
 
 #+end_src
 
+* Ivy
+
+#+begin_src emacs-lisp
+
+  (use-package ivy
+    :bind (("C-s" . swiper)
+           :map ivy-minibuffer-map
+           ("TAB" . ivy-alt-done)	
+           ("C-l" . ivy-alt-done)
+           ("C-j" . ivy-next-line)
+           ("C-k" . ivy-previous-line)
+           :map ivy-switch-buffer-map
+           ("C-k" . ivy-previous-line)
+           ("C-l" . ivy-done)
+           ("C-d" . ivy-switch-buffer-kill)
+           :map ivy-reverse-i-search-map
+           ("C-k" . ivy-previous-line)
+           ("C-d" . ivy-reverse-i-search-kill))
+    :config
+    (ivy-mode 1))
+
+#+end_src
+
+* Ivy-rich
+
+#+begin_src emacs-lisp
+
+  (use-package ivy-rich
+    :after (ivy counsel)
+    :init
+    (ivy-rich-mode 1))
+
+#+end_src
+
 * Helpful
 
 #+begin_src emacs-lisp
@@ -177,23 +211,6 @@
   ([remap describe-command] . helpful-command)
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
-
-#+end_src
-
-* General
-
-#+begin_src emacs-lisp
-
-(use-package general
-  :config
-  (general-create-definer rune/leader-keys
-    :keymaps '(normal insert visual emacs)
-    :prefix "SPC"
-    :global-prefix "C-SPC")
-
-  (rune/leader-keys
-    "t"  '(:ignore t :which-key "toggles")
-    "td" '(counsel-load-theme :which-key "choose theme")))
 
 #+end_src
 
@@ -233,27 +250,48 @@
 #+begin_src emacs-lisp
 
   (use-package key-chord
-    :ensure t
+    :straight t
     :config
     (key-chord-mode 1)
     (key-chord-define evil-insert-state-map "jk" 'evil-normal-state))
 
 #+end_src
 
-* Hydra
+* General
 
 #+begin_src emacs-lisp
 
-  (use-package hydra)
+(use-package general
+  :config
+  (general-create-definer rune/leader-keys
+    :keymaps '(normal insert visual emacs)
+    :prefix "SPC"
+    :global-prefix "C-SPC")
 
+  (rune/leader-keys
+    "t"  '(:ignore t :which-key "toggles")
+    "td" '(counsel-load-theme :which-key "choose theme")))
+
+#+end_src
+
+
+* Hydra
+
+ #+begin_src emacs-lisp
+
+(use-package hydra
+  :straight t  ;; Explicitly tell straight.el to install hydra
+  :after general  ;; Load after general to ensure rune/leader-keys is defined
+  :config  ;; Put the hydra definition in the :config section
   (defhydra hydra-text-scale (:timeout 4)
     "scale text"
     ("j" text-scale-increase "in")
     ("k" text-scale-decrease "out")
     ("f" nil "finished" :exit t))
 
+  ;; Add the leader key binding after the hydra is defined
   (rune/leader-keys
-    "ts" '(hydra-text-scale/body :which-key "scale text"))
+    "ts" '(hydra-text-scale/body :which-key "scale text")))
 
 #+end_src
 
@@ -279,46 +317,6 @@
 
   (use-package counsel-projectile
     :config (counsel-projectile-mode))
-
-#+end_src
-
-* Treemacs
-
-#+begin_src emacs-lisp
-
-  (use-package treemacs
-    :ensure t
-    :defer t
-    :config
-    (progn
-      (setq treemacs-follow-after-init t
-  	  treemacs-width 50
-            treemacs-position 'left)
-      (treemacs-follow-mode t)
-      (treemacs-filewatch-mode t)))
-
-  ;; Hide modeline in Treemacs buffers
-  (add-hook 'treemacs-mode-hook
-            (lambda () (setq mode-line-format nil)))
-
-  ;; Add this after your existing rune/leader-keys configuration
-
-  (rune/leader-keys
-    "f"  '(:ignore t :which-key "files")
-    "fe" '(treemacs :which-key "toggle file explorer"))
-
-  ;; Optional but recommended: Treemacs with projectile integration
-
-  (use-package treemacs-projectile
-    :after (treemacs projectile)
-    :ensure t)
-
-  ;; If you want nice icons in treemacs
-
-  (use-package treemacs-nerd-icons
-    :ensure t
-    :config 
-    (treemacs-load-theme "nerd-icons"))
 
 #+end_src
 
@@ -598,6 +596,7 @@ With these entries added to list you can type `<el` and press Tab. It will autom
 #+RESULTS:
 : ((sql . src sql) (rb . src ruby) (py . src python) (cl . src clojure) (el . src emacs-lisp) (sh . src shell) (a . export ascii) (c . center) (C . comment) (e . example) (E . export) (h . export html) (l . export latex) (q . quote) (s . src) (v . verse))
 
+
 * Babel Auto Tangle
 
 #+RESULTS:
@@ -618,7 +617,6 @@ With these entries added to list you can type `<el` and press Tab. It will autom
 #+end_src
 
 #+RESULTS:
-: ((conf-unix . conf-unix) (C . c) (C++ . c++) (asymptote . asy) (beamer . latex) (calc . fundamental) (cpp . c++) (ditaa . artist) (desktop . conf-desktop) (dot . fundamental) (elisp . emacs-lisp) (ocaml . tuareg) (screen . shell-script) (sqlite . sql) (toml . conf-toml) (shell . sh) (ash . sh) (sh . sh) (bash . sh) (jsh . sh) (bash2 . sh) (dash . sh) (dtksh . sh) (ksh . sh) (es . sh) (rc . sh) (itcsh . sh) (tcsh . sh) (jcsh . sh) (csh . sh) (ksh88 . sh) (oash . sh) (pdksh . sh) (mksh . sh) (posix . sh) (wksh . sh) (wsh . sh) (zsh . sh) (rpm . sh))
 
 
 #+begin_src emacs-lisp
@@ -635,4 +633,3 @@ With these entries added to list you can type `<el` and press Tab. It will autom
 #+end_src
 
 #+RESULTS:
-| org-tempo-setup | #[nil ((add-hook 'after-save-hook #'org-babel-tangle-config)) nil] | #[nil ((add-hook 'after-save-hook #'efs/org-babel-tangle-config)) nil] | org-bullets-mode | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-fold-show-all append local] 5] | #[0 \300\301\302\303\304$\207 [add-hook change-major-mode-hook org-babel-show-result-all append local] 5] | org-babel-result-hide-spec | org-babel-hide-all-hashes | efs/org-mode-visual-fill | efs/org-mode-setup | #[nil ((display-line-numbers-mode 0)) nil] |
