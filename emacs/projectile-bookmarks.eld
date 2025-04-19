@@ -1,1 +1,1 @@
-("~/.dotfiles/")
+("~/Work/creatorsguild/" "~/.dotfiles/")
