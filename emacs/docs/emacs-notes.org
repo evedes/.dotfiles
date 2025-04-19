@@ -1,0 +1,184 @@
+#+ Emacs Notes
+
+* Introduction 
+
+Emacs - Editing MACroS
+Developed by Richard Stallman in 1976 as an extension to the TECO editor on the PDP-10 computer running the ITS operating system.
+
+* Org Mode
+
+   Here is some *bold* and /italic/ content!
+   Here is the [[https://orgmode.org][Org Mode Homepage]] 
+
+** Sub-Heading
+
+   Add some more content!
+
+   - [X] First item
+   - [X] Second item
+   - [ ] Third item
+   - [ ] Fourth item 
+   - [ ] Fifth item
+
+* Org Babel 
+
+Execution: C-c C-c (output, value result)
+
+[[https://orgmode.org/worg/org-contrib/babel/][Babel]]
+[[https://orgmode.org/worg/org-contrib/babel/languages/index.html][Babel Supported Languages]]
+
+** Source Code
+
+#+begin_src clojure
+
+  (+ 2 2)
+
+#+end_src
+
+#+RESULTS:
+: 4
+
+#+begin_src lua :results output 
+
+  function greeting()
+      print "Hello World, this is a Lua inside Emacs!"
+  end
+
+  greeting()
+
+#+end_src
+
+#+RESULTS:
+: Hello World, this is a Lua inside Emacs!
+
+#+begin_src js :results output 
+
+  const greeting = () => {
+    console.log("Hello World, this is a Javascript inside Emacs!")
+  }
+
+  greeting()
+
+#+end_src
+
+#+RESULTS:
+: Hello World, this is a Lua inside Emacs!
+
+#+begin_src emacs-lisp
+
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (lua . t)
+     (js . t)
+     (clojure .t)
+     ))
+
+  (setq org-confirm-babel-evaluate nil)
+
+#+end_src
+
+#+RESULTS:
+
+** Structure Templates
+
+With these entries added to list you can type `<el` and press Tab. It will automatically create an emacs-lisp source block.
+
+#+begin_src emacs-lisp
+
+  (require 'org-tempo)
+
+  (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+  (add-to-list 'org-structure-template-alist '("lu" . "src lua"))
+  (add-to-list 'org-structure-template-alist '("js" . "src js"))
+  (add-to-list 'org-structure-template-alist '("cl" . "src clojure"))
+
+#+end_src
+
+#+RESULTS:
+: ((lu . src lua) (js . src js) (sql . src sql) (rb . src ruby) (py . src python) (cl . src clojure) (el . src emacs-lisp) (sh . src shell) (a . export ascii) (c . center) (C . comment) (e . example) (E . export) (h . export html) (l . export latex) (q . quote) (s . src) (v . verse))
+
+
+** Setting Up the Config
+
+*** Main File Block
+Apply the same configuration to every block:
+
+#+begin_src text 
+
+#+PROPERTY: header-args:emacs-lisp :tangle ./init-new.el
+
+#+end_src
+
+*** Custom Block 
+
+We can also specify different destinations to different sections:
+
+
+#+begin_src conf-unix :tangle ~/.config/my-config/test.txt :mkdirp yes
+
+  value=45
+
+#+end_src
+
+Note: to create output directories automatically, add `=:mkdirp yes=`
+
+*** Noweb Block
+
+This is a type of block that will be use in a certain machine or session. Useful to differentiate configs among different computer specs and operating systems. 
+
+#+NAME: the-value
+#+begin_src emacs-lisp
+  (+ 55 100)
+#+end_src
+#+begin_src conf :tangle .config/some-app/config :noweb yes
+
+  value=<<the-value>>
+
+#+end_src
+
+Add =:noweb yes=!
+
+** Tangling Output
+
+#+begin_src emacs-lisp
+
+  (org-babel-tangle)
+  (org-babel-tangle-file "~/.emacs.d/org/emacs-config.org")
+
+#+end_src
+
+* Keyboard Shortcuts
+
+** Emacs 
+
+| Keymap  | Old Keymap | Command             | Description                                                       |
+| --      | --         | --                  |                                                                   |
+| C-x b   | --         | counsel-ibuffer     | switch to another buffer                                          |
+| C-? v   | C-h v      | describe-variable   | display full documentation of a variable                          |
+|         |            | describe-key        | display documentation of the function invoked                     |
+| C-x x g |            | revert-buffer-quick | replace the current buffer text with the text of the file on disk |
+|         |            |                     |                                                                   |
+
+
+** Org mode
+
+| Keymap  | Old Keymap | Command                            | Description                                                 |
+| --      | --         | --                                 | --                                                          |
+| C-Ret   | --         | org-insert-heading-respect-content | insert a new heading with the same level as the current one |
+| C-c C-l | --         | org-insert-link                    | insert a link                                               |
+
+** Org Babel
+
+| Keymap    | Old Keymap | Command                    | Description                                   |
+| --        | --         | --                         | --                                            |
+| C-c C-c   |            | org-confirm-babel-evaluate | if the cursor is in a code block, evaluate it |
+| C-c C-o   |            | org-open-at-point          | when point is on a link, it follows it        |
+| C-c C-v t |            | org-babel-tangle           | write code blocks to source-specific files    |
+
+* Emacs From Scratch
+
+** Videos
+
+[[https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbGxzWFpDRWdiUFRXeHBoRGNfYTVjd1lleUVFZ3xBQ3Jtc0tuWFQzc1BLd1J1bGVTeFFKLTRQZ0RXX09xNWMwOGNZdGFydHFSelB3NloxX1UzQlgwQUs1UXBieVBST0M4RnVnaUJKNnZYYW5hd3luQ2toMWdxRUR0TUl0VW1sdGl5TTcwTDhMTmRCWmNWM1hjSmp5TQ&q=https%3A%2F%2Fgithub.com%2Fdaviwil%2Femacs-from-scratch%2Ftree%2F9388cf6ecd9b44c430867a5c3dad5f050fdc0ee1&v=kkqVTDbfYp4][Emacs From Scratch #7 - Configure Everything with Org Babel]]
+
