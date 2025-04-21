@@ -1,11 +1,11 @@
 #+title Emacs Configuration
-#+PROPERTY: header-args:emacs-lisp :tangle ~/.emacs.d/init.el :mkdirp yes
+#+PROPERTY: header-args:emacs-lisp :results silent :tangle ~/.emacs.d/init.el :mkdirp yes
 
 * Package Manager Configuration
 
 ** straight.el
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
   (setq package-enable-at-startup nil)
 
@@ -44,11 +44,9 @@
 
 #+end_src
 
-#+RESULTS:
-
 * Basic UI Configuration
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
   (add-to-list 'default-frame-alist '(fullscreen . maximized))        ; Open window maximized
 
@@ -76,23 +74,22 @@
 
 #+end_src
 
-#+RESULTS:
 
 * Font Configuration
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
   (set-face-attribute 'default nil :font "ZedMono Nerd Font Mono"  :height 180)                            ; Set the default face
   (set-face-attribute 'fixed-pitch nil :font "ZedMono Nerd Font Mono" :height 180)                         ; Set the fixed pitch face
   (set-face-attribute 'variable-pitch nil :font "ZedMono Nerd Font Mono" :height 180 :weight 'regular)     ; Set the variable pitch face
 
-#+end_src
+  (setq-default line-spacing 0.4)
 
-#+RESULTS:
+#+end_src
 
 * Keys
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
   (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
@@ -133,16 +130,17 @@
 
 * Swiper
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
   (use-package swiper
     :straight t)
 
 #+end_src
 
+
 * Counsel
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
@@ -155,7 +153,7 @@
 
 * Ivy
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
   (use-package ivy
     :bind (("C-s" . swiper)
@@ -178,7 +176,7 @@
 
 * Ivy-rich
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
   (use-package ivy-rich
     :after (ivy counsel)
@@ -189,7 +187,7 @@
 
 * Helpful
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
 (use-package helpful
   :custom
@@ -205,7 +203,7 @@
 
 * Key Chord
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
   (use-package key-chord
     :straight t
@@ -217,10 +215,10 @@
 
 * Evil
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
   (use-package evil
-    :demand t ;; force immediate loading instead of deferred
+    :demand t
     :init
     (setq evil-want-integration t)
     (setq evil-want-keybinding nil)
@@ -228,14 +226,19 @@
     (setq evil-want-C-i-jump nil)
     :config
     (evil-mode 1)
-    (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
-    (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
 
-    (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+  					
+    (define-key evil-normal-state-map (kbd "/") 'swiper) ; Add the slash binding for swiper in normal mode
+    (define-key evil-normal-state-map "C" nil) ; Unbind from evil-change-line
 
-    ;; Use visual line motions even outside of visual-line-mode buffers
+  					
+    (define-key evil-normal-state-map (kbd "C-w s") 'split-window-below-and-focus) ; Add window splitting keybindings
+    (define-key evil-normal-state-map (kbd "C-w v") 'split-window-right-and-focus)
+  					
+    (key-chord-define evil-insert-state-map "jk" 'evil-normal-state) ; Add escape keybindings
 
-    (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+    
+    (evil-global-set-key 'motion "j" 'evil-next-visual-line) ; Use visual line motions even outside of visual-line-mode buffers
     (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
 
     (evil-set-undo-system 'undo-redo)
@@ -248,68 +251,98 @@
     :config
     (evil-collection-init))
 
+  (defun split-window-below-and-focus ()
+    "Split window horizontally and move focus to the new window."
+    (interactive)
+    (split-window-below)
+    (other-window 1))
+
+  (defun split-window-right-and-focus ()
+    "Split window vertically and move focus to the new window."
+    (interactive)
+    (split-window-right)
+    (other-window 1))
+
 #+end_src
 
 * General
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
-    (use-package general
-      :demand
-      :config
-      (general-create-definer rune/leader-keys
-        :states '(normal insert visual emacs)
-        :keymaps 'override
-        :prefix "SPC"
-        :global-prefix "C-SPC")
+  (use-package general
+    :demand
+    :config
+    (general-create-definer rune/leader-keys
+      :states '(normal insert visual emacs)
+      :keymaps 'override
+      :prefix "SPC"
+      :global-prefix "C-SPC")
 
-      (rune/leader-keys
-        "t"  '(:ignore t :which-key "toggles")
-        "td" '(counsel-load-theme :which-key "choose theme")))
+    (rune/leader-keys
+      "t"  '(:ignore t :which-key "toggles")
+      "td" '(counsel-load-theme :which-key "choose theme")
+      "w" '(save-buffer :which-key "write buffer")
+      "q" '(delete-window :which-key "delete window")
+      "Q" '(evil-quit-all :which-key "choose theme")
+
+      "f" '(:ignore t :which-key "files")
+      "ff" '(counsel-find-file :which-key "find-file")))
+
+  (defun evil-quit-all ()
+    "Save all buffers and quit Emacs"
+    (interactive)
+    (save-some-buffers t)
+    (kill-emacs))
 
 #+end_src
-
-* Comments
-
-#+begin_src emacs-lisp
-
-  (use-package evil-nerd-commenter
-    :general
-    (general-nvmap
-     "gc" 'evilnc-comment-operator))
-
-#+end_src
-
-#+RESULTS:
 
 * Hydra
 
- #+begin_src emacs-lisp
+ #+begin_src emacs-lisp :results silent
 
-(use-package hydra
-  :straight t  ;; Explicitly tell straight.el to install hydra
-  :after general  ;; Load after general to ensure rune/leader-keys is defined
-  :config  ;; Put the hydra definition in the :config section
-  (defhydra hydra-text-scale (:timeout 4)
-    "scale text"
-    ("j" text-scale-increase "in")
-    ("k" text-scale-decrease "out")
-    ("f" nil "finished" :exit t))
+   (use-package hydra
+     :straight t
+     :after general
+     :config
+     (defhydra hydra-text-scale (:timeout 4)
+       ("j" text-scale-increase "in")
+       ("k" text-scale-decrease "out")
+       ("f" nil "finished" :exit t))
 
-  ;; Add the leader key binding after the hydra is defined
-  (rune/leader-keys
-    "ts" '(hydra-text-scale/body :which-key "scale text")))
+     (rune/leader-keys
+       "ts" '(hydra-text-scale/body :which-key "scale text")))
 
 #+end_src
 
 * Projectile
 
-#+begin_src emacs-lisp
+[[https://github.com/bbatsov/projectile][Projectile]] is a project interaction library for emacs. It provides a powerful set of features operating at the project level, as well as simple heuristics to identify projects.
+
+**  Features
+*** jump to a file in a project
+*** jump to a project buffer
+*** jump to a test in project
+*** toggle between files with same names but different extensions
+*** toggle between code and its test (i.e. main.service.js <-> main.service.spec.js)
+*** jump to recently visited files in the project
+*** switch between projects you have worked on
+*** kill (close) all project buffers
+*** grep (search) in project
+*** replace in project
+*** find references in project (using /xref/ internally)
+*** run shell commands in a project (e.g. /make/,/lein/)
+*** support for multipl.e minibuffer completion/selectionlibraries (/ido/,/ivy/,/helm/, and default completion sys)
+*** automatic project discovery (see /projectile-project-search-path/)
+*** integration with the built-in /project.el/ library
+
+**  Config
+
+#+begin_src emacs-lisp :results silent
 
   (use-package projectile
     :diminish projectile-mode
     :config 
-    (setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" user-emacs-directory))
+    (setq projectile-known-projects-file (expand-file-name "~/Nextcloud/EmacsVerse/Projectile/projectile-bookmarks.eld" user-emacs-directory))
     (setq projectile-save-known-projects t)
     (setq projectile-enable-caching t)
     (setq projectile-completion-system 'ivy)
@@ -327,9 +360,24 @@
 
 #+end_src
 
+* Magit
+
+#+begin_src emacs-lisp :results silent
+
+  (use-package magit
+    :custom
+    (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+  ;; NOTE: Make sure to configure a GitHub token before using this package!
+  ;; - https://magit.vc/manual/forge/Token-Creation.html#Token-Creation
+  ;; - https://magit.vc/manual/ghub/Getting-Started.html#Getting-Started
+  ;; (use-package forge)
+
+#+end_src
+
 * Nerd Icons
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
   (use-package nerd-icons)                                                      ; Install and configure nerd icons
   (setq inhibit-compacting-font-caches t)                                       ; Ensure font caching doesn't interfere with icon display
@@ -338,7 +386,7 @@
 
 * Doom Modeline
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
   (use-package doom-modeline
     :init (doom-modeline-mode 1)
@@ -357,27 +405,89 @@
 
 * Doom Themes
 
-#+begin_src emacs-lisp
+doom themes [[https://github.com/doomemacs/themes/tree/screenshots][here]]
+
+#+begin_src emacs-lisp :results silent
 
   (use-package doom-themes
-    :init (load-theme 'doom-gruvbox t)) ; doom-gruvbox, et al
+    :init (load-theme 'doom-sourcerer t)) ; doom-gruvbox, doom-sourcerer, doom-spacegrey, doom-snazzy et al
 
 #+end_src
 
 * Rainbox Delimiters
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
   (use-package rainbow-delimiters
     :hook (prog-mode . rainbow-delimiters-mode))
 
 #+end_src
 
+* Terminals
+
+#+begin_src emacs-lisp :results silent
+
+  (use-package term
+    :config
+    (setq explicit-shell-file-name "bash") ;; Change this to zsh, etc
+    ;;(setq explicit-zsh-args '())         ;; Use 'explicit-<shell>-args for shell-specific args
+
+    ;; Match the default Bash shell prompt.  Update this if you have a custom prompt
+    (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *"))
+
+  (use-package eterm-256color
+    :hook (term-mode . eterm-256color-mode))
+
+  (use-package vterm
+    :commands vterm
+    :config
+    (setq term-prompt-regexp "^[^#$%>\n]*[#$%>] *")  ;; Set this to match your custom shell prompt
+    ;;(setq vterm-shell "zsh")                       ;; Set this to customize the shell to launch
+    (setq vterm-max-scrollback 10000))
+
+
+  (defun efs/configure-eshell ()
+    ;; Save command history when commands are entered
+    (add-hook 'eshell-pre-command-hook 'eshell-save-some-history)
+
+    ;; Truncate buffer for performance
+    (add-to-list 'eshell-output-filter-functions 'eshell-truncate-buffer)
+
+    ;; Bind some useful keys for evil-mode
+    (evil-define-key '(normal insert visual) eshell-mode-map (kbd "C-r") 'counsel-esh-history)
+    (evil-define-key '(normal insert visual) eshell-mode-map (kbd "<home>") 'eshell-bol)
+    (evil-normalize-keymaps)
+
+    (setq eshell-history-size         10000
+          eshell-buffer-maximum-lines 10000
+          eshell-hist-ignoredups t
+          eshell-scroll-to-bottom-on-input t))
+
+  (use-package eshell-git-prompt)
+
+  (use-package eshell
+    :hook (eshell-first-time-mode . efs/configure-eshell)
+    :config
+
+    (with-eval-after-load 'esh-opt
+      (setq eshell-destroy-buffer-when-process-dies t)
+      (setq eshell-visual-commands '("htop" "zsh" "vim")))
+
+    (eshell-git-prompt-use-theme 'powerline))
+
+#+end_src
+
+* Dired
+
+#+begin_src emacs-lisp :results silent
+
+#+end_src
+
 * Which Key
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
-  (use-package which-key
+ (use-package which-key
     :demand
     :init (which-key-mode)
     :diminish which-key-mode
@@ -386,12 +496,9 @@
 
 #+end_src
 
-#+RESULTS:
-: t
-
 * Transparency
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
   ;; Function to adjust transparency interactively 
 
@@ -422,54 +529,119 @@
 
 #+end_src
 
-* LSP
+* Parenthesis
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
-  (use-package company-mode
-    :init
-    (global-company-mode))
+  (setq electric-pair-inhibit-predicate
+        (lambda (c)
+          (or (eq c ?<)
+              (electric-pair-default-inhibit c))))
 
-  (use-package emacs
-    :hook (typescript-mode . eglot-ensure)
-    :general
-    (leader-keys
-     "l" '(:ignore t :which-key "lsp")
-     "l <escape>" '(keyboard-escape-quit :which-key t)
-     "l r" '(eglot-rename :which-key "rename")
-     "l a" '(eglot-code-actions :which-key "code actions")))
-
-  (use-package treesit-auto
-    :custom
-    (treesit-auto-install 'prompt)
-    :config
-    (treesit-auto-add-to-auto-mode-alist 'all)
-    (global-treesit-auto-mode))
-
-  (use-package markdown-mode
-    :config
-    (setq markdown-fontify-code-blocks-natively t))
-
-  (use-package typescript-mode)
+  (use-package paredit
+    :straight t
+    :hook ((emacs-lisp mode lisp-mode scheme-mode) . paredit-mode))
 
 #+end_src
 
-#+RESULTS:
+* Development
 
-* Search
+** LSP 
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
-  (use-package rg
-    :general
-    (leader-keys
-      "f" '(rg-menu :which-key "find")))
+  (defun efs/lsp-mode-setup ()
+    (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
+    (lsp-headerline-breadcrumb-mode))
+
+  (use-package lsp-mode
+    :commands (lsp lsp-deferred)
+    :hook (lsp-mode . efs/lsp-mode-setup)
+    :init
+    (setq lsp-keymap-prefix "C-c l")  ;; Or 'C-l', 's-l'
+    :config
+    (lsp-enable-which-key-integration t))
+
+#+end_src
+
+** LSP UI
+#+begin_src emacs-lisp :results silent
+
+  (use-package lsp-ui
+    :hook (lsp-mode . lsp-ui-mode)
+    :custom
+    (lsp-ui-doc-position 'bottom))
+
+#+end_src
+
+** LSP Treemacs
+
+#+begin_src emacs-lisp :results silent
+
+;  (use-package lsp-treemacs
+;    :after lsp)
+
+#+end_src
+
+** LSP Ivy
+
+#+begin_src emacs-lisp :results silent
+
+  (use-package lsp-ivy)
+
+#+end_src
+
+** Typescript
+
+#+begin_src emacs-lisp :results silent 
+
+  (use-package typescript-mode
+    :mode "\\.ts\\'"
+    :hook (typescript-mode . lsp-deferred)
+    :config
+    (setq typescript-indent-level 2))
+
+#+end_src
+
+** Company Mode
+
+#+begin_src emacs-lisp :results silent
+
+(use-package company
+  :after lsp-mode
+  :hook (lsp-mode . company-mode)
+  :bind (:map company-active-map
+         ("<tab>" . company-complete-selection))
+        (:map lsp-mode-map
+         ("<tab>" . company-indent-or-complete-common))
+  :custom
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.0))
+
+(use-package company-box
+  :hook (company-mode . company-box-mode))
+
+
+#+end_src
+
+* Bookmarks
+
+#+begin_src emacs-lisp :results silent
+
+  (setq bookmark-default-file "~/Nextcloud/EmacsVerse/Bookmarks/bookmarks")
+  (setq bookmark-save-flag 1)
+
+  (rune/leader-keys
+  "b"   '(:ignore t :which-key "bookmarks")
+  "bs"  '(bookmark-set :which-key "set bookmark")
+  "bl"  '(bookmark-bmenu-list :which-key "list bookmarks")
+  "bj"  '(bookmark-jump :which-key "jump to bookmark"))
 
 #+end_src
 
 * Org Mode
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
   (defun efs/org-mode-setup ()
     (org-indent-mode)
@@ -595,7 +767,7 @@
 
     (setq org-capture-templates
     	`(("t" "Tasks / Projects")
-    	  ("tt" "Task" entry (file+olp "~/Nextcloud/EmacsVerse//OrgFiles/Tasks.org" "Inbox")
+    	  ("tt" "Task" entry (file+olp "~/Nextcloud/EmacsVerse/OrgFiles/Tasks.org" "Inbox")
              "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
 
     	  ("j" "Journal Entries")
@@ -606,7 +778,7 @@
              :clock-in :clock-resume
              :empty-lines 1)
     	  ("jm" "Meeting" entry
-             (file+olp+datetree "~/Nextcloud/EmacsVerse/Journal.org")
+             (file+olp+datetree "~/Nextcloud/EmacsVerse/OrgFiles/Journal.org")
              "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
              :clock-in :clock-resume
              :empty-lines 1)
@@ -640,9 +812,38 @@
 
 #+end_src
 
+* Org Roam
+
+#+begin_src emacs-lisp :results silent
+
+  (use-package org-roam
+    :straight t
+    :init
+    (setq org-roam-v2-ack t)
+    :custom
+    (org-roam-directory "~/Nextcloud/EmacsVerse/OrgRoam")
+    (org-roam-completion-everywhere t)
+    :bind (("C-c n l" . org-roam-buffer-toggle)
+  	 ("C-c n f" . org-roam-node-find)
+  	 ("C-c n i" . org-roam-node-insert)
+  	 ("C-c n g" . org-roam-ui-open)
+  	 :map org-mode-map
+  	 ("C M-i" . completion-at-point))
+    :config
+    (org-roam-db-autosync-mode))
+
+  (use-package org-roam-ui
+    :after org-roam
+    :config
+    (setq org-roam-ui-sync-theme t
+  	org-roam-ui-follow t
+  	org-roam-ui-update-on-save t))
+
+#+end_src
+
 * Exec Path from Shell
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent 
 
   (use-package exec-path-from-shell
     :init
@@ -650,13 +851,9 @@
 
 #+end_src
 
-#+RESULTS:
-: ((MANPATH . ) (PATH . /Users/edo/.local/share/go/bin:/opt/homebrew/opt/go/libexec/bin:/Users/edo/.local/bin:/opt/homebrew/opt/postgresql@15/bin:/Users/edo/.rbenv/shims:/Users/edo/.rbenv/bin:/Users/edo/Library/pnpm:/Users/edo/.local/state/fnm_multishells/25288_1745103837531/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/edo/.orbstack/bin:/Applications/Emacs.app/Contents/MacOS/bin-arm64-11:/Applications/Emacs.app/Contents/MacOS/libexec-arm64-11:/Users/edo/.cargo/bin))
-
-
 * Garbage Collector
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
   (use-package gcmh
     :demand
@@ -667,34 +864,27 @@
 
 * Structure Templates
 
-With these entries added to list you can type `<el` and press Tab. It will automatically create an emacs-lisp source block.
+With these entries added to list you can type `<el` and press Tab. It will automatically create an emacs-lisp :results silent source block.
 
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent 
 
   (require 'org-tempo)
 
-
-  (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+  (add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp :results silent"))
   (add-to-list 'org-structure-template-alist '("lu" . "src lua"))
   (add-to-list 'org-structure-template-alist '("cl" . "src clojure"))
   (add-to-list 'org-structure-template-alist '("js" . "src js"))
+  (add-to-list 'org-structure-template-alist '("zs" . "src zsh"))
 
 #+end_src
 
-#+RESULTS:
-: ((sql . src sql) (rb . src ruby) (py . src python) (cl . src clojure) (el . src emacs-lisp) (sh . src shell) (a . export ascii) (c . center) (C . comment) (e . example) (E . export) (h . export html) (l . export latex) (q . quote) (s . src) (v . verse))
-
-
 * Babel Auto Tangle
 
-#+RESULTS:
-: ((sql . src sql) (rb . src ruby) (py . src python) (cl . src clojure) (el . src emacs-lisp) (sh . src shell) (a . export ascii) (c . center) (C . comment) (e . example) (E . export) (h . export html) (l . export latex) (q . quote) (s . src) (v . verse))
-
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent
 
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((emacs-lisp . t)
+   '((emacs-lisp :results silent . t)
      (lua . t)
      (js . t)
      (clojure .t)
@@ -704,20 +894,14 @@ With these entries added to list you can type `<el` and press Tab. It will autom
 
 #+end_src
 
-#+RESULTS:
-
-
-#+begin_src emacs-lisp
+#+begin_src emacs-lisp :results silent 
 
   (defun org-babel-tangle-config ()
     (when (string-equal (buffer-file-name)
-                        (expand-file-name "~/.emacs.d/docs/emacs-config.org"))
-      ;; Dynamic scoping to the rescue
+                        (expand-file-name "~/.emacs.d/config/emacs-config.org"))
       (let ((org-confirm-babel-evaluate nil))
         (org-babel-tangle))))
 
   (add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'org-babel-tangle-config)))
 
 #+end_src
-
-#+RESULTS:
