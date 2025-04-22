@@ -132,4 +132,4 @@ alias cd='z'
 alias p2t='pdftotext'
 
 ## ZONE
-alias res='cd docs && bundle && cd .. && bundle && pnpm i && echo "Reinstall DONE ✅"'
+alias start='sudo overmind start'
