@@ -487,7 +487,7 @@ doom themes [[https://github.com/doomemacs/themes/tree/screenshots][here]]
 
 #+begin_src emacs-lisp :results silent
 
- (use-package which-key
+  (use-package which-key
     :demand
     :init (which-key-mode)
     :diminish which-key-mode
@@ -623,6 +623,7 @@ doom themes [[https://github.com/doomemacs/themes/tree/screenshots][here]]
 
 
 #+end_src
+
 
 * Bookmarks
 
