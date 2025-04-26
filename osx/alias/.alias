@@ -132,4 +132,4 @@ alias cd='z'
 alias p2t='pdftotext'
 
 ## ZONE
-alias start='sudo overmind start'
+alias ss='sudo overmind start'

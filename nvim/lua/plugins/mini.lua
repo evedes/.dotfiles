@@ -10,5 +10,6 @@ return {
         ignorecase = true,
       },
     })
+    require("mini.statusline").setup()
   end,
 }
