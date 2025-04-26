@@ -2,7 +2,8 @@ font-family = "ZedMono Nerd Font Mono"
 font-size = 16
 adjust-cell-height = 30%
 theme = "Kanagawa Dragon"
-background-opacity = 1 
+background = "#000000"
+background-opacity = 0.90
 font-thicken = 0
 window-save-state = always
 

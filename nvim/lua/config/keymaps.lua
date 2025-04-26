@@ -8,24 +8,20 @@ end
 keymap.set("i", "jk", "<Esc>", with_desc("Escape"))
 keymap.set("n", "x", '"_x') -- Sends the deleted char to the black hole register
 
+-- Write
+keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Write" })
+
+-- Quit
+keymap.set("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
+keymap.set("n", "<leader>Q", "<cmd>qa<cr>", { desc = "Quit all" })
+
 -- Indtend while remaining in visual mode.
 keymap.set("v", "<", "<gv", with_desc("Shift left"))
 keymap.set("v", ">", ">gv", with_desc("Shift right"))
 
--- Make U redo, opposite to u undo
-keymap.set("n", "U", "<C-r>", { desc = "Redo" })
-
 -- Utils
 keymap.set("n", "<leader>ul", "<cmd>Lazy<cr>", with_desc("Lazy"))
 keymap.set("n", "<leader>um", "<cmd>Mason<cr>", with_desc("Mason"))
-
--- Save file and quit
-keymap.set({ "s", "i", "n", "v" }, "<C-q>", "<esc>:q<cr>", { desc = "Exit insert mode and quit" })
-keymap.set({ "s", "i", "n", "v" }, "<C-S-q>", "<esc>:qa<cr>", { desc = "Exit insert mode and quit all" })
-
--- Escape and save changes.
-keymap.set({ "s", "i", "n", "v" }, "<C-s>", "<esc>:w<cr>", { desc = "Exit insert mode and save changes" })
-keymap.set({ "s", "i", "n", "v" }, "<C-S-s>", "<esc>:wa<cr>", { desc = "Exit insert mode and save all changes" })
 
 -- Resize window
 keymap.set("n", "<C-A-h>", "<C-w><", with_desc("Resize left"))

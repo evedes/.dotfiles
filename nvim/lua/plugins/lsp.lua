@@ -179,11 +179,11 @@ return {
           vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 
           -- Workspace management
-          vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
-          vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
-          vim.keymap.set("n", "<leader>wl", function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-          end, opts)
+          -- vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
+          -- vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
+          -- vim.keymap.set("n", "<leader>wl", function()
+          --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+          -- end, opts)
 
           -- Refactoring
           vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
