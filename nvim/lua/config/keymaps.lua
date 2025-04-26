@@ -8,10 +8,8 @@ end
 keymap.set("i", "jk", "<Esc>", with_desc("Escape"))
 keymap.set("n", "x", '"_x') -- Sends the deleted char to the black hole register
 
--- Write
+-- Write & Quit
 keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Write" })
-
--- Quit
 keymap.set("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
 keymap.set("n", "<leader>Q", "<cmd>qa<cr>", { desc = "Quit all" })
 

@@ -1,9 +1,12 @@
 font-family = "ZedMono Nerd Font Mono"
-font-size = 16
+font-size = 15
 adjust-cell-height = 30%
 theme = "Kanagawa Dragon"
 background = "#000000"
 background-opacity = 0.90
 font-thicken = 0
 window-save-state = always
-
+macos-option-as-alt = true
+macos-window-shadow = false
+quit-after-last-window-closed = true
+mouse-hide-while-typing = true
